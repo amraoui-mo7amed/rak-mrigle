@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-28 10:44+0100\n"
+"POT-Creation-Date: 2026-03-29 15:53+0100\n"
 "PO-Revision-Date: 2026-03-28 12:00+0100\n"
 "Last-Translator: Mohamed <mohamed@example.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -18,30 +18,30 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: core/context_processors.py:11
-msgid "SnapStore"
-msgstr "SnapStore"
+msgid "Rak-Mrigle"
+msgstr "Rak-Mrigle"
 
 #: core/context_processors.py:13
-msgid "AI-Powered Landing Pages"
-msgstr "Pages de destination basées sur l'IA"
+msgid "Heavy Machinery & Transport Marketplace"
+msgstr "Marché des engins lourds et transport"
 
 #: core/context_processors.py:25
-msgid "Generate high-converting landing pages in seconds with Gemini AI."
-msgstr "Générez des pages de destination à haute conversion en quelques secondes avec Gemini AI."
+msgid "The leading marketplace for transport and heavy machinery in Algeria."
+msgstr "Le premier marché du transport et des engins lourds en Algérie."
 
 #: core/context_processors.py:28
-msgid "landing page, ai, gemini, merchant, ecommerce, conversion"
-msgstr "page de destination, ia, gemini, marchand, ecommerce, conversion"
+msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
+msgstr "transport, engins, construction, logistique, algérie, camions, grues"
 
-#: core/settings.py:127
-msgid "العربية"
-msgstr "Arabe"
-
-#: core/settings.py:127
+#: core/settings.py:128
 msgid "English"
 msgstr "Anglais"
 
-#: core/settings.py:127
+#: core/settings.py:129
+msgid "العربية"
+msgstr "Arabe"
+
+#: core/settings.py:130
 msgid "French"
 msgstr "Français"
 
@@ -53,6 +53,62 @@ msgstr "Tableau de bord"
 #: dashboard/context_processors.py:17
 msgid "users"
 msgstr "utilisateurs"
+
+#: dashboard/models.py:11
+msgid "معلومة"
+msgstr "Information"
+
+#: dashboard/models.py:12
+msgid "نجاح"
+msgstr "Succès"
+
+#: dashboard/models.py:13
+msgid "تحذير"
+msgstr "Avertissement"
+
+#: dashboard/models.py:14
+msgid "خطأ"
+msgstr "Erreur"
+
+#: dashboard/models.py:20
+msgid "المستخدم"
+msgstr "Utilisateur"
+
+#: dashboard/models.py:22
+msgid "العنوان"
+msgstr "Titre"
+
+#: dashboard/models.py:23
+msgid "الرسالة"
+msgstr "Message"
+
+#: dashboard/models.py:28
+msgid "نوع الإشعار"
+msgstr "Type de notification"
+
+#: dashboard/models.py:30
+msgid "مقروء"
+msgstr "Lu"
+
+#: dashboard/models.py:31
+msgid "تاريخ الإنشاء"
+msgstr "Date de création"
+
+#: dashboard/models.py:32
+msgid "تاريخ القراءة"
+msgstr "Date de lecture"
+
+#: dashboard/models.py:36
+msgid "الرابط"
+msgstr "Lien"
+
+#: dashboard/models.py:37
+msgid "رابط اختياري للتنقل"
+msgstr "Lien de navigation optionnel"
+
+#: dashboard/models.py:41
+msgid "إشعار"
+msgstr "Notification"
 
 #: dashboard/templates/components/notification_dropdown.html:12
 msgid "Notifications"
@@ -93,7 +149,8 @@ msgstr "Gestion de la plateforme et aperçu de la santé du système."
 
 #: dashboard/templates/dash/dash_home.html:27
 msgid "Your project metrics and activity are looking great today."
-msgstr "Les mesures et l'activité de votre projet sont excellentes aujourd'hui."
+msgstr ""
+"Les mesures et l'activité de votre projet sont excellentes aujourd'hui."
 
 #: dashboard/templates/dash/dash_home.html:37
 msgid "Manage Users"
@@ -163,13 +220,17 @@ msgstr "Aperçus intelligents"
 msgid ""
 "System performance is optimal. All 5 services are running within expected "
 "latency bounds."
-msgstr "Les performances du système sont optimales. Les 5 services fonctionnent dans les limites de latence attendues."
+msgstr ""
+"Les performances du système sont optimales. Les 5 services fonctionnent dans "
+"les limites de latence attendues."
 
 #: dashboard/templates/dash/dash_home.html:171
 msgid ""
 "AI has detected a growth trend in your user engagement. Consider launching a "
 "new campaign to capitalize on this traffic."
-msgstr "L'IA a détecté une tendance de croissance de l'engagement de vos utilisateurs. Envisagez de lancer une nouvelle campagne."
+msgstr ""
+"L'IA a détecté une tendance de croissance de l'engagement de vos "
+"utilisateurs. Envisagez de lancer une nouvelle campagne."
 
 #: dashboard/templates/dash/dash_home.html:174
 msgid "Take Action"
@@ -205,7 +266,7 @@ msgid "My Profile"
 msgstr "Mon profil"
 
 #: dashboard/templates/dash/dash_index.html:134
-#: frontend/templates/index.html:105
+#: frontend/templates/index.html:110
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -254,7 +315,8 @@ msgstr "Êtes-vous sûr ?"
 #: dashboard/templates/users/details.html:43
 #, python-format
 msgid "You are about to delete %(name)s. This action cannot be undone!"
-msgstr "Vous êtes sur le point de supprimer %(name)s. Cette action est irréversible !"
+msgstr ""
+"Vous êtes sur le point de supprimer %(name)s. Cette action est irréversible !"
 
 #: dashboard/templates/users/details.html:44
 msgid "Yes, delete it!"
@@ -295,18 +357,18 @@ msgstr "Informations détaillées"
 
 #: dashboard/templates/users/details.html:104
 #: dashboard/templates/users/list.html:133
-#: user_auth/templates/auth/signup.html:81
+#: user_auth/templates/auth/signup.html:83
 msgid "Email"
 msgstr "E-mail"
 
 #: dashboard/templates/users/details.html:108
 #: dashboard/templates/users/list.html:143 user_auth/models.py:28
-#: user_auth/templates/auth/signup.html:94
+#: user_auth/templates/auth/signup.html:89
 msgid "Phone Number"
 msgstr "Numéro de téléphone"
 
 #: dashboard/templates/users/details.html:112 user_auth/models.py:24
-#: user_auth/templates/auth/signup.html:105
+#: user_auth/templates/auth/signup.html:101
 msgid "Birth Date"
 msgstr "Date de naissance"
 
@@ -386,8 +448,10 @@ msgstr "Aucun utilisateur trouvé"
 msgid "Try adjusting your filters"
 msgstr "Essayez d'ajuster vos filtres"
 
-#: dashboard/utils.py:18
-msgid "Your SOC Account has been Activated!"
+#: dashboard/utils.py:22
+#, fuzzy, python-format
+#| msgid "Your SOC Account has been Activated!"
+msgid "Your %(site)s Account has been Activated!"
 msgstr "Votre compte a été activé !"
 
 #: dashboard/views/dashboard.py:19
@@ -498,141 +562,202 @@ msgid "An error occurred during approval: %(error)s"
 msgstr "Une erreur est survenue lors de l'approbation : %(error)s"
 
 #: frontend/templates/home.html:24 user_auth/templates/auth/login.html:10
-#: user_auth/templates/auth/login.html:92
-#: user_auth/templates/auth/signup.html:182
 msgid "Login"
 msgstr "Connexion"
 
-#: frontend/templates/home.html:25
+#: frontend/templates/home.html:25 frontend/templates/home.html:55
 msgid "Get Started"
 msgstr "Commencer"
 
-#: frontend/templates/home.html:53
-msgid "Launch Now"
-msgstr "Lancer maintenant"
+#: frontend/templates/home.html:41
+msgid "The #1 Heavy Logistics Hub in Algeria"
+msgstr "Le #1 Centre de logistique lourde en Algérie"
 
-#: frontend/templates/home.html:56
-msgid "See Features"
-msgstr "Voir les fonctionnalités"
+#: frontend/templates/home.html:51
+msgid ""
+"Connecting the construction industry with verified heavy machinery and "
+"specialized transport providers across all wilayas."
+msgstr ""
+"Connecter l'industrie de la construction avec des fournisseurs d'engins "
+"lourds et de transport spécialisé vérifiés dans toutes les wilayas."
 
-#: frontend/templates/home.html:68
-msgid "Supercharged Features"
-msgstr "Fonctionnalités suralimentées"
+#: frontend/templates/home.html:58
+msgid "Our Catalog"
+msgstr "Notre catalogue"
 
-#: frontend/templates/home.html:69
-msgid "Designed for modern developers and scaling startups."
-msgstr "Conçu pour les développeurs modernes et les startups en pleine croissance."
+#: frontend/templates/home.html:76
+msgid "Tailored Industrial Solutions"
+msgstr "Solutions industrielles sur mesure"
 
-#: frontend/templates/home.html:74
-msgid "Scalable Architecture"
-msgstr "Architecture évolutive"
+#: frontend/templates/home.html:78
+msgid ""
+"Browse specialized categories designed to meet the demands of modern "
+"infrastructure and logistics."
+msgstr ""
+"Parcourez des catégories spécialisées conçues pour répondre aux demandes "
+"de l'infrastructure et de la logistique modernes."
 
-#: frontend/templates/home.html:75
-msgid "A clean, modular structure that grows with your team and complexity."
-msgstr "Une structure modulaire qui grandit avec votre équipe."
+#: frontend/templates/home.html:86
+msgid "Transport & Utilities"
+msgstr "Transport & Services"
 
-#: frontend/templates/home.html:79
-msgid "Auth Ready"
-msgstr "Authentification prête"
-
-#: frontend/templates/home.html:80
-msgid "Secure login and signup out of the box."
-msgstr "Connexion et inscription sécurisées prêtes à l'emploi."
-
-#: frontend/templates/home.html:84
-msgid "Global i18n"
-msgstr "i18n mondial"
-
-#: frontend/templates/home.html:85
-msgid "Built-in RTL support for Arabic markets."
-msgstr "Support RTL intégré pour les marchés arabes."
+#: frontend/templates/home.html:87
+msgid "From small utility vans to massive trailer trucks for heavy haulage."
+msgstr "Des petites camionnettes aux gros camiones pour le transport lourd."
 
 #: frontend/templates/home.html:89
-msgid "Developer Friendly"
-msgstr "Amical pour les développeurs"
+msgid "View Offers"
+msgstr "Voir les offres"
 
-#: frontend/templates/home.html:90
-msgid ""
-"Written in clean Python with extensive documentation and helper utilities."
-msgstr "Écrit en Python propre avec une documentation complète."
+#: frontend/templates/home.html:97
+msgid "Construction Machinery"
+msgstr "Engins de construction"
 
-#: frontend/templates/home.html:103
-msgid "Code Quality"
-msgstr "Qualité du code"
+#: frontend/templates/home.html:98
+msgid "Loaders, excavators, and compactors from verified contractors."
+msgstr "Chargeurs, excavateurs et compacteurs de entrepreneurs vérifiés."
+
+#: frontend/templates/home.html:100
+msgid "Explore Fleet"
+msgstr "Explorer la flotte"
+
+#: frontend/templates/home.html:108
+msgid "Logistics & Towing"
+msgstr "Logistique & Remorquage"
 
 #: frontend/templates/home.html:109
-msgid "Support"
-msgstr "Support"
+msgid "Specialized towing (Dépannage) and on-demand car logistics."
+msgstr "Remorquage spécialisé (Dépannage) et logistique automobile sur demande."
 
-#: frontend/templates/home.html:115
-msgid "Speed"
-msgstr "Vitesse"
+#: frontend/templates/home.html:111
+#, fuzzy
+#| msgid "Terms of Service"
+msgid "Book Service"
+msgstr "Réserver un service"
 
-#: frontend/templates/home.html:121
-msgid "Possibilities"
-msgstr "Possibilités"
+#: frontend/templates/home.html:124
+msgid "Fair Pricing,"
+msgstr "Prix justes,"
 
-#: frontend/templates/home.html:132
-msgid "Get Started in Minutes"
-msgstr "Commencez en quelques minutes"
+#: frontend/templates/home.html:124
+msgid "Powered by Data"
+msgstr "Propulsé par les données"
 
-#: frontend/templates/home.html:139
-msgid "Clone the Repository"
-msgstr "Cloner le dépôt"
-
-#: frontend/templates/home.html:140
+#: frontend/templates/home.html:125
 msgid ""
-"Grab the source code and install the dependencies with a single command."
-msgstr "Récupérez le code source et installez les dépendances."
+"We eliminate guesswork with a transparent pricing engine built for the "
+"Algerian market."
+msgstr ""
+"We éliminons les devinettes avec un moteur de tarification transparent "
+"construit pour le marché algérien."
+
+#: frontend/templates/home.html:133
+msgid "Distance Logic"
+msgstr "Logique de distance"
+
+#: frontend/templates/home.html:134
+msgid "Dynamic calculation based on Km and vehicle rate."
+msgstr "Calcul dynamique basé sur le Km et le taux du véhicule."
+
+#: frontend/templates/home.html:145
+msgid "Hourly Logic"
+msgstr "Logique horaire"
 
 #: frontend/templates/home.html:146
-msgid "Customize Branding"
-msgstr "Personnaliser le branding"
+msgid "Flexible rates for machinery and operator tasks."
+msgstr "Tarifs flexibles pour les tâches des engins et des opérateurs."
 
-#: frontend/templates/home.html:147
-msgid "Update your colors and site details in the central context processor."
-msgstr "Mettez à jour vos couleurs et détails dans le processeur de contexte."
+#: frontend/templates/home.html:159
+msgid "Intro Commission"
+msgstr "Commission de lancement"
 
-#: frontend/templates/home.html:153
-msgid "Deploy & Shine"
-msgstr "Déployer et briller"
+#: frontend/templates/home.html:160
+msgid "Maximize your earnings during the first month of platform growth."
+msgstr "Maximisez vos gains pendant le premier mois de croissance de la plateforme."
 
-#: frontend/templates/home.html:154
-msgid "Push your application to production and start welcoming users."
-msgstr "Poussez votre application en production."
-
-#: frontend/templates/home.html:166
-msgid "Ready to Start Building?"
-msgstr "Prêt à commencer à construire ?"
+#: frontend/templates/home.html:167
+#, fuzzy
+#| msgid "Is Approved"
+msgid "Fast Approval"
+msgstr "Approbation rapide"
 
 #: frontend/templates/home.html:168
-#, python-format
+msgid "Verification of documents within a single business day."
+msgstr "Vérification des documents en une seule journée de travail."
+
+#: frontend/templates/home.html:175
+msgid "Secure Multi-Role Workflows"
+msgstr "Flux de travail sécurisés multi-rôles"
+
+#: frontend/templates/home.html:191
+msgid "How Rak-Mrigle Works"
+msgstr "Comment Rak-Mrigle fonctionne"
+
+#: frontend/templates/home.html:198
+#, fuzzy
+#| msgid "Create Account"
+msgid "Create Mission"
+msgstr "Créer une mission"
+
+#: frontend/templates/home.html:199
+msgid "Submit your request with pickup/destination or hourly details."
+msgstr "Soumettez votre demande avec les détails de ramassage/destination ou horaires."
+
+#: frontend/templates/home.html:205
+msgid "Get Quotes"
+msgstr "Obtenir des devis"
+
+#: frontend/templates/home.html:206
+msgid "Receive and compare verified price offers from pro providers."
+msgstr "Recevez et comparez des offres de prix vérifiées des fournisseurs pros."
+
+#: frontend/templates/home.html:212
+msgid "Finish Job"
+msgstr "Terminer le travail"
+
+#: frontend/templates/home.html:213
+msgid "Approve the mission, unlock contact, and rate the service."
+msgstr "Approuvez la mission, débloquez le contact et évaluez le service."
+
+#: frontend/templates/home.html:225
+msgid "Join the Network of Pros"
+msgstr "Rejoignez le réseau des pros"
+
+#: frontend/templates/home.html:226
 msgid ""
-"Join the elite group of developers using %(site_name)s to ship faster and "
-"cleaner code."
-msgstr "Rejoignez le groupe d'élite utilisant %(site_name)s."
+"Whether you're looking for a crane or have a fleet to manage, we have you "
+"covered."
+msgstr ""
+"Que vous cherchiez une grue ou que vous ayez une flotte à gérer, nous "
+"sommes là pour vous."
 
-#: frontend/templates/home.html:172
-msgid "Get Started Now"
-msgstr "Commencer maintenant"
+#: frontend/templates/home.html:229
+#, fuzzy
+#| msgid "Registered"
+msgid "Register as Provider"
+msgstr "S'inscrire en tant que fournisseur"
 
-#: frontend/templates/home.html:187
+#: frontend/templates/home.html:232
+msgid "Find Machinery"
+msgstr "Trouver des engins"
+
+#: frontend/templates/home.html:248
 msgid "All rights reserved."
 msgstr "Tous droits réservés."
 
-#: frontend/templates/index.html:96
+#: frontend/templates/index.html:101
 msgid "Home"
 msgstr "Accueil"
 
-#: frontend/templates/index.html:99
+#: frontend/templates/index.html:104
 msgid "Products"
 msgstr "Produits"
 
-#: frontend/templates/index.html:102
+#: frontend/templates/index.html:107
 msgid "Reports"
 msgstr "Rapports"
 
-#: frontend/templates/index.html:118
+#: frontend/templates/index.html:123
 msgid "Main Menu"
 msgstr "Menu principal"
 
@@ -656,7 +781,7 @@ msgstr "Autre"
 msgid "Profile Picture"
 msgstr "Photo de profil"
 
-#: user_auth/models.py:26 user_auth/templates/auth/signup.html:114
+#: user_auth/models.py:26 user_auth/templates/auth/signup.html:97
 msgid "Sex"
 msgstr "Sexe"
 
@@ -676,105 +801,145 @@ msgstr "Profil utilisateur"
 msgid "User Profiles"
 msgstr "Profils utilisateurs"
 
-#: user_auth/templates/auth/login.html:41
-msgid "Login to your account"
-msgstr "Connectez-vous à votre compte"
+#: user_auth/templates/auth/login.html:31
+msgid ""
+"The specialized marketplace for heavy machinery and professional transport "
+"in Algeria."
+msgstr ""
+"Le marché spécialisé pour les engins lourds et le transport professionnel en "
+"Algérie."
 
 #: user_auth/templates/auth/login.html:53
-msgid "username"
-msgstr "nom d'utilisateur"
+msgid "Account Login"
+msgstr "Connexion au compte"
 
-#: user_auth/templates/auth/login.html:59
-msgid "Enter your username"
-msgstr "Entrez votre nom d'utilisateur"
+#: user_auth/templates/auth/login.html:54
+msgid "Enter your credentials to access your dashboard."
+msgstr "Entrez vos identifiants pour accéder à votre tableau de bord."
 
-#: user_auth/templates/auth/login.html:65
-#: user_auth/templates/auth/signup.html:119
+#: user_auth/templates/auth/login.html:64
+#: user_auth/templates/auth/signup.html:76
+#, fuzzy
+#| msgid "username"
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: user_auth/templates/auth/login.html:67
+#, fuzzy
+#| msgid "Enter your username"
+msgid "Enter username"
+msgstr "Entrez le nom d'utilisateur"
+
+#: user_auth/templates/auth/login.html:73
+#: user_auth/templates/auth/signup.html:108
 msgid "Password"
 msgstr "Mot de passe"
 
-#: user_auth/templates/auth/login.html:72
-msgid "Enter your password"
-msgstr "Entrez votre mot de passe"
-
-#: user_auth/templates/auth/login.html:86
-msgid "Remember me"
-msgstr "Se souvenir de moi"
-
-#: user_auth/templates/auth/login.html:89
-msgid "Forgot password?"
+#: user_auth/templates/auth/login.html:74
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Forgot?"
 msgstr "Mot de passe oublié ?"
 
-#: user_auth/templates/auth/login.html:96
-msgid "Don't have an account?"
-msgstr "Pas de compte ?"
-
-#: user_auth/templates/auth/login.html:97
-msgid "Create new account"
-msgstr "Créer un compte"
-
-#: user_auth/templates/auth/signup.html:9
-#: user_auth/templates/auth/signup.html:37
-#: user_auth/templates/auth/signup.html:176
-msgid "Create Account"
-msgstr "Créer un compte"
-
-#: user_auth/templates/auth/signup.html:40
-#, python-format
-msgid "Join the community and start your journey with %(site_name)s"
-msgstr "Rejoignez la communauté avec %(site_name)s"
-
-#: user_auth/templates/auth/signup.html:55
-msgid "First Name"
-msgstr "Prénom"
-
-#: user_auth/templates/auth/signup.html:61
-msgid "Enter your first name"
-msgstr "Entrez votre prénom"
-
-#: user_auth/templates/auth/signup.html:68
-msgid "Last Name"
-msgstr "Nom"
-
-#: user_auth/templates/auth/signup.html:74
-msgid "Enter your last name"
-msgstr "Entrez votre nom"
-
-#: user_auth/templates/auth/signup.html:114
-msgid "Select sex"
-msgstr "Sélectionnez le sexe"
-
-#: user_auth/templates/auth/signup.html:126
+#: user_auth/templates/auth/login.html:78
 msgid "Enter password"
 msgstr "Entrez le mot de passe"
 
-#: user_auth/templates/auth/signup.html:140
+#: user_auth/templates/auth/login.html:88
+#, fuzzy
+#| msgid "Remember me"
+msgid "Remember session"
+msgstr "Se souvenir de la session"
+
+#: user_auth/templates/auth/login.html:93
+msgid "Sign In"
+msgstr "Se connecter"
+
+#: user_auth/templates/auth/login.html:98
+msgid "New to the platform?"
+msgstr "Nouveau sur la plateforme ?"
+
+#: user_auth/templates/auth/login.html:99
+#: user_auth/templates/auth/signup.html:9
+#: user_auth/templates/auth/signup.html:52
+#: user_auth/templates/auth/signup.html:137
+msgid "Create Account"
+msgstr "Créer un compte"
+
+#: user_auth/templates/auth/signup.html:30
+msgid ""
+"Join the specialized marketplace for heavy machinery and professional "
+"transport in Algeria."
+msgstr ""
+"Rejoignez le marché spécialisé pour les engins lourds et le transport "
+"professionnel en Algérie."
+
+#: user_auth/templates/auth/signup.html:53
+msgid "Register to start managing your missions or machinery fleet."
+msgstr ""
+"Inscrivez-vous pour commencer à gérer vos missions ou votre flotte d'engins."
+
+#: user_auth/templates/auth/signup.html:63
+msgid "First Name"
+msgstr "Prénom"
+
+#: user_auth/templates/auth/signup.html:65
+msgid "John"
+msgstr "Jean"
+
+#: user_auth/templates/auth/signup.html:69
+msgid "Last Name"
+msgstr "Nom"
+
+#: user_auth/templates/auth/signup.html:71
+msgid "Doe"
+msgstr "Dupont"
+
+#: user_auth/templates/auth/signup.html:78
+msgid "johndoe123"
+msgstr "jean123"
+
+#: user_auth/templates/auth/signup.html:97
+#, fuzzy
+#| msgid "Select sex"
+msgid "Select"
+msgstr "Sélectionner"
+
+#: user_auth/templates/auth/signup.html:117
 msgid "Confirm Password"
 msgstr "Confirmez le mot de passe"
 
-#: user_auth/templates/auth/signup.html:147
-msgid "Re-enter password"
-msgstr "Ré-entrez le mot de passe"
-
-#: user_auth/templates/auth/signup.html:170
-msgid "I agree to"
+#: user_auth/templates/auth/signup.html:131
+#, fuzzy
+#| msgid "I agree to"
+msgid "I agree to the"
 msgstr "J'accepte les"
 
-#: user_auth/templates/auth/signup.html:170
+#: user_auth/templates/auth/signup.html:131
 msgid "Terms of Service"
 msgstr "Conditions d'utilisation"
 
-#: user_auth/templates/auth/signup.html:170
-msgid "and"
-msgstr "et la"
-
-#: user_auth/templates/auth/signup.html:170
-msgid "Privacy Policy"
-msgstr "Politique de confidentialité"
-
-#: user_auth/templates/auth/signup.html:181
+#: user_auth/templates/auth/signup.html:142
 msgid "Already have an account?"
 msgstr "Déjà un compte ?"
+
+#: user_auth/templates/auth/signup.html:143
+#, fuzzy
+#| msgid "Login"
+msgid "Login Here"
+msgstr "Se connecter ici"
+
+#: user_auth/templates/auth/signup.html:216
+msgid "Back to Home"
+msgstr "Retour à l'accueil"
+
+#: user_auth/templates/auth/signup.html:63
+msgid "Providers"
+msgstr "Fournisseurs"
+
+#: user_auth/templates/auth/signup.html:67
+msgid "Wilayas"
+msgstr "Wilayas"
 
 #: user_auth/views.py:25
 msgid "Please fill in all required fields."
@@ -815,3 +980,134 @@ msgstr "Cet e-mail est déjà enregistré."
 #: user_auth/views.py:116
 msgid "Your account has been created successfully."
 msgstr "Votre compte a été créé avec succès."
+
+#~ msgid "SnapStore"
+#~ msgstr "SnapStore"
+
+#~ msgid "AI-Powered Landing Pages"
+#~ msgstr "Pages de destination basées sur l'IA"
+
+#~ msgid "Generate high-converting landing pages in seconds with Gemini AI."
+#~ msgstr ""
+#~ "Générez des pages de destination à haute conversion en quelques secondes "
+#~ "avec Gemini AI."
+
+#~ msgid "landing page, ai, gemini, merchant, ecommerce, conversion"
+#~ msgstr "page de destination, ia, gemini, marchand, ecommerce, conversion"
+
+#~ msgid "Launch Now"
+#~ msgstr "Lancer maintenant"
+
+#~ msgid "See Features"
+#~ msgstr "Voir les fonctionnalités"
+
+#~ msgid "Supercharged Features"
+#~ msgstr "Fonctionnalités suralimentées"
+
+#~ msgid "Designed for modern developers and scaling startups."
+#~ msgstr ""
+#~ "Conçu pour les développeurs modernes et les startups en pleine croissance."
+
+#~ msgid "Scalable Architecture"
+#~ msgstr "Architecture évolutive"
+
+#~ msgid "A clean, modular structure that grows with your team and complexity."
+#~ msgstr "Une structure modulaire qui grandit avec votre équipe."
+
+#~ msgid "Auth Ready"
+#~ msgstr "Authentification prête"
+
+#~ msgid "Secure login and signup out of the box."
+#~ msgstr "Connexion et inscription sécurisées prêtes à l'emploi."
+
+#~ msgid "Global i18n"
+#~ msgstr "i18n mondial"
+
+#~ msgid "Built-in RTL support for Arabic markets."
+#~ msgstr "Support RTL intégré pour les marchés arabes."
+
+#~ msgid "Developer Friendly"
+#~ msgstr "Amical pour les développeurs"
+
+#~ msgid ""
+#~ "Written in clean Python with extensive documentation and helper utilities."
+#~ msgstr "Écrit en Python propre avec une documentation complète."
+
+#~ msgid "Code Quality"
+#~ msgstr "Qualité du code"
+
+#~ msgid "Support"
+#~ msgstr "Support"
+
+#~ msgid "Speed"
+#~ msgstr "Vitesse"
+
+#~ msgid "Possibilities"
+#~ msgstr "Possibilités"
+
+#~ msgid "Get Started in Minutes"
+#~ msgstr "Commencez en quelques minutes"
+
+#~ msgid "Clone the Repository"
+#~ msgstr "Cloner le dépôt"
+
+#~ msgid ""
+#~ "Grab the source code and install the dependencies with a single command."
+#~ msgstr "Récupérez le code source et installez les dépendances."
+
+#~ msgid "Customize Branding"
+#~ msgstr "Personnaliser le branding"
+
+#~ msgid ""
+#~ "Update your colors and site details in the central context processor."
+#~ msgstr ""
+#~ "Mettez à jour vos couleurs et détails dans le processeur de contexte."
+
+#~ msgid "Deploy & Shine"
+#~ msgstr "Déployer et briller"
+
+#~ msgid "Push your application to production and start welcoming users."
+#~ msgstr "Poussez votre application en production."
+
+#~ msgid "Ready to Start Building?"
+#~ msgstr "Prêt à commencer à construire ?"
+
+#, python-format
+#~ msgid ""
+#~ "Join the elite group of developers using %(site_name)s to ship faster and "
+#~ "cleaner code."
+#~ msgstr "Rejoignez le groupe d'élite utilisant %(site_name)s."
+
+#~ msgid "Get Started Now"
+#~ msgstr "Commencer maintenant"
+
+#~ msgid "Login to your account"
+#~ msgstr "Connectez-vous à votre compte"
+
+#~ msgid "Enter your password"
+#~ msgstr "Entrez votre mot de passe"
+
+#~ msgid "Don't have an account?"
+#~ msgstr "Pas de compte ?"
+
+#~ msgid "Create new account"
+#~ msgstr "Créer un compte"
+
+#, python-format
+#~ msgid "Join the community and start your journey with %(site_name)s"
+#~ msgstr "Rejoignez la communauté avec %(site_name)s"
+
+#~ msgid "Enter your first name"
+#~ msgstr "Entrez votre prénom"
+
+#~ msgid "Enter your last name"
+#~ msgstr "Entrez votre nom"
+
+#~ msgid "Re-enter password"
+#~ msgstr "Ré-entrez le mot de passe"
+
+#~ msgid "and"
+#~ msgstr "et la"
+
+#~ msgid "Privacy Policy"
+#~ msgstr "Politique de confidentialité"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-28 10:44+0100\n"
+"POT-Creation-Date: 2026-03-29 15:53+0100\n"
 "PO-Revision-Date: 2026-03-28 12:00+0100\n"
 "Last-Translator: Mohamed <mohamed@example.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -18,30 +18,30 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: core/context_processors.py:11
-msgid "SnapStore"
-msgstr "SnapStore"
+msgid "Rak-Mrigle"
+msgstr "Rak-Mrigle"
 
 #: core/context_processors.py:13
-msgid "AI-Powered Landing Pages"
-msgstr "AI-Powered Landing Pages"
+msgid "Heavy Machinery & Transport Marketplace"
+msgstr "Heavy Machinery & Transport Marketplace"
 
 #: core/context_processors.py:25
-msgid "Generate high-converting landing pages in seconds with Gemini AI."
-msgstr "Generate high-converting landing pages in seconds with Gemini AI."
+msgid "The leading marketplace for transport and heavy machinery in Algeria."
+msgstr "The leading marketplace for transport and heavy machinery in Algeria."
 
 #: core/context_processors.py:28
-msgid "landing page, ai, gemini, merchant, ecommerce, conversion"
-msgstr "landing page, ai, gemini, merchant, ecommerce, conversion"
+msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
+msgstr "transport, machinery, construction, logistics, algeria, trucks, cranes"
 
-#: core/settings.py:127
-msgid "العربية"
-msgstr "Arabic"
-
-#: core/settings.py:127
+#: core/settings.py:128
 msgid "English"
 msgstr "English"
 
-#: core/settings.py:127
+#: core/settings.py:129
+msgid "العربية"
+msgstr "Arabic"
+
+#: core/settings.py:130
 msgid "French"
 msgstr "French"
 
@@ -53,6 +53,62 @@ msgstr "Dashboard"
 #: dashboard/context_processors.py:17
 msgid "users"
 msgstr "Users"
+
+#: dashboard/models.py:11
+msgid "معلومة"
+msgstr "Info"
+
+#: dashboard/models.py:12
+msgid "نجاح"
+msgstr "Success"
+
+#: dashboard/models.py:13
+msgid "تحذير"
+msgstr "Warning"
+
+#: dashboard/models.py:14
+msgid "خطأ"
+msgstr "Error"
+
+#: dashboard/models.py:20
+msgid "المستخدم"
+msgstr "User"
+
+#: dashboard/models.py:22
+msgid "العنوان"
+msgstr "Title"
+
+#: dashboard/models.py:23
+msgid "الرسالة"
+msgstr "Message"
+
+#: dashboard/models.py:28
+msgid "نوع الإشعار"
+msgstr "Notification Type"
+
+#: dashboard/models.py:30
+msgid "مقروء"
+msgstr "Read"
+
+#: dashboard/models.py:31
+msgid "تاريخ الإنشاء"
+msgstr "Created At"
+
+#: dashboard/models.py:32
+msgid "تاريخ القراءة"
+msgstr "Read At"
+
+#: dashboard/models.py:36
+msgid "الرابط"
+msgstr "Link"
+
+#: dashboard/models.py:37
+msgid "رابط اختياري للتنقل"
+msgstr "Optional Navigation Link"
+
+#: dashboard/models.py:41
+msgid "إشعار"
+msgstr "Notification"
 
 #: dashboard/templates/components/notification_dropdown.html:12
 msgid "Notifications"
@@ -163,13 +219,17 @@ msgstr "Smart Insights"
 msgid ""
 "System performance is optimal. All 5 services are running within expected "
 "latency bounds."
-msgstr "System performance is optimal. All 5 services are running within expected latency bounds."
+msgstr ""
+"System performance is optimal. All 5 services are running within expected "
+"latency bounds."
 
 #: dashboard/templates/dash/dash_home.html:171
 msgid ""
 "AI has detected a growth trend in your user engagement. Consider launching a "
 "new campaign to capitalize on this traffic."
-msgstr "AI has detected a growth trend in your user engagement. Consider launching a new campaign to capitalize on this traffic."
+msgstr ""
+"AI has detected a growth trend in your user engagement. Consider launching a "
+"new campaign to capitalize on this traffic."
 
 #: dashboard/templates/dash/dash_home.html:174
 msgid "Take Action"
@@ -205,7 +265,7 @@ msgid "My Profile"
 msgstr "My Profile"
 
 #: dashboard/templates/dash/dash_index.html:134
-#: frontend/templates/index.html:105
+#: frontend/templates/index.html:110
 msgid "Settings"
 msgstr "Settings"
 
@@ -295,18 +355,18 @@ msgstr "Detailed Information"
 
 #: dashboard/templates/users/details.html:104
 #: dashboard/templates/users/list.html:133
-#: user_auth/templates/auth/signup.html:81
+#: user_auth/templates/auth/signup.html:83
 msgid "Email"
 msgstr "Email"
 
 #: dashboard/templates/users/details.html:108
 #: dashboard/templates/users/list.html:143 user_auth/models.py:28
-#: user_auth/templates/auth/signup.html:94
+#: user_auth/templates/auth/signup.html:89
 msgid "Phone Number"
 msgstr "Phone Number"
 
 #: dashboard/templates/users/details.html:112 user_auth/models.py:24
-#: user_auth/templates/auth/signup.html:105
+#: user_auth/templates/auth/signup.html:101
 msgid "Birth Date"
 msgstr "Birth Date"
 
@@ -386,8 +446,10 @@ msgstr "No users found"
 msgid "Try adjusting your filters"
 msgstr "Try adjusting your filters"
 
-#: dashboard/utils.py:18
-msgid "Your SOC Account has been Activated!"
+#: dashboard/utils.py:22
+#, fuzzy, python-format
+#| msgid "Your SOC Account has been Activated!"
+msgid "Your %(site)s Account has been Activated!"
 msgstr "Your Account has been Activated!"
 
 #: dashboard/views/dashboard.py:19
@@ -498,141 +560,202 @@ msgid "An error occurred during approval: %(error)s"
 msgstr "An error occurred during approval: %(error)s"
 
 #: frontend/templates/home.html:24 user_auth/templates/auth/login.html:10
-#: user_auth/templates/auth/login.html:92
-#: user_auth/templates/auth/signup.html:182
 msgid "Login"
 msgstr "Login"
 
-#: frontend/templates/home.html:25
+#: frontend/templates/home.html:25 frontend/templates/home.html:55
 msgid "Get Started"
 msgstr "Get Started"
 
-#: frontend/templates/home.html:53
-msgid "Launch Now"
-msgstr "Launch Now"
+#: frontend/templates/home.html:41
+msgid "The #1 Heavy Logistics Hub in Algeria"
+msgstr "The #1 Heavy Logistics Hub in Algeria"
 
-#: frontend/templates/home.html:56
-msgid "See Features"
-msgstr "See Features"
+#: frontend/templates/home.html:51
+msgid ""
+"Connecting the construction industry with verified heavy machinery and "
+"specialized transport providers across all wilayas."
+msgstr ""
+"Connecting the construction industry with verified heavy machinery and "
+"specialized transport providers across all wilayas."
 
-#: frontend/templates/home.html:68
-msgid "Supercharged Features"
-msgstr "Supercharged Features"
+#: frontend/templates/home.html:58
+msgid "Our Catalog"
+msgstr "Our Catalog"
 
-#: frontend/templates/home.html:69
-msgid "Designed for modern developers and scaling startups."
-msgstr "Designed for modern developers and scaling startups."
+#: frontend/templates/home.html:76
+msgid "Tailored Industrial Solutions"
+msgstr "Tailored Industrial Solutions"
 
-#: frontend/templates/home.html:74
-msgid "Scalable Architecture"
-msgstr "Scalable Architecture"
+#: frontend/templates/home.html:78
+msgid ""
+"Browse specialized categories designed to meet the demands of modern "
+"infrastructure and logistics."
+msgstr ""
+"Browse specialized categories designed to meet the demands of modern "
+"infrastructure and logistics."
 
-#: frontend/templates/home.html:75
-msgid "A clean, modular structure that grows with your team and complexity."
-msgstr "A clean, modular structure that grows with your team and complexity."
+#: frontend/templates/home.html:86
+msgid "Transport & Utilities"
+msgstr "Transport & Utilities"
 
-#: frontend/templates/home.html:79
-msgid "Auth Ready"
-msgstr "Auth Ready"
-
-#: frontend/templates/home.html:80
-msgid "Secure login and signup out of the box."
-msgstr "Secure login and signup out of the box."
-
-#: frontend/templates/home.html:84
-msgid "Global i18n"
-msgstr "Global i18n"
-
-#: frontend/templates/home.html:85
-msgid "Built-in RTL support for Arabic markets."
-msgstr "Built-in RTL support for Arabic markets."
+#: frontend/templates/home.html:87
+msgid "From small utility vans to massive trailer trucks for heavy haulage."
+msgstr "From small utility vans to massive trailer trucks for heavy haulage."
 
 #: frontend/templates/home.html:89
-msgid "Developer Friendly"
-msgstr "Developer Friendly"
+msgid "View Offers"
+msgstr "View Offers"
 
-#: frontend/templates/home.html:90
-msgid ""
-"Written in clean Python with extensive documentation and helper utilities."
-msgstr "Written in clean Python with extensive documentation and helper utilities."
+#: frontend/templates/home.html:97
+msgid "Construction Machinery"
+msgstr "Construction Machinery"
 
-#: frontend/templates/home.html:103
-msgid "Code Quality"
-msgstr "Code Quality"
+#: frontend/templates/home.html:98
+msgid "Loaders, excavators, and compactors from verified contractors."
+msgstr "Loaders, excavators, and compactors from verified contractors."
+
+#: frontend/templates/home.html:100
+msgid "Explore Fleet"
+msgstr "Explore Fleet"
+
+#: frontend/templates/home.html:108
+msgid "Logistics & Towing"
+msgstr "Logistics & Towing"
 
 #: frontend/templates/home.html:109
-msgid "Support"
-msgstr "Support"
+msgid "Specialized towing (Dépannage) and on-demand car logistics."
+msgstr "Specialized towing (Dépannage) and on-demand car logistics."
 
-#: frontend/templates/home.html:115
-msgid "Speed"
-msgstr "Speed"
+#: frontend/templates/home.html:111
+#, fuzzy
+#| msgid "Terms of Service"
+msgid "Book Service"
+msgstr "Book Service"
 
-#: frontend/templates/home.html:121
-msgid "Possibilities"
-msgstr "Possibilities"
+#: frontend/templates/home.html:124
+msgid "Fair Pricing,"
+msgstr "Fair Pricing,"
 
-#: frontend/templates/home.html:132
-msgid "Get Started in Minutes"
-msgstr "Get Started in Minutes"
+#: frontend/templates/home.html:124
+msgid "Powered by Data"
+msgstr "Powered by Data"
 
-#: frontend/templates/home.html:139
-msgid "Clone the Repository"
-msgstr "Clone the Repository"
-
-#: frontend/templates/home.html:140
+#: frontend/templates/home.html:125
 msgid ""
-"Grab the source code and install the dependencies with a single command."
-msgstr "Grab the source code and install the dependencies with a single command."
+"We eliminate guesswork with a transparent pricing engine built for the "
+"Algerian market."
+msgstr ""
+"We eliminate guesswork with a transparent pricing engine built for the "
+"Algerian market."
+
+#: frontend/templates/home.html:133
+msgid "Distance Logic"
+msgstr "Distance Logic"
+
+#: frontend/templates/home.html:134
+msgid "Dynamic calculation based on Km and vehicle rate."
+msgstr "Dynamic calculation based on Km and vehicle rate."
+
+#: frontend/templates/home.html:145
+msgid "Hourly Logic"
+msgstr "Hourly Logic"
 
 #: frontend/templates/home.html:146
-msgid "Customize Branding"
-msgstr "Customize Branding"
+msgid "Flexible rates for machinery and operator tasks."
+msgstr "Flexible rates for machinery and operator tasks."
 
-#: frontend/templates/home.html:147
-msgid "Update your colors and site details in the central context processor."
-msgstr "Update your colors and site details in the central context processor."
+#: frontend/templates/home.html:159
+msgid "Intro Commission"
+msgstr "Intro Commission"
 
-#: frontend/templates/home.html:153
-msgid "Deploy & Shine"
-msgstr "Deploy & Shine"
+#: frontend/templates/home.html:160
+msgid "Maximize your earnings during the first month of platform growth."
+msgstr "Maximize your earnings during the first month of platform growth."
 
-#: frontend/templates/home.html:154
-msgid "Push your application to production and start welcoming users."
-msgstr "Push your application to production and start welcoming users."
-
-#: frontend/templates/home.html:166
-msgid "Ready to Start Building?"
-msgstr "Ready to Start Building?"
+#: frontend/templates/home.html:167
+#, fuzzy
+#| msgid "Is Approved"
+msgid "Fast Approval"
+msgstr "Fast Approval"
 
 #: frontend/templates/home.html:168
-#, python-format
+msgid "Verification of documents within a single business day."
+msgstr "Verification of documents within a single business day."
+
+#: frontend/templates/home.html:175
+msgid "Secure Multi-Role Workflows"
+msgstr "Secure Multi-Role Workflows"
+
+#: frontend/templates/home.html:191
+msgid "How Rak-Mrigle Works"
+msgstr "How Rak-Mrigle Works"
+
+#: frontend/templates/home.html:198
+#, fuzzy
+#| msgid "Create Account"
+msgid "Create Mission"
+msgstr "Create Mission"
+
+#: frontend/templates/home.html:199
+msgid "Submit your request with pickup/destination or hourly details."
+msgstr "Submit your request with pickup/destination or hourly details."
+
+#: frontend/templates/home.html:205
+msgid "Get Quotes"
+msgstr "Get Quotes"
+
+#: frontend/templates/home.html:206
+msgid "Receive and compare verified price offers from pro providers."
+msgstr "Receive and compare verified price offers from pro providers."
+
+#: frontend/templates/home.html:212
+msgid "Finish Job"
+msgstr "Finish Job"
+
+#: frontend/templates/home.html:213
+msgid "Approve the mission, unlock contact, and rate the service."
+msgstr "Approve the mission, unlock contact, and rate the service."
+
+#: frontend/templates/home.html:225
+msgid "Join the Network of Pros"
+msgstr "Join the Network of Pros"
+
+#: frontend/templates/home.html:226
 msgid ""
-"Join the elite group of developers using %(site_name)s to ship faster and "
-"cleaner code."
-msgstr "Join the elite group of developers using %(site_name)s to ship faster and cleaner code."
+"Whether you're looking for a crane or have a fleet to manage, we have you "
+"covered."
+msgstr ""
+"Whether you're looking for a crane or have a fleet to manage, we have you "
+"covered."
 
-#: frontend/templates/home.html:172
-msgid "Get Started Now"
-msgstr "Get Started Now"
+#: frontend/templates/home.html:229
+#, fuzzy
+#| msgid "Registered"
+msgid "Register as Provider"
+msgstr "Register as Provider"
 
-#: frontend/templates/home.html:187
+#: frontend/templates/home.html:232
+msgid "Find Machinery"
+msgstr "Find Machinery"
+
+#: frontend/templates/home.html:248
 msgid "All rights reserved."
 msgstr "All rights reserved."
 
-#: frontend/templates/index.html:96
+#: frontend/templates/index.html:101
 msgid "Home"
 msgstr "Home"
 
-#: frontend/templates/index.html:99
+#: frontend/templates/index.html:104
 msgid "Products"
 msgstr "Products"
 
-#: frontend/templates/index.html:102
+#: frontend/templates/index.html:107
 msgid "Reports"
 msgstr "Reports"
 
-#: frontend/templates/index.html:118
+#: frontend/templates/index.html:123
 msgid "Main Menu"
 msgstr "Main Menu"
 
@@ -656,7 +779,7 @@ msgstr "Other"
 msgid "Profile Picture"
 msgstr "Profile Picture"
 
-#: user_auth/models.py:26 user_auth/templates/auth/signup.html:114
+#: user_auth/models.py:26 user_auth/templates/auth/signup.html:97
 msgid "Sex"
 msgstr "Sex"
 
@@ -676,105 +799,144 @@ msgstr "User Profile"
 msgid "User Profiles"
 msgstr "User Profiles"
 
-#: user_auth/templates/auth/login.html:41
-msgid "Login to your account"
-msgstr "Login to your account"
+#: user_auth/templates/auth/login.html:31
+msgid ""
+"The specialized marketplace for heavy machinery and professional transport "
+"in Algeria."
+msgstr ""
+"The specialized marketplace for heavy machinery and professional transport "
+"in Algeria."
 
 #: user_auth/templates/auth/login.html:53
-msgid "username"
-msgstr "username"
+msgid "Account Login"
+msgstr "Account Login"
 
-#: user_auth/templates/auth/login.html:59
-msgid "Enter your username"
-msgstr "Enter your username"
+#: user_auth/templates/auth/login.html:54
+msgid "Enter your credentials to access your dashboard."
+msgstr "Enter your credentials to access your dashboard."
 
-#: user_auth/templates/auth/login.html:65
-#: user_auth/templates/auth/signup.html:119
+#: user_auth/templates/auth/login.html:64
+#: user_auth/templates/auth/signup.html:76
+#, fuzzy
+#| msgid "username"
+msgid "Username"
+msgstr "Username"
+
+#: user_auth/templates/auth/login.html:67
+#, fuzzy
+#| msgid "Enter your username"
+msgid "Enter username"
+msgstr "Enter username"
+
+#: user_auth/templates/auth/login.html:73
+#: user_auth/templates/auth/signup.html:108
 msgid "Password"
 msgstr "Password"
 
-#: user_auth/templates/auth/login.html:72
-msgid "Enter your password"
-msgstr "Enter your password"
+#: user_auth/templates/auth/login.html:74
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Forgot?"
+msgstr "Forgot?"
 
-#: user_auth/templates/auth/login.html:86
-msgid "Remember me"
-msgstr "Remember me"
-
-#: user_auth/templates/auth/login.html:89
-msgid "Forgot password?"
-msgstr "Forgot password?"
-
-#: user_auth/templates/auth/login.html:96
-msgid "Don't have an account?"
-msgstr "Don't have an account?"
-
-#: user_auth/templates/auth/login.html:97
-msgid "Create new account"
-msgstr "Create new account"
-
-#: user_auth/templates/auth/signup.html:9
-#: user_auth/templates/auth/signup.html:37
-#: user_auth/templates/auth/signup.html:176
-msgid "Create Account"
-msgstr "Create Account"
-
-#: user_auth/templates/auth/signup.html:40
-#, python-format
-msgid "Join the community and start your journey with %(site_name)s"
-msgstr "Join the community and start your journey with %(site_name)s"
-
-#: user_auth/templates/auth/signup.html:55
-msgid "First Name"
-msgstr "First Name"
-
-#: user_auth/templates/auth/signup.html:61
-msgid "Enter your first name"
-msgstr "Enter your first name"
-
-#: user_auth/templates/auth/signup.html:68
-msgid "Last Name"
-msgstr "Last Name"
-
-#: user_auth/templates/auth/signup.html:74
-msgid "Enter your last name"
-msgstr "Enter your last name"
-
-#: user_auth/templates/auth/signup.html:114
-msgid "Select sex"
-msgstr "Select sex"
-
-#: user_auth/templates/auth/signup.html:126
+#: user_auth/templates/auth/login.html:78
 msgid "Enter password"
 msgstr "Enter password"
 
-#: user_auth/templates/auth/signup.html:140
+#: user_auth/templates/auth/login.html:88
+#, fuzzy
+#| msgid "Remember me"
+msgid "Remember session"
+msgstr "Remember session"
+
+#: user_auth/templates/auth/login.html:93
+msgid "Sign In"
+msgstr "Sign In"
+
+#: user_auth/templates/auth/login.html:98
+msgid "New to the platform?"
+msgstr "New to the platform?"
+
+#: user_auth/templates/auth/login.html:99
+#: user_auth/templates/auth/signup.html:9
+#: user_auth/templates/auth/signup.html:52
+#: user_auth/templates/auth/signup.html:137
+msgid "Create Account"
+msgstr "Create Account"
+
+#: user_auth/templates/auth/signup.html:30
+msgid ""
+"Join the specialized marketplace for heavy machinery and professional "
+"transport in Algeria."
+msgstr ""
+"Join the specialized marketplace for heavy machinery and professional "
+"transport in Algeria."
+
+#: user_auth/templates/auth/signup.html:53
+msgid "Register to start managing your missions or machinery fleet."
+msgstr "Register to start managing your missions or machinery fleet."
+
+#: user_auth/templates/auth/signup.html:63
+msgid "First Name"
+msgstr "First Name"
+
+#: user_auth/templates/auth/signup.html:65
+msgid "John"
+msgstr "John"
+
+#: user_auth/templates/auth/signup.html:69
+msgid "Last Name"
+msgstr "Last Name"
+
+#: user_auth/templates/auth/signup.html:71
+msgid "Doe"
+msgstr "Doe"
+
+#: user_auth/templates/auth/signup.html:78
+msgid "johndoe123"
+msgstr "johndoe123"
+
+#: user_auth/templates/auth/signup.html:97
+#, fuzzy
+#| msgid "Select sex"
+msgid "Select"
+msgstr "Select"
+
+#: user_auth/templates/auth/signup.html:117
 msgid "Confirm Password"
 msgstr "Confirm Password"
 
-#: user_auth/templates/auth/signup.html:147
-msgid "Re-enter password"
-msgstr "Re-enter password"
+#: user_auth/templates/auth/signup.html:131
+#, fuzzy
+#| msgid "I agree to"
+msgid "I agree to the"
+msgstr "I agree to the"
 
-#: user_auth/templates/auth/signup.html:170
-msgid "I agree to"
-msgstr "I agree to"
-
-#: user_auth/templates/auth/signup.html:170
+#: user_auth/templates/auth/signup.html:131
 msgid "Terms of Service"
 msgstr "Terms of Service"
 
-#: user_auth/templates/auth/signup.html:170
-msgid "and"
-msgstr "and"
-
-#: user_auth/templates/auth/signup.html:170
-msgid "Privacy Policy"
-msgstr "Privacy Policy"
-
-#: user_auth/templates/auth/signup.html:181
+#: user_auth/templates/auth/signup.html:142
 msgid "Already have an account?"
 msgstr "Already have an account?"
+
+#: user_auth/templates/auth/signup.html:143
+#, fuzzy
+#| msgid "Login"
+msgid "Login Here"
+msgstr "Login Here"
+
+#: user_auth/templates/auth/signup.html:216
+msgid "Back to Home"
+msgstr "Back to Home"
+
+#: user_auth/templates/auth/signup.html:63
+msgid "Providers"
+msgstr "Providers"
+
+#: user_auth/templates/auth/signup.html:67
+msgid "Wilayas"
+msgstr "Wilayas"
 
 #: user_auth/views.py:25
 msgid "Please fill in all required fields."
@@ -815,3 +977,136 @@ msgstr "This email is already registered."
 #: user_auth/views.py:116
 msgid "Your account has been created successfully."
 msgstr "Your account has been created successfully."
+
+#~ msgid "SnapStore"
+#~ msgstr "SnapStore"
+
+#~ msgid "AI-Powered Landing Pages"
+#~ msgstr "AI-Powered Landing Pages"
+
+#~ msgid "Generate high-converting landing pages in seconds with Gemini AI."
+#~ msgstr "Generate high-converting landing pages in seconds with Gemini AI."
+
+#~ msgid "landing page, ai, gemini, merchant, ecommerce, conversion"
+#~ msgstr "landing page, ai, gemini, merchant, ecommerce, conversion"
+
+#~ msgid "Launch Now"
+#~ msgstr "Launch Now"
+
+#~ msgid "See Features"
+#~ msgstr "See Features"
+
+#~ msgid "Supercharged Features"
+#~ msgstr "Supercharged Features"
+
+#~ msgid "Designed for modern developers and scaling startups."
+#~ msgstr "Designed for modern developers and scaling startups."
+
+#~ msgid "Scalable Architecture"
+#~ msgstr "Scalable Architecture"
+
+#~ msgid "A clean, modular structure that grows with your team and complexity."
+#~ msgstr ""
+#~ "A clean, modular structure that grows with your team and complexity."
+
+#~ msgid "Auth Ready"
+#~ msgstr "Auth Ready"
+
+#~ msgid "Secure login and signup out of the box."
+#~ msgstr "Secure login and signup out of the box."
+
+#~ msgid "Global i18n"
+#~ msgstr "Global i18n"
+
+#~ msgid "Built-in RTL support for Arabic markets."
+#~ msgstr "Built-in RTL support for Arabic markets."
+
+#~ msgid "Developer Friendly"
+#~ msgstr "Developer Friendly"
+
+#~ msgid ""
+#~ "Written in clean Python with extensive documentation and helper utilities."
+#~ msgstr ""
+#~ "Written in clean Python with extensive documentation and helper utilities."
+
+#~ msgid "Code Quality"
+#~ msgstr "Code Quality"
+
+#~ msgid "Support"
+#~ msgstr "Support"
+
+#~ msgid "Speed"
+#~ msgstr "Speed"
+
+#~ msgid "Possibilities"
+#~ msgstr "Possibilities"
+
+#~ msgid "Get Started in Minutes"
+#~ msgstr "Get Started in Minutes"
+
+#~ msgid "Clone the Repository"
+#~ msgstr "Clone the Repository"
+
+#~ msgid ""
+#~ "Grab the source code and install the dependencies with a single command."
+#~ msgstr ""
+#~ "Grab the source code and install the dependencies with a single command."
+
+#~ msgid "Customize Branding"
+#~ msgstr "Customize Branding"
+
+#~ msgid ""
+#~ "Update your colors and site details in the central context processor."
+#~ msgstr ""
+#~ "Update your colors and site details in the central context processor."
+
+#~ msgid "Deploy & Shine"
+#~ msgstr "Deploy & Shine"
+
+#~ msgid "Push your application to production and start welcoming users."
+#~ msgstr "Push your application to production and start welcoming users."
+
+#~ msgid "Ready to Start Building?"
+#~ msgstr "Ready to Start Building?"
+
+#, python-format
+#~ msgid ""
+#~ "Join the elite group of developers using %(site_name)s to ship faster and "
+#~ "cleaner code."
+#~ msgstr ""
+#~ "Join the elite group of developers using %(site_name)s to ship faster and "
+#~ "cleaner code."
+
+#~ msgid "Get Started Now"
+#~ msgstr "Get Started Now"
+
+#~ msgid "Login to your account"
+#~ msgstr "Login to your account"
+
+#~ msgid "Enter your password"
+#~ msgstr "Enter your password"
+
+#~ msgid "Don't have an account?"
+#~ msgstr "Don't have an account?"
+
+#~ msgid "Create new account"
+#~ msgstr "Create new account"
+
+#, python-format
+#~ msgid "Join the community and start your journey with %(site_name)s"
+#~ msgstr "Join the community and start your journey with %(site_name)s"
+
+#~ msgid "Enter your first name"
+#~ msgstr "Enter your first name"
+
+#~ msgid "Enter your last name"
+#~ msgstr "Enter your last name"
+
+#~ msgid "Re-enter password"
+#~ msgstr "Re-enter password"
+
+#~ msgid "and"
+#~ msgstr "and"
+
+#~ msgid "Privacy Policy"
+#~ msgstr "Privacy Policy"

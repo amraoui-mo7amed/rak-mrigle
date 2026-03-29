@@ -63,11 +63,11 @@ submitBtn.disabled = false;
 submitBtn.innerHTML = originalBtnContent;
 
 if (data.errors && errorList) {
-const renderMsg = (msg, cls = 'alert-warning') => {
+const renderMsg = (msg, cls = 'error-item') => {
 const li = document.createElement('li');
 li.textContent = msg;
-li.classList.add('alert', 'alert-warning', 'mb-2');
-li.setAttribute('data-aos', 'fade-left');
+li.classList.add('error-item', 'mb-2', 'p-3', 'rounded-3', 'shadow-sm', 'fw-bold');
+li.setAttribute('data-aos', 'fade-in');
 errorList.appendChild(li);
 };
 

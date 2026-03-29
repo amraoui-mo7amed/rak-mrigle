@@ -32,145 +32,206 @@
 {% block sidebar %}{% endblock sidebar %}
 
 {% block content %}
-    <!-- 1. Hero Section -->
-    <section class="custom-hero">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-10" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="hero-tag">{{ site_config.tagline }}</span>
-                    <h1 class="hero-title-main">
+    <!-- 1. Impact Hero Section -->
+    <section class="custom-hero bg-accent-soft position-relative overflow-hidden py-5">
+        <div class="container py-lg-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="badge bg-accent text-white px-3 py-2 rounded-pill mb-4 shadow-sm animate__animated animate__fadeInDown">
+                        <i class="fas fa-certificate me-2"></i>{% trans "The #1 Heavy Logistics Hub in Algeria" %}
+                    </div>
+                    <h1 class="display-3 fw-black text-dark-blue mb-4 lh-sm">
                         {% if IS_RTL %}
-                            تخطى حدود <span>الإبداع</span> في مشاريعك القادمة
+                            نقل، أشغال، ومعدات <span class="text-accent">بلمسة واحدة</span>
                         {% else %}
-                            Build <span>Extraordinary</span> Apps at Light Speed
+                            Transport, Machinery <span class="text-accent">& Logistics</span>
                         {% endif %}
                     </h1>
-                    <p class="fs-4 text-muted mb-5 mx-auto" style="max-width: 800px;">
-                        {{ site_config.seo.description }}
+                    <p class="lead text-muted mb-5 fs-4">
+                        {% trans "Connecting the construction industry with verified heavy machinery and specialized transport providers across all wilayas." %}
                     </p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <a href="{% url 'user_auth:signup' %}" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-lg">
-                            {% trans "Launch Now" %}
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="{% url 'user_auth:signup' %}" class="btn btn-accent btn-lg px-5 py-3 rounded-pill fw-black shadow-lg hover-up">
+                            {% trans "Get Started" %} <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="#features" class="btn btn-white btn-lg rounded-pill px-5 fw-bold border">
-                            {% trans "See Features" %}
+                        <a href="#services" class="btn btn-outline-dark-blue btn-lg px-5 py-3 rounded-pill fw-bold border-2">
+                            {% trans "Our Catalog" %}
                         </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block" data-aos="zoom-in">
+                    <div class="hero-accent-shape shadow-2xl">
+                        <i class="fas fa-truck-monster fa-10x text-accent opacity-25"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. Bento Grid Features -->
-    <section id="features" class="section-bento">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-black display-5 mb-3">{% trans "Supercharged Features" %}</h2>
-                <p class="text-muted">{% trans "Designed for modern developers and scaling startups." %}</p>
-            </div>
-            <div class="bento-grid">
-                <div class="bento-item bento-1" data-aos="fade-right">
-                    <i class="fas fa-layer-group fa-3x text-primary mb-4"></i>
-                    <h3 class="fw-bold">{% trans "Scalable Architecture" %}</h3>
-                    <p class="text-muted">{% trans "A clean, modular structure that grows with your team and complexity." %}</p>
-                </div>
-                <div class="bento-item bento-2" data-aos="fade-left">
-                    <i class="fas fa-shield-alt fa-3x text-primary mb-4"></i>
-                    <h3 class="fw-bold">{% trans "Auth Ready" %}</h3>
-                    <p class="text-muted">{% trans "Secure login and signup out of the box." %}</p>
-                </div>
-                <div class="bento-item bento-3" data-aos="fade-up">
-                    <i class="fas fa-language fa-3x text-primary mb-4"></i>
-                    <h3 class="fw-bold">{% trans "Global i18n" %}</h3>
-                    <p class="text-muted">{% trans "Built-in RTL support for Arabic markets." %}</p>
-                </div>
-                <div class="bento-item bento-4" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-code fa-3x text-primary mb-4"></i>
-                    <h3 class="fw-bold">{% trans "Developer Friendly" %}</h3>
-                    <p class="text-muted">{% trans "Written in clean Python with extensive documentation and helper utilities." %}</p>
+    <!-- 2. Core Service Grid -->
+    <section id="services" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row mb-5 text-center justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-4 fw-black text-dark-blue mb-3">{% trans "Tailored Industrial Solutions" %}</h2>
+                    <div class="accent-bar mx-auto"></div>
+                    <p class="text-muted mt-3 fs-5">{% trans "Browse specialized categories designed to meet the demands of modern infrastructure and logistics." %}</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 3. Stats Bar -->
-    <section class="section-stats">
-        <div class="container">
             <div class="row g-4">
-                <div class="col-md-3 col-6" data-aos="zoom-in">
-                    <div class="stat-box">
-                        <div class="stat-number">99%</div>
-                        <div class="small text-uppercase opacity-75">{% trans "Code Quality" %}</div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="service-card p-5 border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden">
+                        <div class="accent-top-bar"></div>
+                        <i class="fas fa-truck-loading fa-4x text-accent mb-4"></i>
+                        <h3 class="fw-black h4 mb-3">{% trans "Transport & Utilities" %}</h3>
+                        <p class="text-muted mb-4">{% trans "From small utility vans to massive trailer trucks for heavy haulage." %}</p>
+                        <a href="#" class="text-accent fw-bold text-decoration-none stretched-link">
+                            {% trans "View Offers" %} <i class="fas fa-chevron-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="stat-box">
-                        <div class="stat-number">24/7</div>
-                        <div class="small text-uppercase opacity-75">{% trans "Support" %}</div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card p-5 border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden">
+                        <div class="accent-top-bar"></div>
+                        <i class="fas fa-bulldozer fa-4x text-accent mb-4"></i>
+                        <h3 class="fw-black h4 mb-3">{% trans "Construction Machinery" %}</h3>
+                        <p class="text-muted mb-4">{% trans "Loaders, excavators, and compactors from verified contractors." %}</p>
+                        <a href="#" class="text-accent fw-bold text-decoration-none stretched-link">
+                            {% trans "Explore Fleet" %} <i class="fas fa-chevron-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="stat-box">
-                        <div class="stat-number">10x</div>
-                        <div class="small text-uppercase opacity-75">{% trans "Speed" %}</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stat-box">
-                        <div class="stat-number">∞</div>
-                        <div class="small text-uppercase opacity-75">{% trans "Possibilities" %}</div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card p-5 border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden">
+                        <div class="accent-top-bar"></div>
+                        <i class="fas fa-tools fa-4x text-accent mb-4"></i>
+                        <h3 class="fw-black h4 mb-3">{% trans "Logistics & Towing" %}</h3>
+                        <p class="text-muted mb-4">{% trans "Specialized towing (Dépannage) and on-demand car logistics." %}</p>
+                        <a href="#" class="text-accent fw-bold text-decoration-none stretched-link">
+                            {% trans "Book Service" %} <i class="fas fa-chevron-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. How It Works -->
-    <section class="section-steps">
-        <div class="container">
+    <!-- 3. Pricing & Value Proposition (Redesigned) -->
+    <section class="bg-dark-blue py-5 position-relative overflow-hidden text-white border-top border-bottom border-white border-opacity-10">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h2 class="display-5 fw-black mb-4 lh-sm">{% trans "Fair Pricing," %}<br><span class="text-accent">{% trans "Powered by Data" %}</span></h2>
+                    <p class="text-white text-opacity-50 mb-5 fs-5">{% trans "We eliminate guesswork with a transparent pricing engine built for the Algerian market." %}</p>
+                    
+                    <div class="logic-card p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-20 mb-4 hover-up">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="logic-icon-box bg-accent bg-opacity-20 rounded-3 p-3 text-accent shadow-sm">
+                                <i class="fas fa-route fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-1 text-white">{% trans "Distance Logic" %}</h4>
+                                <p class="text-white text-opacity-80 mb-0 small">{% trans "Dynamic calculation based on Km and vehicle rate." %}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logic-card p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-20 hover-up">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="logic-icon-box bg-accent bg-opacity-20 rounded-3 p-3 text-accent shadow-sm">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-1 text-white">{% trans "Hourly Logic" %}</h4>
+                                <p class="text-white text-opacity-80 mb-0 small">{% trans "Flexible rates for machinery and operator tasks." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="stats-premium-grid">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="premium-stat-card p-5 rounded-5 bg-white bg-opacity-10 border border-white border-opacity-20 h-100 position-relative overflow-hidden shadow-lg">
+                                    <div class="stat-glow bg-accent opacity-20"></div>
+                                    <div class="display-4 fw-black text-accent mb-2">1%</div>
+                                    <h5 class="fw-black text-white mb-3">{% trans "Intro Commission" %}</h5>
+                                    <p class="text-white text-opacity-80 small mb-0">{% trans "Maximize your earnings during the first month of platform growth." %}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="premium-stat-card p-5 rounded-5 bg-white bg-opacity-10 border border-white border-opacity-20 h-100 position-relative overflow-hidden shadow-lg">
+                                    <div class="stat-glow bg-accent opacity-20"></div>
+                                    <div class="display-4 fw-black text-accent mb-2">24h</div>
+                                    <h5 class="fw-black text-white mb-3">{% trans "Fast Approval" %}</h5>
+                                    <p class="text-white text-opacity-80 small mb-0">{% trans "Verification of documents within a single business day." %}</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="premium-stat-card p-4 rounded-4 bg-accent bg-opacity-20 border border-accent border-opacity-30 d-flex align-items-center justify-content-between shadow-sm">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <i class="fas fa-shield-check text-accent fs-3"></i>
+                                        <span class="fw-black text-white">{% trans "Secure Multi-Role Workflows" %}</span>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-accent"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Simplified Process -->
+    <section class="py-5 bg-light-grey">
+        <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-black display-5">{% trans "Get Started in Minutes" %}</h2>
+                <h2 class="display-5 fw-black text-dark-blue">{% trans "How Rak-Mrigle Works" %}</h2>
+                <div class="accent-bar mx-auto mt-3"></div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="step-card" data-aos="fade-right">
-                        <div class="step-number">1</div>
-                        <div>
-                            <h4 class="fw-bold">{% trans "Clone the Repository" %}</h4>
-                            <p class="text-muted">{% trans "Grab the source code and install the dependencies with a single command." %}</p>
-                        </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="step-card-modern p-5 rounded-5 bg-white shadow-sm text-center border-bottom border-accent border-5">
+                        <div class="step-num-accent mb-4 mx-auto">1</div>
+                        <h4 class="fw-black mb-3 text-dark-blue">{% trans "Create Mission" %}</h4>
+                        <p class="text-muted">{% trans "Submit your request with pickup/destination or hourly details." %}</p>
                     </div>
-                    <div class="step-card" data-aos="fade-left">
-                        <div class="step-number">2</div>
-                        <div>
-                            <h4 class="fw-bold">{% trans "Customize Branding" %}</h4>
-                            <p class="text-muted">{% trans "Update your colors and site details in the central context processor." %}</p>
-                        </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="step-card-modern p-5 rounded-5 bg-white shadow-sm text-center border-bottom border-accent border-5">
+                        <div class="step-num-accent mb-4 mx-auto">2</div>
+                        <h4 class="fw-black mb-3 text-dark-blue">{% trans "Get Quotes" %}</h4>
+                        <p class="text-muted">{% trans "Receive and compare verified price offers from pro providers." %}</p>
                     </div>
-                    <div class="step-card" data-aos="fade-right">
-                        <div class="step-number">3</div>
-                        <div>
-                            <h4 class="fw-bold">{% trans "Deploy & Shine" %}</h4>
-                            <p class="text-muted">{% trans "Push your application to production and start welcoming users." %}</p>
-                        </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="step-card-modern p-5 rounded-5 bg-white shadow-sm text-center border-bottom border-accent border-5">
+                        <div class="step-num-accent mb-4 mx-auto">3</div>
+                        <h4 class="fw-black mb-3 text-dark-blue">{% trans "Finish Job" %}</h4>
+                        <p class="text-muted">{% trans "Approve the mission, unlock contact, and rate the service." %}</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Final CTA -->
-    <section class="section-final">
-        <div class="container">
-            <div class="glass-card shadow-2xl" data-aos="zoom-out">
-                <h2 class="fw-black display-4 mb-4">{% trans "Ready to Start Building?" %}</h2>
-                <p class="fs-5 text-muted mb-5 mx-auto" style="max-width: 600px;">
-                    {% blocktrans with site_name=site_config.name %}Join the elite group of developers using {{ site_name }} to ship faster and cleaner code.{% endblocktrans %}
-                </p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="{% url 'user_auth:signup' %}" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold">
-                        {% trans "Get Started Now" %}
-                    </a>
+    <!-- 5. Final Industrial CTA -->
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="cta-banner-accent rounded-5 p-5 text-center text-white shadow-2xl overflow-hidden position-relative">
+                <div class="position-relative z-index-10">
+                    <h2 class="display-3 fw-black mb-4">{% trans "Join the Network of Pros" %}</h2>
+                    <p class="lead mb-5 opacity-75">{% trans "Whether you're looking for a crane or have a fleet to manage, we have you covered." %}</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="{% url 'user_auth:signup' %}?role=provider" class="btn btn-dark-blue btn-lg px-5 py-3 rounded-pill fw-black shadow-lg">
+                            {% trans "Register as Provider" %}
+                        </a>
+                        <a href="{% url 'user_auth:signup' %}?role=customer" class="btn btn-outline-white btn-lg px-5 py-3 rounded-pill fw-black border-2">
+                            {% trans "Find Machinery" %}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

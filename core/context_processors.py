@@ -8,34 +8,34 @@ def site_settings(request):
     """
     return {
         "site_config": {
-            "name": _("SnapStore"),
-            "ar_name": "سناب ستور",  # Keep for title fallback logic
-            "tagline": _("AI-Powered Landing Pages"),
-            "logo": None,  # Add custom logo path here
-            "favicon": None,  # Add custom favicon path here
-            "contact_email": "info@snapstore.com",
-            "phone": "+213 555 000 000",
+            "name": _("Rak-Mrigle"),
+            "ar_name": "راك مريقل",
+            "tagline": _("Heavy Machinery & Transport Marketplace"),
+            "logo": "/static/icons/rak_mrigle_square.png",
+            "favicon": "/static/icons/rak_mrigle_square.png",
+            "contact_email": "contact@rak-mrigle.com",
+            "phone": "+213 600 000 000",
             "social": {
-                "facebook": "https://facebook.com/snapstore",
-                "twitter": "https://twitter.com/snapstore",
-                "instagram": "https://instagram.com/snapstore",
+                "facebook": "https://facebook.com/rakmrigle",
+                "twitter": "https://twitter.com/rakmrigle",
+                "instagram": "https://instagram.com/rakmrigle",
             },
             "seo": {
                 "description": _(
-                    _("Generate high-converting landing pages in seconds with Gemini AI.")
+                    "The leading marketplace for transport and heavy machinery in Algeria."
                 ),
                 "keywords": _(
-                    _("landing page, ai, gemini, merchant, ecommerce, conversion")
+                    "transport, machinery, construction, logistics, algeria, trucks, cranes"
                 ),
             },
             "branding": {
-                "primary_color": "#0d6efd",
-                "secondary_color": "#6c757d",
-                "accent_color": "#ffc107",
+                "primary_color": "#0B1E3B",  # hsl(215, 68%, 14%)
+                "secondary_color": "#0F172A",  # hsl(222, 47%, 11%)
+                "accent_color": "#D97706",  # hsl(43, 82%, 46%)
                 "success_color": "#198754",
                 "danger_color": "#dc3545",
-                "dark_color": "#212529",
-                "light_color": "#f8f9fa",
+                "dark_color": "#0F172A",
+                "light_color": "#F5F5F5",  # hsl(0, 0%, 96%)
             },
         }
     }

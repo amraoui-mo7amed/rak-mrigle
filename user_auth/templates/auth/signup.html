@@ -5,193 +5,193 @@
 
 {% get_current_language as current_lang %}
 {% get_current_language_bidi as IS_RTL %}
+
 {% block title %}
     {% trans "Create Account" %}
 {% endblock title %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/auth.css' %}?v={% now "U" %}" />
 {% endblock extra_css %}
-{% block nav %}
-{% endblock nav %}
-{% block sidebar %}
-{% endblock sidebar %}
+
+{% block nav %}{% endblock nav %}
+{% block sidebar %}{% endblock sidebar %}
+
+{% block body_class %}
+    auth-page
+{% endblock body_class %}
+
 {% block content %}
-    <div class="auth-container auth-page-bg min-vh-100 d-flex align-items-center justify-content-center p-3 py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-9 col-lg-10">
-                    <div class="card auth-card border-0 shadow-lg">
-                        <div class="p-4 p-lg-5 auth-form-section">
-                            <div class="language-switcher-top">
-                                {% include "partials/language_switcher.html" %}
+    <div class="split-auth-container min-vh-100 d-flex flex-row w-100">
+        <!-- 1. Branding Side -->
+        <div class="auth-branding-side w-35 d-none d-lg-flex flex-column align-items-center justify-content-center position-relative p-5 text-white overflow-hidden"
+             style="flex: 0 0 35%">
+            <div class="position-relative z-index-10 text-center">
+                <div class="mb-4" data-aos="zoom-in">
+                    <img src="{{ site_config.logo }}"
+                         alt="{{ site_config.name }}"
+                         class="branding-logo-main mb-4 rounded"
+                         style="width: 200px;
+                                height: auto;
+                                display: block;
+                                margin: 0 auto" />
+                    <h2 class="branding-tagline mt-3 text-white">
+                        {{ site_config.tagline }}
+                    </h2>
+                </div>
+            </div>
+            <!-- Geometric Overlay -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10">
+                <i class="fas fa-cubes fa-20x position-absolute"
+                   style="top: 10%;
+                          right: -10%;
+                          opacity: 0.1"></i>
+            </div>
+        </div>
+        <!-- 2. Form Side -->
+        <div class="auth-form-side w-65 bg-white p-4 p-md-5"
+             style="flex: 0 0 65%">
+            <div class="mx-auto" style="max-width: 780px;">
+
+                <div class="mb-4 text-center">
+                    <h2 class="fw-bold text-dark-blue mb-1">
+                        {% trans "Create Account" %}
+                    </h2>
+                    <p class="text-muted small">
+                        {% trans "Join the leading marketplace for machinery and transport." %}
+                    </p>
+                </div>
+
+
+                {% include "partials/errorList.html" with form_id="signupForm" %}
+
+                <form method="post"
+                      action="{% url 'user_auth:signup' %}"
+                      class="form"
+                      id="signupForm">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        <!-- First & Last Name -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% trans "First Name" %}
+                            </label>
+                            <input type="text"
+                                   class="form-control industrial-input"
+                                   name="first_name"
+                                   placeholder="John"
+                                   required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% trans "Last Name" %}
+                            </label>
+                            <input type="text"
+                                   class="form-control industrial-input"
+                                   name="last_name"
+                                   placeholder="Doe"
+                                   required />
+                        </div>
+                        <!-- Email & Phone -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% trans "Email" %}
+                            </label>
+                            <input type="email"
+                                   class="form-control industrial-input"
+                                   name="email"
+                                   placeholder="example@domain.com"
+                                   required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% trans "Phone Number" %}
+                            </label>
+                            <input type="tel"
+                                   class="form-control industrial-input"
+                                   name="phone_number"
+                                   placeholder="+213 600 000 000" />
+                        </div>
+
+                        <!-- Password Fields -->
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% trans "Password" %}
+                            </label>
+                            <div class="position-relative">
+                                <input type="password"
+                                       class="form-control industrial-input"
+                                       id="password"
+                                       name="password"
+                                       required />
+                                <button type="button"
+                                        class="btn btn-transparent position-absolute top-50 translate-middle-y border-0 shadow-none"
+                                        onclick="togglePassword('password')"
+                                        style="z-index: 10; padding: 0 12px;">
+                                    <i class="fas fa-eye small text-muted"></i>
+                                </button>
                             </div>
-                            <div class="text-center mb-4">
-                                <div class="brand-logo mb-3">
-                                    {% if site_config.logo %}
-                                        <img src="{{ site_config.logo }}" alt="{{ site_config.name }} Logo" class="rounded shadow-sm" style="width: 70px;" />
-                                    {% else %}
-                                        {% include "components/logo.html" with size=70 icon_size=35 %}
-                                    {% endif %}
-                                </div>
-                                <h3 class="fw-bold mb-2 form-title">
-                                    {% trans "Create Account" %}
-                                </h3>
-                                <p class="text-muted">
-                                    {% blocktrans with site_name=site_config.name %}Join the community and start your journey with {{ site_name }}{% endblocktrans %}
-                                </p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                {% trans "Confirm Password" %}
+                            </label>
+                            <div class="position-relative">
+                                <input type="password"
+                                       class="form-control industrial-input"
+                                       id="confirm_password"
+                                       name="confirm_password"
+                                       required />
+                                <button type="button"
+                                        class="btn btn-transparent position-absolute top-50 translate-middle-y border-0 shadow-none"
+                                        onclick="togglePassword('confirm_password')"
+                                        style="z-index: 10; padding: 0 12px;">
+                                    <i class="fas fa-eye small text-muted"></i>
+                                </button>
                             </div>
-                            {% include "partials/errorList.html" with form_id="signupForm" %}
-
-                            <form method="post"
-                                  action="{% url 'user_auth:signup' %}"
-                                  class="form"
-                                  id="signupForm"
-                                  enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <div class="row g-3">
-                                    <!-- First Name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="first_name">
-                                            {% trans "First Name" %} <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text"
-                                               class="form-control"
-                                               id="first_name"
-                                               name="first_name"
-                                               placeholder="{% trans "Enter your first name" %}"
-                                               required
-                                               autocomplete="given-name" />
-                                    </div>
-                                    <!-- Last Name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="last_name">
-                                            {% trans "Last Name" %} <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text"
-                                               class="form-control"
-                                               id="last_name"
-                                               name="last_name"
-                                               placeholder="{% trans "Enter your last name" %}"
-                                               required
-                                               autocomplete="family-name" />
-                                    </div>
-                                    <!-- Email -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="email">
-                                            {% trans "Email" %} <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="email"
-                                               class="form-control"
-                                               id="email"
-                                               name="email"
-                                               placeholder="example@domain.com"
-                                               required
-                                               autocomplete="email" />
-                                    </div>
-                                    <!-- Phone Number -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="phone_number">
-                                            {% trans "Phone Number" %}
-                                        </label>
-                                        <input type="tel"
-                                               class="form-control"
-                                               id="phone_number"
-                                               name="phone_number"
-                                               placeholder="+123 456 789" />
-                                    </div>
-                                    <!-- Birth Date -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="birth_date">
-                                            {% trans "Birth Date" %}
-                                        </label>
-                                        <input type="date"
-                                               class="form-control"
-                                               id="birth_date"
-                                               name="birth_date" />
-                                    </div>
-                                    <!-- Sex -->
-                                    <div class="col-md-6">
-                                        {% include "components/custom_select.html" with id="sex" name="sex" label=_("Sex") select_title=_("Select sex") choices=sex_choices %}
-                                    </div>
-                                    <!-- Password -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="password">
-                                            {% trans "Password" %} <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="password-field">
-                                            <input type="password"
-                                                   class="form-control"
-                                                   id="password"
-                                                   name="password"
-                                                   placeholder="{% trans "Enter password" %}"
-                                                   required
-                                                   autocomplete="new-password"
-                                                   minlength="8" />
-                                            <button type="button"
-                                                    class="password-toggle"
-                                                    onclick="togglePassword('password')">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- Confirm Password -->
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-semibold small" for="confirm_password">
-                                            {% trans "Confirm Password" %} <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="password-field">
-                                            <input type="password"
-                                                   class="form-control"
-                                                   id="confirm_password"
-                                                   name="confirm_password"
-                                                   placeholder="{% trans "Re-enter password" %}"
-                                                   required
-                                                   autocomplete="new-password" />
-                                            <button type="button"
-                                                    class="password-toggle"
-                                                    onclick="togglePassword('confirm_password')">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Terms Checkbox -->
-                                <div class="mt-4">
-                                    <div class="form-check">
-                                        <input type="checkbox"
-                                               class="form-check-input"
-                                               id="terms"
-                                               name="terms"
-                                               required />
-                                        <label class="form-check-label small" for="terms">
-                                            {% trans "I agree to" %} <a href="#" class="auth-link">{% trans "Terms of Service" %}</a> {% trans "and" %} <a href="#" class="auth-link">{% trans "Privacy Policy" %}</a>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="mt-4">
-                                    <button type="submit" class="btn btn-primary btn-lg mb-3 w-100">
-                                        {% trans "Create Account" %}
-                                    </button>
-                                </div>
-                                <div class="text-center mt-4">
-                                    <p class="mb-0">
-                                        {% trans "Already have an account?" %}
-                                        <a href="{% url 'user_auth:login' %}" class="auth-link">{% trans "Login" %}</a>
-                                    </p>
-                                </div>
-                            </form>
                         </div>
                     </div>
+
+                    <div class="mt-4">
+                        <button type="submit"
+                                class="btn btn-dark-blue w-100 py-2 fw-bold text-uppercase shadow-sm">
+                            {% trans "Create Account" %}
+                        </button>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p class="mb-0 text-muted small">
+                            {% trans "Already have an account?" %}
+                            <a href="{% url 'user_auth:login' %}"
+                               class="text-accent fw-bold text-decoration-none ms-1">
+                                {% trans "Login Here" %}
+                            </a>
+                        </p>
+                    </div>
+                </form>
+
+                <div class="social-divider">
+                    <span>{% trans "OR" %}</span>
                 </div>
+                <!-- Social Signup -->
+                <div class="social-login-container mb-4">
+                    <a href="#" class="btn-social btn-google">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        <span>{% trans "Continue with Google" %}</span>
+                    </a>
+                    <a href="#" class="btn-social btn-facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>{% trans "Continue with Facebook" %}</span>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
 {% endblock content %}
+
 {% block extra_js %}
     <script src="{% static 'js/auth.js' %}?v={% now "U" %}"></script>
 {% endblock extra_js %}
+
 {% block footer %}
 {% endblock footer %}

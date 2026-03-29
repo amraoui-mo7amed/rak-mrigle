@@ -5,15 +5,10 @@
     100% { transform: translateY(0px); }
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes revealLine {
-    0% { height: 0; }
-    100% { height: 100%; }
+@keyframes morph {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 }
 
 /* Base Landing Styling */
@@ -22,229 +17,221 @@
     overflow-x: hidden;
 }
 
-/* 1. Hero Section */
-.custom-hero {
-    min-height: 100vh;
-    background: linear-gradient(-45deg, #ffffff, var(--brand-light), #ffffff, var(--brand-light));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 120px 0;
+/* Rak-Mrigle Brand Utilities */
+.text-accent { color: var(--brand-accent, #D97706) !important; }
+.bg-accent { background-color: var(--brand-accent, #D97706) !important; }
+.bg-dark-blue { background-color: var(--brand-dark, #0F172A) !important; }
+.bg-light-grey { background-color: var(--brand-light, #F5F5F5) !important; }
+.bg-accent-soft { background-color: rgba(217, 119, 6, 0.05) !important; }
+.text-dark-blue { color: var(--brand-dark, #0F172A) !important; }
+
+/* Buttons */
+.btn-accent {
+    background-color: var(--brand-accent, #D97706);
+    color: white;
+    border: none;
+}
+.btn-accent:hover {
+    background-color: #B45309;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(217, 119, 6, 0.2);
 }
 
-.hero-tag {
-    background: rgba(var(--brand-primary-rgb, 13, 110, 253), 0.1);
-    color: var(--brand-primary);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 20px;
+.btn-dark-blue {
+    background-color: var(--brand-dark, #0F172A);
+    color: white;
+    border: none;
+}
+.btn-dark-blue:hover {
+    background-color: #1E293B;
+    color: white;
+    transform: translateY(-3px);
 }
 
-.hero-title-main {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--brand-dark);
-    margin-bottom: 25px;
+.btn-outline-dark-blue {
+    color: var(--brand-dark, #0F172A);
+    border: 2px solid var(--brand-dark, #0F172A);
 }
-
-.hero-title-main span {
-    color: var(--brand-primary);
-    position: relative;
-}
-
-/* 2. Feature Grid (Bento Style) */
-.section-bento {
-    padding: 100px 0;
-    background: #fff;
-}
-
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 300px);
-    gap: 24px;
-}
-
-.bento-item {
-    background: #fff;
-    border-radius: 30px;
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-}
-
-.bento-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-.bento-1 { grid-column: 1 / 3; }
-.bento-2 { grid-column: 3 / 4; }
-.bento-3 { grid-column: 1 / 2; }
-.bento-4 { grid-column: 2 / 4; }
-
-/* 3. Stats Section */
-.section-stats {
-    padding: 80px 0;
-    background: var(--brand-dark);
+.btn-outline-dark-blue:hover {
+    background-color: var(--brand-dark, #0F172A);
     color: white;
 }
 
-.stat-box {
-    text-align: center;
-    padding: 20px;
+.btn-outline-white {
+    color: white;
+    border: 2px solid white;
+}
+.btn-outline-white:hover {
+    background-color: white;
+    color: var(--brand-accent, #D97706);
 }
 
-.stat-number {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--brand-primary);
-    margin-bottom: 10px;
-}
-
-/* 4. Steps Section */
-.section-steps {
-    padding: 120px 0;
-    position: relative;
-    background: var(--brand-light);
-}
-
-.step-card {
+/* 1. Hero Section */
+.custom-hero {
+    min-height: 80vh;
     display: flex;
-    gap: 40px;
-    margin-bottom: 30px;
     align-items: center;
-    background: #fff;
-    padding: 30px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    padding: 120px 0;
+}
+
+.hero-accent-shape {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, var(--brand-accent, #D97706) 0%, #FBBF24 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: morph 8s ease-in-out infinite;
+    position: relative;
+}
+
+.hero-accent-shape i {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* 2. Service Grid */
+.accent-bar {
+    width: 80px;
+    height: 5px;
+    background: var(--brand-accent, #D97706);
+}
+
+.service-card {
+    background: white;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-[dir="rtl"] .step-card {
-    flex-direction: row;
-    text-align: right;
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1) !important;
 }
 
-.step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+.accent-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background: var(--brand-accent, #D97706);
+    transition: width 0.3s ease;
 }
 
-.step-number {
-    width: 60px;
-    height: 60px;
-    background: var(--brand-primary);
+.service-card:hover .accent-top-bar {
+    width: 100%;
+}
+
+/* 3. Pricing & Value Premium Design */
+.premium-stat-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
+
+.premium-stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+.stat-glow {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.2; /* Higher default visibility */
+}
+
+.logic-card {
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.logic-card:hover {
+    border-left-color: var(--brand-accent, #D97706) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.logic-icon-box {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.logic-card:hover .logic-icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.stats-premium-grid .display-4 {
+    letter-spacing: -2px;
+}
+
+.bg-dark-blue {
+    background-color: #0F172A !important;
+}
+
+/* RTL Stat Border Adjustment */
+[dir="rtl"] .logic-card {
+    border-left: none !important;
+    border-right: 3px solid transparent !important;
+}
+
+[dir="rtl"] .logic-card:hover {
+    border-right-color: var(--brand-accent, #D97706) !important;
+}
+
+/* 4. Steps Modern */
+.step-num-accent {
+    width: 70px;
+    height: 70px;
+    background: var(--brand-accent, #D97706);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.75rem;
     font-weight: 900;
-    font-size: 1.5rem;
-    flex-shrink: 0;
+    box-shadow: 0 10px 20px rgba(217, 119, 6, 0.2);
 }
 
-[dir="rtl"] .step-number {
-    margin-left: 0;
+.step-card-modern {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-
-/* 5. Pricing & CTA */
-.section-final {
-    padding: 100px 0;
-    background: var(--brand-light);
+.step-card-modern:hover {
+    transform: translateY(-10px);
 }
 
-.glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 40px;
-    padding: 60px;
-    text-align: center;
+/* 5. Final CTA Banner */
+.cta-banner-accent {
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80'); /* Industrial fallback */
+    background-size: cover;
+    background-position: center;
 }
 
-[dir="rtl"] .hero-title-main { 
-    font-family: 'Cairo', sans-serif; 
-    text-align: center;
+/* RTL Adjustments */
+[dir="rtl"] .hero-accent-shape { transform: scaleX(-1); }
+[dir="rtl"] .hero-accent-shape i { transform: scaleX(-1); }
+
+[dir="rtl"] .border-start { 
+    border-right: 4px solid var(--brand-accent, #D97706) !important; 
+    border-left: none !important; 
 }
 
-[dir="rtl"] .custom-hero p {
-    text-align: center;
+/* Common Utilities */
+.fw-black { font-weight: 900; }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+.hover-up { transition: transform 0.3s ease; }
+.hover-up:hover { transform: translateY(-5px); }
+
+@media (max-width: 991px) {
+    .custom-hero { text-align: center; padding: 80px 0; }
+    .hero-accent-shape { width: 300px; height: 300px; margin: 0 auto; }
 }
-
-/* Bento Grid RTL Support */
-[dir="rtl"] .bento-item {
-    text-align: right;
-}
-
-[dir="rtl"] .bento-item i {
-    display: block;
-    margin-left: 0;
-}
-
-
-.hero-visual-wrapper {
-    position: relative;
-    z-index: 1;
-}
-
-.shadow-2xl {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-}
-
-.fw-black {
-    font-weight: 900;
-}
-
-.text-primary {
-    color: var(--brand-primary) !important;
-}
-
-.btn-primary {
-    background-color: var(--brand-primary);
-    border-color: var(--brand-primary);
-}
-
-.btn-outline-primary {
-    color: var(--brand-primary);
-    border-color: var(--brand-primary);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--brand-primary);
-    color: white;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 992px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-    .bento-1, .bento-2, .bento-3, .bento-4 {
-        grid-column: auto;
-    }
-    
-    .step-card {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 20px;
-    }
-    
-    [dir="rtl"] .step-card {
-        flex-direction: column !important;
-    }
-}
-
