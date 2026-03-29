@@ -17,7 +17,6 @@
                 </span>
             </a>
             <div class="ms-auto d-flex align-items-center gap-3">
-                {% include 'partials/language_switcher.html' %}
                 {% if user.is_authenticated %}
                     <a href="{% url 'dash:dash_home' %}" class="btn btn-dark rounded-pill px-4 fw-bold">{% trans "Dashboard" %}</a>
                 {% else %}
@@ -33,7 +32,7 @@
 
 {% block content %}
     <!-- 1. Impact Hero Section -->
-    <section class="custom-hero bg-accent-soft position-relative overflow-hidden py-5">
+    <section class="custom-hero mt-4 bg-accent-soft position-relative overflow-hidden py-5">
         <div class="container py-lg-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-7" data-aos="fade-right">

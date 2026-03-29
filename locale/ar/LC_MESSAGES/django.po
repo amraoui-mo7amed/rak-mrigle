@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-29 15:53+0100\n"
-"PO-Revision-Date: 2026-03-28 12:00+0100\n"
-"Last-Translator: Mohamed <mohamed@example.com>\n"
-"Language-Team: Arabic <ar@li.org>\n"
-"Language: ar\n"
+"POT-Creation-Date: 2026-03-29 18:11+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-
 #: core/context_processors.py:11
 msgid "Rak-Mrigle"
-msgstr "راك مريغل"
+msgstr "راك مريقل"
 
 #: core/context_processors.py:13
 msgid "Heavy Machinery & Transport Marketplace"
@@ -28,23 +28,23 @@ msgstr "سوق الآليات الثقيلة والنقل"
 
 #: core/context_processors.py:25
 msgid "The leading marketplace for transport and heavy machinery in Algeria."
-msgstr "السوق الرائدة للنقل والآليات الثقيلة في الجزائر."
+msgstr "السوق الرائد للنقل والآليات الثقيلة في الجزائر."
 
 #: core/context_processors.py:28
 msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
-msgstr "نقل، آليات، بناء، لوجستيك، الجزائر، شاحنات، رافعات"
+msgstr "النقل، الآليات، البناء، الخدمات اللوجستية، الجزائر، الشاحنات، الرافعات"
 
 #: core/settings.py:128
 msgid "English"
-msgstr "English"
+msgstr "الإنجليزية"
 
 #: core/settings.py:129
 msgid "العربية"
-msgstr "العربية"
+msgstr ""
 
 #: core/settings.py:130
 msgid "French"
-msgstr "French"
+msgstr "الفرنسية"
 
 #: dashboard/context_processors.py:11
 #: dashboard/templates/dash/dash_index.html:86 frontend/templates/home.html:22
@@ -53,63 +53,63 @@ msgstr "لوحة التحكم"
 
 #: dashboard/context_processors.py:17
 msgid "users"
-msgstr "المستخدمون"
+msgstr "المستخدمين"
 
 #: dashboard/models.py:11
 msgid "معلومة"
-msgstr "معلومة"
+msgstr ""
 
 #: dashboard/models.py:12
 msgid "نجاح"
-msgstr "نجاح"
+msgstr ""
 
 #: dashboard/models.py:13
 msgid "تحذير"
-msgstr "تحذير"
+msgstr ""
 
 #: dashboard/models.py:14
 msgid "خطأ"
-msgstr "خطأ"
+msgstr ""
 
 #: dashboard/models.py:20
 msgid "المستخدم"
-msgstr "المستخدم"
+msgstr ""
 
 #: dashboard/models.py:22
 msgid "العنوان"
-msgstr "العنوان"
+msgstr ""
 
 #: dashboard/models.py:23
 msgid "الرسالة"
-msgstr "الرسالة"
+msgstr ""
 
 #: dashboard/models.py:28
 msgid "نوع الإشعار"
-msgstr "نوع الإشعار"
+msgstr ""
 
 #: dashboard/models.py:30
 msgid "مقروء"
-msgstr "مقروء"
+msgstr ""
 
 #: dashboard/models.py:31
 msgid "تاريخ الإنشاء"
-msgstr "تاريخ الإنشاء"
+msgstr ""
 
 #: dashboard/models.py:32
 msgid "تاريخ القراءة"
-msgstr "تاريخ القراءة"
+msgstr ""
 
 #: dashboard/models.py:36
 msgid "الرابط"
-msgstr "الرابط"
+msgstr ""
 
 #: dashboard/models.py:37
 msgid "رابط اختياري للتنقل"
-msgstr "رابط اختياري للتنقل"
+msgstr ""
 
 #: dashboard/models.py:41
 msgid "إشعار"
-msgstr "إشعار"
+msgstr ""
 
 #: dashboard/templates/components/notification_dropdown.html:12
 msgid "Notifications"
@@ -122,7 +122,7 @@ msgstr "جديد"
 
 #: dashboard/templates/components/notification_dropdown.html:37
 msgid "You're all caught up!"
-msgstr "أنت متابع لكل شيء!"
+msgstr "أنت مطلع على كل شيء!"
 
 #: dashboard/templates/components/notification_dropdown.html:42
 msgid "Mark all as read"
@@ -166,27 +166,27 @@ msgstr "السبت"
 
 #: dashboard/templates/dash/dash_home.html:80
 msgid "Sun"
-msgstr "الأحد"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:80
 msgid "Mon"
-msgstr "الاثنين"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:80
 msgid "Tue"
-msgstr "الثلاثاء"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:80
 msgid "Wed"
-msgstr "الأربعاء"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:80
 msgid "Thu"
-msgstr "الخميس"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:80
 msgid "Fri"
-msgstr "الجمعة"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:86
 msgid "Last 7 Days"
@@ -194,10 +194,10 @@ msgstr "آخر 7 أيام"
 
 #: dashboard/templates/dash/dash_home.html:89
 msgid "Last 30 Days"
-msgstr "آخر 30 يوماً"
+msgstr ""
 
 #: dashboard/templates/dash/dash_home.html:120
-#: dashboard/templates/dash/dash_index.html:114
+#: dashboard/templates/dash/dash_index.html:113
 #: dashboard/templates/users/list.html:101
 msgid "User"
 msgstr "مستخدم"
@@ -221,15 +221,12 @@ msgid ""
 "System performance is optimal. All 5 services are running within expected "
 "latency bounds."
 msgstr ""
-"أداء النظام مثالي. جميع الخدمات الـ 5 تعمل ضمن حدود زمن الاستجابة المتوقعة."
 
 #: dashboard/templates/dash/dash_home.html:171
 msgid ""
 "AI has detected a growth trend in your user engagement. Consider launching a "
 "new campaign to capitalize on this traffic."
 msgstr ""
-"اكتشف الذكاء الاصطناعي اتجاهاً للنمو في تفاعل المستخدمين. فكر في إطلاق حملة "
-"جديدة للاستفادة من هذا الزخم."
 
 #: dashboard/templates/dash/dash_home.html:174
 msgid "Take Action"
@@ -241,35 +238,35 @@ msgstr "الآن"
 
 #: dashboard/templates/dash/dash_index.html:27
 msgid "minutes ago"
-msgstr "منذ %d دقائق"
+msgstr "دقائق مضت"
 
 #: dashboard/templates/dash/dash_index.html:28
 msgid "hours ago"
-msgstr "منذ %d ساعات"
+msgstr "ساعات مضت"
 
 #: dashboard/templates/dash/dash_index.html:29
 msgid "No notifications"
 msgstr "لا توجد إشعارات"
 
 #: dashboard/templates/dash/dash_index.html:72
-#: dashboard/templates/dash/dash_index.html:144
+#: dashboard/templates/dash/dash_index.html:143
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
-#: dashboard/templates/dash/dash_index.html:112
+#: dashboard/templates/dash/dash_index.html:111
 msgid "Administrator"
-msgstr "مدير النظام"
+msgstr "المسؤول"
 
-#: dashboard/templates/dash/dash_index.html:131
+#: dashboard/templates/dash/dash_index.html:130
 msgid "My Profile"
 msgstr "ملفي الشخصي"
 
-#: dashboard/templates/dash/dash_index.html:134
+#: dashboard/templates/dash/dash_index.html:133
 #: frontend/templates/index.html:110
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: dashboard/templates/dash/dash_index.html:137
+#: dashboard/templates/dash/dash_index.html:136
 msgid "Help & Support"
 msgstr "المساعدة والدعم"
 
@@ -283,16 +280,16 @@ msgstr "العودة للقائمة"
 
 #: dashboard/templates/users/details.html:24
 msgid "Approve User?"
-msgstr "قبول المستخدم؟"
+msgstr "الموافقة على المستخدم؟"
 
 #: dashboard/templates/users/details.html:25
 #, python-format
 msgid "Are you sure you want to approve %(name)s?"
-msgstr "هل أنت متأكد أنك تريد قبول %(name)s؟"
+msgstr "هل أنت متأكد أنك تريد الموافقة على %(name)s؟"
 
 #: dashboard/templates/users/details.html:26
 msgid "Yes, approve!"
-msgstr "نعم، قبول!"
+msgstr "نعم، وافق!"
 
 #: dashboard/templates/users/details.html:27
 #: dashboard/templates/users/details.html:45
@@ -301,11 +298,11 @@ msgstr "إلغاء"
 
 #: dashboard/templates/users/details.html:28
 msgid "Success!"
-msgstr "تم بنجاح!"
+msgstr "نجاح!"
 
 #: dashboard/templates/users/details.html:30
 msgid "Approve User"
-msgstr "قبول المستخدم"
+msgstr "الموافقة على المستخدم"
 
 #: dashboard/templates/users/details.html:42
 msgid "Are you sure?"
@@ -318,7 +315,7 @@ msgstr "أنت على وشك حذف %(name)s. لا يمكن التراجع عن 
 
 #: dashboard/templates/users/details.html:44
 msgid "Yes, delete it!"
-msgstr "نعم، احذف!"
+msgstr "نعم، احذفه!"
 
 #: dashboard/templates/users/details.html:46
 msgid "Deleted!"
@@ -335,11 +332,11 @@ msgstr "حالة الحساب"
 
 #: dashboard/templates/users/details.html:75 dashboard/views/users.py:42
 msgid "Approved"
-msgstr "مقبول"
+msgstr "تمت الموافقة"
 
 #: dashboard/templates/users/details.html:77 dashboard/views/dashboard.py:54
 msgid "Pending Approval"
-msgstr "قيد الانتظار"
+msgstr "في انتظار الموافقة"
 
 #: dashboard/templates/users/details.html:81
 msgid "Member Since"
@@ -351,22 +348,21 @@ msgstr "معرف المستخدم"
 
 #: dashboard/templates/users/details.html:98
 msgid "Detailed Information"
-msgstr "معلومات تفصيلية"
+msgstr "معلومات مفصلة"
 
 #: dashboard/templates/users/details.html:104
 #: dashboard/templates/users/list.html:133
-#: user_auth/templates/auth/signup.html:83
+#: user_auth/templates/auth/signup.html:98
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
 #: dashboard/templates/users/details.html:108
 #: dashboard/templates/users/list.html:143 user_auth/models.py:28
-#: user_auth/templates/auth/signup.html:89
+#: user_auth/templates/auth/signup.html:108
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
 #: dashboard/templates/users/details.html:112 user_auth/models.py:24
-#: user_auth/templates/auth/signup.html:101
 msgid "Birth Date"
 msgstr "تاريخ الميلاد"
 
@@ -380,11 +376,11 @@ msgstr "العنوان"
 
 #: dashboard/templates/users/details.html:127 user_auth/models.py:23
 msgid "Bio"
-msgstr "نبذة شخصية"
+msgstr "السيرة الذاتية"
 
 #: dashboard/templates/users/details.html:128
 msgid "No bio provided."
-msgstr "لم يتم توفير نبذة شخصية."
+msgstr "لم يتم تقديم سيرة ذاتية."
 
 #: dashboard/templates/users/list.html:7
 msgid "Users List"
@@ -436,7 +432,7 @@ msgstr "عرض الملف الشخصي الكامل"
 
 #: dashboard/templates/users/list.html:156
 msgid "Registered"
-msgstr "تاريخ التسجيل"
+msgstr "مسجل"
 
 #: dashboard/templates/users/list.html:167
 msgid "No users found"
@@ -447,10 +443,9 @@ msgid "Try adjusting your filters"
 msgstr "حاول تعديل خيارات التصفية"
 
 #: dashboard/utils.py:22
-#, fuzzy, python-format
-#| msgid "Your SOC Account has been Activated!"
+#, python-format
 msgid "Your %(site)s Account has been Activated!"
-msgstr "تم تفعيل حسابك!"
+msgstr "تم تفعيل حسابك في %(site)s!"
 
 #: dashboard/views/dashboard.py:19
 msgid "System Alert"
@@ -462,7 +457,7 @@ msgstr "يتوفر تحديث أمني جديد."
 
 #: dashboard/views/dashboard.py:25
 msgid "Welcome"
-msgstr "مرحباً"
+msgstr "أهلاً بك"
 
 #: dashboard/views/dashboard.py:26
 msgid "Welcome to your new dashboard!"
@@ -474,11 +469,11 @@ msgstr "إجمالي المستخدمين"
 
 #: dashboard/views/dashboard.py:48
 msgid "Approved Users"
-msgstr "المستخدمون المقبولون"
+msgstr "المستخدمون المعتمدون"
 
 #: dashboard/views/dashboard.py:60
 msgid "Staff Members"
-msgstr "أعضاء الفريق"
+msgstr "أعضاء فريق العمل"
 
 #: dashboard/views/dashboard.py:65
 msgid "Registration Trends"
@@ -486,15 +481,15 @@ msgstr "اتجاهات التسجيل"
 
 #: dashboard/views/dashboard.py:67
 msgid "Jan"
-msgstr "يناير"
+msgstr ""
 
 #: dashboard/views/dashboard.py:67
 msgid "Feb"
-msgstr "فبراير"
+msgstr ""
 
 #: dashboard/views/dashboard.py:67
 msgid "Mar"
-msgstr "مارس"
+msgstr ""
 
 #: dashboard/views/dashboard.py:72
 msgid "Recent Registrations"
@@ -510,7 +505,7 @@ msgstr "المهام المكتملة"
 
 #: dashboard/views/dashboard.py:97
 msgid "Pending Actions"
-msgstr "إجراءات معلقة"
+msgstr "الإجراءات المعلقة"
 
 #: dashboard/views/dashboard.py:104
 msgid "Total Hours"
@@ -547,21 +542,21 @@ msgstr "تم حذف المستخدم %(name)s بنجاح."
 
 #: dashboard/views/users.py:107
 msgid "Failed to send activation email. Approval cancelled."
-msgstr "فشل إرسال بريد التفعيل. تم إلغاء القبول."
+msgstr "فشل إرسال بريد التفعيل. تم إلغاء الموافقة."
 
 #: dashboard/views/users.py:113
 #, python-format
 msgid "User %(name)s approved successfully."
-msgstr "تم قبول المستخدم %(name)s بنجاح."
+msgstr "تمت الموافقة على المستخدم %(name)s بنجاح."
 
 #: dashboard/views/users.py:121
 #, python-format
 msgid "An error occurred during approval: %(error)s"
-msgstr "حدث خطأ أثناء القبول: %(error)s"
+msgstr "حدث خطأ أثناء الموافقة: %(error)s"
 
-#: frontend/templates/home.html:24 user_auth/templates/auth/login.html:10
+#: frontend/templates/home.html:24 user_auth/templates/auth/login.html:8
 msgid "Login"
-msgstr "تسجيل الدخول"
+msgstr ""
 
 #: frontend/templates/home.html:25 frontend/templates/home.html:55
 msgid "Get Started"
@@ -569,14 +564,13 @@ msgstr "ابدأ الآن"
 
 #: frontend/templates/home.html:41
 msgid "The #1 Heavy Logistics Hub in Algeria"
-msgstr "المركز الأول لللوجستيات الثقيلة في الجزائر"
+msgstr "الملتقى الأول للخدمات اللوجستية الثقيلة في الجزائر"
 
 #: frontend/templates/home.html:51
 msgid ""
 "Connecting the construction industry with verified heavy machinery and "
 "specialized transport providers across all wilayas."
-msgstr ""
-"نربط صناعة البناء بمزودي الآليات الثقيلة والنقل المتخصصين عبر جميع الولايات."
+msgstr "ربط قطاع البناء بمزودي الآليات الثقيلة والنقل المتخصص المعتمدين عبر جميع الولايات."
 
 #: frontend/templates/home.html:58
 msgid "Our Catalog"
@@ -590,8 +584,7 @@ msgstr "حلول صناعية مخصصة"
 msgid ""
 "Browse specialized categories designed to meet the demands of modern "
 "infrastructure and logistics."
-msgstr ""
-"تصفح الفئات المتخصصة المصممة لتلبية متطلبات البنية التحتية واللوجستيات الحديثة."
+msgstr "تصفح الفئات المتخصصة المصممة لتلبية متطلبات البنية التحتية والخدمات اللوجستية الحديثة."
 
 #: frontend/templates/home.html:86
 msgid "Transport & Utilities"
@@ -599,7 +592,7 @@ msgstr "النقل والمرافق"
 
 #: frontend/templates/home.html:87
 msgid "From small utility vans to massive trailer trucks for heavy haulage."
-msgstr "من مركبات التوصيل الصغيرة إلى الشاحنات المقطورة الضخمة للنقل الثقيل."
+msgstr "من سيارات النقل الصغيرة إلى شاحنات المقطورات الضخمة للنقل الثقيل."
 
 #: frontend/templates/home.html:89
 msgid "View Offers"
@@ -611,29 +604,27 @@ msgstr "آليات البناء"
 
 #: frontend/templates/home.html:98
 msgid "Loaders, excavators, and compactors from verified contractors."
-msgstr "حفارات، رافعات، وداليات من مقاولين معتمدين."
+msgstr "الشاحنات، الجرافات، والحادلات من مقاولين معتمدين."
 
 #: frontend/templates/home.html:100
 msgid "Explore Fleet"
-msgstr "استكشف الأسطول"
+msgstr "استكشاف الأسطول"
 
 #: frontend/templates/home.html:108
 msgid "Logistics & Towing"
-msgstr "اللوجستيات والجر"
+msgstr "الخدمات اللوجستية والقطر"
 
 #: frontend/templates/home.html:109
 msgid "Specialized towing (Dépannage) and on-demand car logistics."
-msgstr "الجر المتخصص (إصلاح) ولوجستيات السيارات عند الطلب."
+msgstr "قطر متخصص (ديباناج) وخدمات لوجستية للسيارات عند الطلب."
 
 #: frontend/templates/home.html:111
-#, fuzzy
-#| msgid "Terms of Service"
 msgid "Book Service"
-msgstr "احجز خدمة"
+msgstr "حجز خدمة"
 
 #: frontend/templates/home.html:124
 msgid "Fair Pricing,"
-msgstr "أسعار عادلة،"
+msgstr "تسعير عادل،"
 
 #: frontend/templates/home.html:124
 msgid "Powered by Data"
@@ -643,8 +634,7 @@ msgstr "مدعوم بالبيانات"
 msgid ""
 "We eliminate guesswork with a transparent pricing engine built for the "
 "Algerian market."
-msgstr ""
-"نلغي التخمين باستخدام محرك تسعير شفاف مبني للسوق الجزائرية."
+msgstr "نحن نلغي التخمين بمحرك تسعير شفاف مصمم للسوق الجزائري."
 
 #: frontend/templates/home.html:133
 msgid "Distance Logic"
@@ -652,33 +642,31 @@ msgstr "منطق المسافة"
 
 #: frontend/templates/home.html:134
 msgid "Dynamic calculation based on Km and vehicle rate."
-msgstr "حساب ديناميكي بناءً على الكيلومتر ومعدل المركبة."
+msgstr "حساب ديناميكي يعتمد على الكيلومترات وسعر المركبة."
 
 #: frontend/templates/home.html:145
 msgid "Hourly Logic"
-msgstr "منطق بالساعة"
+msgstr "المنطق الساعي"
 
 #: frontend/templates/home.html:146
 msgid "Flexible rates for machinery and operator tasks."
-msgstr "أسعار مرنة لمهام الآليات والمشغلين."
+msgstr "أسعار مرنة للآليات ومهام المشغلين."
 
 #: frontend/templates/home.html:159
 msgid "Intro Commission"
-msgstr "عمولة الإطلاق"
+msgstr "عمولة تمهيدية"
 
 #: frontend/templates/home.html:160
 msgid "Maximize your earnings during the first month of platform growth."
-msgstr "عظّم أرباحك خلال الشهر الأول من نمو المنصة."
+msgstr "ارفع أرباحك إلى أقصى حد خلال الشهر الأول من نمو المنصة."
 
 #: frontend/templates/home.html:167
-#, fuzzy
-#| msgid "Is Approved"
 msgid "Fast Approval"
 msgstr "موافقة سريعة"
 
 #: frontend/templates/home.html:168
 msgid "Verification of documents within a single business day."
-msgstr "التحقق من المستندات خلال يوم عمل واحد."
+msgstr "التحقق من الوثائق خلال يوم عمل واحد."
 
 #: frontend/templates/home.html:175
 msgid "Secure Multi-Role Workflows"
@@ -686,33 +674,31 @@ msgstr "سير عمل آمن متعدد الأدوار"
 
 #: frontend/templates/home.html:191
 msgid "How Rak-Mrigle Works"
-msgstr "كيف يعمل راك مريغل"
+msgstr "كيف يعمل راك مريقل"
 
 #: frontend/templates/home.html:198
-#, fuzzy
-#| msgid "Create Account"
 msgid "Create Mission"
 msgstr "إنشاء مهمة"
 
 #: frontend/templates/home.html:199
 msgid "Submit your request with pickup/destination or hourly details."
-msgstr "قدم طلبك مع تفاصيل الاستلام/الوجهة أو بالساعة."
+msgstr "أرسل طلبك مع تفاصيل نقطة الانطلاق/الوصول أو التفاصيل الساعية."
 
 #: frontend/templates/home.html:205
 msgid "Get Quotes"
-msgstr "احصل على عروض"
+msgstr "احصل على عروض أسعار"
 
 #: frontend/templates/home.html:206
 msgid "Receive and compare verified price offers from pro providers."
-msgstr "استلم وقارن العروض السعرية المعتمدة من المزودين المحترفين."
+msgstr "استلم وقارن عروض أسعار معتمدة لمزودين محترفين."
 
 #: frontend/templates/home.html:212
 msgid "Finish Job"
-msgstr "أنجز المهمة"
+msgstr "إنهاء الوظيفة"
 
 #: frontend/templates/home.html:213
 msgid "Approve the mission, unlock contact, and rate the service."
-msgstr "وافق على المهمة، أفتح التواصل، وقم بتقييم الخدمة."
+msgstr "وافق على المهمة، افتح معلومات الاتصال، وقيم الخدمة."
 
 #: frontend/templates/home.html:225
 msgid "Join the Network of Pros"
@@ -722,18 +708,15 @@ msgstr "انضم إلى شبكة المحترفين"
 msgid ""
 "Whether you're looking for a crane or have a fleet to manage, we have you "
 "covered."
-msgstr ""
-"سواء كنت تبحث عن رافعة أو لديك أسطول لإدارتنا، نحن هنا لخدمتك."
+msgstr "سواء كنت تبحث عن رافعة أو لديك أسطول تريد إدارته، فنحن نلبي احتياجاتك."
 
 #: frontend/templates/home.html:229
-#, fuzzy
-#| msgid "Registered"
 msgid "Register as Provider"
-msgstr "سجل كمزود"
+msgstr "سجل كمزود خدمة"
 
 #: frontend/templates/home.html:232
 msgid "Find Machinery"
-msgstr "ابحث عن آليات"
+msgstr "البحث عن آليات"
 
 #: frontend/templates/home.html:248
 msgid "All rights reserved."
@@ -775,7 +758,7 @@ msgstr "آخر"
 msgid "Profile Picture"
 msgstr "صورة الملف الشخصي"
 
-#: user_auth/models.py:26 user_auth/templates/auth/signup.html:97
+#: user_auth/models.py:26
 msgid "Sex"
 msgstr "الجنس"
 
@@ -785,7 +768,7 @@ msgstr "تمت الموافقة"
 
 #: user_auth/models.py:33
 msgid "Created At"
-msgstr "تاريخ الإنشاء"
+msgstr "أنشئ في"
 
 #: user_auth/models.py:39
 msgid "User Profile"
@@ -795,142 +778,89 @@ msgstr "ملف المستخدم"
 msgid "User Profiles"
 msgstr "ملفات المستخدمين"
 
-#: user_auth/templates/auth/login.html:31
-msgid ""
-"The specialized marketplace for heavy machinery and professional transport "
-"in Algeria."
-msgstr ""
-"السوق المتخصص للآليات الثقيلة والنقل المهني في الجزائر."
-
-#: user_auth/templates/auth/login.html:53
-msgid "Account Login"
-msgstr "تسجيل الدخول"
-
 #: user_auth/templates/auth/login.html:54
-msgid "Enter your credentials to access your dashboard."
-msgstr "أدخل بياناتك للوصول إلى لوحتك."
-
-#: user_auth/templates/auth/login.html:64
-#: user_auth/templates/auth/signup.html:76
-#, fuzzy
-#| msgid "username"
-msgid "Username"
-msgstr "اسم المستخدم"
-
-#: user_auth/templates/auth/login.html:67
-#, fuzzy
-#| msgid "Enter your username"
-msgid "Enter username"
-msgstr "أدخل اسم المستخدم"
-
-#: user_auth/templates/auth/login.html:73
-#: user_auth/templates/auth/signup.html:108
-msgid "Password"
-msgstr "كلمة المرور"
-
-#: user_auth/templates/auth/login.html:74
-#, fuzzy
-#| msgid "Forgot password?"
-msgid "Forgot?"
-msgstr "نسيت؟"
-
-#: user_auth/templates/auth/login.html:78
-msgid "Enter password"
-msgstr "أدخل كلمة المرور"
-
-#: user_auth/templates/auth/login.html:88
-#, fuzzy
-#| msgid "Remember me"
-msgid "Remember session"
-msgstr "تذكر الجلسة"
-
-#: user_auth/templates/auth/login.html:93
+#: user_auth/templates/auth/login.html:111
 msgid "Sign In"
 msgstr "تسجيل الدخول"
 
-#: user_auth/templates/auth/login.html:98
-msgid "New to the platform?"
-msgstr "جديد على المنصة؟"
+#: user_auth/templates/auth/login.html:57
+msgid "Welcome back! Please enter your details."
+msgstr "مرحباً بعودتك! يرجى إدخال بياناتك."
 
-#: user_auth/templates/auth/login.html:99
-#: user_auth/templates/auth/signup.html:9
-#: user_auth/templates/auth/signup.html:52
-#: user_auth/templates/auth/signup.html:137
+#: user_auth/templates/auth/login.html:70
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: user_auth/templates/auth/login.html:76
+msgid "Enter username"
+msgstr "أدخل اسم المستخدم"
+
+#: user_auth/templates/auth/login.html:82
+#: user_auth/templates/auth/signup.html:119
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: user_auth/templates/auth/login.html:84
+msgid "Forgot?"
+msgstr "نسيت؟"
+
+#: user_auth/templates/auth/login.html:91
+msgid "Enter password"
+msgstr "أدخل كلمة المرور"
+
+#: user_auth/templates/auth/login.html:105
+msgid "Remember session"
+msgstr "تذكر الجلسة"
+
+#: user_auth/templates/auth/login.html:115
+msgid "New to the platform?"
+msgstr "جديد في المنصة؟"
+
+#: user_auth/templates/auth/login.html:118
+#: user_auth/templates/auth/signup.html:10
+#: user_auth/templates/auth/signup.html:58
+#: user_auth/templates/auth/signup.html:158
 msgid "Create Account"
 msgstr "إنشاء حساب"
 
-#: user_auth/templates/auth/signup.html:30
-msgid ""
-"Join the specialized marketplace for heavy machinery and professional "
-"transport in Algeria."
-msgstr ""
-"انضم إلى السوق المتخصص للآليات الثقيلة والنقل المهني في الجزائر."
+#: user_auth/templates/auth/login.html:125
+#: user_auth/templates/auth/signup.html:173
+msgid "OR"
+msgstr "أو"
 
-#: user_auth/templates/auth/signup.html:53
-msgid "Register to start managing your missions or machinery fleet."
-msgstr "سجل لبدء إدارة مهامك أو أسطول الآليات."
+#: user_auth/templates/auth/login.html:131
+#: user_auth/templates/auth/signup.html:179
+msgid "Continue with Google"
+msgstr "المتابعة باستخدام جوجل"
 
-#: user_auth/templates/auth/signup.html:63
+#: user_auth/templates/auth/login.html:135
+#: user_auth/templates/auth/signup.html:183
+msgid "Continue with Facebook"
+msgstr "المتابعة باستخدام فيسبوك"
+
+#: user_auth/templates/auth/signup.html:61
+msgid "Join the leading marketplace for machinery and transport."
+msgstr "انضم إلى السوق الرائد للآليات والنقل."
+
+#: user_auth/templates/auth/signup.html:77
 msgid "First Name"
 msgstr "الاسم الأول"
 
-#: user_auth/templates/auth/signup.html:65
-msgid "John"
-msgstr "محمد"
-
-#: user_auth/templates/auth/signup.html:69
+#: user_auth/templates/auth/signup.html:87
 msgid "Last Name"
 msgstr "اسم العائلة"
 
-#: user_auth/templates/auth/signup.html:71
-msgid "Doe"
-msgstr "بن علي"
-
-#: user_auth/templates/auth/signup.html:78
-msgid "johndoe123"
-msgstr "mohamed123"
-
-#: user_auth/templates/auth/signup.html:97
-#, fuzzy
-#| msgid "Select sex"
-msgid "Select"
-msgstr "اختر"
-
-#: user_auth/templates/auth/signup.html:117
+#: user_auth/templates/auth/signup.html:137
 msgid "Confirm Password"
 msgstr "تأكيد كلمة المرور"
 
-#: user_auth/templates/auth/signup.html:131
-#, fuzzy
-#| msgid "I agree to"
-msgid "I agree to the"
-msgstr "أوافق على"
-
-#: user_auth/templates/auth/signup.html:131
-msgid "Terms of Service"
-msgstr "شروط الخدمة"
-
-#: user_auth/templates/auth/signup.html:142
+#: user_auth/templates/auth/signup.html:163
 msgid "Already have an account?"
-msgstr "لديك حساب بالفعل؟"
+msgstr "هل لديك حساب بالفعل؟"
 
-#: user_auth/templates/auth/signup.html:143
-#, fuzzy
-#| msgid "Login"
+#: user_auth/templates/auth/signup.html:166
 msgid "Login Here"
 msgstr "سجل الدخول هنا"
-
-#: user_auth/templates/auth/signup.html:216
-msgid "Back to Home"
-msgstr "العودة للرئيسية"
-
-#: user_auth/templates/auth/signup.html:63
-msgid "Providers"
-msgstr "المزودون"
-
-#: user_auth/templates/auth/signup.html:67
-msgid "Wilayas"
-msgstr "الولايات"
 
 #: user_auth/views.py:25
 msgid "Please fill in all required fields."
@@ -938,7 +868,7 @@ msgstr "يرجى ملء جميع الحقول المطلوبة."
 
 #: user_auth/views.py:42
 msgid "Invalid username or password. Please try again."
-msgstr "اسم المستخدم أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى."
+msgstr "اسم المستخدم أو كلمة المرور غير صالحة. يرجى المحاولة مرة أخرى."
 
 #: user_auth/views.py:76
 msgid "First name is required."
@@ -954,7 +884,7 @@ msgstr "البريد الإلكتروني مطلوب."
 
 #: user_auth/views.py:82
 msgid "Password is required."
-msgstr "كلمة المرور مطلوب."
+msgstr "كلمة المرور مطلوبة."
 
 #: user_auth/views.py:84
 msgid "Passwords do not match."
@@ -971,134 +901,3 @@ msgstr "هذا البريد الإلكتروني مسجل بالفعل."
 #: user_auth/views.py:116
 msgid "Your account has been created successfully."
 msgstr "تم إنشاء حسابك بنجاح."
-
-#~ msgid "SnapStore"
-#~ msgstr "سناب ستور"
-
-#~ msgid "AI-Powered Landing Pages"
-#~ msgstr "صفحات هبوط مدعومة بالذكاء الاصطناعي"
-
-#~ msgid "Generate high-converting landing pages in seconds with Gemini AI."
-#~ msgstr ""
-#~ "أنشئ صفحات هبوط عالية التحويل في ثوانٍ باستخدام ذكاء Gemini الاصطناعي."
-
-#~ msgid "landing page, ai, gemini, merchant, ecommerce, conversion"
-#~ msgstr "صفحة هبوط، ذكاء اصطناعي، جيميناي، تاجر، تجارة إلكترونية، تحويل"
-
-#~ msgid "Launch Now"
-#~ msgstr "انطلق الآن"
-
-#~ msgid "See Features"
-#~ msgstr "مشاهدة المميزات"
-
-#~ msgid "Supercharged Features"
-#~ msgstr "مميزات خارقة"
-
-#~ msgid "Designed for modern developers and scaling startups."
-#~ msgstr "مصمم للمطورين العصريين والشركات الناشئة الطموحة."
-
-#~ msgid "Scalable Architecture"
-#~ msgstr "بنية قابلة للتوسع"
-
-#~ msgid "A clean, modular structure that grows with your team and complexity."
-#~ msgstr "بنية نظيفة ومنظمة تنمو مع نمو فريقك وتعقيد مشروعك."
-
-#~ msgid "Auth Ready"
-#~ msgstr "جاهز للمصادقة"
-
-#~ msgid "Secure login and signup out of the box."
-#~ msgstr "تسجيل دخول وإنشاء حساب آمن وجاهز للاستخدام الفوري."
-
-#~ msgid "Global i18n"
-#~ msgstr "دعم لغوي عالمي"
-
-#~ msgid "Built-in RTL support for Arabic markets."
-#~ msgstr ""
-#~ "دعم مدمج للغات التي تكتب من اليمين إلى اليسار (RTL) لخدمة الأسواق العربية."
-
-#~ msgid "Developer Friendly"
-#~ msgstr "صديق للمطورين"
-
-#~ msgid ""
-#~ "Written in clean Python with extensive documentation and helper utilities."
-#~ msgstr "مكتوب بلغة بايثون نظيفة مع توثيق شامل وأدوات مساعدة متنوعة."
-
-#~ msgid "Code Quality"
-#~ msgstr "جودة الكود"
-
-#~ msgid "Support"
-#~ msgstr "الدعم"
-
-#~ msgid "Speed"
-#~ msgstr "السرعة"
-
-#~ msgid "Possibilities"
-#~ msgstr "الإمكانيات"
-
-#~ msgid "Get Started in Minutes"
-#~ msgstr "ابدأ في دقائق"
-
-#~ msgid "Clone the Repository"
-#~ msgstr "استنسخ المستودع"
-
-#~ msgid ""
-#~ "Grab the source code and install the dependencies with a single command."
-#~ msgstr "احصل على الكود المصدري وقم بتثبيت المكتبات اللازمة بأمر واحد فقط."
-
-#~ msgid "Customize Branding"
-#~ msgstr "خصص هويتك البصرية"
-
-#~ msgid ""
-#~ "Update your colors and site details in the central context processor."
-#~ msgstr "قم بتحديث ألوانك وتفاصيل موقعك في معالج السياق المركزي."
-
-#~ msgid "Deploy & Shine"
-#~ msgstr "انشر وتألق"
-
-#~ msgid "Push your application to production and start welcoming users."
-#~ msgstr "ارفع تطبيقك للإنتاج وابدأ في استقبال المستخدمين."
-
-#~ msgid "Ready to Start Building?"
-#~ msgstr "جاهز للبدء في البناء؟"
-
-#, python-format
-#~ msgid ""
-#~ "Join the elite group of developers using %(site_name)s to ship faster and "
-#~ "cleaner code."
-#~ msgstr ""
-#~ "انضم إلى نخبة المطورين الذين يستخدمون %(site_name)s لإطلاق مشاريعهم بكود "
-#~ "أسرع وأنظف."
-
-#~ msgid "Get Started Now"
-#~ msgstr "ابدأ الآن"
-
-#~ msgid "Login to your account"
-#~ msgstr "تسجيل الدخول إلى حسابك"
-
-#~ msgid "Enter your password"
-#~ msgstr "أدخل كلمة المرور"
-
-#~ msgid "Don't have an account?"
-#~ msgstr "ليس لديك حساب؟"
-
-#~ msgid "Create new account"
-#~ msgstr "إنشاء حساب جديد"
-
-#, python-format
-#~ msgid "Join the community and start your journey with %(site_name)s"
-#~ msgstr "انضم إلى المجتمع وابدأ رحلتك مع %(site_name)s"
-
-#~ msgid "Enter your first name"
-#~ msgstr "أدخل اسمك الأول"
-
-#~ msgid "Enter your last name"
-#~ msgstr "أدخل اسم العائلة"
-
-#~ msgid "Re-enter password"
-#~ msgstr "أعد إدخال كلمة المرور"
-
-#~ msgid "and"
-#~ msgstr "و"
-
-#~ msgid "Privacy Policy"
-#~ msgstr "سياسة الخصوصية"

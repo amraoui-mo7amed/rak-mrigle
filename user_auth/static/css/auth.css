@@ -189,25 +189,27 @@ body.auth-page .overlay {
     color: var(--brand-primary, #0B1E3B) !important;
 }
 
-/* Force side-by-side on desktop */
-.split-auth-container {
-    display: flex !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    flex-wrap: nowrap !important;
+/* Desktop Layout Configuration */
+@media (min-width: 992px) {
+    .split-auth-container {
+        display: flex !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .auth-branding-side {
+        flex: 0 0 35% !important;
+        width: 35% !important;
+    }
+
+    .auth-form-side {
+        flex: 0 0 65% !important;
+        width: 65% !important;
+    }
 }
 
-.auth-branding-side {
-    flex: 0 0 35% !important;
-    width: 35% !important;
-}
-
-.auth-form-side {
-    flex: 0 0 65% !important;
-    width: 65% !important;
-}
-
-/* Minimal Social Login Styles */
+/* Shared Auth Styles */
 .social-login-container {
     display: flex;
     gap: 15px;
@@ -283,7 +285,6 @@ body.auth-page .overlay {
     margin-left: 1.5rem;
 }
 
-/* Submit Button */
 .btn-dark-blue {
     background: var(--brand-primary, #0B1E3B);
     color: #ffffff;
@@ -300,7 +301,6 @@ body.auth-page .overlay {
     box-shadow: 0 8px 20px rgba(11, 30, 59, 0.2);
 }
 
-/* Text Colors */
 .text-accent {
     color: var(--brand-accent, #D97706) !important;
 }
@@ -309,28 +309,69 @@ body.auth-page .overlay {
     color: var(--brand-primary, #0B1E3B) !important;
 }
 
-/* Geometric Background Overlay */
 .geo-pattern i {
     opacity: 0.1;
 }
 
-/* Password Toggle Icon */
 .btn-transparent .fa-eye, 
 .btn-transparent .fa-eye-slash {
     font-size: 0.9rem;
     color: #94A3B8;
 }
 
-/* Responsive */
+/* Responsive Improvements */
 @media (max-width: 991.98px) {
+    body.auth-page {
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+    
     .split-auth-container {
         flex-direction: column !important;
+        height: auto !important;
+        min-height: 100vh;
+        width: 100% !important;
     }
+    
     .auth-branding-side {
         display: none !important;
     }
+    
     .auth-form-side {
-        flex: 0 0 100%;
-        width: 100%;
+        flex: 1 0 auto !important;
+        width: 100% !important;
+        padding: 3rem 1.5rem !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .auth-form-side h2 {
+        font-size: 1.75rem;
     }
 }
+
+@media (max-width: 575.98px) {
+    .auth-form-side {
+        padding: 2.5rem 1rem !important;
+    }
+    
+    .social-login-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-social {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .industrial-input {
+        height: 50px;
+    }
+    
+    .social-divider {
+        margin: 20px 0;
+    }
+}
+
