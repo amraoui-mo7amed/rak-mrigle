@@ -18,6 +18,12 @@ def dashboard_sidebar(request):
                 "icon": "fas fa-users",
                 "url_name": "dash:user_list",
                 "admin_only": True,
-            }
+            },
+            {
+                "title": _("Social Auth"),
+                "icon": "fas fa-plug",
+                "url_name": "dash:social_app_list",
+                "admin_only": True,
+            },
         ],
     }

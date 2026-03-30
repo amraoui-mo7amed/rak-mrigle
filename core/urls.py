@@ -22,11 +22,12 @@ import django_eventstream
 
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
     path("auth/", include("user_auth.urls", namespace="user_auth")),
+    path("accounts/", include("allauth.urls")),
     path("dashboard/", include("dashboard.urls", namespace="dash")),
     path("", include("frontend.urls", namespace="frontend")),
     path("i18n/", include("django.conf.urls.i18n")),
     # Notifications API
     path("events/", include(django_eventstream.urls)),
-
 ]

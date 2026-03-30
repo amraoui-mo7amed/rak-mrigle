@@ -1,0 +1,115 @@
+.social-app-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.social-app-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.provider-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.bg-google {
+    background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+}
+
+.bg-facebook {
+    background: linear-gradient(135deg, #1877f2 0%, #0d5bbd 100%);
+}
+
+.info-box {
+    background: var(--brand-light);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.provider-icons-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-label-modern {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    display: block;
+    opacity: 0.8;
+}
+
+.modern-input {
+    border-radius: 12px !important;
+    padding: 12px 15px !important;
+    border: 2px solid var(--border-color) !important;
+    background: var(--brand-light) !important;
+    transition: all 0.2s ease !important;
+}
+
+.modern-input:focus {
+    border-color: var(--brand-secondary) !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+.modal-content {
+    background-color: #ffffff;
+}
+
+.modal-backdrop.show {
+    opacity: 0.2 !important;
+    backdrop-filter: blur(4px);
+}
+
+.code {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.85rem;
+}
+
+[dir="rtl"] .provider-icon {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+[dir="ltr"] .provider-icon {
+    margin-right: 12px;
+    margin-left: 0;
+}
+
+[dir="rtl"] .card-header .d-flex.gap-2 {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .info-box code {
+    text-align: right;
+    direction: ltr;
+}
+
+[dir="rtl"] .filter-label-modern {
+    text-align: right;
+}
+
+[dir="ltr"] .filter-label-modern {
+    text-align: left;
+}
+
+[dir="rtl"] .provider-icons-empty i:first-child {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+[dir="ltr"] .provider-icons-empty i:first-child {
+    margin-right: 1rem;
+    margin-left: 0;
+}

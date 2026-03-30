@@ -44,13 +44,14 @@ Starter Kit Brand Variables
 
 .custom-select-display {
   border: 2px solid var(--border-color);
-  padding: .375rem .75rem;
+  padding: .375rem 2rem .375rem .75rem;
   border-radius: 12px;
   cursor: pointer;
   background: var(--white-accent);
   position: relative;
   transition: border-color 0.2s;
 }
+
 
 .custom-select-display:hover {
   border-color: var(--brand-secondary);
@@ -66,6 +67,14 @@ Starter Kit Brand Variables
   color: var(--text-main);
 }
 
+[dir="rtl"] .custom-select-display .arrow {
+  left: 10px;
+  right: auto;
+}
+[dir="ltr"] .custom-select-display .arrow {
+  left: auto;
+  right: 10px;
+}
 .custom-select-display.active {
   border-color: var(--brand-primary);
 }
@@ -407,6 +416,10 @@ footer p {
 }
 
 /* Error Item Styling */
+.error-list 
+{
+  list-style: none;
+}
 .error-item {
   background-color: #FFFBEB; /* Light Amber */
   border-left: 4px solid var(--brand-accent, #D97706);

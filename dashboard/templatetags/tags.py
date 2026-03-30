@@ -2,6 +2,7 @@ from django import template
 
 register = template.Library()
 
+
 @register.inclusion_tag("components/pagination.html", takes_context=True)
 def render_pagination(context, page_obj):
     request = context["request"]
@@ -17,7 +18,6 @@ def render_pagination(context, page_obj):
         "page_obj": page_obj,
         "base_url": base_url,
     }
-
 
 
 @register.filter
@@ -41,3 +41,16 @@ def humanize_number(value):
         return f"{num / 1_000:.1f}k"
     else:
         return f"{num:.0f}"
+
+
+@register.filter
+def get_item(dictionary, key):
+    """
+    Get an item from a dictionary using variable key.
+    Usage: {{ mydict|get_item:key }}
+    """
+    if dictionary is None:
+        return None
+    if not isinstance(dictionary, dict):
+        return dictionary
+    return dictionary.get(key)

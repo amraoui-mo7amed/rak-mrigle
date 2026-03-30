@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load i18n %}
+{% load social_tags %}
 
 {% get_current_language as current_lang %}
 {% get_current_language_bidi as IS_RTL %}
@@ -174,11 +175,11 @@
                 </div>
                 <!-- Social Signup -->
                 <div class="social-login-container mb-4">
-                    <a href="#" class="btn-social btn-google">
+                    <a href="{% safe_provider_login_url "google" %}" class="btn-social btn-google" onclick="return checkSocialLogin(this)">
                         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
                         <span>{% trans "Continue with Google" %}</span>
                     </a>
-                    <a href="#" class="btn-social btn-facebook">
+                    <a href="{% safe_provider_login_url "facebook" %}" class="btn-social btn-facebook" onclick="return checkSocialLogin(this)">
                         <i class="fab fa-facebook-f"></i>
                         <span>{% trans "Continue with Facebook" %}</span>
                     </a>
@@ -191,6 +192,20 @@
 
 {% block extra_js %}
     <script src="{% static 'js/auth.js' %}?v={% now "U" %}"></script>
+    <script>
+        function checkSocialLogin(el) {
+            if (el.getAttribute('href') === '#') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: '{% trans "Not Configured" %}',
+                    text: '{% trans "Social login is not yet configured. Please contact the administrator." %}',
+                    confirmButtonText: '{% trans "OK" %}'
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
 {% endblock extra_js %}
 
 {% block footer %}

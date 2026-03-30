@@ -1,0 +1,211 @@
+{% extends "dash/dash_index.html" %}
+{% load i18n %}
+{% load static %}
+{% load tags %}
+
+{% get_current_language_bidi as IS_RTL %}
+
+{% block dashTitle %}
+    {% trans "Social Authentication" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/social_auth.css" %}?v={% now "U" %}">
+{% endblock extra_css %}
+
+{% block dashContent %}
+    <div class="container-fluid" dir="{% if IS_RTL %}rtl{% else %}ltr{% endif %}">
+        <div class="d-flex justify-content-between align-items-center mb-4 gap-3 flex-wrap" data-aos="fade-down">
+            <div>
+                <h4 class="mb-1">{% trans "Social Authentication Settings" %}</h4>
+                <p class="text-muted mb-0">{% trans "Configure OAuth providers for social login" %}</p>
+            </div>
+            {% if available_providers %}
+            <button type="button" class="btn btn-primary rounded-3 px-4 py-2 fw-bold shadow-sm d-flex align-items-center gap-2" 
+                    data-bs-toggle="modal" data-bs-target="#addProviderModal" style="height: 45px;">
+                <i class="fas fa-plus"></i>
+                <span>{% trans "Add Provider" %}</span>
+            </button>
+            {% endif %}
+        </div>
+
+        <!-- Add Provider Modal -->
+        <div class="modal fade" id="addProviderModal" tabindex="-1" aria-labelledby="addProviderModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 rounded-4 shadow-lg">
+                    <div class="modal-header border-0 pb-0 p-4">
+                        <h5 class="modal-title fw-bold text-dark d-flex align-items-center gap-2" id="addProviderModalLabel">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-3 text-primary">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            {% trans "Add Social Provider" %}
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form id="addProviderForm" class="form" method="post" action="{% url 'dash:social_app_create' %}">
+                        {% csrf_token %}
+                        <div class="modal-body p-4">
+                            {% include "partials/errorList.html" with form_id="addProviderForm" %}
+                            
+                            <div class="mb-4">
+                                {% include "components/custom_select.html" with id="providerSelect" name="provider" label=_("Provider") choices=available_providers select_title=_("Select a provider") %}
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="filter-label-modern">{% trans "Display Name" %}</label>
+                                <input type="text" name="name" class="form-control modern-input" 
+                                       placeholder="{% trans 'Optional display name' %}">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="filter-label-modern">{% trans "Client ID" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="client_id" class="form-control modern-input" 
+                                       placeholder="{% trans 'OAuth Client ID' %}" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="filter-label-modern">{% trans "Client Secret" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="secret" class="form-control modern-input" 
+                                       id="addSecretInput" placeholder="{% trans 'OAuth Client Secret' %}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer border-0 p-4 pt-0 gap-2">
+                            <button type="button" class="btn btn-light rounded-3 px-4 fw-bold text-muted border-0 bg-light" data-bs-dismiss="modal">
+                                {% trans "Cancel" %}
+                            </button>
+                            <button type="submit" class="btn btn-primary rounded-3 px-4 fw-bold shadow-sm">
+                                <i class="fas fa-save me-2"></i>{% trans "Save Configuration" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Apps List -->
+        {% if social_apps %}
+        <div class="row g-4">
+            {% for app in social_apps %}
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 rounded-4 social-app-card h-100 bg-white">
+                    <div class="card-header bg-transparent border-0 p-4 d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="provider-icon {% if app.provider == 'google' %}bg-google{% else %}bg-facebook{% endif %}">
+                                <i class="fab fa-{{ app.provider }} fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-0 text-dark">{{ app.name|default:provider_labels|get_item:app.provider }}</h5>
+                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1">
+                                    <i class="fas fa-check-circle me-1"></i> {% trans "Active" %}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-light btn-sm rounded-3 px-3 edit-provider-btn" 
+                                    data-pk="{{ app.pk }}"
+                                    data-provider="{{ app.provider }}"
+                                    data-name="{{ app.name }}"
+                                    data-client-id="{{ app.client_id }}"
+                                    data-secret="{{ app.secret }}"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#editProviderModal">
+                                <i class="fas fa-edit"></i>
+                                {% trans "Edit" %}
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm rounded-3 px-3 delete-provider-btn"
+                                    data-pk="{{ app.pk }}"
+                                    data-provider="{{ app.name|default:provider_labels|get_item:app.provider }}">
+                                <i class="fas fa-trash-alt"></i>
+                                {% trans "Delete" %}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-0">
+                        <div class="info-box">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="fas fa-key text-muted"></i>
+                                <span class="text-muted small">{% trans "Client ID" %}:</span>
+                            </div>
+                            <code class="d-block text-truncate bg-light p-2 rounded-3 small">{{ app.client_id }}</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="card border-0 shadow-sm p-5 text-center rounded-4 bg-white">
+            <div class="p-5">
+                <div class="provider-icons-empty mb-4">
+                    <i class="fab fa-google fa-3x text-muted opacity-25 {% if not IS_RTL %}me-3{% else %}ms-3{% endif %}"></i>
+                    <i class="fab fa-facebook fa-3x text-muted opacity-25"></i>
+                </div>
+                <h4 class="text-muted fw-bold">{% trans "No providers configured" %}</h4>
+                <p class="text-muted mb-4">{% trans "Add a social authentication provider to enable social login" %}</p>
+                {% if available_providers %}
+                <button type="button" class="btn btn-primary rounded-3 px-4 py-2 fw-bold shadow-sm" 
+                        data-bs-toggle="modal" data-bs-target="#addProviderModal">
+                    <i class="fas fa-plus me-2"></i>{% trans "Add Provider" %}
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Edit Provider Modal -->
+        <div class="modal fade" id="editProviderModal" tabindex="-1" aria-labelledby="editProviderModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 rounded-4 shadow-lg">
+                    <div class="modal-header border-0 pb-0 p-4">
+                        <h5 class="modal-title fw-bold text-dark d-flex align-items-center gap-2" id="editProviderModalLabel">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-3 text-primary">
+                            </div>
+                            {% trans "Edit Configuration" %}
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form id="editProviderForm" class="form" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="pk" id="editProviderPk">
+                        <div class="modal-body p-4">
+                            {% include "partials/errorList.html" with form_id="editProviderForm" %}
+                            
+                            <div class="mb-4">
+                                <label class="filter-label-modern">{% trans "Provider" %}</label>
+                                <input type="text" class="form-control modern-input" id="editProviderName" readonly disabled>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="filter-label-modern">{% trans "Client ID" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="client_id" class="form-control modern-input" 
+                                       id="editClientId" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="filter-label-modern">{% trans "Client Secret" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="secret" class="form-control modern-input" 
+                                       id="editSecretInput" required>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer border-0 p-4 pt-0 gap-2">
+                            <button type="button" class="btn btn-light rounded-3 px-4 fw-bold text-muted border-0 bg-light" data-bs-dismiss="modal">
+                                {% trans "Cancel" %}
+                            </button>
+                            <button type="submit" class="btn btn-primary rounded-3 px-4 fw-bold shadow-sm">
+                                <i class="fas fa-save me-2"></i>{% trans "Update" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+    <script src="{% static "js/social_auth.js" %}?v={% now "U" %}"></script>
+{% endblock extra_js %}
