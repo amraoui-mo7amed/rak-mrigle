@@ -301,36 +301,50 @@ body {
 }
 
 /* Button Styles */
-.btn-primary {
-  background-color: var(--brand-primary);
-  border-color: var(--brand-primary);
+.btn-primary, .btn-primary:focus {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--brand-primary); /* Keep same base */
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)); /* Layer dark */
-  border-color: rgba(0,0,0,0.1);
+  background-color: var(--brand-primary) !important;
+  background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
   transform: translateY(-1px);
 }
 
-.btn-primary:active {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)); /* Deepen layer */
-  transform: translateY(0);
+.btn-primary:active, .btn-primary.active {
+  background-color: var(--brand-primary) !important;
+  background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
+  transform: translateY(0) !important;
 }
 
-.btn-outline-primary {
-  color: var(--brand-primary);
-  border-color: var(--brand-primary);
+.btn-outline-primary, .btn-outline-primary:focus {
+  color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  background-color: transparent !important;
 }
 
-.btn-outline-primary:hover {
-  background-color: var(--brand-primary);
-  background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)); /* Layer light */
-  border-color: var(--brand-primary);
-  color: white;
+.btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary.active {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
+}
+
+/* Custom Auth/Global Button Active States Fix */
+.btn-dark-blue:focus, .btn-dark-blue:active, .btn-dark-blue.active, .btn.btn-dark-blue:active {
+  background-color: var(--brand-secondary, #0F172A) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-secondary, #0F172A) !important;
+  box-shadow: none !important;
+  transform: translateY(0) !important;
 }
 
 /* Nav Links & Items */
