@@ -5,13 +5,11 @@ from django.db import transaction
 from django.contrib.auth.models import User
 
 
-def create_user_account(user_data, profile_data, profile_picture):
-    """
-    Helper to create a User and UserProfile within a transaction.
-    """
+def create_user_account(
+    user_data, profile_data, profile_picture, role=None, driver_license=None
+):
     from .models import UserProfile
 
-    # Use email as username prefix or fallback to last_name
     base_username = user_data["email"].split("@")[0]
     username = base_username
     if User.objects.filter(username=username).exists():
@@ -32,8 +30,10 @@ def create_user_account(user_data, profile_data, profile_picture):
             phone_number=profile_data.get("phone_number", ""),
             sex=profile_data.get("sex"),
             birth_date=profile_data.get("birth_date"),
+            role=role,
+            driver_license=driver_license,
         )
-    return user
+        return user
 
 
 def user_profile_upload_path(instance, filename):

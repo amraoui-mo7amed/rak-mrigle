@@ -9,6 +9,7 @@ urlpatterns = [
     path("users/<int:pk>/", users.user_details, name="user_details"),
     path("users/<int:pk>/delete/", users.user_delete, name="user_delete"),
     path("users/<int:pk>/approve/", users.user_approve, name="user_approve"),
+    path("users/profile/", users.user_profile, name="user_profile"),
     # Notifications
     path(
         "notifications/stream/",

@@ -1,9 +1,11 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
+from django.db import transaction
 
 from .models import UserProfile
 from .utils import (
@@ -59,7 +61,6 @@ def signup_view(request):
         return redirect(reverse_lazy("dash:dash_home"))
 
     if request.method == "POST":
-        # Extract data
         first_name = request.POST.get("first_name")
         last_name = request.POST.get("last_name")
         email = request.POST.get("email")
@@ -68,10 +69,11 @@ def signup_view(request):
         phone_number = request.POST.get("phone_number", "")
         sex = request.POST.get("sex")
         birth_date = request.POST.get("birth_date") or None
+        role = request.POST.get("role")
+        driver_license = request.FILES.get("driver_license")
 
         errors = []
 
-        # Validation
         if not first_name:
             errors.append(_("First name is required."))
         if not last_name:
@@ -84,18 +86,20 @@ def signup_view(request):
             errors.append(_("Passwords do not match."))
         elif len(password) < 8:
             errors.append(_("Password must be at least 8 characters long."))
+        if not role:
+            errors.append(_("Please select a role."))
+        if role == "provider" and not driver_license:
+            errors.append(_("Driver license is required for providers."))
 
         if errors:
             return JsonResponse({"success": False, "errors": errors})
 
-        # Check existing user
         if User.objects.filter(username=email).exists():
             return JsonResponse(
                 {"success": False, "errors": [_("This email is already registered.")]}
             )
 
         try:
-            # Data dictionaries for helper
             user_data = {
                 "email": email,
                 "password": password,
@@ -108,7 +112,9 @@ def signup_view(request):
                 "birth_date": birth_date,
             }
 
-            user = create_user_account(user_data, profile_data, None)
+            user = create_user_account(
+                user_data, profile_data, None, role=role, driver_license=driver_license
+            )
 
             return JsonResponse(
                 {
@@ -125,5 +131,140 @@ def signup_view(request):
         "auth/signup.html",
         {
             "sex_choices": UserProfile.sexChoices.choices,
+            "role_choices": UserProfile.roleChoices.choices,
         },
     )
+
+
+@login_required
+def profile_view(request):
+    user = request.user
+    profile, created = UserProfile.objects.get_or_create(
+        user=user,
+        defaults={
+            "is_approved": True,
+            "role": "customer",
+        },
+    )
+
+    if request.method == "POST":
+        first_name = request.POST.get("first_name", user.first_name)
+        last_name = request.POST.get("last_name", user.last_name)
+        phone_number = request.POST.get("phone_number", profile.phone_number)
+        bio = request.POST.get("bio", profile.bio)
+        address = request.POST.get("address", profile.address)
+        birth_date = request.POST.get("birth_date") or None
+        sex = request.POST.get("sex") or None
+        role = request.POST.get("role", profile.role)
+        driver_license = request.FILES.get("driver_license")
+        profile_picture = request.FILES.get("profile_picture")
+
+        errors = []
+
+        if not first_name:
+            errors.append(_("First name is required."))
+        if not last_name:
+            errors.append(_("Last name is required."))
+        if not phone_number:
+            errors.append(_("Phone number is required."))
+        if role == "provider" and not profile.driver_license and not driver_license:
+            errors.append(_("Driver license is required for providers."))
+
+        if errors:
+            return JsonResponse({"success": False, "errors": errors})
+
+        try:
+            with transaction.atomic():
+                user.first_name = first_name
+                user.last_name = last_name
+                user.save()
+
+                profile.phone_number = phone_number
+                profile.bio = bio
+                profile.address = address
+                profile.birth_date = birth_date
+                profile.sex = sex
+
+                if role and not profile.role:
+                    profile.role = role
+
+                if driver_license:
+                    profile.driver_license = driver_license
+
+                if profile_picture:
+                    profile.profile_picture = profile_picture
+
+                profile.save()
+
+            return JsonResponse(
+                {
+                    "success": True,
+                    "message": _("Profile updated successfully."),
+                    "redirect_url": reverse("user_auth:profile"),
+                }
+            )
+        except Exception as e:
+            return JsonResponse({"success": False, "errors": [str(e)]})
+
+    context = {
+        "profile": profile,
+        "role_choices": UserProfile.roleChoices.choices,
+        "sex_choices": UserProfile.sexChoices.choices,
+    }
+    return render(request, "user/profile.html", context)
+
+
+@login_required
+def upgrade_to_provider(request):
+    if request.method == "POST":
+        profile = request.user.profile
+        driver_license = request.FILES.get("driver_license")
+
+        if not driver_license:
+            return JsonResponse(
+                {"success": False, "errors": [_("Driver license is required.")]}
+            )
+
+        if profile.role == "provider":
+            return JsonResponse(
+                {"success": False, "errors": [_("You are already a provider.")]}
+            )
+
+        try:
+            profile.driver_license = driver_license
+            profile.role = "provider"
+            profile.is_approved = False
+            profile.save()
+
+            return JsonResponse(
+                {
+                    "success": True,
+                    "message": _(
+                        "Congratulations! Your account has been upgraded to Provider. Please wait for approval."
+                    ),
+                    "redirect_url": reverse("user_auth:profile"),
+                }
+            )
+        except Exception as e:
+            return JsonResponse({"success": False, "errors": [str(e)]})
+
+    return redirect("user_auth:profile")
+
+
+@login_required
+def delete_account(request):
+    if request.method == "POST":
+        user = request.user
+        try:
+            user.delete()
+            return JsonResponse(
+                {
+                    "success": True,
+                    "message": _("Your account has been deleted successfully."),
+                    "redirect_url": reverse("user_auth:login"),
+                }
+            )
+        except Exception as e:
+            return JsonResponse({"success": False, "errors": [str(e)]})
+
+    return redirect("user_auth:profile")

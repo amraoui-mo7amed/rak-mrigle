@@ -10,6 +10,10 @@ class UserProfile(models.Model):
         FEMALE = "female", _("Female")
         OTHER = "other", _("Other")
 
+    class roleChoices(models.TextChoices):
+        CUSTOMER = "customer", _("Customer")
+        PROVIDER = "provider", _("Provider")
+
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
@@ -27,6 +31,20 @@ class UserProfile(models.Model):
     )
     phone_number = models.CharField(_("Phone Number"), max_length=20, blank=True)
     address = models.CharField(_("Address"), max_length=255, blank=True)
+
+    role = models.CharField(
+        _("Role"),
+        max_length=20,
+        choices=roleChoices.choices,
+        blank=True,
+        null=True,
+    )
+    driver_license = models.ImageField(
+        _("Driver License"),
+        upload_to="driver_licenses/",
+        blank=True,
+        null=True,
+    )
 
     # System Fields
     is_approved = models.BooleanField(_("Is Approved"), default=False)

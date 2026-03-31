@@ -126,9 +126,9 @@
                                     {{ request.user.email }}
                                 </p>
                             </div>
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="far fa-user-circle text-muted"></i> {% trans "My Profile" %}</a>
-                            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center gap-2" href="{% url 'user_auth:profile' %}"><i class="far fa-user-circle text-muted"></i> {% trans "My Profile" %}</a>
+</li>
                             <li>
                                 <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="fas fa-cog text-muted"></i> {% trans "Settings" %}</a>
                             </li>

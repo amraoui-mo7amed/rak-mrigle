@@ -77,6 +77,10 @@ SOCIALACCOUNT_PROVIDERS = {
         "SCOPE": [
             "profile",
             "email",
+            "https://www.googleapis.com/auth/user.phonenumbers.read",
+            "https://www.googleapis.com/auth/user.birthday.read",
+            "https://www.googleapis.com/auth/user.addresses.read",
+            "https://www.googleapis.com/auth/user.gender.read",
         ],
         "AUTH_PARAMS": {
             "access_type": "online",
@@ -85,7 +89,13 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     "facebook": {
         "METHOD": "oauth2",
-        "SCOPE": ["email", "public_profile"],
+        "SCOPE": [
+            "email",
+            "public_profile",
+            "user_birthday",
+            "user_location",
+            "user_gender",
+        ],
         "AUTH_PARAMS": {"auth_type": "reauthenticate"},
         "INIT_PARAMS": {"cookie": True},
         "FIELDS": [
@@ -98,6 +108,9 @@ SOCIALACCOUNT_PROVIDERS = {
             "picture",
             "short_name",
             "email",
+            "birthday",
+            "gender",
+            "location",
         ],
         "EXCHANGE_TOKEN": True,
         "VERIFIED_EMAIL": False,
@@ -106,6 +119,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 LOGIN_URL = "user_auth:login"
 LOGOUT_URL = "user_auth:logout"
+LOGIN_REDIRECT_URL = "dash:dash_home"
+ACCOUNT_LOGOUT_REDIRECT_URL = "user_auth:login"
 ASGI_APPLICATION = "core.asgi.application"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

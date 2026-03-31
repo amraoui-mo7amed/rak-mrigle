@@ -124,3 +124,9 @@ def user_approve(request, pk):
             )
 
     return redirect("dash:user_details", pk=pk)
+
+
+def user_profile(request):
+    user = request.user
+    profile = get_object_or_404(UserProfile, user=user)
+    return render(request, "user/profile.html", {"user": user, "profile": profile})

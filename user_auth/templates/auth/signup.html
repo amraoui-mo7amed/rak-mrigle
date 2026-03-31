@@ -6,22 +6,19 @@
 
 {% get_current_language as current_lang %}
 {% get_current_language_bidi as IS_RTL %}
-
 {% block title %}
     {% trans "Create Account" %}
 {% endblock title %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/auth.css' %}?v={% now "U" %}" />
 {% endblock extra_css %}
-
-{% block nav %}{% endblock nav %}
-{% block sidebar %}{% endblock sidebar %}
-
+{% block nav %}
+{% endblock nav %}
+{% block sidebar %}
+{% endblock sidebar %}
 {% block body_class %}
     auth-page
 {% endblock body_class %}
-
 {% block content %}
     <div class="split-auth-container min-vh-100 d-flex flex-row w-100">
         <!-- 1. Branding Side -->
@@ -50,10 +47,8 @@
             </div>
         </div>
         <!-- 2. Form Side -->
-        <div class="auth-form-side w-65 bg-white p-4 p-md-5"
-             style="flex: 0 0 65%">
-            <div class="mx-auto" style="max-width: 780px;">
-
+        <div class="auth-form-side w-65 bg-white p-4 p-md-5" style="flex: 0 0 65%">
+            <div class="mx-auto" style="max-width: 780px;max-height:100%">
                 <div class="mb-4 text-center">
                     <h2 class="fw-bold text-dark-blue mb-1">
                         {% trans "Create Account" %}
@@ -62,14 +57,13 @@
                         {% trans "Join the leading marketplace for machinery and transport." %}
                     </p>
                 </div>
-
-
                 {% include "partials/errorList.html" with form_id="signupForm" %}
 
                 <form method="post"
                       action="{% url 'user_auth:signup' %}"
                       class="form"
-                      id="signupForm">
+                      id="signupForm"
+                      enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row g-4">
                         <!-- First & Last Name -->
@@ -113,7 +107,6 @@
                                    name="phone_number"
                                    placeholder="+213 600 000 000" />
                         </div>
-
                         <!-- Password Fields -->
                         <div class="col-md-6">
                             <label class="form-label">
@@ -128,7 +121,8 @@
                                 <button type="button"
                                         class="btn btn-transparent position-absolute top-50 translate-middle-y border-0 shadow-none"
                                         onclick="togglePassword('password')"
-                                        style="z-index: 10; padding: 0 12px;">
+                                        style="z-index: 10;
+                                               padding: 0 12px">
                                     <i class="fas fa-eye small text-muted"></i>
                                 </button>
                             </div>
@@ -146,13 +140,51 @@
                                 <button type="button"
                                         class="btn btn-transparent position-absolute top-50 translate-middle-y border-0 shadow-none"
                                         onclick="togglePassword('confirm_password')"
-                                        style="z-index: 10; padding: 0 12px;">
+                                        style="z-index: 10;
+                                               padding: 0 12px">
                                     <i class="fas fa-eye small text-muted"></i>
                                 </button>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-12">
+                            <label class="form-label">
+                                {% trans "I want to register as" %}
+                            </label>
+                            <div class="role-selector">
+                                <div class="role-option" data-value="customer">
+                                    <input type="radio"
+                                           name="role"
+                                           value="customer"
+                                           id="role_customer"
+                                           class="d-none" />
+                                    <label for="role_customer" class="role-label">
+                                        <i class="fas fa-user role-icon"></i>
+                                        <span>{% trans "Customer" %}</span>
+                                        <small>{% trans "I need machinery or transport services" %}</small>
+                                    </label>
+                                </div>
+                                <div class="role-option" data-value="provider">
+                                    <input type="radio"
+                                           name="role"
+                                           value="provider"
+                                           id="role_provider"
+                                           class="d-none" />
+                                    <label for="role_provider" class="role-label">
+                                        <i class="fas fa-truck role-icon"></i>
+                                        <span>{% trans "Provider" %}</span>
+                                        <small>{% trans "I offer machinery or transport services" %}</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 driver-license-field" style="display: none;">
+                            <label class="form-label">
+                                {% trans "Driver License" %}
+                            </label>
+                            {% include "partials/custom_file_input.html" with id="driver_license" name="driver_license" placeholder=_("Upload your driver license") accept="image/*,.pdf" required=True %}
 
+                        </div>
+                    </div>
                     <div class="mt-4">
                         <button type="submit"
                                 class="btn btn-dark-blue w-100 py-2 fw-bold text-uppercase shadow-sm">
@@ -168,45 +200,37 @@
                             </a>
                         </p>
                     </div>
+                    <div class="social-divider">
+                        <span>{% trans "OR" %}</span>
+                    </div>
+                    <!-- Social Signup -->
+                    <div class="social-login-container mb-4"
+                         data-not-configured-title="{% trans 'Not Configured' %}"
+                         data-not-configured-text="{% trans 'Social login is not yet configured. Please contact the administrator.' %}"
+                         data-ok-text="{% trans 'OK' %}">
+                        <a href="{% safe_provider_login_url "google" %}"
+                           class="btn-social btn-google"
+                           data-provider="google">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                 alt="Google" />
+                            <span>{% trans "Continue with Google" %}</span>
+                        </a>
+                        <a href="{% safe_provider_login_url "facebook" %}"
+                           class="btn-social btn-facebook"
+                           data-provider="facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>{% trans "Continue with Facebook" %}</span>
+                        </a>
+                    </div>
                 </form>
-
-                <div class="social-divider">
-                    <span>{% trans "OR" %}</span>
-                </div>
-                <!-- Social Signup -->
-                <div class="social-login-container mb-4">
-                    <a href="{% safe_provider_login_url "google" %}" class="btn-social btn-google" onclick="return checkSocialLogin(this)">
-                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
-                        <span>{% trans "Continue with Google" %}</span>
-                    </a>
-                    <a href="{% safe_provider_login_url "facebook" %}" class="btn-social btn-facebook" onclick="return checkSocialLogin(this)">
-                        <i class="fab fa-facebook-f"></i>
-                        <span>{% trans "Continue with Facebook" %}</span>
-                    </a>
-                </div>
-
             </div>
         </div>
     </div>
 {% endblock content %}
-
 {% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{% static 'js/auth.js' %}?v={% now "U" %}"></script>
-    <script>
-        function checkSocialLogin(el) {
-            if (el.getAttribute('href') === '#') {
-                Swal.fire({
-                    icon: 'warning',
-                    title: '{% trans "Not Configured" %}',
-                    text: '{% trans "Social login is not yet configured. Please contact the administrator." %}',
-                    confirmButtonText: '{% trans "OK" %}'
-                });
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <script src="{% static 'js/signup.js' %}?v={% now "U" %}"></script>
 {% endblock extra_js %}
-
 {% block footer %}
 {% endblock footer %}

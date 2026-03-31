@@ -1,0 +1,380 @@
+{% extends "dash/dash_index.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block dashTitle %}
+    {% trans "My Profile" %}
+{% endblock dashTitle %}
+{% block extra_css %}
+    <link rel="stylesheet"
+          href="{% static 'css/profile.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+{% block dashContent %}
+    {% get_current_language_bidi as IS_RTL %}
+    {% include "partials/errorList.html" with form_id="profileForm" %}
+
+    {% if not profile.phone_number %}
+        <div class="alert alert-warning alert-dismissible fade show mb-4"
+             role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <strong>{% trans "Complete your profile!" %}</strong> {% trans "Please add your phone number to continue using the platform." %}
+        </div>
+    {% endif %}
+    <div class="profile-container">
+        <div class="profile-header-card">
+            <div class="profile-cover">
+            </div>
+            <div class="profile-avatar-section">
+                <div class="profile-avatar-wrapper">
+                    {% if profile.profile_picture %}
+                        <img src="{{ profile.profile_picture.url }}"
+                             alt="{{ request.user.get_full_name }}"
+                             class="profile-avatar" />
+                    {% else %}
+                        <div class="profile-avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    {% endif %}
+                    <label for="profile_picture"
+                           class="avatar-upload-btn"
+                           title="{% trans 'Change photo' %}">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name">
+                        {{ request.user.get_full_name|default:request.user.username }}
+                    </h2>
+                    <p class="profile-email">
+                        {{ request.user.email }}
+                    </p>
+                    {% if request.user.is_superuser %}
+                        <span class="profile-role-badge admin">
+                            <i class="fas fa-shield-alt"></i> {% trans "Administrator" %}
+                        </span>
+                    {% elif profile.role %}
+                        <span class="profile-role-badge {% if profile.role == 'provider' %}provider{% else %}customer{% endif %}">
+                            {% if profile.role == 'provider' %}
+                                <i class="fas fa-truck"></i> {% trans "Provider" %}
+                            {% else %}
+                                <i class="fas fa-user"></i> {% trans "Customer" %}
+                            {% endif %}
+                        </span>
+                    {% else %}
+                        <span class="profile-role-badge not-set">
+                            <i class="fas fa-question-circle"></i> {% trans "Role not set" %}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-8">
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-user-edit me-2"></i>{% trans "Personal Information" %}
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post"
+                              action="{% url 'user_auth:profile' %}"
+                              class="form"
+                              id="profileForm"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file"
+                                   name="profile_picture"
+                                   id="profile_picture"
+                                   class="d-none"
+                                   accept="image/*" />
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        {% trans "First Name" %} <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control industrial-input"
+                                           name="first_name"
+                                           value="{{ request.user.first_name }}"
+                                           required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        {% trans "Last Name" %} <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control industrial-input"
+                                           name="last_name"
+                                           value="{{ request.user.last_name }}"
+                                           required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        {% trans "Email" %}
+                                    </label>
+                                    <input type="email"
+                                           class="form-control industrial-input"
+                                           value="{{ request.user.email }}"
+                                           disabled />
+                                    <small class="text-muted">{% trans "Email cannot be changed" %}</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        {% trans "Phone Number" %} <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="tel"
+                                           class="form-control industrial-input"
+                                           name="phone_number"
+                                           value="{{ profile.phone_number }}"
+                                           placeholder="+213 600 000 000"
+                                           required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        {% trans "Birth Date" %}
+                                    </label>
+                                    <input type="date"
+                                           class="form-control industrial-input"
+                                           name="birth_date"
+                                           value="{{ profile.birth_date|date:'Y-m-d' }}" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        {% trans "Sex" %}
+                                    </label>
+                                    <select class="form-control industrial-input" name="sex">
+                                        <option value="">
+                                            -- {% trans "Select" %} --
+                                        </option>
+                                        {% for value, label in sex_choices %}
+                                            <option value="{{ value }}" {% if profile.sex == value %}selected{% endif %}>
+                                                {{ label }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">
+                                        {% trans "Address" %}
+                                    </label>
+                                    <input type="text"
+                                           class="form-control industrial-input"
+                                           name="address"
+                                           value="{{ profile.address }}"
+                                           placeholder="{% trans 'Your address' %}" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">
+                                        {% trans "Bio" %}
+                                    </label>
+                                    <textarea class="form-control industrial-input"
+                                              name="bio"
+                                              rows="3"
+                                              placeholder="{% trans 'Tell us about yourself...' %}">{{ profile.bio }}</textarea>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-dark-blue px-4">
+                                    <i class="fas fa-save me-2"></i>{% trans "Save Changes" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% if profile.role == 'customer' and not request.user.is_superuser %}
+                    <div class="profile-card upgrade-card">
+                        <div class="card-header bg-gradient-warning">
+                            <h5>
+                                <i class="fas fa-arrow-up me-2"></i>{% trans "Become a Service Provider" %}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted mb-3">
+                                {% trans "Upgrade your account to start offering machinery and transport services on the platform." %}
+                            </p>
+                            <ul class="upgrade-benefits mb-3">
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>{% trans "List your vehicles and machinery" %}
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>{% trans "Receive booking requests" %}
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>{% trans "Manage your availability" %}
+                                </li>
+                                <li>
+                                    <i class="fas fa-check text-success me-2"></i>{% trans "Track your earnings" %}
+                                </li>
+                            </ul>
+                            <form method="post"
+                                  action="{% url 'user_auth:upgrade_to_provider' %}"
+                                  class="form"
+                                  id="upgradeForm"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="driver-license-upgrade mb-3">
+                                    <label class="form-label">
+                                        {% trans "Upload Driver License" %} <span class="text-danger">*</span>
+                                    </label>
+                                    {% include "partials/custom_file_input.html" with id="driver_license_upgrade" name="driver_license" placeholder=_("Upload your driver license") accept="image/*,.pdf" required=True %}
+
+                                </div>
+                                <button type="submit" class="btn btn-warning w-100">
+                                    <i class="fas fa-rocket me-2"></i>{% trans "Upgrade to Provider" %}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                {% if not profile.role %}
+                    <div class="profile-card role-selection-card">
+                        <div class="card-header">
+                            <h5>
+                                <i class="fas fa-user-tag me-2"></i>{% trans "Select Your Role" %}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted small mb-3">
+                                {% trans "Choose how you want to use the platform:" %}
+                            </p>
+                            <form method="post"
+                                  action="{% url 'user_auth:profile' %}"
+                                  class="form"
+                                  id="roleForm"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="role-selector-vertical">
+                                    <div class="role-option-card" data-value="customer">
+                                        <input type="radio"
+                                               name="role"
+                                               value="customer"
+                                               id="role_customer_profile"
+                                               class="d-none" />
+                                        <label for="role_customer_profile" class="role-card-label">
+                                            <i class="fas fa-user role-icon"></i>
+                                            <div class="role-content">
+                                                <span class="role-title">{% trans "Customer" %}</span>
+                                                <small>{% trans "I need services" %}</small>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="role-option-card" data-value="provider">
+                                        <input type="radio"
+                                               name="role"
+                                               value="provider"
+                                               id="role_provider_profile"
+                                               class="d-none" />
+                                        <label for="role_provider_profile" class="role-card-label">
+                                            <i class="fas fa-truck role-icon"></i>
+                                            <div class="role-content">
+                                                <span class="role-title">{% trans "Provider" %}</span>
+                                                <small>{% trans "I offer services" %}</small>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="driver-license-section mt-3" style="display: none;">
+                                    <label class="form-label">
+                                        {% trans "Driver License" %} <span class="text-danger">*</span>
+                                    </label>
+                                    {% include "partials/custom_file_input.html" with id="driver_license_profile" name="driver_license" placeholder=_("Upload your driver license") accept="image/*,.pdf" %}
+
+                                </div>
+                                <button type="submit" class="btn btn-accent w-100 mt-3">
+                                    <i class="fas fa-check me-2"></i>{% trans "Confirm Role" %}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h5>
+                                <i class="fas fa-info-circle me-2"></i>{% trans "Account Status" %}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="account-status-list">
+                                <li>
+                                    <span class="status-label">{% trans "Role" %}</span>
+                                    <span class="status-value">
+                                        {% if profile.role == 'provider' %}
+                                            <span class="badge bg-warning text-dark"><i class="fas fa-truck me-1"></i>{% trans "Provider" %}</span>
+                                        {% elif request.user.is_superuser %}
+                                            <span class="badge bg-danger"><i class="fas fa-shield-alt me-1"></i>{% trans "Administrator" %}</span>
+                                        {% else %}
+                                            <span class="badge bg-primary"><i class="fas fa-user me-1"></i>{% trans "Customer" %}</span>
+                                        {% endif %}
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="status-label">{% trans "Account Status" %}</span>
+                                    <span class="status-value">
+                                        {% if profile.is_approved %}
+                                            <span class="badge bg-success"><i class="fas fa-check me-1"></i>{% trans "Approved" %}</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary"><i class="fas fa-clock me-1"></i>{% trans "Pending" %}</span>
+                                        {% endif %}
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="status-label">{% trans "Member Since" %}</span>
+                                    <span class="status-value">{{ profile.created_at|date:"d M Y" }}</span>
+                                </li>
+                                {% if profile.birth_date %}
+                                    <li>
+                                        <span class="status-label">{% trans "Birth Date" %}</span>
+                                        <span class="status-value">{{ profile.birth_date|date:"d M Y" }}</span>
+                                    </li>
+                                {% endif %}
+                                {% if profile.driver_license %}
+                                    <li>
+                                        <span class="status-label">{% trans "Driver License" %}</span>
+                                        <span class="status-value">
+                                            <a href="{{ profile.driver_license.url }}"
+                                               target="_blank"
+                                               class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-file-pdf me-1"></i>{% trans "View" %}
+                                            </a>
+                                        </span>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if not request.user.is_superuser %}
+                    <div class="profile-card danger-zone">
+                        <div class="card-header">
+                            <h5>
+                                <i class="fas fa-exclamation-triangle me-2"></i>{% trans "Danger Zone" %}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted small mb-3">
+                                {% trans "Once you delete your account, there is no going back. Please be certain." %}
+                            </p>
+                            <button type="button"
+                                    class="btn btn-outline-danger"
+                                    id="deleteAccountBtn"
+                                    data-delete-url="{% url 'user_auth:delete_account' %}"
+                                    data-confirm-title="{% trans 'Delete Account' %}"
+                                    data-confirm-text="{% trans 'Are you sure you want to delete your account? This action cannot be undone.' %}"
+                                    data-confirm-button="{% trans 'Yes, delete my account' %}"
+                                    data-cancel-button="{% trans 'Cancel' %}">
+                                <i class="fas fa-trash me-2"></i>{% trans "Delete My Account" %}
+                            </button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock dashContent %}
+{% block extra_js %}
+    <script src="{% static 'js/profile.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

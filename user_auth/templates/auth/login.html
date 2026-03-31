@@ -126,37 +126,33 @@
                     <span>{% trans "OR" %}</span>
                 </div>
                 <!-- Social Login -->
-                <div class="social-login-container mb-4">
-                    <a href="{% safe_provider_login_url "google" %}" class="btn-social btn-google" onclick="return checkSocialLogin(this)">
-                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
-                        <span>{% trans "Continue with Google" %}</span>
-                    </a>
-                    <a href="{% safe_provider_login_url "facebook" %}" class="btn-social btn-facebook" onclick="return checkSocialLogin(this)">
-                        <i class="fab fa-facebook-f"></i>
-                        <span>{% trans "Continue with Facebook" %}</span>
-                    </a>
-                </div>
+<div class="social-login-container mb-4"
+data-not-configured-title="{% trans 'Not Configured' %}"
+data-not-configured-text="{% trans 'Social login is not yet configured. Please contact the administrator.' %}"
+data-ok-text="{% trans 'OK' %}">
+<a href="{% safe_provider_login_url "google" %}"
+class="btn-social btn-google"
+data-provider="google">
+<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+alt="Google" />
+<span>{% trans "Continue with Google" %}</span>
+</a>
+<a href="{% safe_provider_login_url "facebook" %}"
+class="btn-social btn-facebook"
+data-provider="facebook">
+<i class="fab fa-facebook-f"></i>
+<span>{% trans "Continue with Facebook" %}</span>
+</a>
+</div>
 
             </div>
         </div>
     </div>
 {% endblock content %}
 {% block extra_js %}
-    <script src="{% static 'js/auth.js' %}?v={% now "U" %}"></script>
-    <script>
-        function checkSocialLogin(el) {
-            if (el.getAttribute('href') === '#') {
-                Swal.fire({
-                    icon: 'warning',
-                    title: '{% trans "Not Configured" %}',
-                    text: '{% trans "Social login is not yet configured. Please contact the administrator." %}',
-                    confirmButtonText: '{% trans "OK" %}'
-                });
-                return false;
-            }
-            return true;
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/auth.js' %}?v={% now "U" %}"></script>
+<script src="{% static 'js/login.js' %}?v={% now "U" %}"></script>
 {% endblock extra_js %}
 {% block footer %}
 {% endblock footer %}

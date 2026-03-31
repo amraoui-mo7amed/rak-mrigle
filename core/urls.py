@@ -19,10 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 from user_auth import views as user_views
 import django_eventstream
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    # path("admin/", admin.site.urls),
     path("auth/", include("user_auth.urls", namespace="user_auth")),
     path("accounts/", include("allauth.urls")),
     path("dashboard/", include("dashboard.urls", namespace="dash")),
@@ -31,3 +33,6 @@ urlpatterns = [
     # Notifications API
     path("events/", include(django_eventstream.urls)),
 ]
+
+if settings.DEBUG: 
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
