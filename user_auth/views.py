@@ -154,7 +154,7 @@ def profile_view(request):
         bio = request.POST.get("bio", profile.bio)
         address = request.POST.get("address", profile.address)
         birth_date = request.POST.get("birth_date") or None
-        sex = request.POST.get("sex") or None
+        sex = request.POST.get("sex") if not profile.sex else profile.sex
         role = request.POST.get("role", profile.role)
         driver_license = request.FILES.get("driver_license")
         profile_picture = request.FILES.get("profile_picture")

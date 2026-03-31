@@ -140,21 +140,30 @@
                                            name="birth_date"
                                            value="{{ profile.birth_date|date:'Y-m-d' }}" />
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">
-                                        {% trans "Sex" %}
-                                    </label>
-                                    <select class="form-control industrial-input" name="sex">
-                                        <option value="">
-                                            -- {% trans "Select" %} --
-                                        </option>
-                                        {% for value, label in sex_choices %}
-                                            <option value="{{ value }}" {% if profile.sex == value %}selected{% endif %}>
-                                                {{ label }}
-                                            </option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
+<div class="col-md-6">
+<label class="form-label">
+{% trans "Sex" %}
+</label>
+{% if profile.sex %}
+<input type="text"
+class="form-control industrial-input"
+value="{{ profile.get_sex_display }}"
+disabled />
+<input type="hidden" name="sex" value="{{ profile.sex }}" />
+<small class="text-muted">{% trans "Sex cannot be changed" %}</small>
+{% else %}
+<select class="form-control industrial-input" name="sex">
+<option value="">
+-- {% trans "Select" %} --
+</option>
+{% for value, label in sex_choices %}
+<option value="{{ value }}" {% if profile.sex == value %}selected{% endif %}>
+{{ label }}
+</option>
+{% endfor %}
+</select>
+{% endif %}
+</div>
                                 <div class="col-12">
                                     <label class="form-label">
                                         {% trans "Address" %}
