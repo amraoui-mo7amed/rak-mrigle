@@ -32,10 +32,13 @@
             <aside id="sidebar" class="sidebar">
                 <div class="sidebar-header">
                     {% if site_config.logo %}
-                        <img src="{{ site_config.logo }}" alt="{{ site_config.name }} Logo" class="sidebar-logo me-2" />
+                        <img src="{{ site_config.logo }}"
+                             alt="{{ site_config.name }} Logo"
+                             class="sidebar-logo me-2" />
                     {% else %}
                         <div class="me-2">
                             {% include "components/logo.html" with size=40 icon_size=24 %}
+
                         </div>
                     {% endif %}
                     <div class="sidebar-brand-text">
@@ -46,8 +49,8 @@
                                 {{ site_config.name }}
                             {% endif %}
                         </h5>
-                        <p class="text-light small mb-0" style="font-size: 0.7rem;">
-                            {{ site_config.tagline }}
+                        <p class="text-light small mb-0 text-truncate" style="font-size: 0.7rem;">
+                            {% trans "Manage your account and services" %}
                         </p>
                     </div>
                 </div>
@@ -63,7 +66,6 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-
                     <div class="mt-auto p-3 border-top border-white-10">
                         <a href="{% url "user_auth:logout" %}"
                            class="btn btn-outline-danger w-100 border-0 d-flex align-items-center justify-content-center gap-2 py-2 rounded-3"
@@ -96,12 +98,20 @@
                         <a href="#"
                            class="d-flex align-items-center gap-2 text-decoration-none text-dark dropdown-toggle no-caret user-dropdown-trigger"
                            data-bs-toggle="dropdown">
-                            <div class="avatar-circle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
-                                 style="width: 38px;
-                                        height: 38px;
-                                        font-size: 0.9rem">
-                                {{ request.user.username|slice:":1"|upper }}
-                            </div>
+                            {% if request.user.profile.profile_picture %}
+                                <img src="{{ request.user.profile.profile_picture.url }}"
+                                     class="avatar-circle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                     style="width: 38px;
+                                            height: 38px;
+                                            font-size: 0.9rem" />
+                            {% else %}
+                                <div class="avatar-circle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                     style="width: 38px;
+                                            height: 38px;
+                                            font-size: 0.9rem">
+                                    {{ request.user.username|slice:":1"|upper }}
+                                </div>
+                            {% endif %}
                             <div class="d-none d-md-block">
                                 <p class="small fw-bold mb-0 leading-tight">
                                     {{ request.user.get_full_name|default:request.user.username }}
@@ -110,7 +120,7 @@
                                     {% if request.user.is_superuser %}
                                         {% trans "Administrator" %}
                                     {% else %}
-                                        {{ request.user.profile.activity_type|title|default:_("User") }}
+                                        {{ request.user.profile.get_role_display|default:_("User") }}
                                     {% endif %}
                                 </p>
                             </div>
@@ -126,9 +136,10 @@
                                     {{ request.user.email }}
                                 </p>
                             </div>
-<li>
-<a class="dropdown-item d-flex align-items-center gap-2" href="{% url 'user_auth:profile' %}"><i class="far fa-user-circle text-muted"></i> {% trans "My Profile" %}</a>
-</li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center gap-2"
+                                   href="{% url 'user_auth:profile' %}"><i class="far fa-user-circle text-muted"></i> {% trans "My Profile" %}</a>
+                            </li>
                             <li>
                                 <a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="fas fa-cog text-muted"></i> {% trans "Settings" %}</a>
                             </li>

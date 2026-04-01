@@ -24,30 +24,51 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    if (profilePictureInput) {
-        profilePictureInput.addEventListener("change", function () {
-            if (this.files && this.files.length > 0) {
-                var form = document.getElementById("profileForm");
-                var formData = new FormData(form);
-                formData.set("profile_picture", this.files[0]);
+if (profilePictureInput) {
+profilePictureInput.addEventListener("change", function () {
+if (this.files && this.files.length > 0) {
+var file = this.files[0];
+var reader = new FileReader();
 
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", form.action);
-                xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-                xhr.setRequestHeader("X-CSRFToken", form.querySelector('[name=csrfmiddlewaretoken]').value);
+reader.onload = function (e) {
+var avatarWrapper = document.querySelector(".profile-avatar-wrapper");
+var existingImg = avatarWrapper.querySelector(".profile-avatar");
+var placeholder = avatarWrapper.querySelector(".profile-avatar-placeholder");
 
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText);
-                        if (response.success) {
-                            location.reload();
-                        }
-                    }
-                };
-                xhr.send(formData);
-            }
-        });
-    }
+if (existingImg) {
+existingImg.src = e.target.result;
+} else if (placeholder) {
+var newImg = document.createElement("img");
+newImg.src = e.target.result;
+newImg.alt = "Profile Picture";
+newImg.className = "profile-avatar";
+placeholder.parentNode.replaceChild(newImg, placeholder);
+}
+};
+
+reader.readAsDataURL(file);
+
+var form = document.getElementById("profileForm");
+var formData = new FormData(form);
+formData.set("profile_picture", file);
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", form.action);
+xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+xhr.setRequestHeader("X-CSRFToken", form.querySelector('[name=csrfmiddlewaretoken]').value);
+
+xhr.onload = function () {
+if (xhr.status === 200) {
+var response = JSON.parse(xhr.responseText);
+if (response.success) {
+location.reload();
+}
+}
+};
+xhr.send(formData);
+}
+});
+}
 
     if (deleteAccountBtn) {
         deleteAccountBtn.addEventListener("click", function (e) {

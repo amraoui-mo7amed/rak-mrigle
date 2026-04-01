@@ -9,6 +9,9 @@ from django.urls import reverse
 from dashboard.utils import send_account_activation_email
 from dashboard.decorator import admin_required
 from django.db import transaction
+from django.contrib.auth import get_user_model
+
+userModel = get_user_model()
 
 
 @admin_required
@@ -16,8 +19,10 @@ def user_list(request):
     query = request.GET.get("q", "")
     status = request.GET.get("status", "")
 
+    users = userModel.objects.exclude(is_superuser=True)
+
     profiles_list = (
-        UserProfile.objects.select_related("user").all().order_by("-created_at")
+        UserProfile.objects.select_related("user").filter(user__in=users).order_by("-created_at")
     )
 
     if query:

@@ -8,9 +8,9 @@ def site_settings(request):
     """
     return {
         "site_config": {
-            "name": _("Rak-Mrigle"),
+            "name": _("Rak-Mrigel"),
             "ar_name": "راك مريقل",
-            "tagline": _("Heavy Machinery & Transport Marketplace"),
+            "tagline": _("Transport Marketplace & Heavy Machinery "),
             "logo": "/static/icons/rak_mrigle_square.png",
             "favicon": "/static/icons/rak_mrigle_square.png",
             "contact_email": "contact@rak-mrigle.com",
