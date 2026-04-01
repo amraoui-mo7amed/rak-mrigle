@@ -6,6 +6,8 @@ from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.db import transaction
+from dashboard.utils import notify_user
+from django.contrib.auth import get_user_model
 
 from .models import UserProfile
 from .utils import (
@@ -13,6 +15,7 @@ from .utils import (
     user_profile_upload_path,
 )
 
+userModel = get_user_model()
 
 def login_view(request):
     if request.user.is_authenticated:
@@ -67,8 +70,6 @@ def signup_view(request):
         password = request.POST.get("password")
         confirm_password = request.POST.get("confirm_password")
         phone_number = request.POST.get("phone_number", "")
-        sex = request.POST.get("sex")
-        birth_date = request.POST.get("birth_date") or None
         role = request.POST.get("role")
         driver_license = request.FILES.get("driver_license")
 
@@ -108,21 +109,24 @@ def signup_view(request):
             }
             profile_data = {
                 "phone_number": phone_number,
-                "sex": sex,
-                "birth_date": birth_date,
             }
 
-            user = create_user_account(
-                user_data, profile_data, None, role=role, driver_license=driver_license
-            )
+            with transaction.atomic():
+                admins = userModel.objects.filter(is_superuser=True)
+                user = create_user_account(
+                    user_data, profile_data, None, role=role, driver_license=driver_license
+                )
 
-            return JsonResponse(
-                {
-                    "success": True,
-                    "message": _("Your account has been created successfully."),
-                    "redirect_url": reverse("user_auth:login"),
-                }
-            )
+                for admin in admins:
+                    notify_user(admins, _("New user has been created, please review it .", link=reverse("dash:user_details", pk=user.profile.pk)))
+
+                return JsonResponse(
+                    {
+                        "success": True,
+                        "message": _("Your account has been created successfully."),
+                        "redirect_url": reverse("user_auth:login"),
+                    }
+                )
         except Exception as e:
             return JsonResponse({"success": False, "errors": [str(e)]})
 
@@ -130,7 +134,6 @@ def signup_view(request):
         request,
         "auth/signup.html",
         {
-            "sex_choices": UserProfile.sexChoices.choices,
             "role_choices": UserProfile.roleChoices.choices,
         },
     )

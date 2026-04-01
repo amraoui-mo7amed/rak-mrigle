@@ -5,6 +5,11 @@ from django.db.transaction import atomic
 from django.urls import reverse
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from .models import UserProfile
+from django.contrib.auth import get_user_model
+from dashboard.utils import notify_user
+from django.utils.translation import gettext_lazy as _
+
+userModel = get_user_model()
 
 
 class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
@@ -34,30 +39,37 @@ class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
             profile_picture = self.get_profile_picture(data, provider, user)
 
             with atomic():
-                user.first_name = data.get("given_name", "") or data.get(
-                    "first_name", ""
-                )
-                user.last_name = data.get("family_name", "") or data.get(
-                    "last_name", ""
-                )
-                user.save()
+                try:
+                    user.first_name = data.get("given_name", "") or data.get(
+                        "first_name", ""
+                    )
+                    user.last_name = data.get("family_name", "") or data.get(
+                        "last_name", ""
+                    )
+                    user.save()
 
-                profile, created = UserProfile.objects.get_or_create(
-                    user=user,
-                    defaults={
-                        "phone_number": phone_number or "",
-                        "sex": gender,
-                        "birth_date": birth_date,
-                        "address": address,
-                        "is_approved": True,
-                        "role": "customer",
-                    },
-                )
+                    profile, created = UserProfile.objects.get_or_create(
+                        user=user,
+                        defaults={
+                            "phone_number": phone_number or "",
+                            "sex": gender,
+                            "birth_date": birth_date,
+                            "address": address,
+                            "is_approved": True,
+                            "role": "customer",
+                        },
+                    )
 
-                if profile_picture:
-                    profile.profile_picture = profile_picture
-                    profile.save()
+                    if profile_picture:
+                        profile.profile_picture = profile_picture
+                        profile.save()
 
+                    # Notify Admins 
+                    admins = userModel.objects.filter(is_superuser=True)
+                    for admin in admins:
+                        notify_user(admins, _("New user has been created, please review it ."), link=reverse("dash:user_details", kwargs={"pk":user.profile.pk}))
+                except Exception as e:
+                    print(f"Error creating user profile: {e}")
         return user
 
     def get_google_profile_data(self, access_token):
