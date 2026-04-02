@@ -67,7 +67,8 @@ class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
                     # Notify Admins 
                     admins = userModel.objects.filter(is_superuser=True)
                     for admin in admins:
-                        notify_user(admins, _("New user has been created, please review it ."), link=reverse("dash:user_details", kwargs={"pk":user.profile.pk}))
+                        notify_user(admin, str(_("تم تسجيل مستخدم جديد" )), str(_("تم تسجيل مستخدم جديد, يرجى مراجعته")), link=reverse("dash:user_details", kwargs={"pk":user.profile.pk}))
+                        notify_user(admin, str(_("New user has been created")),  str(_("New user has been created, please review it .")), link=reverse("dash:user_details", kwargs={"pk":user.profile.pk}))
                 except Exception as e:
                     print(f"Error creating user profile: {e}")
         return user

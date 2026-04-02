@@ -10,6 +10,7 @@ from dashboard.utils import send_account_activation_email
 from dashboard.decorator import admin_required
 from django.db import transaction
 from django.contrib.auth import get_user_model
+from dashboard.utils import notify_user
 
 userModel = get_user_model()
 
@@ -19,26 +20,26 @@ def user_list(request):
     query = request.GET.get("q", "")
     status = request.GET.get("status", "")
 
-    users = userModel.objects.exclude(is_superuser=True)
-
-    profiles_list = (
-        UserProfile.objects.select_related("user").filter(user__in=users).order_by("-created_at")
+    users_list = (
+        userModel.objects.select_related("profile")
+        .exclude(is_superuser=True)
+        .order_by("-date_joined")
     )
 
     if query:
-        profiles_list = profiles_list.filter(
-            Q(user__email__icontains=query)
-            | Q(user__username__icontains=query)
-            | Q(user__first_name__icontains=query)
-            | Q(user__last_name__icontains=query)
+        users_list = users_list.filter(
+            Q(email__icontains=query)
+            | Q(username__icontains=query)
+            | Q(first_name__icontains=query)
+            | Q(last_name__icontains=query)
         )
 
     if status:
         is_approved = status == "approved"
-        profiles_list = profiles_list.filter(is_approved=is_approved)
+        users_list = users_list.filter(profile__is_approved=is_approved)
 
     # Pagination
-    paginator = Paginator(profiles_list, 12)  # 12 users per page
+    paginator = Paginator(users_list, 12)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
@@ -56,7 +57,7 @@ def user_list(request):
 
     context = {
         "page_obj": page_obj,
-        "profiles": page_obj,  # Compatibility with template
+        "users": page_obj,
         "status_choices": status_choices,
         "query": query,
         "selected_status": status,
@@ -94,23 +95,25 @@ def user_delete(request, pk):
 @admin_required
 def user_approve(request, pk):
     profile = get_object_or_404(UserProfile, pk=pk)
+    user = get_object_or_404(userModel, pk=profile.user.pk)
     if request.method == "POST":
         try:
             with transaction.atomic():
                 profile.is_approved = True
                 profile.save()
 
-                # Send activation email
-                email_sent = send_account_activation_email(request, profile)
+                # Send notification email
+                notify_user(profile.user, str(_("طلب ترقية جديد")) , str(_("تم قبول طلب الترقية")))
+                notify_user(profile.user, str(_("New Provider Request")) , str(_("Your request to upgrade to provider has been approved.")))
 
-                if not email_sent:
-                    transaction.set_rollback(True)
-                    return JsonResponse(
+                return JsonResponse(
                         {
-                            "success": False,
+                            "success": True,
                             "message": _(
-                                "Failed to send activation email. Approval cancelled."
-                            ),
+                                "User %(name)s approved successfully."
+                            ) % {
+                                "name": profile.user.get_full_name() or profile.user.username
+                            },
                         }
                     )
 

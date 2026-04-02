@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-29 18:11+0100\n"
+"POT-Creation-Date: 2026-04-01 19:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: core/context_processors.py:11
-msgid "Rak-Mrigle"
+msgid "Rak-Mrigel"
 msgstr ""
 
 #: core/context_processors.py:13
-msgid "Heavy Machinery & Transport Marketplace"
+msgid "Transport Marketplace & Heavy Machinery "
 msgstr ""
 
 #: core/context_processors.py:25
@@ -33,25 +34,29 @@ msgstr ""
 msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
 msgstr ""
 
-#: core/settings.py:128
-msgid "English"
-msgstr ""
-
-#: core/settings.py:129
+#: core/settings.py:196
 msgid "العربية"
 msgstr ""
 
-#: core/settings.py:130
+#: core/settings.py:196
+msgid "English"
+msgstr ""
+
+#: core/settings.py:196
 msgid "French"
 msgstr ""
 
 #: dashboard/context_processors.py:11
-#: dashboard/templates/dash/dash_index.html:86 frontend/templates/home.html:22
+#: dashboard/templates/dash/dash_index.html:88 frontend/templates/home.html:21
 msgid "Dashboard"
 msgstr ""
 
 #: dashboard/context_processors.py:17
 msgid "users"
+msgstr ""
+
+#: dashboard/context_processors.py:23
+msgid "Social Auth"
 msgstr ""
 
 #: dashboard/models.py:11
@@ -159,75 +164,106 @@ msgstr ""
 msgid "New Entry"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:50
+msgid "Active Missions"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:52
+msgid "Total Revenue"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:54
+msgid "Pending KYC"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:56
+msgid "Fleet Size"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Sat"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Sun"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Mon"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Tue"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Wed"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Thu"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:80
+#: dashboard/templates/dash/dash_home.html:65
 msgid "Fri"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:86
+#: dashboard/templates/dash/dash_home.html:68
+msgid "Weekly Request volume"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:71
 msgid "Last 7 Days"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:89
+#: dashboard/templates/dash/dash_home.html:74
 msgid "Last 30 Days"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:120
-#: dashboard/templates/dash/dash_index.html:113
-#: dashboard/templates/users/list.html:101
-msgid "User"
+#: dashboard/templates/dash/dash_home.html:90
+msgid "Recent Activity"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:139
+#: dashboard/templates/dash/dash_home.html:101
+#: dashboard/templates/social_auth/list.html:101
 #: dashboard/templates/users/list.html:106
 msgid "Active"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:149
-#: dashboard/templates/dash/dash_home.html:151
-msgid "View Full List"
+#: dashboard/templates/dash/dash_home.html:113
+#: dashboard/templates/users/details.html:94 dashboard/views/dashboard.py:54
+msgid "Pending Approval"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:166
+#: dashboard/templates/dash/dash_home.html:125
+msgid "Settled"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:137
+msgid "Completed"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:143
+msgid "View All Operations"
+msgstr ""
+
+#: dashboard/templates/dash/dash_home.html:157
 msgid "Smart Insights"
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:169
+#: dashboard/templates/dash/dash_home.html:160
 msgid ""
 "System performance is optimal. All 5 services are running within expected "
 "latency bounds."
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:171
+#: dashboard/templates/dash/dash_home.html:162
 msgid ""
 "AI has detected a growth trend in your user engagement. Consider launching a "
 "new campaign to capitalize on this traffic."
 msgstr ""
 
-#: dashboard/templates/dash/dash_home.html:174
+#: dashboard/templates/dash/dash_home.html:165
 msgid "Take Action"
 msgstr ""
 
@@ -247,29 +283,138 @@ msgstr ""
 msgid "No notifications"
 msgstr ""
 
-#: dashboard/templates/dash/dash_index.html:72
-#: dashboard/templates/dash/dash_index.html:143
+#: dashboard/templates/dash/dash_index.html:53
+msgid "Manage your account and services"
+msgstr ""
+
+#: dashboard/templates/dash/dash_index.html:74
+#: dashboard/templates/dash/dash_index.html:154
 msgid "Logout"
 msgstr ""
 
-#: dashboard/templates/dash/dash_index.html:111
+#: dashboard/templates/dash/dash_index.html:121
+#: user_auth/templates/user/profile.html:54
+#: user_auth/templates/user/profile.html:317
 msgid "Administrator"
 msgstr ""
 
-#: dashboard/templates/dash/dash_index.html:130
+#: dashboard/templates/dash/dash_index.html:123
+#: dashboard/templates/users/list.html:101
+msgid "User"
+msgstr ""
+
+#: dashboard/templates/dash/dash_index.html:141
+#: user_auth/templates/user/profile.html:7
 msgid "My Profile"
 msgstr ""
 
-#: dashboard/templates/dash/dash_index.html:133
+#: dashboard/templates/dash/dash_index.html:144
 #: frontend/templates/index.html:110
 msgid "Settings"
 msgstr ""
 
-#: dashboard/templates/dash/dash_index.html:136
+#: dashboard/templates/dash/dash_index.html:147
 msgid "Help & Support"
 msgstr ""
 
-#: dashboard/templates/users/details.html:6
+#: dashboard/templates/social_auth/list.html:9
+msgid "Social Authentication"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:20
+msgid "Social Authentication Settings"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:21
+msgid "Configure OAuth providers for social login"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:27
+#: dashboard/templates/social_auth/list.html:150
+msgid "Add Provider"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:41
+msgid "Add Social Provider"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:52
+#: dashboard/templates/social_auth/list.html:177 user_auth/models.py:15
+#: user_auth/templates/auth/signup.html:174
+#: user_auth/templates/user/profile.html:59
+#: user_auth/templates/user/profile.html:283
+#: user_auth/templates/user/profile.html:315
+msgid "Provider"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:52
+msgid "Select a provider"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:56
+msgid "Display Name"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:58
+msgid "Optional display name"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:62
+#: dashboard/templates/social_auth/list.html:129
+#: dashboard/templates/social_auth/list.html:182
+msgid "Client ID"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:64
+msgid "OAuth Client ID"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:68
+#: dashboard/templates/social_auth/list.html:188
+msgid "Client Secret"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:70
+msgid "OAuth Client Secret"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:76
+#: dashboard/templates/social_auth/list.html:196
+#: dashboard/templates/users/details.html:27
+#: dashboard/templates/users/details.html:46
+#: user_auth/templates/user/profile.html:377
+msgid "Cancel"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:79
+msgid "Save Configuration"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:115
+msgid "Edit"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:121
+msgid "Delete"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:145
+msgid "No providers configured"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:146
+msgid "Add a social authentication provider to enable social login"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:165
+msgid "Edit Configuration"
+msgstr ""
+
+#: dashboard/templates/social_auth/list.html:199
+msgid "Update"
+msgstr ""
+
+#: dashboard/templates/users/details.html:7
 msgid "User Details"
 msgstr ""
 
@@ -290,11 +435,6 @@ msgstr ""
 msgid "Yes, approve!"
 msgstr ""
 
-#: dashboard/templates/users/details.html:27
-#: dashboard/templates/users/details.html:45
-msgid "Cancel"
-msgstr ""
-
 #: dashboard/templates/users/details.html:28
 msgid "Success!"
 msgstr ""
@@ -303,81 +443,87 @@ msgstr ""
 msgid "Approve User"
 msgstr ""
 
-#: dashboard/templates/users/details.html:42
+#: dashboard/templates/users/details.html:43
 msgid "Are you sure?"
 msgstr ""
 
-#: dashboard/templates/users/details.html:43
+#: dashboard/templates/users/details.html:44
 #, python-format
 msgid "You are about to delete %(name)s. This action cannot be undone!"
 msgstr ""
 
-#: dashboard/templates/users/details.html:44
+#: dashboard/templates/users/details.html:45
 msgid "Yes, delete it!"
 msgstr ""
 
-#: dashboard/templates/users/details.html:46
+#: dashboard/templates/users/details.html:47
 msgid "Deleted!"
 msgstr ""
 
-#: dashboard/templates/users/details.html:48
+#: dashboard/templates/users/details.html:49
 msgid "Delete User"
 msgstr ""
 
-#: dashboard/templates/users/details.html:73
+#: dashboard/templates/users/details.html:90
 #: dashboard/templates/users/list.html:75
+#: user_auth/templates/user/profile.html:306
+#: user_auth/templates/user/profile.html:324
 msgid "Account Status"
 msgstr ""
 
-#: dashboard/templates/users/details.html:75 dashboard/views/users.py:42
+#: dashboard/templates/users/details.html:92 dashboard/views/users.py:47
+#: user_auth/templates/user/profile.html:327
 msgid "Approved"
 msgstr ""
 
-#: dashboard/templates/users/details.html:77 dashboard/views/dashboard.py:54
-msgid "Pending Approval"
-msgstr ""
-
-#: dashboard/templates/users/details.html:81
+#: dashboard/templates/users/details.html:98
+#: user_auth/templates/user/profile.html:334
 msgid "Member Since"
 msgstr ""
 
-#: dashboard/templates/users/details.html:85
+#: dashboard/templates/users/details.html:102
 msgid "User ID"
 msgstr ""
 
-#: dashboard/templates/users/details.html:98
+#: dashboard/templates/users/details.html:114
 msgid "Detailed Information"
 msgstr ""
 
-#: dashboard/templates/users/details.html:104
+#: dashboard/templates/users/details.html:121
 #: dashboard/templates/users/list.html:133
-#: user_auth/templates/auth/signup.html:98
+#: user_auth/templates/auth/signup.html:93
+#: user_auth/templates/user/profile.html:115
 msgid "Email"
 msgstr ""
 
-#: dashboard/templates/users/details.html:108
-#: dashboard/templates/users/list.html:143 user_auth/models.py:28
-#: user_auth/templates/auth/signup.html:108
+#: dashboard/templates/users/details.html:129
+#: dashboard/templates/users/list.html:143 user_auth/models.py:32
+#: user_auth/templates/auth/signup.html:103
+#: user_auth/templates/user/profile.html:125
 msgid "Phone Number"
 msgstr ""
 
-#: dashboard/templates/users/details.html:112 user_auth/models.py:24
+#: dashboard/templates/users/details.html:137 user_auth/models.py:28
+#: user_auth/templates/user/profile.html:136
+#: user_auth/templates/user/profile.html:339
 msgid "Birth Date"
 msgstr ""
 
-#: dashboard/templates/users/details.html:116
+#: dashboard/templates/users/details.html:145
 msgid "Gender"
 msgstr ""
 
-#: dashboard/templates/users/details.html:123 user_auth/models.py:29
+#: dashboard/templates/users/details.html:154 user_auth/models.py:33
+#: user_auth/templates/user/profile.html:169
 msgid "Address"
 msgstr ""
 
-#: dashboard/templates/users/details.html:127 user_auth/models.py:23
+#: dashboard/templates/users/details.html:162 user_auth/models.py:27
+#: user_auth/templates/user/profile.html:179
 msgid "Bio"
 msgstr ""
 
-#: dashboard/templates/users/details.html:128
+#: dashboard/templates/users/details.html:165
 msgid "No bio provided."
 msgstr ""
 
@@ -421,7 +567,8 @@ msgstr ""
 msgid "Apply Filters"
 msgstr ""
 
-#: dashboard/templates/users/list.html:110 dashboard/views/users.py:43
+#: dashboard/templates/users/list.html:110 dashboard/views/users.py:48
+#: user_auth/templates/user/profile.html:329
 msgid "Pending"
 msgstr ""
 
@@ -530,194 +677,230 @@ msgstr ""
 msgid "Client Meeting"
 msgstr ""
 
-#: dashboard/views/users.py:41 dashboard/views/users.py:46
+#: dashboard/views/social_auth.py:49 dashboard/views/social_auth.py:104
+msgid "All fields are required."
+msgstr ""
+
+#: dashboard/views/social_auth.py:57
+msgid "A configuration for this provider already exists."
+msgstr ""
+
+#: dashboard/views/social_auth.py:74
+msgid "Social authentication configured successfully."
+msgstr ""
+
+#: dashboard/views/social_auth.py:83
+#, python-format
+msgid "Failed to create configuration: %(error)s"
+msgstr ""
+
+#: dashboard/views/social_auth.py:116
+msgid "Configuration updated successfully."
+msgstr ""
+
+#: dashboard/views/social_auth.py:125
+#, python-format
+msgid "Failed to update configuration: %(error)s"
+msgstr ""
+
+#: dashboard/views/social_auth.py:145
+#, python-format
+msgid "%(provider)s configuration deleted successfully."
+msgstr ""
+
+#: dashboard/views/social_auth.py:153
+#, python-format
+msgid "Failed to delete configuration: %(error)s"
+msgstr ""
+
+#: dashboard/views/users.py:46 dashboard/views/users.py:51
 msgid "All Status"
 msgstr ""
 
-#: dashboard/views/users.py:80
+#: dashboard/views/users.py:85
 #, python-format
 msgid "User %(name)s deleted successfully."
 msgstr ""
 
-#: dashboard/views/users.py:107
+#: dashboard/views/users.py:112
 msgid "Failed to send activation email. Approval cancelled."
 msgstr ""
 
-#: dashboard/views/users.py:113
+#: dashboard/views/users.py:118
 #, python-format
 msgid "User %(name)s approved successfully."
 msgstr ""
 
-#: dashboard/views/users.py:121
+#: dashboard/views/users.py:126
 #, python-format
 msgid "An error occurred during approval: %(error)s"
 msgstr ""
 
-#: frontend/templates/home.html:24 user_auth/templates/auth/login.html:8
+#: frontend/templates/home.html:23 user_auth/templates/auth/login.html:9
 msgid "Login"
 msgstr ""
 
-#: frontend/templates/home.html:25 frontend/templates/home.html:55
+#: frontend/templates/home.html:24 frontend/templates/home.html:54
 msgid "Get Started"
 msgstr ""
 
-#: frontend/templates/home.html:41
+#: frontend/templates/home.html:40
 msgid "The #1 Heavy Logistics Hub in Algeria"
 msgstr ""
 
-#: frontend/templates/home.html:51
+#: frontend/templates/home.html:50
 msgid ""
 "Connecting the construction industry with verified heavy machinery and "
 "specialized transport providers across all wilayas."
 msgstr ""
 
-#: frontend/templates/home.html:58
+#: frontend/templates/home.html:57
 msgid "Our Catalog"
 msgstr ""
 
-#: frontend/templates/home.html:76
+#: frontend/templates/home.html:75
 msgid "Tailored Industrial Solutions"
 msgstr ""
 
-#: frontend/templates/home.html:78
+#: frontend/templates/home.html:77
 msgid ""
 "Browse specialized categories designed to meet the demands of modern "
 "infrastructure and logistics."
 msgstr ""
 
-#: frontend/templates/home.html:86
+#: frontend/templates/home.html:85
 msgid "Transport & Utilities"
 msgstr ""
 
-#: frontend/templates/home.html:87
+#: frontend/templates/home.html:86
 msgid "From small utility vans to massive trailer trucks for heavy haulage."
 msgstr ""
 
-#: frontend/templates/home.html:89
+#: frontend/templates/home.html:88
 msgid "View Offers"
 msgstr ""
 
-#: frontend/templates/home.html:97
+#: frontend/templates/home.html:96
 msgid "Construction Machinery"
 msgstr ""
 
-#: frontend/templates/home.html:98
+#: frontend/templates/home.html:97
 msgid "Loaders, excavators, and compactors from verified contractors."
 msgstr ""
 
-#: frontend/templates/home.html:100
+#: frontend/templates/home.html:99
 msgid "Explore Fleet"
 msgstr ""
 
-#: frontend/templates/home.html:108
+#: frontend/templates/home.html:107
 msgid "Logistics & Towing"
 msgstr ""
 
-#: frontend/templates/home.html:109
+#: frontend/templates/home.html:108
 msgid "Specialized towing (Dépannage) and on-demand car logistics."
 msgstr ""
 
-#: frontend/templates/home.html:111
+#: frontend/templates/home.html:110
 msgid "Book Service"
 msgstr ""
 
-#: frontend/templates/home.html:124
+#: frontend/templates/home.html:123
 msgid "Fair Pricing,"
 msgstr ""
 
-#: frontend/templates/home.html:124
+#: frontend/templates/home.html:123
 msgid "Powered by Data"
 msgstr ""
 
-#: frontend/templates/home.html:125
+#: frontend/templates/home.html:124
 msgid ""
 "We eliminate guesswork with a transparent pricing engine built for the "
 "Algerian market."
 msgstr ""
 
-#: frontend/templates/home.html:133
+#: frontend/templates/home.html:132
 msgid "Distance Logic"
 msgstr ""
 
-#: frontend/templates/home.html:134
+#: frontend/templates/home.html:133
 msgid "Dynamic calculation based on Km and vehicle rate."
 msgstr ""
 
-#: frontend/templates/home.html:145
+#: frontend/templates/home.html:144
 msgid "Hourly Logic"
 msgstr ""
 
-#: frontend/templates/home.html:146
+#: frontend/templates/home.html:145
 msgid "Flexible rates for machinery and operator tasks."
 msgstr ""
 
-#: frontend/templates/home.html:159
+#: frontend/templates/home.html:158
 msgid "Intro Commission"
 msgstr ""
 
-#: frontend/templates/home.html:160
+#: frontend/templates/home.html:159
 msgid "Maximize your earnings during the first month of platform growth."
 msgstr ""
 
-#: frontend/templates/home.html:167
+#: frontend/templates/home.html:166
 msgid "Fast Approval"
 msgstr ""
 
-#: frontend/templates/home.html:168
+#: frontend/templates/home.html:167
 msgid "Verification of documents within a single business day."
 msgstr ""
 
-#: frontend/templates/home.html:175
+#: frontend/templates/home.html:174
 msgid "Secure Multi-Role Workflows"
 msgstr ""
 
-#: frontend/templates/home.html:191
+#: frontend/templates/home.html:190
 msgid "How Rak-Mrigle Works"
 msgstr ""
 
-#: frontend/templates/home.html:198
+#: frontend/templates/home.html:197
 msgid "Create Mission"
 msgstr ""
 
-#: frontend/templates/home.html:199
+#: frontend/templates/home.html:198
 msgid "Submit your request with pickup/destination or hourly details."
 msgstr ""
 
-#: frontend/templates/home.html:205
+#: frontend/templates/home.html:204
 msgid "Get Quotes"
 msgstr ""
 
-#: frontend/templates/home.html:206
+#: frontend/templates/home.html:205
 msgid "Receive and compare verified price offers from pro providers."
 msgstr ""
 
-#: frontend/templates/home.html:212
+#: frontend/templates/home.html:211
 msgid "Finish Job"
 msgstr ""
 
-#: frontend/templates/home.html:213
+#: frontend/templates/home.html:212
 msgid "Approve the mission, unlock contact, and rate the service."
 msgstr ""
 
-#: frontend/templates/home.html:225
+#: frontend/templates/home.html:224
 msgid "Join the Network of Pros"
 msgstr ""
 
-#: frontend/templates/home.html:226
+#: frontend/templates/home.html:225
 msgid ""
 "Whether you're looking for a crane or have a fleet to manage, we have you "
 "covered."
 msgstr ""
 
-#: frontend/templates/home.html:229
+#: frontend/templates/home.html:228
 msgid "Register as Provider"
 msgstr ""
 
-#: frontend/templates/home.html:232
+#: frontend/templates/home.html:231
 msgid "Find Machinery"
 msgstr ""
 
-#: frontend/templates/home.html:248
+#: frontend/templates/home.html:247
 msgid "All rights reserved."
 msgstr ""
 
@@ -741,6 +924,14 @@ msgstr ""
 msgid "Choose a file..."
 msgstr ""
 
+#: user_auth/adapters.py:70
+msgid "New user has been created"
+msgstr ""
+
+#: user_auth/adapters.py:70 user_auth/views.py:121
+msgid "New user has been created, please review it ."
+msgstr ""
+
 #: user_auth/models.py:9
 msgid "Male"
 msgstr ""
@@ -753,150 +944,359 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: user_auth/models.py:21
+#: user_auth/models.py:14 user_auth/templates/auth/signup.html:162
+#: user_auth/templates/user/profile.html:61
+#: user_auth/templates/user/profile.html:269
+#: user_auth/templates/user/profile.html:319
+msgid "Customer"
+msgstr ""
+
+#: user_auth/models.py:25
 msgid "Profile Picture"
 msgstr ""
 
-#: user_auth/models.py:26
+#: user_auth/models.py:30 user_auth/templates/user/profile.html:145
 msgid "Sex"
 msgstr ""
 
-#: user_auth/models.py:32
+#: user_auth/models.py:36 user_auth/templates/user/profile.html:312
+msgid "Role"
+msgstr ""
+
+#: user_auth/models.py:43 user_auth/templates/auth/signup.html:182
+#: user_auth/templates/user/profile.html:291
+#: user_auth/templates/user/profile.html:345
+msgid "Driver License"
+msgstr ""
+
+#: user_auth/models.py:50
 msgid "Is Approved"
 msgstr ""
 
-#: user_auth/models.py:33
+#: user_auth/models.py:51
 msgid "Created At"
 msgstr ""
 
-#: user_auth/models.py:39
+#: user_auth/models.py:57
 msgid "User Profile"
 msgstr ""
 
-#: user_auth/models.py:40
+#: user_auth/models.py:58
 msgid "User Profiles"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:54
-#: user_auth/templates/auth/login.html:111
+#: user_auth/templates/auth/login.html:55
+#: user_auth/templates/auth/login.html:112
 msgid "Sign In"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:57
+#: user_auth/templates/auth/login.html:58
 msgid "Welcome back! Please enter your details."
 msgstr ""
 
-#: user_auth/templates/auth/login.html:70
+#: user_auth/templates/auth/login.html:71
 msgid "Username"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:76
+#: user_auth/templates/auth/login.html:77
 msgid "Enter username"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:82
-#: user_auth/templates/auth/signup.html:119
+#: user_auth/templates/auth/login.html:83
+#: user_auth/templates/auth/signup.html:113
 msgid "Password"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:84
+#: user_auth/templates/auth/login.html:85
 msgid "Forgot?"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:91
+#: user_auth/templates/auth/login.html:92
 msgid "Enter password"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:105
+#: user_auth/templates/auth/login.html:106
 msgid "Remember session"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:115
+#: user_auth/templates/auth/login.html:116
 msgid "New to the platform?"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:118
+#: user_auth/templates/auth/login.html:119
 #: user_auth/templates/auth/signup.html:10
-#: user_auth/templates/auth/signup.html:58
-#: user_auth/templates/auth/signup.html:158
+#: user_auth/templates/auth/signup.html:54
+#: user_auth/templates/auth/signup.html:191
 msgid "Create Account"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:125
-#: user_auth/templates/auth/signup.html:173
+#: user_auth/templates/auth/login.html:126
+#: user_auth/templates/auth/signup.html:204
 msgid "OR"
 msgstr ""
 
+#: user_auth/templates/auth/login.html:130
+#: user_auth/templates/auth/signup.html:208
+msgid "Not Configured"
+msgstr ""
+
 #: user_auth/templates/auth/login.html:131
-#: user_auth/templates/auth/signup.html:179
+#: user_auth/templates/auth/signup.html:209
+msgid "Social login is not yet configured. Please contact the administrator."
+msgstr ""
+
+#: user_auth/templates/auth/login.html:132
+#: user_auth/templates/auth/signup.html:210
+msgid "OK"
+msgstr ""
+
+#: user_auth/templates/auth/login.html:138
+#: user_auth/templates/auth/signup.html:216
 msgid "Continue with Google"
 msgstr ""
 
-#: user_auth/templates/auth/login.html:135
-#: user_auth/templates/auth/signup.html:183
-msgid "Continue with Facebook"
-msgstr ""
-
-#: user_auth/templates/auth/signup.html:61
+#: user_auth/templates/auth/signup.html:57
 msgid "Join the leading marketplace for machinery and transport."
 msgstr ""
 
-#: user_auth/templates/auth/signup.html:77
+#: user_auth/templates/auth/signup.html:72
+#: user_auth/templates/user/profile.html:95
 msgid "First Name"
 msgstr ""
 
-#: user_auth/templates/auth/signup.html:87
+#: user_auth/templates/auth/signup.html:82
+#: user_auth/templates/user/profile.html:105
 msgid "Last Name"
 msgstr ""
 
-#: user_auth/templates/auth/signup.html:137
+#: user_auth/templates/auth/signup.html:132
 msgid "Confirm Password"
 msgstr ""
 
+#: user_auth/templates/auth/signup.html:151
+msgid "I want to register as"
+msgstr ""
+
 #: user_auth/templates/auth/signup.html:163
+msgid "I need machinery or transport services"
+msgstr ""
+
+#: user_auth/templates/auth/signup.html:175
+msgid "I offer machinery or transport services"
+msgstr ""
+
+#: user_auth/templates/auth/signup.html:184
+#: user_auth/templates/user/profile.html:230
+#: user_auth/templates/user/profile.html:293
+msgid "Upload your driver license"
+msgstr ""
+
+#: user_auth/templates/auth/signup.html:196
 msgid "Already have an account?"
 msgstr ""
 
-#: user_auth/templates/auth/signup.html:166
+#: user_auth/templates/auth/signup.html:199
 msgid "Login Here"
 msgstr ""
 
-#: user_auth/views.py:25
+#: user_auth/templates/user/profile.html:21
+msgid "Complete your profile!"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:21
+msgid "Please add your phone number to continue using the platform."
+msgstr ""
+
+#: user_auth/templates/user/profile.html:41
+msgid "Change photo"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:66
+msgid "Role not set"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:77
+msgid "Personal Information"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:121
+msgid "Email cannot be changed"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:153
+msgid "Sex cannot be changed"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:157
+msgid "Select"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:175
+msgid "Your address"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:184
+msgid "Tell us about yourself..."
+msgstr ""
+
+#: user_auth/templates/user/profile.html:189
+msgid "Save Changes"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:199
+msgid "Become a Service Provider"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:204
+msgid ""
+"Upgrade your account to start offering machinery and transport services on "
+"the platform."
+msgstr ""
+
+#: user_auth/templates/user/profile.html:208
+msgid "List your vehicles and machinery"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:211
+msgid "Receive booking requests"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:214
+msgid "Manage your availability"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:217
+msgid "Track your earnings"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:228
+msgid "Upload Driver License"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:234
+msgid "Upgrade to Provider"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:246
+msgid "Select Your Role"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:251
+msgid "Choose how you want to use the platform:"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:270
+msgid "I need services"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:284
+msgid "I offer services"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:297
+msgid "Confirm Role"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:350
+msgid "View"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:363
+msgid "Danger Zone"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:368
+msgid ""
+"Once you delete your account, there is no going back. Please be certain."
+msgstr ""
+
+#: user_auth/templates/user/profile.html:374
+msgid "Delete Account"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:375
+msgid ""
+"Are you sure you want to delete your account? This action cannot be undone."
+msgstr ""
+
+#: user_auth/templates/user/profile.html:376
+msgid "Yes, delete my account"
+msgstr ""
+
+#: user_auth/templates/user/profile.html:378
+msgid "Delete My Account"
+msgstr ""
+
+#: user_auth/views.py:30
 msgid "Please fill in all required fields."
 msgstr ""
 
-#: user_auth/views.py:42
+#: user_auth/views.py:47
 msgid "Invalid username or password. Please try again."
 msgstr ""
 
-#: user_auth/views.py:76
+#: user_auth/views.py:79 user_auth/views.py:168
 msgid "First name is required."
 msgstr ""
 
-#: user_auth/views.py:78
+#: user_auth/views.py:81 user_auth/views.py:170
 msgid "Last name is required."
 msgstr ""
 
-#: user_auth/views.py:80
+#: user_auth/views.py:83
 msgid "Email is required."
 msgstr ""
 
-#: user_auth/views.py:82
+#: user_auth/views.py:85
 msgid "Password is required."
 msgstr ""
 
-#: user_auth/views.py:84
+#: user_auth/views.py:87
 msgid "Passwords do not match."
 msgstr ""
 
-#: user_auth/views.py:86
+#: user_auth/views.py:89
 msgid "Password must be at least 8 characters long."
 msgstr ""
 
-#: user_auth/views.py:94
+#: user_auth/views.py:91
+msgid "Please select a role."
+msgstr ""
+
+#: user_auth/views.py:93 user_auth/views.py:174
+msgid "Driver license is required for providers."
+msgstr ""
+
+#: user_auth/views.py:100
 msgid "This email is already registered."
 msgstr ""
 
-#: user_auth/views.py:116
+#: user_auth/views.py:126
 msgid "Your account has been created successfully."
+msgstr ""
+
+#: user_auth/views.py:172
+msgid "Phone number is required."
+msgstr ""
+
+#: user_auth/views.py:205
+msgid "Profile updated successfully."
+msgstr ""
+
+#: user_auth/views.py:228
+msgid "Driver license is required."
+msgstr ""
+
+#: user_auth/views.py:233
+msgid "You are already a provider."
+msgstr ""
+
+#: user_auth/views.py:246
+msgid ""
+"Congratulations! Your account has been upgraded to Provider. Please wait for "
+"approval."
+msgstr ""
+
+#: user_auth/views.py:266
+msgid "Your account has been deleted successfully."
 msgstr ""

@@ -1,3 +1,4 @@
+from django.db.transaction import atomic
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
@@ -234,20 +235,25 @@ def upgrade_to_provider(request):
             )
 
         try:
-            profile.driver_license = driver_license
-            profile.role = "provider"
-            profile.is_approved = False
-            profile.save()
+            with atomic():
+                profile.driver_license = driver_license
+                profile.role = "provider"
+                profile.is_approved = False
+                profile.save()
 
-            return JsonResponse(
-                {
-                    "success": True,
-                    "message": _(
-                        "Congratulations! Your account has been upgraded to Provider. Please wait for approval."
-                    ),
-                    "redirect_url": reverse("user_auth:profile"),
-                }
-            )
+                admins = userModel.objects.filter(is_superuser=True)
+                for admin in admins:
+                    notify_user(admin, str(_("طلب ترقية جديد")) , str(_("تم تلقي طلب ترقية جديد. يرجى مراجعة الطلب")), link=reverse("dash:user_details", kwargs={"pk":request.user.pk}))
+                    notify_user(admin, str(_("New Provider Request")), str(_("A user has requested to upgrade his account to provider, please review it.")), link=reverse("dash:user_details", kwargs={"pk":request.user.pk}))
+                return JsonResponse(
+                    {
+                        "success": True,
+                        "message": _(
+                            "Congratulations! Your account has been upgraded to Provider. Please wait for approval."
+                        ),
+                        "redirect_url": reverse("user_auth:profile"),
+                    }
+                )
         except Exception as e:
             return JsonResponse({"success": False, "errors": [str(e)]})
 

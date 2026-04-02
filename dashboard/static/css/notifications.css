@@ -283,7 +283,7 @@
     position: absolute !important;
     top: 2px !important;
     right: 2px !important;
-    transform: translate(25%, -25%) !important;
+    transform: translate(-70%, -25%) !important;
     font-size: 0.65rem !important;
     padding: 0.35em 0.65em !important;
     min-width: 1.6em;
@@ -331,7 +331,8 @@
 }
 
 .notification-item .text-muted.smaller {
-    max-width: 220px;
+    max-width: 100%;
+    white-space: normal;
 }
 
 [dir="rtl"] #notification-badge {
