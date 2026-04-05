@@ -1,0 +1,190 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block dashTitle %}
+{% trans "Edit Offer" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}">
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="{% url 'dash:provider_offer_details' offer.pk %}" class="btn btn-outline-secondary rounded-3">
+                                <i class="fas fa-arrow-{% if IS_RTL %}right{% else %}left{% endif %}"></i>
+                            </a>
+                            <div>
+                                <h4 class="fw-bold mb-0">{% trans "Edit Offer" %}</h4>
+                                <p class="text-muted small mb-0">{{ offer.title_ar }}</p>
+                            </div>
+                        </div>
+                        <span class="badge
+                            {% if offer.status == 'active' %}bg-success
+                            {% elif offer.status == 'pending' %}bg-warning
+                            {% elif offer.status == 'rejected' %}bg-danger
+                            {% elif offer.status == 'draft' %}bg-secondary
+                            {% else %}bg-dark{% endif %} rounded-pill px-3 py-2">
+                            {{ offer.get_status_display }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    {% include "partials/errorList.html" with form_id="offerForm" %}
+
+                    <form id="offerForm" class="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <h5 class="fw-bold text-primary mb-3">
+                                    <i class="fas fa-info-circle me-2"></i>{% trans "Basic Information" %}
+                                </h5>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Title (Arabic)" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="title_ar" class="form-control" value="{{ offer.title_ar }}" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Title (French)" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="title_fr" class="form-control" value="{{ offer.title_fr }}" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Title (English)" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="title_en" class="form-control" value="{{ offer.title_en }}" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Description (Arabic)" %} <span class="text-danger">*</span></label>
+                                <textarea name="description_ar" class="form-control" rows="4" required>{{ offer.description_ar }}</textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Description (French)" %} <span class="text-danger">*</span></label>
+                                <textarea name="description_fr" class="form-control" rows="4" required>{{ offer.description_fr }}</textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Description (English)" %} <span class="text-danger">*</span></label>
+                                <textarea name="description_en" class="form-control" rows="4" required>{{ offer.description_en }}</textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                {% include "components/custom_select.html" with id="categorySelect" name="category" label=_("Category") choices=categories value=offer.category.pk select_title=_("Select a category") %}
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">{% trans "Offer Image" %}</label>
+                                {% if offer.image %}
+                                <div class="mb-2">
+                                    <img src="{{ offer.image.url }}" alt="{{ offer.title_ar }}" class="img-thumbnail" style="max-height: 100px;">
+                                </div>
+                                {% endif %}
+                                <input type="file" name="image" class="form-control" accept="image/*">
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <h5 class="fw-bold text-primary mb-3">
+                                    <i class="fas fa-money-bill-wave me-2"></i>{% trans "Pricing Information" %}
+                                </h5>
+                            </div>
+
+                            <div class="col-md-4">
+                                {% include "components/custom_select.html" with id="pricingTypeSelect" name="pricing_type" label=_("Pricing Type") choices=pricing_choices value=offer.pricing_type select_title=_("Select pricing type") %}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Base Price (DA)" %} <span class="text-danger">*</span></label>
+                                <input type="number" name="base_price" class="form-control" step="0.01" min="0" value="{{ offer.base_price }}" required>
+                            </div>
+
+                            <div class="col-md-4" id="pricePerKmWrapper" style="display: {% if offer.pricing_type == 'distance' %}block{% else %}none{% endif %};">
+                                <label class="form-label fw-bold">{% trans "Price per Km (DA)" %}</label>
+                                <input type="number" name="price_per_km" class="form-control" step="0.01" min="0" value="{{ offer.price_per_km|default:'' }}">
+                            </div>
+
+                            <div class="col-md-4" id="pricePerHourWrapper" style="display: {% if offer.pricing_type == 'hourly' %}block{% else %}none{% endif %};">
+                                <label class="form-label fw-bold">{% trans "Price per Hour (DA)" %}</label>
+                                <input type="number" name="price_per_hour" class="form-control" step="0.01" min="0" value="{{ offer.price_per_hour|default:'' }}">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Fuel Cost (DA)" %}</label>
+                                <input type="number" name="fuel_cost" class="form-control" step="0.01" min="0" value="{{ offer.fuel_cost|default:'' }}">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Operator Cost (DA)" %}</label>
+                                <input type="number" name="operator_cost" class="form-control" step="0.01" min="0" value="{{ offer.operator_cost|default:'' }}">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Wait Time Cost (DA)" %}</label>
+                                <input type="number" name="wait_time_cost" class="form-control" step="0.01" min="0" value="{{ offer.wait_time_cost|default:'' }}">
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <h5 class="fw-bold text-primary mb-3">
+                                    <i class="fas fa-map-marker-alt me-2"></i>{% trans "Location & Capacity" %}
+                                </h5>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Location (Arabic)" %}</label>
+                                <input type="text" name="location_ar" class="form-control" value="{{ offer.location_ar|default:'' }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Location (French)" %}</label>
+                                <input type="text" name="location_fr" class="form-control" value="{{ offer.location_fr|default:'' }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">{% trans "Location (English)" %}</label>
+                                <input type="text" name="location_en" class="form-control" value="{{ offer.location_en|default:'' }}">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">{% trans "Capacity" %}</label>
+                                <input type="text" name="capacity" class="form-control" value="{{ offer.capacity|default:'' }}" placeholder="{% trans 'e.g., 5 tons, 20 m³' %}">
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mt-4">
+                                    <input class="form-check-input" type="checkbox" name="is_available" id="isAvailable" {% if offer.is_available %}checked{% endif %}>
+                                    <label class="form-check-label fw-bold" for="isAvailable">{% trans "Available for Booking" %}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mt-4 pt-3 border-top">
+                            <button type="submit" name="action" value="draft" class="btn btn-outline-secondary rounded-3 px-4">
+                                <i class="fas fa-save me-2"></i>{% trans "Save Changes" %}
+                            </button>
+                            {% if offer.status == 'draft' or offer.status == 'rejected' %}
+                            <button type="submit" name="action" value="submit" class="btn btn-primary rounded-3 px-4">
+                                <i class="fas fa-paper-plane me-2"></i>{% trans "Submit for Approval" %}
+                            </button>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+<script>
+window.trans_error = "{% trans 'Error' %}";
+window.trans_success = "{% trans 'Success' %}";
+</script>
+<script src="{% static 'js/provider_offers.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

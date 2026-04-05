@@ -1,0 +1,202 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load tags %}
+
+{% block dashTitle %}
+{% trans "Offers" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}">
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid" data-offer-urls
+    data-url-approve="0"
+    data-url-reject="0"
+    data-url-delete="0"
+    data-url-list="{% url 'dash:offer_list' %}"
+    data-url-details="0">
+    <div class="d-flex justify-content-between align-items-center mb-4 gap-3 flex-wrap" data-aos="fade-down">
+        <div class="d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-primary rounded-3 px-4 py-2 fw-bold shadow-sm d-flex align-items-center gap-2"
+                data-bs-toggle="modal" data-bs-target="#filterModal" style="height: 45px;">
+                <i class="fas fa-sliders-h"></i>
+                <span>{% trans "Filter Offers" %}</span>
+                {% if query or selected_status or selected_category %}
+                <span class="badge bg-white text-primary rounded-pill ms-1" style="font-size: 0.7rem;">!</span>
+                {% endif %}
+            </button>
+
+            {% if query or selected_status or selected_category %}
+            <a href="{% url 'dash:offer_list' %}" class="btn btn-white rounded-3 text-muted px-3 border shadow-sm d-flex align-items-center justify-content-center"
+                style="height: 45px;" title="{% trans 'Clear All' %}">
+                <i class="fas fa-times me-2"></i> {% trans "Clear" %}
+            </a>
+            {% endif %}
+        </div>
+
+        <div class="search-minimal ms-md-auto" style="min-width: 280px;">
+            <form method="get" action="{% url 'dash:offer_list' %}" class="position-relative">
+                <i class="fas fa-search position-absolute text-muted" style="left: 15px; top: 50%; transform: translateY(-50%); z-index: 5;"></i>
+                <input type="text" name="q" value="{{ query }}" class="form-control rounded ps-5 border-0 shadow-sm"
+                    placeholder="{% trans 'Search offers...' %}">
+                {% if selected_status %}<input type="hidden" name="status" value="{{ selected_status }}">{% endif %}
+                {% if selected_category %}<input type="hidden" name="category" value="{{ selected_category }}">{% endif %}
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0 p-4">
+                    <h5 class="modal-title fw-bold text-dark d-flex align-items-center gap-2" id="filterModalLabel">
+                        <div class="bg-primary bg-opacity-10 p-2 rounded-3 text-primary">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        {% trans "Advanced Filter" %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form method="get" action="{% url 'dash:offer_list' %}">
+                    <div class="modal-body p-4">
+                        <div class="mb-4">
+                            <label class="filter-label-modern">{% trans "Search Keyword" %}</label>
+                            <input type="text" name="q" value="{{ query }}" class="form-control modern-input"
+                                placeholder="{% trans 'Offer title...' %}">
+                        </div>
+
+                        <div class="mb-3">
+                            {% include "components/custom_select.html" with id="modalStatusSelect" name="status" label=_("Status") select_title=_("Select a status") choices=status_choices value=selected_status %}
+                        </div>
+
+                        <div class="mb-2">
+                            {% include "components/custom_select.html" with id="modalCategorySelect" name="category" label=_("Category") select_title=_("Select a category") choices=categories value=selected_category %}
+                        </div>
+                    </div>
+
+                    <div class="modal-footer border-0 p-4 pt-0 gap-2">
+                        <a href="{% url 'dash:offer_list' %}" class="btn btn-light rounded-3 px-4 fw-bold text-muted border-0 bg-light">
+                            {% trans "Reset All" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary rounded-3 px-4 fw-bold shadow-sm">
+                            {% trans "Apply Filters" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {% for offer in offers %}
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4 offer-card bg-white">
+                <div class="position-relative">
+                    {% if offer.image %}
+                    <img src="{{ offer.image.url }}" alt="{{ offer.title_ar }}" class="card-img-top" style="height: 180px; object-fit: cover; border-radius: 12px 12px 0 0;">
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 180px; border-radius: 12px 12px 0 0;">
+                        <i class="fas fa-truck fa-3x text-muted"></i>
+                    </div>
+                    {% endif %}
+                    <div class="position-absolute top-0 end-0 m-2">
+                        <span class="badge 
+                            {% if offer.status == 'active' %}bg-success
+                            {% elif offer.status == 'pending' %}bg-warning
+                            {% elif offer.status == 'rejected' %}bg-danger
+                            {% elif offer.status == 'draft' %}bg-secondary
+                            {% else %}bg-dark{% endif %} rounded-pill px-3 py-2">
+                            {{ offer.get_status_display }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-2 py-1" style="font-size: 0.7rem;">
+                            <i class="fas fa-tag me-1"></i>{{ offer.category.name_ar }}
+                        </span>
+                        <span class="badge bg-accent bg-opacity-10 text-accent rounded-pill px-2 py-1" style="font-size: 0.7rem;">
+                            {% if offer.pricing_type == 'distance' %}
+                            <i class="fas fa-road me-1"></i>{% trans "Distance" %}
+                            {% else %}
+                            <i class="fas fa-clock me-1"></i>{% trans "Hourly" %}
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <h5 class="fw-bold text-dark mb-2 text-truncate">{{ offer.title_ar }}</h5>
+                    
+                    <p class="text-muted small mb-3 text-truncate">{{ offer.description_ar|truncatewords:10 }}</p>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <small class="text-muted d-block">{% trans "Base Price" %}</small>
+                            <span class="fw-bold text-primary">{{ offer.base_price }} DA</span>
+                        </div>
+                        {% if offer.pricing_type == 'distance' and offer.price_per_km %}
+                        <div class="text-end">
+                            <small class="text-muted d-block">{% trans "Per Km" %}</small>
+                            <span class="fw-bold">{{ offer.price_per_km }} DA</span>
+                        </div>
+                        {% elif offer.pricing_type == 'hourly' and offer.price_per_hour %}
+                        <div class="text-end">
+                            <small class="text-muted d-block">{% trans "Per Hour" %}</small>
+                            <span class="fw-bold">{{ offer.price_per_hour }} DA</span>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="avatar-sm rounded-circle bg-light d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <i class="fas fa-user text-muted small"></i>
+                        </div>
+                        <div>
+                            <small class="text-muted d-block">{{ offer.provider.get_full_name|default:offer.provider.username }}</small>
+                            <small class="text-muted">{{ offer.created_at|date:"d M Y" }}</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="{% url 'dash:offer_details' offer.pk %}" class="btn btn-outline-primary flex-fill rounded-3">
+                            <i class="fas fa-eye me-1"></i>{% trans "View" %}
+                        </a>
+                        {% if offer.status == 'pending' %}
+                        <button type="button" class="btn btn-success rounded-3" onclick="approveOffer({{ offer.pk }})">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger rounded-3" onclick="rejectOffer({{ offer.pk }})">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="card border-0 shadow-sm p-5 text-center rounded-4 bg-white">
+                <div class="p-5">
+                    <i class="fas fa-box-open fa-4x text-light mb-4"></i>
+                    <h4 class="text-muted fw-bold">{% trans "No offers found" %}</h4>
+                    <p class="text-muted mb-0">{% trans "Try adjusting your filters" %}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-5">
+        {% render_pagination page_obj %}
+    </div>
+</div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+<script src="{% static 'js/admin_offers.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

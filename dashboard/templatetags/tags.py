@@ -1,4 +1,5 @@
 from django import template
+from django.utils.translation import get_language
 
 register = template.Library()
 
@@ -54,3 +55,16 @@ def get_item(dictionary, key):
     if not isinstance(dictionary, dict):
         return dictionary
     return dictionary.get(key)
+
+
+@register.filter
+def localized_name(obj):
+    """
+    Returns the name based on current active language.
+    Works with Category, Offer models and any model with get_name method.
+    Usage: {{ category|localized_name }}
+    """
+    lang = get_language()
+    if hasattr(obj, "get_name"):
+        return obj.get_name(lang)
+    return str(obj)

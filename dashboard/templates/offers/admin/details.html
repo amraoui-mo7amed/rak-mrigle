@@ -1,0 +1,210 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block dashTitle %}
+    {% trans "Offer Details" %}
+{% endblock dashTitle %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+{% block dashContent %}
+<div class="container-fluid" data-offer-urls
+    data-url-approve="0"
+    data-url-reject="0"
+    data-url-delete="0"
+    data-url-list="{% url 'dash:offer_list' %}"
+    data-url-details="0">
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="badge {% if offer.status == 'active' %}bg-success {% elif offer.status == 'pending' %}bg-warning {% elif offer.status == 'rejected' %}bg-danger {% elif offer.status == 'draft' %}bg-secondary {% else %}bg-dark{% endif %} rounded-pill px-3 py-2 mb-2">
+                                    {{ offer.get_status_display }}
+                                </span>
+                                <h2 class="fw-bold text-dark mb-1">
+                                    {{ offer.title_ar }}
+                                </h2>
+                                <p class="text-muted small mb-0">
+                                    <i class="fas fa-tag me-1"></i>{{ offer.category.name_ar }}
+                                    <span class="mx-2">•</span>
+                                    <i class="fas fa-calendar me-1"></i>{{ offer.created_at|date:"d M Y" }}
+                                </p>
+                            </div>
+                            <div class="d-flex gap-2">
+                                {% if offer.status == 'pending' %}
+                                    <button type="button"
+                                            class="btn btn-success rounded-3"
+                                            onclick="approveOffer({{ offer.pk }})">
+                                        <i class="fas fa-check me-1"></i>{% trans "Approve" %}
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-danger rounded-3"
+                                            onclick="rejectOffer({{ offer.pk }})">
+                                        <i class="fas fa-times me-1"></i>{% trans "Reject" %}
+                                    </button>
+                                {% endif %}
+                                <button type="button"
+                                        class="btn btn-outline-danger rounded-3"
+                                        onclick="deleteOffer({{ offer.pk }})">
+                                    <i class="fas fa-trash me-1"></i>{% trans "Delete" %}
+                                </button>
+                            </div>
+                        </div>
+                        {% if offer.image %}
+                            <div class="mb-4">
+                                <img src="{{ offer.image.url }}"
+                                     alt="{{ offer.title_ar }}"
+                                     class="img-fluid rounded-4"
+                                     style="max-height: 400px;
+                                            width: 100%;
+                                            object-fit: cover" />
+                            </div>
+                        {% endif %}
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark mb-2">
+                                {% trans "Description" %}
+                            </h5>
+                            <p class="text-muted">
+                                {{ offer.description_ar }}
+                            </p>
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="text-muted d-block mb-1">{% trans "Pricing Type" %}</small>
+                                    <span class="fw-bold">
+                                        {% if offer.pricing_type == 'distance' %}
+                                            <i class="fas fa-road me-1"></i>{% trans "Distance Based" %}
+                                        {% else %}
+                                            <i class="fas fa-clock me-1"></i>{% trans "Hourly Based" %}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="text-muted d-block mb-1">{% trans "Base Price" %}</small>
+                                    <span class="fw-bold text-primary">{{ offer.base_price }} DA</span>
+                                </div>
+                            </div>
+                            {% if offer.pricing_type == 'distance' and offer.price_per_km %}
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded-3">
+                                        <small class="text-muted d-block mb-1">{% trans "Price per Km" %}</small>
+                                        <span class="fw-bold">{{ offer.price_per_km }} DA</span>
+                                    </div>
+                                </div>
+                            {% elif offer.pricing_type == 'hourly' and offer.price_per_hour %}
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded-3">
+                                        <small class="text-muted d-block mb-1">{% trans "Price per Hour" %}</small>
+                                        <span class="fw-bold">{{ offer.price_per_hour }} DA</span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if offer.capacity %}
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded-3">
+                                        <small class="text-muted d-block mb-1">{% trans "Capacity" %}</small>
+                                        <span class="fw-bold">{{ offer.capacity }}</span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if offer.fuel_cost or offer.operator_cost or offer.wait_time_cost %}
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-dark mb-2">
+                                    {% trans "Additional Costs" %}
+                                </h5>
+                                <div class="row g-3">
+                                    {% if offer.fuel_cost %}
+                                        <div class="col-md-4">
+                                            <div class="p-3 bg-light rounded-3">
+                                                <small class="text-muted d-block mb-1"><i class="fas fa-gas-pump me-1"></i>{% trans "Fuel Cost" %}</small>
+                                                <span class="fw-bold">{{ offer.fuel_cost }} DA</span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if offer.operator_cost %}
+                                        <div class="col-md-4">
+                                            <div class="p-3 bg-light rounded-3">
+                                                <small class="text-muted d-block mb-1"><i class="fas fa-user me-1"></i>{% trans "Operator Cost" %}</small>
+                                                <span class="fw-bold">{{ offer.operator_cost }} DA</span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if offer.wait_time_cost %}
+                                        <div class="col-md-4">
+                                            <div class="p-3 bg-light rounded-3">
+                                                <small class="text-muted d-block mb-1"><i class="fas fa-hourglass-half me-1"></i>{% trans "Wait Time Cost" %}</small>
+                                                <span class="fw-bold">{{ offer.wait_time_cost }} DA</span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if offer.location_ar %}
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-dark mb-2">
+                                    {% trans "Location" %}
+                                </h5>
+                                <p class="text-muted">
+                                    <i class="fas fa-map-marker-alt me-1"></i>{{ offer.location_ar }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+                    <div class="card-header bg-light border-0 p-3">
+                        <h5 class="fw-bold mb-0">
+                            <i class="fas fa-user me-2"></i>{% trans "Provider Info" %}
+                        </h5>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="avatar-circle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                                 style="width: 50px;
+                                        height: 50px;
+                                        font-size: 1.2rem">
+                                {{ offer.provider.username|slice:":1"|upper }}
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">
+                                    {{ offer.provider.get_full_name|default:offer.provider.username }}
+                                </h6>
+                                <small class="text-muted">{{ offer.provider.email }}</small>
+                            </div>
+                        </div>
+                        <a href="{% url 'dash:user_details' offer.provider.profile.pk %}"
+                           class="btn btn-outline-primary w-100 rounded-3">
+                            <i class="fas fa-external-link-alt me-1"></i>{% trans "View Profile" %}
+                        </a>
+                    </div>
+                </div>
+                {% if offer.admin_note %}
+                    <div class="card border-0 shadow-sm rounded-4 border-start border-danger border-4">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold text-danger mb-2">
+                                <i class="fas fa-exclamation-circle me-1"></i>{% trans "Admin Note" %}
+                            </h6>
+                            <p class="text-muted small mb-0">
+                                {{ offer.admin_note }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock dashContent %}
+{% block extra_js %}
+<script src="{% static 'js/admin_offers.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

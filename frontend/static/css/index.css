@@ -311,6 +311,23 @@ body {
   color: var(--brand-danger) !important;
 }
 
+/* Text Styles */
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+.text-success {
+  color: var(--brand-success) !important;
+}
+
+.text-warning {
+  color: var(--brand-accent) !important;
+}
+
+.text-danger {
+  color: var(--brand-danger) !important;
+}
+
 /* Button Styles */
 .btn.disabled,
 .btn:disabled {
