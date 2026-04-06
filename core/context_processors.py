@@ -1,8 +1,10 @@
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _, get_language
+from functools import lru_cache
 
 
-def site_settings(request):
+@lru_cache(maxsize=1)
+def get_site_setting():
     """
     Returns global site configuration and branding details.
     """
@@ -39,3 +41,7 @@ def site_settings(request):
             },
         }
     }
+
+
+def site_settings(request):
+    return get_site_setting()

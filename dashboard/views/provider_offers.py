@@ -8,12 +8,24 @@ from django.views.decorators.http import require_POST, require_http_methods
 
 from dashboard.models import Offer, Category
 from dashboard.decorator import provider_required
+from dashboard.utils import get_wilayas_choices
 
 
 def get_localized_category_choices(categories):
     """Returns category choices localized based on current language."""
     lang = get_language()
     return [(c.pk, c.get_name(lang)) for c in categories]
+
+
+def get_localized_pricing_choices():
+    """Returns pricing type choices localized based on current language."""
+    lang = get_language()
+    if lang == "ar":
+        return [("distance", "مسافة"), ("hourly", "ساعي")]
+    elif lang == "fr":
+        return [("distance", "Distance"), ("hourly", "Horaire")]
+    else:  # en
+        return [("distance", "Distance"), ("hourly", "Hourly")]
 
 
 @provider_required
@@ -193,7 +205,8 @@ def provider_offer_create(request):
 
     context = {
         "categories": get_localized_category_choices(categories),
-        "pricing_choices": Offer.PricingType.choices,
+        "pricing_choices": get_localized_pricing_choices(),
+        "wilayas": get_wilayas_choices(),
     }
     return render(request, "offers/provider/create.html", context)
 

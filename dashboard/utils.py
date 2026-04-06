@@ -7,11 +7,35 @@ from django.utils.translation import gettext as _
 from django_eventstream import send_event
 from .models import Notification
 import logging
+import json
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
 
 from decouple import config
+
+
+def get_wilayas_choices():
+    """
+    Load wilayas from algeria.json and return as choices list.
+    Returns list of tuples based on current language.
+    """
+    from django.utils.translation import get_language
+
+    json_path = Path(__file__).parent.parent / "algeria.json"
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            wilayas = json.load(f)
+
+        lang = get_language()
+        if lang == "ar":
+            return [(w["ar_name"], w["ar_name"]) for w in wilayas]
+        else:
+            return [(w["name"], w["name"]) for w in wilayas]
+    except Exception as e:
+        logger.error(f"Failed to load wilayas: {str(e)}")
+        return []
 
 
 def send_account_activation_email(request, profile):

@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const display = wrapper.querySelector('.custom-select-display');
         const list = wrapper.querySelector('.custom-select-list');
         const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+        const parentCard = wrapper.closest('.card');
 
         display.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -113,11 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     otherWrapper.querySelector('.custom-select-list').classList.remove('show');
                     otherWrapper.querySelector('.custom-select-display').classList.remove('active');
                     otherWrapper.classList.remove('active');
+                    otherWrapper.style.zIndex = '';
+                    const otherCard = otherWrapper.closest('.card');
+                    if (otherCard) otherCard.style.zIndex = '';
                 }
             });
+            
             list.classList.toggle('show');
             display.classList.toggle('active');
             wrapper.classList.toggle('active');
+            
+            // Ensure highest z-index when active, and elevate parent card to break out of lower z-index
+            if (list.classList.contains('show')) {
+                wrapper.style.zIndex = '9999';
+                if (parentCard) parentCard.style.zIndex = '99';
+            } else {
+                wrapper.style.zIndex = '';
+                if (parentCard) parentCard.style.zIndex = '';
+            }
         });
 
         list.querySelectorAll('li').forEach(item => {
@@ -125,9 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 const selectedText = item.textContent;
                 hiddenInput.value = item.dataset.value;
+                
                 list.classList.remove('show');
                 display.classList.remove('active');
                 wrapper.classList.remove('active');
+                wrapper.style.zIndex = '';
+                if (parentCard) parentCard.style.zIndex = '';
+
+                // Trigger change event for connected logic
+                hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
 
                 display.innerHTML = `
                     ${selectedText}
@@ -143,6 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 list.classList.remove('show');
                 display.classList.remove('active');
                 wrapper.classList.remove('active');
+                wrapper.style.zIndex = '';
+                if (parentCard) parentCard.style.zIndex = '';
             }
         });
     });
