@@ -83,11 +83,7 @@ def provider_offer_create(request):
     if request.method == "POST":
         errors = []
         title_ar = request.POST.get("title_ar", "").strip()
-        title_fr = request.POST.get("title_fr", "").strip()
-        title_en = request.POST.get("title_en", "").strip()
         description_ar = request.POST.get("description_ar", "").strip()
-        description_fr = request.POST.get("description_fr", "").strip()
-        description_en = request.POST.get("description_en", "").strip()
         category_id = request.POST.get("category", "").strip()
         pricing_type = request.POST.get("pricing_type", "").strip()
         base_price = request.POST.get("base_price", "").strip()
@@ -97,24 +93,15 @@ def provider_offer_create(request):
         operator_cost = request.POST.get("operator_cost", "").strip() or None
         wait_time_cost = request.POST.get("wait_time_cost", "").strip() or None
         capacity = request.POST.get("capacity", "").strip()
+        wilaya = request.POST.get("wilaya", "").strip()
         location_ar = request.POST.get("location_ar", "").strip()
-        location_fr = request.POST.get("location_fr", "").strip()
-        location_en = request.POST.get("location_en", "").strip()
         is_available = request.POST.get("is_available") == "on"
         action = request.POST.get("action", "draft")
 
         if not title_ar:
-            errors.append(_("Title in Arabic is required."))
-        if not title_fr:
-            errors.append(_("Title in French is required."))
-        if not title_en:
-            errors.append(_("Title in English is required."))
+            errors.append(_("Title is required."))
         if not description_ar:
-            errors.append(_("Description in Arabic is required."))
-        if not description_fr:
-            errors.append(_("Description in French is required."))
-        if not description_en:
-            errors.append(_("Description in English is required."))
+            errors.append(_("Description is required."))
         if not category_id:
             errors.append(_("Category is required."))
         if not pricing_type:
@@ -151,9 +138,7 @@ def provider_offer_create(request):
                 {"success": False, "errors": [_("Invalid category selected.")]}
             )
 
-        status = Offer.OfferStatus.DRAFT
-        if action == "submit":
-            status = Offer.OfferStatus.PENDING
+        status = Offer.OfferStatus.ACTIVE  # Offers are accepted directly
 
         try:
             with transaction.atomic():
@@ -161,11 +146,11 @@ def provider_offer_create(request):
                     provider=request.user,
                     category=category,
                     title_ar=title_ar,
-                    title_fr=title_fr,
-                    title_en=title_en,
+                    title_fr=title_ar,
+                    title_en=title_ar,
                     description_ar=description_ar,
-                    description_fr=description_fr,
-                    description_en=description_en,
+                    description_fr=description_ar,
+                    description_en=description_ar,
                     pricing_type=pricing_type,
                     base_price=base_price_val,
                     price_per_km=float(price_per_km) if price_per_km else None,
@@ -174,9 +159,10 @@ def provider_offer_create(request):
                     operator_cost=float(operator_cost) if operator_cost else None,
                     wait_time_cost=float(wait_time_cost) if wait_time_cost else None,
                     capacity=capacity,
+                    wilaya=wilaya,
                     location_ar=location_ar,
-                    location_fr=location_fr,
-                    location_en=location_en,
+                    location_fr=location_ar,
+                    location_en=location_ar,
                     is_available=is_available,
                     status=status,
                 )
@@ -185,16 +171,10 @@ def provider_offer_create(request):
                     offer.image = request.FILES["image"]
                     offer.save()
 
-                message = (
-                    _("Offer submitted for approval successfully.")
-                    if action == "submit"
-                    else _("Offer saved as draft successfully.")
-                )
-
                 return JsonResponse(
                     {
                         "success": True,
-                        "message": message,
+                        "message": _("Offer created successfully."),
                         "redirect_url": reverse(
                             "dash:provider_offer_details", kwargs={"pk": offer.pk}
                         ),
@@ -227,11 +207,7 @@ def provider_offer_edit(request, pk):
     if request.method == "POST":
         errors = []
         title_ar = request.POST.get("title_ar", "").strip()
-        title_fr = request.POST.get("title_fr", "").strip()
-        title_en = request.POST.get("title_en", "").strip()
         description_ar = request.POST.get("description_ar", "").strip()
-        description_fr = request.POST.get("description_fr", "").strip()
-        description_en = request.POST.get("description_en", "").strip()
         category_id = request.POST.get("category", "").strip()
         pricing_type = request.POST.get("pricing_type", "").strip()
         base_price = request.POST.get("base_price", "").strip()
@@ -241,24 +217,14 @@ def provider_offer_edit(request, pk):
         operator_cost = request.POST.get("operator_cost", "").strip() or None
         wait_time_cost = request.POST.get("wait_time_cost", "").strip() or None
         capacity = request.POST.get("capacity", "").strip()
+        wilaya = request.POST.get("wilaya", "").strip()
         location_ar = request.POST.get("location_ar", "").strip()
-        location_fr = request.POST.get("location_fr", "").strip()
-        location_en = request.POST.get("location_en", "").strip()
         is_available = request.POST.get("is_available") == "on"
-        action = request.POST.get("action", "draft")
 
         if not title_ar:
-            errors.append(_("Title in Arabic is required."))
-        if not title_fr:
-            errors.append(_("Title in French is required."))
-        if not title_en:
-            errors.append(_("Title in English is required."))
+            errors.append(_("Title is required."))
         if not description_ar:
-            errors.append(_("Description in Arabic is required."))
-        if not description_fr:
-            errors.append(_("Description in French is required."))
-        if not description_en:
-            errors.append(_("Description in English is required."))
+            errors.append(_("Description is required."))
         if not category_id:
             errors.append(_("Category is required."))
         if not pricing_type:
@@ -295,21 +261,15 @@ def provider_offer_edit(request, pk):
                 {"success": False, "errors": [_("Invalid category selected.")]}
             )
 
-        status = offer.status
-        if action == "submit":
-            status = Offer.OfferStatus.PENDING
-        elif action == "draft" and offer.status in [Offer.OfferStatus.REJECTED]:
-            status = Offer.OfferStatus.DRAFT
-
         try:
             with transaction.atomic():
                 offer.category = category
                 offer.title_ar = title_ar
-                offer.title_fr = title_fr
-                offer.title_en = title_en
+                offer.title_fr = title_ar
+                offer.title_en = title_ar
                 offer.description_ar = description_ar
-                offer.description_fr = description_fr
-                offer.description_en = description_en
+                offer.description_fr = description_ar
+                offer.description_en = description_ar
                 offer.pricing_type = pricing_type
                 offer.base_price = base_price_val
                 offer.price_per_km = float(price_per_km) if price_per_km else None
@@ -318,28 +278,22 @@ def provider_offer_edit(request, pk):
                 offer.operator_cost = float(operator_cost) if operator_cost else None
                 offer.wait_time_cost = float(wait_time_cost) if wait_time_cost else None
                 offer.capacity = capacity
+                offer.wilaya = wilaya
                 offer.location_ar = location_ar
-                offer.location_fr = location_fr
-                offer.location_en = location_en
+                offer.location_fr = location_ar
+                offer.location_en = location_ar
                 offer.is_available = is_available
-                offer.status = status
-                offer.admin_note = ""
+                offer.status = Offer.OfferStatus.ACTIVE  # Keep active
 
                 if request.FILES.get("image"):
                     offer.image = request.FILES["image"]
 
                 offer.save()
 
-                message = (
-                    _("Offer submitted for approval successfully.")
-                    if action == "submit"
-                    else _("Offer updated successfully.")
-                )
-
                 return JsonResponse(
                     {
                         "success": True,
-                        "message": message,
+                        "message": _("Offer updated successfully."),
                         "redirect_url": reverse(
                             "dash:provider_offer_details", kwargs={"pk": offer.pk}
                         ),
@@ -351,7 +305,8 @@ def provider_offer_edit(request, pk):
     context = {
         "offer": offer,
         "categories": get_localized_category_choices(categories),
-        "pricing_choices": Offer.PricingType.choices,
+        "pricing_choices": get_localized_pricing_choices(),
+        "wilayas": get_wilayas_choices(),
     }
     return render(request, "offers/provider/edit.html", context)
 

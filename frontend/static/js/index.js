@@ -106,6 +106,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const hiddenInput = wrapper.querySelector('input[type="hidden"]');
         const parentCard = wrapper.closest('.card');
 
+        // Initialize display based on existing value
+        if (hiddenInput && hiddenInput.value) {
+            const selectedItem = list.querySelector(`li[data-value="${hiddenInput.value}"]`);
+            if (selectedItem) {
+                const selectedText = selectedItem.textContent;
+                display.innerHTML = `
+                    ${selectedText}
+                    <span class="arrow">
+                        <i class="fas fa-caret-down"></i>
+                    </span>
+                `;
+            }
+        }
+
         display.addEventListener('click', (e) => {
             e.stopPropagation();
             // Close other custom selects

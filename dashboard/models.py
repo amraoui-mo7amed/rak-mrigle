@@ -179,6 +179,11 @@ class Offer(models.Model):
         verbose_name=_("السعة"),
         help_text=_("Load capacity (e.g., '5 tons', '20 m³')"),
     )
+    wilaya = models.CharField(
+        max_length=100,
+        blank=True,
+        verbose_name=_("الولاية"),
+    )
     image = models.ImageField(
         upload_to="offers/",
         blank=True,

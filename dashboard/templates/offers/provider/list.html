@@ -33,11 +33,46 @@
                     <i class="fas fa-search position-absolute text-muted" style="left: 15px; top: 50%; transform: translateY(-50%); z-index: 5;"></i>
                     <input type="text" name="q" value="{{ query }}" class="form-control rounded ps-5 border-0 shadow-sm"
                         placeholder="{% trans 'Search my offers...' %}">
-                    {% if selected_status %}<input type="hidden" name="status" value="{{ selected_status }}">{% endif %}
                 </form>
             </div>
 
-            {% include "components/custom_select.html" with id="statusFilter" name="status" label=_("Status") choices=status_choices value=selected_status select_title=_("Filter by status") %}
+            <button type="button" class="btn btn-outline-secondary rounded-3" data-bs-toggle="modal" data-bs-target="#filterModal">
+                <i class="fas fa-filter me-2"></i>{% trans "Filter" %}
+                {% if selected_status %}<span class="badge bg-primary ms-1">1</span>{% endif %}
+            </button>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="filterModalLabel">
+                        <i class="fas fa-filter me-2"></i>{% trans "Filter Offers" %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="get" action="{% url 'dash:provider_offer_list' %}">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">{% trans "Search" %}</label>
+                            <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="{% trans 'Search my offers...' %}">
+                        </div>
+                        <div class="mb-3">
+                            {% include "components/custom_select.html" with id="statusFilterModal" name="status" label=_("Status") choices=status_choices value=selected_status select_title=_("All Statuses") %}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'dash:provider_offer_list' %}" class="btn btn-outline-secondary">
+                            {% trans "Clear" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check me-2"></i>{% trans "Apply Filters" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -53,32 +88,10 @@
                         <i class="fas fa-truck fa-3x text-muted"></i>
                     </div>
                     {% endif %}
-                    <div class="position-absolute top-0 end-0 m-2">
-                        <span class="badge
-                            {% if offer.status == 'active' %}bg-success
-                            {% elif offer.status == 'pending' %}bg-warning
-                            {% elif offer.status == 'rejected' %}bg-danger
-                            {% elif offer.status == 'draft' %}bg-secondary
-                            {% else %}bg-dark{% endif %} rounded-pill px-3 py-2">
-                            {{ offer.get_status_display }}
-                        </span>
-                    </div>
+  
                 </div>
 
                 <div class="card-body">
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-2 py-1" style="font-size: 0.7rem;">
-                            <i class="fas fa-tag me-1"></i>{{ offer.category.name_ar }}
-                        </span>
-                        <span class="badge bg-accent bg-opacity-10 text-accent rounded-pill px-2 py-1" style="font-size: 0.7rem;">
-                            {% if offer.pricing_type == 'distance' %}
-                            <i class="fas fa-road me-1"></i>{% trans "Distance" %}
-                            {% else %}
-                            <i class="fas fa-clock me-1"></i>{% trans "Hourly" %}
-                            {% endif %}
-                        </span>
-                    </div>
-
                     <h5 class="fw-bold text-dark mb-2 text-truncate">{{ offer.title_ar }}</h5>
 
                     <p class="text-muted small mb-3 text-truncate">{{ offer.description_ar|truncatewords:10 }}</p>
@@ -145,5 +158,5 @@ window.trans_yes_delete = "{% trans 'Yes, delete it' %}";
 window.trans_cancel = "{% trans 'Cancel' %}";
 window.trans_error = "{% trans 'Error' %}";
 </script>
-<script src="{% static 'js/provider_offers.js' %}?v={% now 'U' %}"></script>
+<script src="{% static 'js/offers.js' %}?v={% now 'U' %}"></script>
 {% endblock extra_js %}

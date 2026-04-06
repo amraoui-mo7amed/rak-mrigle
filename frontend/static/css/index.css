@@ -20,6 +20,11 @@ Starter Kit Brand Variables
   --border-color: #e2e8f0;
 }
 
+/* Background */
+.bg-primary 
+{
+  background-color: var(--brand-primary) !important;
+}
 
 /* == Start of Custom Select */
 .custom-select-wrapper {

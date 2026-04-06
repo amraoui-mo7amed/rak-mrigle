@@ -8,6 +8,59 @@ document.addEventListener("DOMContentLoaded", function () {
         return metaToken ? metaToken.content : '';
     }
 
+    function initImageUpload() {
+        var widget = document.getElementById('imageUploadWidget');
+        if (!widget) return;
+
+        var fileInput = document.getElementById('offerImageInput');
+        var preview = document.getElementById('imagePreview');
+        var previewImg = preview ? preview.querySelector('img') : null;
+        var removeBtn = document.getElementById('removeImageBtn');
+        var uploadLabel = widget.querySelector('.custom-file-upload');
+
+        if (!fileInput || !preview || !previewImg || !removeBtn || !uploadLabel) return;
+
+        var hasExistingImage = widget.dataset.hasExistingImage === 'true';
+
+        function showUploadLabel() {
+            uploadLabel.style.display = 'flex';
+            preview.style.display = 'none';
+        }
+
+        function showPreview() {
+            uploadLabel.style.display = 'none';
+            preview.style.display = 'block';
+            previewImg.style.display = 'block';
+            removeBtn.style.display = 'flex';
+        }
+
+        if (hasExistingImage) {
+            showPreview();
+        } else {
+            showUploadLabel();
+        }
+
+        fileInput.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImg.src = e.target.result;
+                    showPreview();
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        removeBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            fileInput.value = '';
+            previewImg.src = '#';
+            showUploadLabel();
+        });
+    }
+
+    initImageUpload();
+
     function getOfferUrls() {
         var container = document.querySelector('[data-offer-urls]');
         if (!container) return {};
@@ -166,51 +219,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-    window.submitOfferForm = function (formId, offerId) {
-        var urls = getOfferUrls();
-        var form = document.getElementById(formId);
-        if (!form) return;
-        var formData = new FormData(form);
-        var isEdit = offerId !== undefined && offerId !== null;
-        var url = isEdit && urls.edit ? buildUrl(urls.edit, offerId) : form.action;
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url);
-        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        xhr.setRequestHeader("X-CSRFToken", getCsrfToken());
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    Swal.fire({
-                        icon: "success",
-                        title: response.message,
-                        showConfirmButton: false,
-                        timer: 2000
-                    }).then(function () {
-                        if (response.redirect_url) {
-                            window.location.href = response.redirect_url;
+    window.deleteProviderOffer = function (offerId) {
+        var url = '/dashboard/my-offers/' + offerId + '/delete/';
+        var redirectUrl = '/dashboard/my-offers/';
+        Swal.fire({
+            icon: "warning",
+            title: typeof window.trans_delete_confirm_title !== "undefined" ? window.trans_delete_confirm_title : "Delete Offer",
+            text: typeof window.trans_delete_confirm_text !== "undefined" ? window.trans_delete_confirm_text : "Are you sure you want to delete this offer? This action cannot be undone.",
+            showCancelButton: true,
+            confirmButtonColor: "#dc3545",
+            cancelButtonColor: "#6c757d",
+            confirmButtonText: typeof window.trans_yes_delete !== "undefined" ? window.trans_yes_delete : "Yes, delete it",
+            cancelButtonText: typeof window.trans_cancel !== "undefined" ? window.trans_cancel : "Cancel"
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", url);
+                xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+                xhr.setRequestHeader("X-CSRFToken", getCsrfToken());
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            Swal.fire({
+                                icon: "success",
+                                title: response.message,
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then(function () {
+                                window.location.href = redirectUrl;
+                            });
                         } else {
-                            location.reload();
+                            Swal.fire({
+                                icon: "error",
+                                title: typeof window.trans_error !== "undefined" ? window.trans_error : "Error",
+                                text: response.message
+                            });
                         }
-                    });
-                } else {
-                    if (response.errors) {
-                        var errorList = Object.values(response.errors).flat().join('\n');
-                        Swal.fire({
-                            icon: "error",
-                            title: typeof window.trans_error !== "undefined" ? window.trans_error : "Error",
-                            text: errorList
-                        });
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            title: typeof window.trans_error !== "undefined" ? window.trans_error : "Error",
-                            text: response.message
-                        });
                     }
-                }
+                };
+                xhr.send();
             }
-        };
-        xhr.send(formData);
+        });
     };
+
 });
