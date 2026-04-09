@@ -4,10 +4,10 @@
 {% load i18n %}
 
 {% block css %}
-    <link rel="stylesheet"
-          href="{% static 'css/dash_index.css' %}?v={% now "U" %}" />
-    <link rel="stylesheet"
-          href="{% static 'css/notifications.css' %}?v={% now "U" %}" />
+<link rel="stylesheet"
+href="{% static 'css/dash_index.css' %}?v={% now "U" %}" />
+<link rel="stylesheet"
+href="{% static 'css/notifications.css' %}?v={% now "U" %}" />
 {% endblock css %}
 {% block nav %}
 {% endblock nav %}
@@ -167,7 +167,7 @@
 {% block footer %}
 {% endblock footer %}
 {% block js %}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{% static 'js/dash_index.js' %}?v={% now "U" %}"></script>
-    <script src="{% static 'js/notifications.js' %}?v={% now "U" %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/dash_index.js' %}?v={% now "U" %}"></script>
+<script src="{% static 'js/notifications.js' %}?v={% now "U" %}"></script>
 {% endblock js %}

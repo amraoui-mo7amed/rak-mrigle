@@ -1,0 +1,136 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block dashTitle %}
+{% trans "Request Service" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-paper-plane me-2"></i>{% trans "Request Service" %}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% include "partials/errorList.html" with form_id="requestForm" %}
+
+                    <form id="requestForm" class="form" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    {% trans "Full Name" %} <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="full_name" class="form-control" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    {% trans "Phone Number" %} <span class="text-danger">*</span>
+                                </label>
+                                <input type="tel" name="phone" class="form-control" required />
+                            </div>
+                            <div class="col-md-6">
+                                {% include "components/custom_select.html" with id="wilayaSelect" name="wilaya" label=_("Wilaya") choices=wilayas select_title=_("Select your wilaya") %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    {% trans "Pickup Location" %} <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="location" class="form-control" required />
+                            </div>
+                            {% if offer.pricing_type == 'distance' %}
+                            <div class="col-12">
+                                <label class="form-label fw-bold">
+                                    {% trans "Destination" %}
+                                </label>
+                                <input type="text" name="destination" class="form-control" />
+                                <small class="text-muted">{% trans "Enter destination for distance-based pricing" %}</small>
+                            </div>
+                            {% endif %}
+                            <div class="col-12">
+                                <label class="form-label fw-bold">
+                                    {% trans "Additional Notes" %}
+                                </label>
+                                <textarea name="notes" class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <a href="{% url 'dash:catalog_details' offer.pk %}" class="btn btn-outline-secondary rounded-3">
+                                <i class="fas fa-arrow-left me-2"></i>{% trans "Back" %}
+                            </a>
+                            <button type="submit" class="btn btn-primary rounded-3">
+                                <i class="fas fa-paper-plane me-2"></i>{% trans "Submit Request" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold mb-0">{% trans "Service Summary" %}</h5>
+                </div>
+                <div class="card-body">
+                    {% if offer.image %}
+                    <img src="{{ offer.image.url }}" alt="{{ offer.title_ar }}" class="img-fluid rounded mb-3" style="max-height: 200px; width: 100%; object-fit: cover;">
+                    {% endif %}
+                    <h5 class="fw-bold">{{ offer.title_ar }}</h5>
+                    <p class="text-muted small">{{ offer.description_ar|truncatewords:20 }}</p>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">{% trans "Pricing" %}</span>
+                        <span class="fw-bold">{{ offer.base_price }} DA</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">{% trans "Type" %}</span>
+                        <span class="badge bg-accent">{{ offer.get_pricing_type_display }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted">{% trans "Location" %}</span>
+                        <small>{{ offer.wilaya }}</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold mb-0">{% trans "Provider" %}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center gap-3">
+                        {% if offer.provider.profile.profile_picture %}
+                        <img src="{{ offer.provider.profile.profile_picture.url }}" alt="{{ offer.provider.username }}" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                        {% else %}
+                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fas fa-user text-muted"></i>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <h6 class="fw-bold mb-0">{{ offer.provider.get_full_name|default:offer.provider.username }}</h6>
+                            <small class="text-muted">{% trans "Service Provider" %}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+<script src="{% static 'js/offers.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

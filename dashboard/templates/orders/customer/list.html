@@ -1,0 +1,182 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load tags %}
+
+{% block dashTitle %}
+{% trans "My Requests" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">{% trans "My Requests" %}</h2>
+            <p class="text-muted mb-0">{% trans "Track your service requests" %}</p>
+        </div>
+        <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary rounded-3" data-bs-toggle="modal" data-bs-target="#filterModal">
+                <i class="fas fa-filter me-2"></i>{% trans "Filter" %}
+                {% if status_filter %}<span class="badge bg-primary ms-1">1</span>{% endif %}
+            </button>
+            <a href="{% url 'dash:catalog_list' %}" class="btn btn-primary rounded-3">
+                <i class="fas fa-plus me-2"></i>{% trans "New Request" %}
+            </a>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-filter me-2"></i>{% trans "Filter Requests" %}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form method="get">
+            <div class="modal-body">
+                <div class="mb-3">
+                    {% include "components/custom_select.html" with id="statusFilter" name="status" label=_("Status") choices=status_choices value=status_filter select_title=_("All Statuses") %}
+                </div>
+            </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'dash:customer_requests' %}" class="btn btn-outline-secondary">{% trans "Clear" %}</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check me-2"></i>{% trans "Apply Filter" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {% for req in requests %}
+        <div class="col-lg-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="badge
+                                {% if req.status == 'pending' %}bg-warning
+                                {% elif req.status == 'approved' %}bg-success
+                                {% elif req.status == 'rejected' %}bg-danger
+                                {% elif req.status == 'cancelled' %}bg-secondary
+                                {% endif %} rounded-pill px-3 py-2 mb-2">
+                                {{ req.get_status_display }}
+                            </span>
+                            <h5 class="fw-bold mb-1">{{ req.offer.title_ar }}</h5>
+                            <p class="text-muted small mb-0">{{ req.offer.provider.get_full_name|default:req.offer.provider.username }}</p>
+                        </div>
+                        <div class="text-end">
+                            <small class="text-muted d-block">{{ req.created_at|date:"d M Y" }}</small>
+                            <small class="text-muted">{{ req.created_at|date:"H:i" }}</small>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fas fa-map-marker-alt text-muted"></i>
+                            <small class="text-muted">{{ req.wilaya }}</small>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-truck text-muted"></i>
+                            <small class="text-truncate">{{ req.location }}</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="{% url 'dash:customer_request_details' req.pk %}" class="btn btn-primary flex-grow-1 rounded-3">
+                            <i class="fas fa-eye me-1"></i>{% trans "View Details" %}
+                        </a>
+                        {% if req.status == 'pending' %}
+                        <button type="button" class="btn btn-outline-danger rounded-3" onclick="cancelRequest({{ req.pk }})">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="card border-0 shadow-sm p-5 text-center rounded-4 bg-white">
+                <div class="p-5">
+                    <i class="fas fa-clipboard-list fa-4x text-light mb-4"></i>
+                    <h4 class="text-muted fw-bold">{% trans "No requests yet" %}</h4>
+                    <p class="text-muted mb-4">{% trans "Start by browsing available services" %}</p>
+                    <a href="{% url 'dash:catalog_list' %}" class="btn btn-primary rounded-3">
+                        <i class="fas fa-search me-2"></i>{% trans "Browse Services" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-5">
+        {% render_pagination page_obj %}
+    </div>
+</div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+<script>
+window.trans_cancel_confirm_title = "{% trans 'Cancel Request' %}";
+window.trans_cancel_confirm_text = "{% trans 'Are you sure you want to cancel this request?' %}";
+window.trans_yes_cancel = "{% trans 'Yes, cancel it' %}";
+window.trans_cancel_btn = "{% trans 'Cancel' %}";
+window.trans_error = "{% trans 'Error' %}";
+
+function cancelRequest(requestId) {
+    Swal.fire({
+        icon: "warning",
+        title: window.trans_cancel_confirm_title,
+        text: window.trans_cancel_confirm_text,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#6c757d",
+        confirmButtonText: window.trans_yes_cancel,
+        cancelButtonText: window.trans_cancel_btn
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            fetch(`/dashboard/my-requests/${requestId}/cancel/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(() => {
+                        window.location.href = data.redirect_url;
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: window.trans_error,
+                        text: data.errors ? data.errors.join(', ') : 'An error occurred'
+                    });
+                }
+            });
+        }
+    });
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock extra_js %}

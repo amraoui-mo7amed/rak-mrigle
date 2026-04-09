@@ -1,0 +1,159 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load tags %}
+{% block dashTitle %}
+{{ offer.title_ar }}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                {% if offer.image %}
+                <img src="{{ offer.image.url }}" alt="{{ offer.title_ar }}" class="w-100 rounded-top-4" style="max-height: 400px; object-fit: cover;">
+                {% else %}
+                <div class="bg-light d-flex align-items-center justify-content-center rounded-top-4" style="height: 400px;">
+                    <i class="fas fa-truck fa-5x text-muted"></i>
+                </div>
+                {% endif %}
+
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2">
+                            <i class="fas fa-tag me-1"></i>{{ offer.category.name_ar }}
+                        </span>
+                        <span class="badge bg-accent rounded-pill px-3 py-2">
+                            {{ offer.get_pricing_type_display }}
+                        </span>
+                        {% if offer.capacity %}
+                        <span class="badge bg-secondary rounded-pill px-3 py-2">
+                            <i class="fas fa-weight-hanging me-1"></i>{{ offer.capacity }}
+                        </span>
+                        {% endif %}
+                    </div>
+
+                    <h2 class="fw-bold text-dark mb-3">{{ offer.title_ar }}</h2>
+
+                    <div class="mb-4">
+                        <h5 class="fw-bold text-dark mb-2">{% trans "Description" %}</h5>
+                        <p class="text-muted">{{ offer.description_ar }}</p>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1"><i class="fas fa-map-marker-alt me-1"></i>{% trans "Location" %}</small>
+                                <span class="fw-bold">{{ offer.wilaya|localized_wilaya }}</span>
+                                {% if offer.location_ar %}
+                                <br><small class="text-muted">{{ offer.location_ar }}</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 p-3">
+                    <h5 class="fw-bold mb-0">{% trans "Pricing" %}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <small class="text-muted d-block">{% trans "Starting from" %}</small>
+                        <h3 class="fw-bold text-primary mb-0">{{ offer.base_price }} DA</h3>
+                    </div>
+
+                    {% if offer.pricing_type == 'distance' and offer.price_per_km %}
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted"><i class="fas fa-road me-1"></i>{% trans "Per Km" %}</span>
+                        <span class="fw-bold">{{ offer.price_per_km }} DA</span>
+                    </div>
+                    {% elif offer.pricing_type == 'hourly' and offer.price_per_hour %}
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted"><i class="fas fa-clock me-1"></i>{% trans "Per Hour" %}</span>
+                        <span class="fw-bold">{{ offer.price_per_hour }} DA</span>
+                    </div>
+                    {% endif %}
+
+                    {% if offer.fuel_cost %}
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted"><i class="fas fa-gas-pump me-1"></i>{% trans "Fuel Cost" %}</span>
+                        <span class="fw-bold">{{ offer.fuel_cost }} DA</span>
+                    </div>
+                    {% endif %}
+
+                    {% if offer.operator_cost %}
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted"><i class="fas fa-user me-1"></i>{% trans "Operator Cost" %}</span>
+                        <span class="fw-bold">{{ offer.operator_cost }} DA</span>
+                    </div>
+                    {% endif %}
+
+                    <hr>
+
+                                        <a href="{% url 'dash:create_request' offer.pk %}" class="btn btn-primary w-100 rounded-3 py-2">
+                        <i class="fas fa-paper-plane me-2"></i>{% trans "Request This Service" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 p-3">
+                    <h5 class="fw-bold mb-0">{% trans "Provider" %}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        {% if offer.provider.profile.profile_picture %}
+                        <img src="{{ offer.provider.profile.profile_picture.url }}" alt="{{ offer.provider.username }}" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                        {% else %}
+                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fas fa-user text-muted"></i>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <h6 class="fw-bold mb-0">{{ offer.provider.get_full_name|default:offer.provider.username }}</h6>
+                            <small class="text-muted">{% trans "Service Provider" %}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if related_offers %}
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-white border-0 p-3">
+                    <h5 class="fw-bold mb-0">{% trans "Similar Services" %}</h5>
+                </div>
+                <div class="card-body">
+                    {% for related in related_offers %}
+                                            <a href="{% url 'dash:catalog_details' related.pk %}" class="text-decoration-none">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            {% if related.image %}
+                            <img src="{{ related.image.url }}" alt="{{ related.title_ar }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                            {% else %}
+                            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <i class="fas fa-truck text-muted"></i>
+                            </div>
+                            {% endif %}
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold text-dark mb-1 small">{{ related.title_ar }}</h6>
+                                <small class="text-primary fw-bold">{{ related.base_price }} DA</small>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock dashContent %}

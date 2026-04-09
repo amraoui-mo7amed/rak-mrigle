@@ -38,6 +38,70 @@ def get_wilayas_choices():
         return []
 
 
+def get_localized_wilaya_name(wilaya_name):
+    """
+    Get localized wilaya name from algeria.json.
+
+    Args:
+        wilaya_name: The wilaya name (in any language)
+
+    Returns:
+        Localized wilaya name based on current language
+    """
+    from django.utils.translation import get_language
+
+    json_path = Path(__file__).parent.parent / "algeria.json"
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            wilayas = json.load(f)
+
+        lang = get_language()
+        for w in wilayas:
+            if w["name"] == wilaya_name or w["ar_name"] == wilaya_name:
+                if lang == "ar":
+                    return w["ar_name"]
+                else:
+                    return w["name"]
+        return wilaya_name
+    except Exception as e:
+        logger.error(f"Failed to get localized wilaya: {str(e)}")
+        return wilaya_name
+
+
+def get_localized_category_choices(categories):
+    """
+    Get category choices based on current language.
+
+    Args:
+        categories: QuerySet of Category objects
+
+    Returns:
+        List of tuples (id, localized_name)
+    """
+    from django.utils.translation import get_language
+
+    lang = get_language()
+    return [(cat.id, cat.get_name(lang)) for cat in categories]
+
+
+def get_status_choices():
+    """
+    Get localized status choices for ServiceRequest.
+
+    Returns:
+        List of tuples (value, localized_label)
+    """
+    from django.utils.translation import gettext_lazy as _
+    from .models import ServiceRequest
+
+    return [
+        (ServiceRequest.RequestStatus.PENDING, _("Pending")),
+        (ServiceRequest.RequestStatus.APPROVED, _("Approved")),
+        (ServiceRequest.RequestStatus.REJECTED, _("Rejected")),
+        (ServiceRequest.RequestStatus.CANCELLED, _("Cancelled")),
+    ]
+
+
 def send_account_activation_email(request, profile):
     """
     Sends an account activation email to the user after approval.

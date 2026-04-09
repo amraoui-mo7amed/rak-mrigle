@@ -1,0 +1,259 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block dashTitle %}
+{% trans "Request Details" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0 text-primary">
+                            <i class="fas fa-file-alt me-2"></i>{% trans "Request Details" %}
+                        </h5>
+                        <span class="badge
+                            {% if service_request.status == 'pending' %}bg-warning
+                            {% elif service_request.status == 'approved' %}bg-success
+                            {% elif service_request.status == 'rejected' %}bg-danger
+                            {% elif service_request.status == 'cancelled' %}bg-secondary
+                            {% endif %} rounded-pill px-3 py-2 fs-6">
+                            {{ service_request.get_status_display }}
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-user me-1"></i>{% trans "Customer Name" %}
+                                </small>
+                                <span class="fw-bold">{{ service_request.full_name }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-phone me-1"></i>{% trans "Phone Number" %}
+                                </small>
+                                {% if service_request.status == 'approved' %}
+                                <span class="fw-bold">
+                                    {{ service_request.phone }}
+                                    <button class="btn btn-sm btn-outline-secondary ms-2" onclick="navigator.clipboard.writeText('{{ service_request.phone }}')">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </span>
+                                {% else %}
+                                <span class="text-muted fst-italic">{% trans "Available after approval" %}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-map-marker-alt me-1"></i>{% trans "Wilaya" %}
+                                </small>
+                                <span class="fw-bold">{{ service_request.wilaya }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-truck me-1"></i>{% trans "Pickup Location" %}
+                                </small>
+                                <span class="fw-bold">{{ service_request.location }}</span>
+                            </div>
+                        </div>
+                        {% if service_request.destination %}
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-flag-checkered me-1"></i>{% trans "Destination" %}
+                                </small>
+                                <span class="fw-bold">{{ service_request.destination }}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if service_request.notes %}
+                        <div class="col-12">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-sticky-note me-1"></i>{% trans "Notes" %}
+                                </small>
+                                <span class="fw-bold">{{ service_request.notes }}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="text-muted small mb-4">
+                        <i class="fas fa-clock me-1"></i>
+                        {% trans "Requested on" %} {{ service_request.created_at|date:"d M Y H:i" }}
+                    </div>
+
+                    {% if service_request.status == 'pending' %}
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-success rounded-3 flex-grow-1" onclick="approveRequest({{ service_request.pk }})">
+                            <i class="fas fa-check me-2"></i>{% trans "Approve Request" %}
+                        </button>
+                        <button type="button" class="btn btn-outline-danger rounded-3 flex-grow-1" onclick="rejectRequest({{ service_request.pk }})">
+                            <i class="fas fa-times me-2"></i>{% trans "Reject Request" %}
+                        </button>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header border-0 py-3">
+                    <h5 class="fw-bold mb-0">{% trans "Service Details" %}</h5>
+                </div>
+                <div class="card-body">
+                    {% if offer.image %}
+                    <img src="{{ offer.image.url }}" alt="{{ offer.title_ar }}" class="img-fluid rounded mb-3" style="max-height: 150px; width: 100%; object-fit: cover;">
+                    {% endif %}
+                    <h6 class="fw-bold">{{ offer.title_ar }}</h6>
+                    <p class="text-muted small mb-3">{{ offer.description_ar|truncatewords:15 }}</p>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">{% trans "Price" %}</span>
+                        <span class="fw-bold">{{ offer.base_price }} DA</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">{% trans "Type" %}</span>
+                        <span class="badge bg-accent">{{ offer.get_pricing_type_display }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted">{% trans "Location" %}</span>
+                        <small>{{ offer.wilaya }}</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header  border-0 py-3">
+                    <h5 class="fw-bold mb-0">{% trans "Actions" %}</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'dash:provider_requests' %}" class="btn btn-outline-secondary w-100 rounded-3 mb-2">
+                        <i class="fas fa-arrow-left me-2"></i>{% trans "Back to List" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+<script>
+window.trans_approve_confirm_title = "{% trans 'Approve Request' %}";
+window.trans_approve_confirm_text = "{% trans 'Are you sure you want to approve this request?' %}";
+window.trans_yes_approve = "{% trans 'Yes, approve it' %}";
+window.trans_reject_confirm_title = "{% trans 'Reject Request' %}";
+window.trans_reject_confirm_text = "{% trans 'Are you sure you want to reject this request?' %}";
+window.trans_yes_reject = "{% trans 'Yes, reject it' %}";
+window.trans_cancel = "{% trans 'Cancel' %}";
+window.trans_error = "{% trans 'Error' %}";
+window.trans_success = "{% trans 'Success' %}";
+
+function approveRequest(requestId) {
+    Swal.fire({
+        icon: "question",
+        title: window.trans_approve_confirm_title,
+        text: window.trans_approve_confirm_text,
+        showCancelButton: true,
+        confirmButtonColor: "#198754",
+        cancelButtonColor: "#6c757d",
+        confirmButtonText: window.trans_yes_approve,
+        cancelButtonText: window.trans_cancel
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            fetch(`/dashboard/incoming-requests/${requestId}/approve/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(() => {
+                        window.location.href = data.redirect_url;
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: window.trans_error,
+                        text: data.errors ? data.errors.join(', ') : 'An error occurred'
+                    });
+                }
+            });
+        }
+    });
+}
+
+function rejectRequest(requestId) {
+    Swal.fire({
+        icon: "warning",
+        title: window.trans_reject_confirm_title,
+        text: window.trans_reject_confirm_text,
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#6c757d",
+        confirmButtonText: window.trans_yes_reject,
+        cancelButtonText: window.trans_cancel
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            fetch(`/dashboard/incoming-requests/${requestId}/reject/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(() => {
+                        window.location.href = data.redirect_url;
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: window.trans_error,
+                        text: data.errors ? data.errors.join(', ') : 'An error occurred'
+                    });
+                }
+            });
+        }
+    });
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock extra_js %}

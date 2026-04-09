@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-01 19:25+0100\n"
+"POT-Creation-Date: 2026-04-09 21:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,103 +19,649 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: core/context_processors.py:11
+#: core/context_processors.py:13
 #, fuzzy
 #| msgid "Rak-Mrigle"
 msgid "Rak-Mrigel"
 msgstr "راك مريقل"
 
-#: core/context_processors.py:13
+#: core/context_processors.py:15
 msgid "Transport Marketplace & Heavy Machinery "
 msgstr ""
 
-#: core/context_processors.py:25
+#: core/context_processors.py:27
 msgid "The leading marketplace for transport and heavy machinery in Algeria."
 msgstr "السوق الرائد للنقل والآليات الثقيلة في الجزائر."
 
-#: core/context_processors.py:28
+#: core/context_processors.py:30
 msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
 msgstr "النقل، الآليات، البناء، الخدمات اللوجستية، الجزائر، الشاحنات، الرافعات"
 
-#: core/settings.py:196
+#: core/settings.py:201
 msgid "العربية"
 msgstr ""
 
-#: core/settings.py:196
+#: core/settings.py:201
 msgid "English"
 msgstr "الإنجليزية"
 
-#: core/settings.py:196
+#: core/settings.py:201
 msgid "French"
 msgstr "الفرنسية"
 
-#: dashboard/context_processors.py:11
+#: dashboard/context_processors.py:7
 #: dashboard/templates/dash/dash_index.html:88 frontend/templates/home.html:21
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: dashboard/context_processors.py:17
-msgid "users"
-msgstr "المستخدمين"
+#: dashboard/context_processors.py:15
+#, fuzzy
+#| msgid "User"
+msgid "Users"
+msgstr "مستخدم"
 
 #: dashboard/context_processors.py:23
+#, fuzzy
+#| msgid "View Offers"
+msgid "All Offers"
+msgstr "عرض العروض"
+
+#: dashboard/context_processors.py:31
+#: dashboard/templates/offers/provider/list.html:8
+#, fuzzy
+#| msgid "View Offers"
+msgid "My Offers"
+msgstr "عرض العروض"
+
+#: dashboard/context_processors.py:39 dashboard/templates/catalog/list.html:8
+#: dashboard/templates/orders/customer/list.html:116
+#, fuzzy
+#| msgid "Book Service"
+msgid "Browse Services"
+msgstr "حجز خدمة"
+
+#: dashboard/context_processors.py:47
+#: dashboard/templates/orders/customer/list.html:8
+#: dashboard/templates/orders/customer/list.html:19
+msgid "My Requests"
+msgstr ""
+
+#: dashboard/context_processors.py:55
+#: dashboard/templates/orders/provider/list.html:8
+#: dashboard/templates/orders/provider/list.html:19
+msgid "Incoming Requests"
+msgstr ""
+
+#: dashboard/context_processors.py:63
 msgid "Social Auth"
 msgstr ""
 
-#: dashboard/models.py:11
+#: dashboard/models.py:12
 msgid "معلومة"
 msgstr ""
 
-#: dashboard/models.py:12
+#: dashboard/models.py:13
 msgid "نجاح"
 msgstr ""
 
-#: dashboard/models.py:13
+#: dashboard/models.py:14
 msgid "تحذير"
 msgstr ""
 
-#: dashboard/models.py:14
+#: dashboard/models.py:15
 msgid "خطأ"
 msgstr ""
 
-#: dashboard/models.py:20
+#: dashboard/models.py:21
 msgid "المستخدم"
 msgstr ""
 
-#: dashboard/models.py:22
+#: dashboard/models.py:23
 msgid "العنوان"
 msgstr ""
 
-#: dashboard/models.py:23
+#: dashboard/models.py:24
 msgid "الرسالة"
 msgstr ""
 
-#: dashboard/models.py:28
+#: dashboard/models.py:29
 msgid "نوع الإشعار"
 msgstr ""
 
-#: dashboard/models.py:30
+#: dashboard/models.py:31
 msgid "مقروء"
 msgstr ""
 
-#: dashboard/models.py:31
+#: dashboard/models.py:33 dashboard/models.py:78 dashboard/models.py:225
+#: dashboard/models.py:293
 msgid "تاريخ الإنشاء"
 msgstr ""
 
-#: dashboard/models.py:32
+#: dashboard/models.py:36
 msgid "تاريخ القراءة"
 msgstr ""
 
-#: dashboard/models.py:36
+#: dashboard/models.py:41
 msgid "الرابط"
 msgstr ""
 
-#: dashboard/models.py:37
+#: dashboard/models.py:42
 msgid "رابط اختياري للتنقل"
 msgstr ""
 
-#: dashboard/models.py:41
+#: dashboard/models.py:46
 msgid "إشعار"
+msgstr ""
+
+#: dashboard/models.py:58
+#, fuzzy
+#| msgid "Transport & Utilities"
+msgid "Transport"
+msgstr "النقل والمرافق"
+
+#: dashboard/models.py:59
+#, fuzzy
+#| msgid "Find Machinery"
+msgid "Machinery"
+msgstr "البحث عن آليات"
+
+#: dashboard/models.py:60
+#, fuzzy
+#| msgid "Logistics & Towing"
+msgid "Logistics"
+msgstr "الخدمات اللوجستية والقطر"
+
+#: dashboard/models.py:62
+msgid "الاسم بالعربية"
+msgstr ""
+
+#: dashboard/models.py:63
+msgid "الاسم بالفرنسية"
+msgstr ""
+
+#: dashboard/models.py:64
+msgid "الاسم بالإنجليزية"
+msgstr ""
+
+#: dashboard/models.py:68
+msgid "نوع الفئة"
+msgstr ""
+
+#: dashboard/models.py:73
+msgid "الأيقونة"
+msgstr ""
+
+#: dashboard/models.py:74
+msgid "FontAwesome icon class"
+msgstr ""
+
+#: dashboard/models.py:76 dashboard/models.py:103
+msgid "نشط"
+msgstr ""
+
+#: dashboard/models.py:82
+msgid "فئة"
+msgstr ""
+
+#: dashboard/models.py:101
+msgid "مسودة"
+msgstr ""
+
+#: dashboard/models.py:102
+msgid "في الانتظار"
+msgstr ""
+
+#: dashboard/models.py:104 dashboard/models.py:265
+msgid "مرفوض"
+msgstr ""
+
+#: dashboard/models.py:105
+msgid "منتهي"
+msgstr ""
+
+#: dashboard/models.py:108
+msgid "مسافة"
+msgstr ""
+
+#: dashboard/models.py:109
+msgid "ساعي"
+msgstr ""
+
+#: dashboard/models.py:115
+msgid "المزود"
+msgstr ""
+
+#: dashboard/models.py:121
+msgid "الفئة"
+msgstr ""
+
+#: dashboard/models.py:123
+msgid "العنوان بالعربية"
+msgstr ""
+
+#: dashboard/models.py:124
+msgid "العنوان بالفرنسية"
+msgstr ""
+
+#: dashboard/models.py:125
+msgid "العنوان بالإنجليزية"
+msgstr ""
+
+#: dashboard/models.py:126
+msgid "الوصف بالعربية"
+msgstr ""
+
+#: dashboard/models.py:127
+msgid "الوصف بالفرنسية"
+msgstr ""
+
+#: dashboard/models.py:128
+msgid "الوصف بالإنجليزية"
+msgstr ""
+
+#: dashboard/models.py:133
+msgid "نوع التسعير"
+msgstr ""
+
+#: dashboard/models.py:138
+msgid "السعر الأساسي"
+msgstr ""
+
+#: dashboard/models.py:139
+msgid "Minimum charge for the service"
+msgstr ""
+
+#: dashboard/models.py:146
+msgid "السعر لكل كلم"
+msgstr ""
+
+#: dashboard/models.py:153
+msgid "السعر لكل ساعة"
+msgstr ""
+
+#: dashboard/models.py:160
+msgid "تكلفة الوقود"
+msgstr ""
+
+#: dashboard/models.py:167
+msgid "تكلفة المشغل"
+msgstr ""
+
+#: dashboard/models.py:174
+msgid "تكلفة وقت الانتظار"
+msgstr ""
+
+#: dashboard/models.py:179
+msgid "السعة"
+msgstr ""
+
+#: dashboard/models.py:180
+msgid "Load capacity (e.g., '5 tons', '20 m³')"
+msgstr ""
+
+#: dashboard/models.py:185 dashboard/models.py:282
+msgid "الولاية"
+msgstr ""
+
+#: dashboard/models.py:191
+msgid "الصورة"
+msgstr ""
+
+#: dashboard/models.py:197 dashboard/models.py:290
+msgid "الحالة"
+msgstr ""
+
+#: dashboard/models.py:201
+msgid "متاح"
+msgstr ""
+
+#: dashboard/models.py:202
+msgid "Available for booking"
+msgstr ""
+
+#: dashboard/models.py:207
+msgid "الموقع بالعربية"
+msgstr ""
+
+#: dashboard/models.py:212
+msgid "الموقع بالفرنسية"
+msgstr ""
+
+#: dashboard/models.py:217
+msgid "الموقع بالإنجليزية"
+msgstr ""
+
+#: dashboard/models.py:221
+msgid "ملاحظة المدير"
+msgstr ""
+
+#: dashboard/models.py:222
+msgid "Internal note for rejection reason"
+msgstr ""
+
+#: dashboard/models.py:227 dashboard/models.py:295
+msgid "تاريخ التحديث"
+msgstr ""
+
+#: dashboard/models.py:230
+msgid "عرض"
+msgstr ""
+
+#: dashboard/models.py:263
+msgid "قيد الانتظار"
+msgstr ""
+
+#: dashboard/models.py:264
+msgid "مقبول"
+msgstr ""
+
+#: dashboard/models.py:266
+msgid "ملغي"
+msgstr ""
+
+#: dashboard/models.py:272
+msgid "العميل"
+msgstr ""
+
+#: dashboard/models.py:278
+msgid "العرض"
+msgstr ""
+
+#: dashboard/models.py:280
+msgid "الاسم الكامل"
+msgstr ""
+
+#: dashboard/models.py:281
+msgid "رقم الهاتف"
+msgstr ""
+
+#: dashboard/models.py:283
+msgid "موقع الانطلاق"
+msgstr ""
+
+#: dashboard/models.py:284
+msgid "الوجهة"
+msgstr ""
+
+#: dashboard/models.py:285
+msgid "ملاحظات"
+msgstr ""
+
+#: dashboard/models.py:298
+msgid "طلب خدمة"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:45
+#: dashboard/templates/offers/admin/details.html:69
+#: dashboard/templates/offers/provider/details.html:57
+msgid "Description"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:52
+#: dashboard/templates/catalog/request_form.html:103
+#: dashboard/templates/offers/admin/details.html:154
+#: dashboard/templates/offers/provider/details.html:145
+#: dashboard/templates/orders/customer/details.html:151
+#: dashboard/templates/orders/provider/details.html:139
+#, fuzzy
+#| msgid "Notifications"
+msgid "Location"
+msgstr "الإشعارات"
+
+#: dashboard/templates/catalog/details.html:67
+#: dashboard/templates/catalog/request_form.html:95
+#, fuzzy
+#| msgid "Fair Pricing,"
+msgid "Pricing"
+msgstr "تسعير عادل،"
+
+#: dashboard/templates/catalog/details.html:71
+#: dashboard/templates/catalog/list.html:155
+msgid "Starting from"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:77
+#: dashboard/templates/offers/admin/list.html:123
+#: dashboard/templates/offers/provider/list.html:106
+msgid "Per Km"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:82
+#: dashboard/templates/offers/admin/list.html:128
+#: dashboard/templates/offers/provider/list.html:111
+msgid "Per Hour"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:89
+#: dashboard/templates/offers/admin/details.html:127
+#: dashboard/templates/offers/provider/details.html:117
+msgid "Fuel Cost"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:96
+#: dashboard/templates/offers/admin/details.html:135
+#: dashboard/templates/offers/provider/details.html:125
+msgid "Operator Cost"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:104
+msgid "Request This Service"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:111
+#: dashboard/templates/catalog/request_form.html:111
+#: dashboard/templates/orders/customer/details.html:159
+#: dashboard/templates/social_auth/list.html:52
+#: dashboard/templates/social_auth/list.html:177 user_auth/models.py:15
+#: user_auth/templates/auth/signup.html:174
+#: user_auth/templates/user/profile.html:59
+#: user_auth/templates/user/profile.html:283
+#: user_auth/templates/user/profile.html:315
+msgid "Provider"
+msgstr ""
+
+#: dashboard/templates/catalog/details.html:124
+#: dashboard/templates/catalog/request_form.html:124
+#: dashboard/templates/orders/customer/details.html:172
+#, fuzzy
+#| msgid "Register as Provider"
+msgid "Service Provider"
+msgstr "سجل كمزود خدمة"
+
+#: dashboard/templates/catalog/details.html:133
+msgid "Similar Services"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:19
+msgid "Available Services"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:22
+msgid "Browse and request transport & machinery services"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:37
+#: dashboard/templates/catalog/list.html:72
+msgid "Search services..."
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:44
+#: dashboard/templates/offers/provider/list.html:40
+#: dashboard/templates/orders/customer/list.html:24
+#: dashboard/templates/orders/provider/list.html:24
+#, fuzzy
+#| msgid "Filter Users"
+msgid "Filter"
+msgstr "تصفية المستخدمين"
+
+#: dashboard/templates/catalog/list.html:57
+#, fuzzy
+#| msgid "Filter Users"
+msgid "Filter Services"
+msgstr "تصفية المستخدمين"
+
+#: dashboard/templates/catalog/list.html:66
+#: dashboard/templates/offers/provider/list.html:59
+#, fuzzy
+#| msgid "Search Keyword"
+msgid "Search"
+msgstr "كلمة البحث"
+
+#: dashboard/templates/catalog/list.html:75
+#: dashboard/templates/catalog/request_form.html:44
+#: dashboard/templates/offers/provider/create.html:171
+#: dashboard/templates/offers/provider/edit.html:200
+#: dashboard/templates/orders/customer/details.html:55
+#: dashboard/templates/orders/provider/details.html:64
+msgid "Wilaya"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:75
+msgid "All Wilayas"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:79
+#: dashboard/templates/offers/admin/list.html:78
+#: dashboard/templates/offers/provider/create.html:71
+#: dashboard/templates/offers/provider/details.html:165
+#: dashboard/templates/offers/provider/edit.html:94
+msgid "Category"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:79
+msgid "All Categories"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:84
+#: dashboard/templates/offers/admin/details.html:78
+#: dashboard/templates/offers/provider/create.html:94
+#: dashboard/templates/offers/provider/details.html:67
+#: dashboard/templates/offers/provider/edit.html:117
+msgid "Pricing Type"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:88
+msgid "All Types"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:92
+#: dashboard/templates/offers/admin/details.html:81
+#: dashboard/templates/offers/provider/details.html:70
+#, fuzzy
+#| msgid "Distance Logic"
+msgid "Distance Based"
+msgstr "منطق المسافة"
+
+#: dashboard/templates/catalog/list.html:96
+#: dashboard/templates/offers/admin/details.html:83
+#: dashboard/templates/offers/provider/details.html:72
+msgid "Hourly Based"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:103
+msgid "Min Price"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:113
+msgid "Max Price"
+msgstr ""
+
+#: dashboard/templates/catalog/list.html:125
+#: dashboard/templates/offers/admin/list.html:36
+#: dashboard/templates/offers/provider/list.html:68
+#: dashboard/templates/orders/customer/list.html:50
+#: dashboard/templates/orders/provider/list.html:46
+#: dashboard/templates/users/list.html:36
+msgid "Clear"
+msgstr "مسح"
+
+#: dashboard/templates/catalog/list.html:127
+#: dashboard/templates/offers/admin/list.html:87
+#: dashboard/templates/offers/provider/list.html:71
+#: dashboard/templates/users/list.html:113
+msgid "Apply Filters"
+msgstr "تطبيق التصفية"
+
+#: dashboard/templates/catalog/list.html:164
+#: dashboard/templates/orders/customer/list.html:97
+#: dashboard/templates/orders/provider/list.html:93
+#, fuzzy
+#| msgid "User Details"
+msgid "View Details"
+msgstr "تفاصيل المستخدم"
+
+#: dashboard/templates/catalog/list.html:175
+#, fuzzy
+#| msgid "New security update available."
+msgid "No services available"
+msgstr "يتوفر تحديث أمني جديد."
+
+#: dashboard/templates/catalog/list.html:178
+msgid "Check back later for available services"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:7
+#: dashboard/templates/catalog/request_form.html:21
+msgid "Request Service"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:33
+#, fuzzy
+#| msgid "First Name"
+msgid "Full Name"
+msgstr "الاسم الأول"
+
+#: dashboard/templates/catalog/request_form.html:39
+#: dashboard/templates/orders/provider/details.html:47
+#: dashboard/templates/users/details.html:129
+#: dashboard/templates/users/list.html:175 user_auth/models.py:33
+#: user_auth/templates/auth/signup.html:103
+#: user_auth/templates/user/profile.html:125
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: dashboard/templates/catalog/request_form.html:44
+msgid "Select your wilaya"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:48
+#: dashboard/templates/orders/customer/details.html:63
+#: dashboard/templates/orders/provider/details.html:72
+msgid "Pickup Location"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:55
+#: dashboard/templates/orders/customer/details.html:72
+#: dashboard/templates/orders/provider/details.html:81
+#, fuzzy
+#| msgid "Detailed Information"
+msgid "Destination"
+msgstr "معلومات مفصلة"
+
+#: dashboard/templates/catalog/request_form.html:58
+msgid "Enter destination for distance-based pricing"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:63
+msgid "Additional Notes"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:71
+msgid "Back"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:74
+msgid "Submit Request"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:85
+msgid "Service Summary"
+msgstr ""
+
+#: dashboard/templates/catalog/request_form.html:99
+#: dashboard/templates/orders/customer/details.html:147
+#: dashboard/templates/orders/provider/details.html:135
+msgid "Type"
 msgstr ""
 
 #: dashboard/templates/components/notification_dropdown.html:12
@@ -235,7 +781,8 @@ msgstr "النشاط الأسبوعي"
 
 #: dashboard/templates/dash/dash_home.html:101
 #: dashboard/templates/social_auth/list.html:101
-#: dashboard/templates/users/list.html:106
+#: dashboard/templates/users/list.html:134 dashboard/views/admin_offers.py:47
+#: dashboard/views/provider_offers.py:54
 msgid "Active"
 msgstr "نشط"
 
@@ -312,7 +859,7 @@ msgid "Administrator"
 msgstr "المسؤول"
 
 #: dashboard/templates/dash/dash_index.html:123
-#: dashboard/templates/users/list.html:101
+#: dashboard/templates/users/list.html:129
 msgid "User"
 msgstr "مستخدم"
 
@@ -329,6 +876,706 @@ msgstr "الإعدادات"
 #: dashboard/templates/dash/dash_index.html:147
 msgid "Help & Support"
 msgstr "المساعدة والدعم"
+
+#: dashboard/templates/offers/admin/details.html:7
+#: dashboard/templates/offers/provider/details.html:7
+#, fuzzy
+#| msgid "User Details"
+msgid "Offer Details"
+msgstr "تفاصيل المستخدم"
+
+#: dashboard/templates/offers/admin/details.html:42
+#, fuzzy
+#| msgid "Approved"
+msgid "Approve"
+msgstr "تمت الموافقة"
+
+#: dashboard/templates/offers/admin/details.html:47
+msgid "Reject"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:53
+#: dashboard/templates/offers/provider/details.html:32
+#: dashboard/templates/social_auth/list.html:121
+#, fuzzy
+#| msgid "Deleted!"
+msgid "Delete"
+msgstr "تم الحذف!"
+
+#: dashboard/templates/offers/admin/details.html:90
+#: dashboard/templates/offers/admin/list.html:118
+#: dashboard/templates/offers/provider/details.html:79
+#: dashboard/templates/offers/provider/list.html:101
+msgid "Base Price"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:97
+#: dashboard/templates/offers/provider/details.html:86
+msgid "Price per Km"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:104
+#: dashboard/templates/offers/provider/details.html:93
+msgid "Price per Hour"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:112
+#: dashboard/templates/offers/provider/create.html:185
+#: dashboard/templates/offers/provider/details.html:101
+#: dashboard/templates/offers/provider/edit.html:215
+msgid "Capacity"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:121
+#: dashboard/templates/offers/provider/details.html:111
+msgid "Additional Costs"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:143
+#: dashboard/templates/offers/provider/details.html:133
+msgid "Wait Time Cost"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:168
+msgid "Provider Info"
+msgstr ""
+
+#: dashboard/templates/offers/admin/details.html:188
+#, fuzzy
+#| msgid "View Full Profile"
+msgid "View Profile"
+msgstr "عرض الملف الشخصي الكامل"
+
+#: dashboard/templates/offers/admin/details.html:196
+#: dashboard/templates/offers/provider/details.html:40
+msgid "Admin Note"
+msgstr ""
+
+#: dashboard/templates/offers/admin/list.html:8
+#, fuzzy
+#| msgid "View Offers"
+msgid "Offers"
+msgstr "عرض العروض"
+
+#: dashboard/templates/offers/admin/list.html:27
+#: dashboard/templates/offers/provider/list.html:52
+#, fuzzy
+#| msgid "Filter Users"
+msgid "Filter Offers"
+msgstr "تصفية المستخدمين"
+
+#: dashboard/templates/offers/admin/list.html:35
+#: dashboard/templates/users/list.html:35
+msgid "Clear All"
+msgstr "مسح الكل"
+
+#: dashboard/templates/offers/admin/list.html:45
+#, fuzzy
+#| msgid "Search Keyword"
+msgid "Search offers..."
+msgstr "كلمة البحث"
+
+#: dashboard/templates/offers/admin/list.html:60
+#: dashboard/templates/users/list.html:77
+msgid "Advanced Filter"
+msgstr "تصفية متقدمة"
+
+#: dashboard/templates/offers/admin/list.html:68
+#: dashboard/templates/users/list.html:90
+msgid "Search Keyword"
+msgstr "كلمة البحث"
+
+#: dashboard/templates/offers/admin/list.html:70
+msgid "Offer title..."
+msgstr ""
+
+#: dashboard/templates/offers/admin/list.html:74
+#: dashboard/templates/offers/provider/details.html:169
+#: dashboard/templates/offers/provider/list.html:63
+#: dashboard/templates/orders/customer/list.html:46
+#: dashboard/templates/orders/provider/list.html:42
+#, fuzzy
+#| msgid "All Status"
+msgid "Status"
+msgstr "جميع الحالات"
+
+#: dashboard/templates/offers/admin/list.html:74
+msgid "Select a status"
+msgstr ""
+
+#: dashboard/templates/offers/admin/list.html:78
+#: dashboard/templates/offers/provider/create.html:71
+#: dashboard/templates/offers/provider/edit.html:94
+#, fuzzy
+#| msgid "Register as Provider"
+msgid "Select a category"
+msgstr "سجل كمزود خدمة"
+
+#: dashboard/templates/offers/admin/list.html:84
+#: dashboard/templates/users/list.html:109
+msgid "Reset All"
+msgstr "إعادة تعيين الكل"
+
+#: dashboard/templates/offers/admin/list.html:146
+#: dashboard/templates/offers/provider/list.html:119
+#: user_auth/templates/user/profile.html:350
+msgid "View"
+msgstr ""
+
+#: dashboard/templates/offers/admin/list.html:165
+#, fuzzy
+#| msgid "No users found"
+msgid "No offers found"
+msgstr "لم يتم العثور على مستخدمين"
+
+#: dashboard/templates/offers/admin/list.html:166
+#: dashboard/templates/users/list.html:206
+msgid "Try adjusting your filters"
+msgstr "حاول تعديل خيارات التصفية"
+
+#: dashboard/templates/offers/provider/create.html:7
+#: dashboard/templates/offers/provider/create.html:209
+#: dashboard/templates/offers/provider/list.html:26
+#: dashboard/templates/offers/provider/list.html:139
+#, fuzzy
+#| msgid "Created At"
+msgid "Create Offer"
+msgstr "أنشئ في"
+
+#: dashboard/templates/offers/provider/create.html:26
+#: dashboard/templates/offers/provider/edit.html:27
+#, fuzzy
+#| msgid "Detailed Information"
+msgid "Basic Information"
+msgstr "معلومات مفصلة"
+
+#: dashboard/templates/offers/provider/create.html:33
+#: dashboard/templates/offers/provider/edit.html:34
+msgid "Offer Image"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:50
+#: dashboard/templates/offers/provider/edit.html:50
+#: dashboard/templates/offers/provider/edit.html:72
+msgid "Click to upload image"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:55
+#: dashboard/templates/offers/provider/edit.html:54
+#: dashboard/templates/offers/provider/edit.html:76
+#, fuzzy
+#| msgid "Previous"
+msgid "Preview"
+msgstr "السابق"
+
+#: dashboard/templates/offers/provider/create.html:66
+#: dashboard/templates/offers/provider/edit.html:89
+msgid "Title "
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:77
+#: dashboard/templates/offers/provider/edit.html:100
+msgid "Description "
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:88
+#: dashboard/templates/offers/provider/edit.html:111
+#, fuzzy
+#| msgid "Detailed Information"
+msgid "Pricing Information"
+msgstr "معلومات مفصلة"
+
+#: dashboard/templates/offers/provider/create.html:94
+#: dashboard/templates/offers/provider/edit.html:117
+#, fuzzy
+#| msgid "Register as Provider"
+msgid "Select pricing type"
+msgstr "سجل كمزود خدمة"
+
+#: dashboard/templates/offers/provider/create.html:99
+#: dashboard/templates/offers/provider/edit.html:122
+msgid "Base Price (DA)"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:110
+#: dashboard/templates/offers/provider/edit.html:134
+msgid "Price per Km (DA)"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:120
+#: dashboard/templates/offers/provider/edit.html:145
+msgid "Price per Hour (DA)"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:130
+#: dashboard/templates/offers/provider/edit.html:156
+msgid "Fuel Cost (DA)"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:140
+#: dashboard/templates/offers/provider/edit.html:167
+msgid "Operator Cost (DA)"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:150
+#: dashboard/templates/offers/provider/edit.html:178
+msgid "Wait Time Cost (DA)"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:165
+#: dashboard/templates/offers/provider/edit.html:194
+msgid "Location & Capacity"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:171
+#: dashboard/templates/offers/provider/edit.html:200
+msgid "Select wilaya"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:176
+#: dashboard/templates/offers/provider/edit.html:205
+#, fuzzy
+#| msgid "Notifications"
+msgid "Location "
+msgstr "الإشعارات"
+
+#: dashboard/templates/offers/provider/create.html:181
+#: dashboard/templates/offers/provider/edit.html:211
+msgid "Detailed address"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:190
+#: dashboard/templates/offers/provider/edit.html:221
+msgid "e.g., 5 tons, 20 m³"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:200
+#: dashboard/templates/offers/provider/edit.html:231
+msgid "Available for Booking"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:217
+#: dashboard/templates/offers/provider/edit.html:248
+msgid "Best Practices"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:231
+#: dashboard/templates/offers/provider/edit.html:262
+msgid "Quality Images"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:234
+#: dashboard/templates/offers/provider/edit.html:265
+msgid "Add clear photos to attract customers"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:252
+#: dashboard/templates/offers/provider/edit.html:283
+msgid "Competitive Pricing"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:255
+#: dashboard/templates/offers/provider/edit.html:286
+msgid "Set fair prices for the Algerian market"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:273
+#: dashboard/templates/offers/provider/edit.html:304
+msgid "Quick Response"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:276
+#: dashboard/templates/offers/provider/edit.html:307
+msgid "Respond quickly to increase opportunities"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:294
+#: dashboard/templates/offers/provider/edit.html:325
+#, fuzzy
+#| msgid "Detailed Information"
+msgid "Detailed Description"
+msgstr "معلومات مفصلة"
+
+#: dashboard/templates/offers/provider/create.html:297
+#: dashboard/templates/offers/provider/edit.html:328
+msgid "Provide comprehensive service details"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:315
+#: dashboard/templates/offers/provider/edit.html:346
+#, fuzzy
+#| msgid "Detailed Information"
+msgid "Accurate Information"
+msgstr "معلومات مفصلة"
+
+#: dashboard/templates/offers/provider/create.html:318
+#: dashboard/templates/offers/provider/edit.html:349
+msgid "Provide correct details to build trust"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:336
+#: dashboard/templates/offers/provider/edit.html:367
+msgid "Coverage Area"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:339
+#: dashboard/templates/offers/provider/edit.html:370
+msgid "Define your service area clearly"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:357
+#: dashboard/templates/offers/provider/edit.html:388
+#, fuzzy
+#| msgid "Help & Support"
+msgid "Customer Support"
+msgstr "المساعدة والدعم"
+
+#: dashboard/templates/offers/provider/create.html:360
+#: dashboard/templates/offers/provider/edit.html:391
+msgid "Be available to answer inquiries"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:375
+#: dashboard/templates/offers/provider/details.html:257
+#: dashboard/templates/offers/provider/edit.html:406
+#: dashboard/templates/offers/provider/list.html:159
+#: dashboard/templates/orders/customer/details.html:191
+#: dashboard/templates/orders/customer/list.html:136
+#: dashboard/templates/orders/provider/details.html:169
+msgid "Error"
+msgstr ""
+
+#: dashboard/templates/offers/provider/create.html:376
+#: dashboard/templates/offers/provider/edit.html:407
+#: dashboard/templates/orders/provider/details.html:170
+#, fuzzy
+#| msgid "Success!"
+msgid "Success"
+msgstr "نجاح!"
+
+#: dashboard/templates/offers/provider/details.html:29
+#: dashboard/templates/social_auth/list.html:115
+msgid "Edit"
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:160
+#, fuzzy
+#| msgid "User Details"
+msgid "Details"
+msgstr "تفاصيل المستخدم"
+
+#: dashboard/templates/offers/provider/details.html:180
+#: dashboard/templates/offers/provider/details.html:233
+#, fuzzy
+#| msgid "Created At"
+msgid "Created"
+msgstr "أنشئ في"
+
+#: dashboard/templates/offers/provider/details.html:184
+#: dashboard/templates/offers/provider/details.html:240
+#, fuzzy
+#| msgid "Last Name"
+msgid "Last Updated"
+msgstr "اسم العائلة"
+
+#: dashboard/templates/offers/provider/details.html:193
+#, fuzzy
+#| msgid "All Status"
+msgid "Offer Status"
+msgstr "جميع الحالات"
+
+#: dashboard/templates/offers/provider/details.html:199
+msgid ""
+"This offer is saved as draft. Submit it for admin approval to make it active."
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:202
+#, fuzzy
+#| msgid "Fast Approval"
+msgid "Submit for Approval"
+msgstr "موافقة سريعة"
+
+#: dashboard/templates/offers/provider/details.html:206
+msgid ""
+"This offer is waiting for admin approval. You will be notified once reviewed."
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:210
+msgid ""
+"This offer was rejected. Check the admin note above and make necessary "
+"changes."
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:213
+msgid "Edit & Resubmit"
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:217
+msgid "This offer is active and visible to customers."
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:226
+msgid "History"
+msgstr ""
+
+#: dashboard/templates/offers/provider/details.html:253
+#: dashboard/templates/offers/provider/list.html:155
+#, fuzzy
+#| msgid "Delete User"
+msgid "Delete Offer"
+msgstr "حذف المستخدم"
+
+#: dashboard/templates/offers/provider/details.html:254
+#: dashboard/templates/offers/provider/list.html:156
+#, fuzzy
+#| msgid "You are about to delete %(name)s. This action cannot be undone!"
+msgid ""
+"Are you sure you want to delete this offer? This action cannot be undone."
+msgstr "أنت على وشك حذف %(name)s. لا يمكن التراجع عن هذا الإجراء!"
+
+#: dashboard/templates/offers/provider/details.html:255
+#: dashboard/templates/offers/provider/list.html:157
+#, fuzzy
+#| msgid "Yes, delete it!"
+msgid "Yes, delete it"
+msgstr "نعم، احذفه!"
+
+#: dashboard/templates/offers/provider/details.html:256
+#: dashboard/templates/offers/provider/list.html:158
+#: dashboard/templates/orders/customer/details.html:190
+#: dashboard/templates/orders/customer/list.html:135
+#: dashboard/templates/orders/provider/details.html:168
+#: dashboard/templates/social_auth/list.html:76
+#: dashboard/templates/social_auth/list.html:196
+#: dashboard/templates/users/details.html:27
+#: dashboard/templates/users/details.html:46
+#: user_auth/templates/user/profile.html:377
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: dashboard/templates/offers/provider/edit.html:7
+#, fuzzy
+#| msgid "View Offers"
+msgid "Edit Offer"
+msgstr "عرض العروض"
+
+#: dashboard/templates/offers/provider/edit.html:240
+#, fuzzy
+#| msgid "View Offers"
+msgid "Update Offer"
+msgstr "عرض العروض"
+
+#: dashboard/templates/offers/provider/list.html:35
+#: dashboard/templates/offers/provider/list.html:60
+#, fuzzy
+#| msgid "Search Keyword"
+msgid "Search my offers..."
+msgstr "كلمة البحث"
+
+#: dashboard/templates/offers/provider/list.html:63
+#: dashboard/templates/orders/customer/list.html:46
+#: dashboard/templates/orders/provider/list.html:42
+#, fuzzy
+#| msgid "All Status"
+msgid "All Statuses"
+msgstr "جميع الحالات"
+
+#: dashboard/templates/offers/provider/list.html:136
+msgid "No offers yet"
+msgstr ""
+
+#: dashboard/templates/offers/provider/list.html:137
+#, fuzzy
+#| msgid "Try adjusting your filters"
+msgid "Start by creating your first offer"
+msgstr "حاول تعديل خيارات التصفية"
+
+#: dashboard/templates/orders/customer/details.html:7
+#: dashboard/templates/orders/customer/details.html:22
+#: dashboard/templates/orders/provider/details.html:7
+#: dashboard/templates/orders/provider/details.html:22
+#, fuzzy
+#| msgid "User Details"
+msgid "Request Details"
+msgstr "تفاصيل المستخدم"
+
+#: dashboard/templates/orders/customer/details.html:39
+#, fuzzy
+#| msgid "Last Name"
+msgid "Name"
+msgstr "اسم العائلة"
+
+#: dashboard/templates/orders/customer/details.html:47
+msgid "Phone"
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:82
+#: dashboard/templates/orders/provider/details.html:91
+msgid "Notes"
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:92
+#: dashboard/templates/orders/provider/details.html:101
+msgid "Requested on"
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:98
+msgid ""
+"Your request is being reviewed by the provider. You'll be notified once "
+"approved."
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:101
+#: dashboard/templates/orders/customer/details.html:187
+#: dashboard/templates/orders/customer/list.html:132
+#, fuzzy
+#| msgid "Cancel"
+msgid "Cancel Request"
+msgstr "إلغاء"
+
+#: dashboard/templates/orders/customer/details.html:106
+#, fuzzy
+#| msgid "Is Approved"
+msgid "Request Approved!"
+msgstr "تمت الموافقة"
+
+#: dashboard/templates/orders/customer/details.html:108
+msgid ""
+"The provider has approved your request. Contact them to finalize details:"
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:120
+msgid "Your request was rejected. You can browse other services."
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:123
+#, fuzzy
+#| msgid "Book Service"
+msgid "Browse Other Services"
+msgstr "حجز خدمة"
+
+#: dashboard/templates/orders/customer/details.html:133
+#: dashboard/templates/orders/provider/details.html:121
+#, fuzzy
+#| msgid "User Details"
+msgid "Service Details"
+msgstr "تفاصيل المستخدم"
+
+#: dashboard/templates/orders/customer/details.html:143
+#: dashboard/templates/orders/provider/details.html:131
+msgid "Price"
+msgstr ""
+
+#: dashboard/templates/orders/customer/details.html:176
+#: dashboard/templates/orders/provider/details.html:151
+#: dashboard/templates/users/details.html:18
+msgid "Back to List"
+msgstr "العودة للقائمة"
+
+#: dashboard/templates/orders/customer/details.html:188
+#: dashboard/templates/orders/customer/list.html:133
+#, fuzzy
+#| msgid "Are you sure you want to approve %(name)s?"
+msgid "Are you sure you want to cancel this request?"
+msgstr "هل أنت متأكد أنك تريد الموافقة على %(name)s؟"
+
+#: dashboard/templates/orders/customer/details.html:189
+#: dashboard/templates/orders/customer/list.html:134
+#, fuzzy
+#| msgid "Yes, delete it!"
+msgid "Yes, cancel it"
+msgstr "نعم، احذفه!"
+
+#: dashboard/templates/orders/customer/list.html:20
+msgid "Track your service requests"
+msgstr ""
+
+#: dashboard/templates/orders/customer/list.html:28
+msgid "New Request"
+msgstr ""
+
+#: dashboard/templates/orders/customer/list.html:39
+#: dashboard/templates/orders/provider/list.html:35
+#, fuzzy
+#| msgid "Filter Users"
+msgid "Filter Requests"
+msgstr "تصفية المستخدمين"
+
+#: dashboard/templates/orders/customer/list.html:52
+#: dashboard/templates/orders/provider/list.html:48
+#, fuzzy
+#| msgid "Apply Filters"
+msgid "Apply Filter"
+msgstr "تطبيق التصفية"
+
+#: dashboard/templates/orders/customer/list.html:113
+#: dashboard/templates/orders/provider/list.html:104
+msgid "No requests yet"
+msgstr ""
+
+#: dashboard/templates/orders/customer/list.html:114
+msgid "Start by browsing available services"
+msgstr ""
+
+#: dashboard/templates/orders/provider/details.html:39
+#, fuzzy
+#| msgid "Last Name"
+msgid "Customer Name"
+msgstr "اسم العائلة"
+
+#: dashboard/templates/orders/provider/details.html:57
+msgid "Available after approval"
+msgstr ""
+
+#: dashboard/templates/orders/provider/details.html:107
+#: dashboard/templates/orders/provider/details.html:162
+#, fuzzy
+#| msgid "Approved Users"
+msgid "Approve Request"
+msgstr "المستخدمون المعتمدون"
+
+#: dashboard/templates/orders/provider/details.html:110
+#: dashboard/templates/orders/provider/details.html:165
+msgid "Reject Request"
+msgstr ""
+
+#: dashboard/templates/orders/provider/details.html:147
+#, fuzzy
+#| msgid "Take Action"
+msgid "Actions"
+msgstr "اتخاذ إجراء"
+
+#: dashboard/templates/orders/provider/details.html:163
+#, fuzzy
+#| msgid "Are you sure you want to approve %(name)s?"
+msgid "Are you sure you want to approve this request?"
+msgstr "هل أنت متأكد أنك تريد الموافقة على %(name)s؟"
+
+#: dashboard/templates/orders/provider/details.html:164
+#, fuzzy
+#| msgid "Yes, approve!"
+msgid "Yes, approve it"
+msgstr "نعم، وافق!"
+
+#: dashboard/templates/orders/provider/details.html:166
+#, fuzzy
+#| msgid "Are you sure you want to approve %(name)s?"
+msgid "Are you sure you want to reject this request?"
+msgstr "هل أنت متأكد أنك تريد الموافقة على %(name)s؟"
+
+#: dashboard/templates/orders/provider/details.html:167
+#, fuzzy
+#| msgid "Yes, delete it!"
+msgid "Yes, reject it"
+msgstr "نعم، احذفه!"
+
+#: dashboard/templates/orders/provider/list.html:20
+msgid "Manage customer service requests"
+msgstr ""
+
+#: dashboard/templates/orders/provider/list.html:105
+msgid "Customer requests will appear here"
+msgstr ""
 
 #: dashboard/templates/social_auth/list.html:9
 msgid "Social Authentication"
@@ -349,15 +1596,6 @@ msgstr ""
 
 #: dashboard/templates/social_auth/list.html:41
 msgid "Add Social Provider"
-msgstr ""
-
-#: dashboard/templates/social_auth/list.html:52
-#: dashboard/templates/social_auth/list.html:177 user_auth/models.py:15
-#: user_auth/templates/auth/signup.html:174
-#: user_auth/templates/user/profile.html:59
-#: user_auth/templates/user/profile.html:283
-#: user_auth/templates/user/profile.html:315
-msgid "Provider"
 msgstr ""
 
 #: dashboard/templates/social_auth/list.html:52
@@ -401,29 +1639,11 @@ msgstr "اجتماع العميل"
 msgid "OAuth Client Secret"
 msgstr "اجتماع العميل"
 
-#: dashboard/templates/social_auth/list.html:76
-#: dashboard/templates/social_auth/list.html:196
-#: dashboard/templates/users/details.html:27
-#: dashboard/templates/users/details.html:46
-#: user_auth/templates/user/profile.html:377
-msgid "Cancel"
-msgstr "إلغاء"
-
 #: dashboard/templates/social_auth/list.html:79
 #, fuzzy
 #| msgid "Database Migration"
 msgid "Save Configuration"
 msgstr "ترحيل قاعدة البيانات"
-
-#: dashboard/templates/social_auth/list.html:115
-msgid "Edit"
-msgstr ""
-
-#: dashboard/templates/social_auth/list.html:121
-#, fuzzy
-#| msgid "Deleted!"
-msgid "Delete"
-msgstr "تم الحذف!"
 
 #: dashboard/templates/social_auth/list.html:145
 msgid "No providers configured"
@@ -444,10 +1664,6 @@ msgstr ""
 #: dashboard/templates/users/details.html:7
 msgid "User Details"
 msgstr "تفاصيل المستخدم"
-
-#: dashboard/templates/users/details.html:18
-msgid "Back to List"
-msgstr "العودة للقائمة"
 
 #: dashboard/templates/users/details.html:24
 msgid "Approve User?"
@@ -492,14 +1708,14 @@ msgid "Delete User"
 msgstr "حذف المستخدم"
 
 #: dashboard/templates/users/details.html:90
-#: dashboard/templates/users/list.html:75
+#: dashboard/templates/users/list.html:102
 #: user_auth/templates/user/profile.html:306
 #: user_auth/templates/user/profile.html:324
 msgid "Account Status"
 msgstr "حالة الحساب"
 
-#: dashboard/templates/users/details.html:92 dashboard/views/users.py:47
-#: user_auth/templates/user/profile.html:327
+#: dashboard/templates/users/details.html:92 dashboard/utils.py:99
+#: dashboard/views/users.py:48 user_auth/templates/user/profile.html:327
 msgid "Approved"
 msgstr "تمت الموافقة"
 
@@ -517,20 +1733,13 @@ msgid "Detailed Information"
 msgstr "معلومات مفصلة"
 
 #: dashboard/templates/users/details.html:121
-#: dashboard/templates/users/list.html:133
+#: dashboard/templates/users/list.html:162
 #: user_auth/templates/auth/signup.html:93
 #: user_auth/templates/user/profile.html:115
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
-#: dashboard/templates/users/details.html:129
-#: dashboard/templates/users/list.html:143 user_auth/models.py:32
-#: user_auth/templates/auth/signup.html:103
-#: user_auth/templates/user/profile.html:125
-msgid "Phone Number"
-msgstr "رقم الهاتف"
-
-#: dashboard/templates/users/details.html:137 user_auth/models.py:28
+#: dashboard/templates/users/details.html:137 user_auth/models.py:29
 #: user_auth/templates/user/profile.html:136
 #: user_auth/templates/user/profile.html:339
 msgid "Birth Date"
@@ -540,12 +1749,12 @@ msgstr "تاريخ الميلاد"
 msgid "Gender"
 msgstr "الجنس"
 
-#: dashboard/templates/users/details.html:154 user_auth/models.py:33
+#: dashboard/templates/users/details.html:154 user_auth/models.py:34
 #: user_auth/templates/user/profile.html:169
 msgid "Address"
 msgstr "العنوان"
 
-#: dashboard/templates/users/details.html:162 user_auth/models.py:27
+#: dashboard/templates/users/details.html:162 user_auth/models.py:28
 #: user_auth/templates/user/profile.html:179
 msgid "Bio"
 msgstr "السيرة الذاتية"
@@ -554,71 +1763,152 @@ msgstr "السيرة الذاتية"
 msgid "No bio provided."
 msgstr "لم يتم تقديم سيرة ذاتية."
 
-#: dashboard/templates/users/list.html:7
+#: dashboard/templates/users/list.html:8
 msgid "Users List"
 msgstr "قائمة المستخدمين"
 
-#: dashboard/templates/users/list.html:22
+#: dashboard/templates/users/list.html:25
 msgid "Filter Users"
 msgstr "تصفية المستخدمين"
 
-#: dashboard/templates/users/list.html:30
-msgid "Clear All"
-msgstr "مسح الكل"
-
-#: dashboard/templates/users/list.html:31
-msgid "Clear"
-msgstr "مسح"
-
-#: dashboard/templates/users/list.html:40
+#: dashboard/templates/users/list.html:53
 msgid "Quick search..."
 msgstr "بحث سريع..."
 
-#: dashboard/templates/users/list.html:56
-msgid "Advanced Filter"
-msgstr "تصفية متقدمة"
-
-#: dashboard/templates/users/list.html:65
-msgid "Search Keyword"
-msgstr "كلمة البحث"
-
-#: dashboard/templates/users/list.html:69
+#: dashboard/templates/users/list.html:97
 msgid "Name, Username, Email..."
 msgstr "الاسم، اسم المستخدم، البريد..."
 
-#: dashboard/templates/users/list.html:81
-msgid "Reset All"
-msgstr "إعادة تعيين الكل"
-
-#: dashboard/templates/users/list.html:84
-msgid "Apply Filters"
-msgstr "تطبيق التصفية"
-
-#: dashboard/templates/users/list.html:110 dashboard/views/users.py:48
-#: user_auth/templates/user/profile.html:329
+#: dashboard/templates/users/list.html:138 dashboard/utils.py:98
+#: dashboard/views/admin_offers.py:46 dashboard/views/provider_offers.py:53
+#: dashboard/views/users.py:49 user_auth/templates/user/profile.html:329
 msgid "Pending"
 msgstr "قيد الانتظار"
 
-#: dashboard/templates/users/list.html:151
+#: dashboard/templates/users/list.html:186
 msgid "View Full Profile"
 msgstr "عرض الملف الشخصي الكامل"
 
-#: dashboard/templates/users/list.html:156
+#: dashboard/templates/users/list.html:191
 msgid "Registered"
 msgstr "مسجل"
 
-#: dashboard/templates/users/list.html:167
+#: dashboard/templates/users/list.html:203
 msgid "No users found"
 msgstr "لم يتم العثور على مستخدمين"
 
-#: dashboard/templates/users/list.html:168
-msgid "Try adjusting your filters"
-msgstr "حاول تعديل خيارات التصفية"
+#: dashboard/utils.py:100 dashboard/views/admin_offers.py:48
+#: dashboard/views/provider_offers.py:55
+msgid "Rejected"
+msgstr ""
 
-#: dashboard/utils.py:22
+#: dashboard/utils.py:101
+#, fuzzy
+#| msgid "Cancel"
+msgid "Cancelled"
+msgstr "إلغاء"
+
+#: dashboard/utils.py:110
 #, python-format
 msgid "Your %(site)s Account has been Activated!"
 msgstr "تم تفعيل حسابك في %(site)s!"
+
+#: dashboard/views/admin_offers.py:44 dashboard/views/provider_offers.py:51
+#: dashboard/views/users.py:47 dashboard/views/users.py:52
+msgid "All Status"
+msgstr "جميع الحالات"
+
+#: dashboard/views/admin_offers.py:45 dashboard/views/provider_offers.py:52
+msgid "Draft"
+msgstr ""
+
+#: dashboard/views/admin_offers.py:49 dashboard/views/provider_offers.py:56
+msgid "Expired"
+msgstr ""
+
+#: dashboard/views/admin_offers.py:83
+#, fuzzy
+#| msgid "Approved"
+msgid "Offer Approved"
+msgstr "تمت الموافقة"
+
+#: dashboard/views/admin_offers.py:84
+#, python-format
+msgid "Your offer '%(title)s' has been approved and is now active."
+msgstr ""
+
+#: dashboard/views/admin_offers.py:93
+#, fuzzy
+#| msgid "User %(name)s approved successfully."
+msgid "Offer approved successfully."
+msgstr "تمت الموافقة على المستخدم %(name)s بنجاح."
+
+#: dashboard/views/admin_offers.py:100 dashboard/views/admin_offers.py:136
+#: dashboard/views/admin_offers.py:161 dashboard/views/provider_offers.py:329
+#, fuzzy, python-format
+#| msgid "An error occurred during approval: %(error)s"
+msgid "An error occurred: %(error)s"
+msgstr "حدث خطأ أثناء الموافقة: %(error)s"
+
+#: dashboard/views/admin_offers.py:119
+msgid "Offer Rejected"
+msgstr ""
+
+#: dashboard/views/admin_offers.py:120
+#, python-format
+msgid "Your offer '%(title)s' has been rejected. Reason: %(reason)s"
+msgstr ""
+
+#: dashboard/views/admin_offers.py:129
+#, fuzzy
+#| msgid "User %(name)s deleted successfully."
+msgid "Offer rejected successfully."
+msgstr "تم حذف المستخدم %(name)s بنجاح."
+
+#: dashboard/views/admin_offers.py:153 dashboard/views/provider_offers.py:320
+#, fuzzy, python-format
+#| msgid "User %(name)s deleted successfully."
+msgid "Offer '%(title)s' deleted successfully."
+msgstr "تم حذف المستخدم %(name)s بنجاح."
+
+#: dashboard/views/catalog.py:179
+#, fuzzy
+#| msgid "First name is required."
+msgid "Full name is required."
+msgstr "الاسم الأول مطلوب."
+
+#: dashboard/views/catalog.py:181 user_auth/views.py:173
+#, fuzzy
+#| msgid "Last name is required."
+msgid "Phone number is required."
+msgstr "اسم العائلة مطلوب."
+
+#: dashboard/views/catalog.py:183
+#, fuzzy
+#| msgid "Email is required."
+msgid "Wilaya is required."
+msgstr "البريد الإلكتروني مطلوب."
+
+#: dashboard/views/catalog.py:185
+#, fuzzy
+#| msgid "First name is required."
+msgid "Pickup location is required."
+msgstr "الاسم الأول مطلوب."
+
+#: dashboard/views/catalog.py:204
+msgid "New Service Request"
+msgstr ""
+
+#: dashboard/views/catalog.py:205
+#, python-brace-format
+msgid "Customer {name} requested your service: {offer}"
+msgstr ""
+
+#: dashboard/views/catalog.py:218
+#, fuzzy
+#| msgid "User %(name)s deleted successfully."
+msgid "Request submitted successfully!"
+msgstr "تم حذف المستخدم %(name)s بنجاح."
 
 #: dashboard/views/dashboard.py:19
 msgid "System Alert"
@@ -704,6 +1994,130 @@ msgstr "ترحيل قاعدة البيانات"
 msgid "Client Meeting"
 msgstr "اجتماع العميل"
 
+#: dashboard/views/orders/customer_orders.py:121
+msgid "Only pending requests can be cancelled."
+msgstr ""
+
+#: dashboard/views/orders/customer_orders.py:130
+msgid "Request Cancelled"
+msgstr ""
+
+#: dashboard/views/orders/customer_orders.py:131
+#, python-brace-format
+msgid "Customer cancelled their request for {offer}"
+msgstr ""
+
+#: dashboard/views/orders/customer_orders.py:144
+#, fuzzy
+#| msgid "User %(name)s deleted successfully."
+msgid "Request cancelled successfully!"
+msgstr "تم حذف المستخدم %(name)s بنجاح."
+
+#: dashboard/views/orders/provider_orders.py:122
+#: dashboard/views/orders/provider_orders.py:179
+msgid "This request is no longer pending."
+msgstr ""
+
+#: dashboard/views/orders/provider_orders.py:131
+#, fuzzy
+#| msgid "Is Approved"
+msgid "Request Approved"
+msgstr "تمت الموافقة"
+
+#: dashboard/views/orders/provider_orders.py:132
+#, python-brace-format
+msgid "Your request for {offer} has been approved!"
+msgstr ""
+
+#: dashboard/views/orders/provider_orders.py:145
+#, fuzzy
+#| msgid "User %(name)s approved successfully."
+msgid "Request approved successfully!"
+msgstr "تمت الموافقة على المستخدم %(name)s بنجاح."
+
+#: dashboard/views/orders/provider_orders.py:188
+msgid "Request Rejected"
+msgstr ""
+
+#: dashboard/views/orders/provider_orders.py:189
+#, python-brace-format
+msgid "Your request for {offer} was rejected."
+msgstr ""
+
+#: dashboard/views/orders/provider_orders.py:202
+msgid "Request rejected."
+msgstr ""
+
+#: dashboard/views/provider_offers.py:96 dashboard/views/provider_offers.py:219
+#, fuzzy
+#| msgid "Email is required."
+msgid "Title is required."
+msgstr "البريد الإلكتروني مطلوب."
+
+#: dashboard/views/provider_offers.py:98 dashboard/views/provider_offers.py:221
+#, fuzzy
+#| msgid "First name is required."
+msgid "Description is required."
+msgstr "الاسم الأول مطلوب."
+
+#: dashboard/views/provider_offers.py:100
+#: dashboard/views/provider_offers.py:223
+#, fuzzy
+#| msgid "Password is required."
+msgid "Category is required."
+msgstr "كلمة المرور مطلوبة."
+
+#: dashboard/views/provider_offers.py:102
+#: dashboard/views/provider_offers.py:225
+#, fuzzy
+#| msgid "First name is required."
+msgid "Pricing type is required."
+msgstr "الاسم الأول مطلوب."
+
+#: dashboard/views/provider_offers.py:104
+#: dashboard/views/provider_offers.py:227
+#, fuzzy
+#| msgid "Last name is required."
+msgid "Base price is required."
+msgstr "اسم العائلة مطلوب."
+
+#: dashboard/views/provider_offers.py:109
+#: dashboard/views/provider_offers.py:232
+msgid "Base price must be greater than zero."
+msgstr ""
+
+#: dashboard/views/provider_offers.py:111
+#: dashboard/views/provider_offers.py:234
+msgid "Base price must be a valid number."
+msgstr ""
+
+#: dashboard/views/provider_offers.py:117
+#: dashboard/views/provider_offers.py:240
+msgid "Price per km must be a valid number."
+msgstr ""
+
+#: dashboard/views/provider_offers.py:123
+#: dashboard/views/provider_offers.py:246
+msgid "Price per hour must be a valid number."
+msgstr ""
+
+#: dashboard/views/provider_offers.py:132
+#: dashboard/views/provider_offers.py:255
+msgid "Invalid category selected."
+msgstr ""
+
+#: dashboard/views/provider_offers.py:171
+#, fuzzy
+#| msgid "User %(name)s deleted successfully."
+msgid "Offer created successfully."
+msgstr "تم حذف المستخدم %(name)s بنجاح."
+
+#: dashboard/views/provider_offers.py:290
+#, fuzzy
+#| msgid "User %(name)s deleted successfully."
+msgid "Offer updated successfully."
+msgstr "تم حذف المستخدم %(name)s بنجاح."
+
 #: dashboard/views/social_auth.py:49 dashboard/views/social_auth.py:104
 #, fuzzy
 #| msgid "Email is required."
@@ -747,25 +2161,33 @@ msgstr "تم حذف المستخدم %(name)s بنجاح."
 msgid "Failed to delete configuration: %(error)s"
 msgstr ""
 
-#: dashboard/views/users.py:46 dashboard/views/users.py:51
-msgid "All Status"
-msgstr "جميع الحالات"
-
-#: dashboard/views/users.py:85
+#: dashboard/views/users.py:86
 #, python-format
 msgid "User %(name)s deleted successfully."
 msgstr "تم حذف المستخدم %(name)s بنجاح."
 
-#: dashboard/views/users.py:112
-msgid "Failed to send activation email. Approval cancelled."
-msgstr "فشل إرسال بريد التفعيل. تم إلغاء الموافقة."
+#: dashboard/views/users.py:106 user_auth/views.py:246
+msgid "طلب ترقية جديد"
+msgstr ""
 
-#: dashboard/views/users.py:118
+#: dashboard/views/users.py:106
+msgid "تم قبول طلب الترقية"
+msgstr ""
+
+#: dashboard/views/users.py:107 user_auth/views.py:247
+msgid "New Provider Request"
+msgstr ""
+
+#: dashboard/views/users.py:107
+msgid "Your request to upgrade to provider has been approved."
+msgstr ""
+
+#: dashboard/views/users.py:113 dashboard/views/users.py:121
 #, python-format
 msgid "User %(name)s approved successfully."
 msgstr "تمت الموافقة على المستخدم %(name)s بنجاح."
 
-#: dashboard/views/users.py:126
+#: dashboard/views/users.py:129
 #, python-format
 msgid "An error occurred during approval: %(error)s"
 msgstr "حدث خطأ أثناء الموافقة: %(error)s"
@@ -963,10 +2385,18 @@ msgid "Choose a file..."
 msgstr "اختر ملفاً..."
 
 #: user_auth/adapters.py:70
+msgid "تم تسجيل مستخدم جديد"
+msgstr ""
+
+#: user_auth/adapters.py:70
+msgid "تم تسجيل مستخدم جديد, يرجى مراجعته"
+msgstr ""
+
+#: user_auth/adapters.py:71
 msgid "New user has been created"
 msgstr "تم إنشاء مستخدم جديد"
 
-#: user_auth/adapters.py:70 user_auth/views.py:121
+#: user_auth/adapters.py:71 user_auth/views.py:122
 msgid "New user has been created, please review it ."
 msgstr "تم إنشاء مستخدم جديد، يرجى مراجعته"
 
@@ -989,37 +2419,41 @@ msgstr "آخر"
 msgid "Customer"
 msgstr ""
 
-#: user_auth/models.py:25
+#: user_auth/models.py:16
+msgid "ADMIN"
+msgstr ""
+
+#: user_auth/models.py:26
 msgid "Profile Picture"
 msgstr "صورة الملف الشخصي"
 
-#: user_auth/models.py:30 user_auth/templates/user/profile.html:145
+#: user_auth/models.py:31 user_auth/templates/user/profile.html:145
 msgid "Sex"
 msgstr "الجنس"
 
-#: user_auth/models.py:36 user_auth/templates/user/profile.html:312
+#: user_auth/models.py:37 user_auth/templates/user/profile.html:312
 msgid "Role"
 msgstr ""
 
-#: user_auth/models.py:43 user_auth/templates/auth/signup.html:182
+#: user_auth/models.py:44 user_auth/templates/auth/signup.html:182
 #: user_auth/templates/user/profile.html:291
 #: user_auth/templates/user/profile.html:345
 msgid "Driver License"
 msgstr ""
 
-#: user_auth/models.py:50
+#: user_auth/models.py:51
 msgid "Is Approved"
 msgstr "تمت الموافقة"
 
-#: user_auth/models.py:51
+#: user_auth/models.py:52
 msgid "Created At"
 msgstr "أنشئ في"
 
-#: user_auth/models.py:57
+#: user_auth/models.py:58
 msgid "User Profile"
 msgstr "ملف المستخدم"
 
-#: user_auth/models.py:58
+#: user_auth/models.py:59
 msgid "User Profiles"
 msgstr "ملفات المستخدمين"
 
@@ -1249,10 +2683,6 @@ msgstr ""
 msgid "Confirm Role"
 msgstr "تأكيد كلمة المرور"
 
-#: user_auth/templates/user/profile.html:350
-msgid "View"
-msgstr ""
-
 #: user_auth/templates/user/profile.html:363
 msgid "Danger Zone"
 msgstr ""
@@ -1287,87 +2717,98 @@ msgstr "نعم، احذفه!"
 msgid "Delete My Account"
 msgstr "إنشاء حساب"
 
-#: user_auth/views.py:30
+#: user_auth/views.py:31
 msgid "Please fill in all required fields."
 msgstr "يرجى ملء جميع الحقول المطلوبة."
 
-#: user_auth/views.py:47
+#: user_auth/views.py:48
 msgid "Invalid username or password. Please try again."
 msgstr "اسم المستخدم أو كلمة المرور غير صالحة. يرجى المحاولة مرة أخرى."
 
-#: user_auth/views.py:79 user_auth/views.py:168
+#: user_auth/views.py:80 user_auth/views.py:169
 msgid "First name is required."
 msgstr "الاسم الأول مطلوب."
 
-#: user_auth/views.py:81 user_auth/views.py:170
+#: user_auth/views.py:82 user_auth/views.py:171
 msgid "Last name is required."
 msgstr "اسم العائلة مطلوب."
 
-#: user_auth/views.py:83
+#: user_auth/views.py:84
 msgid "Email is required."
 msgstr "البريد الإلكتروني مطلوب."
 
-#: user_auth/views.py:85
+#: user_auth/views.py:86
 msgid "Password is required."
 msgstr "كلمة المرور مطلوبة."
 
-#: user_auth/views.py:87
+#: user_auth/views.py:88
 msgid "Passwords do not match."
 msgstr "كلمات المرور غير متطابقة."
 
-#: user_auth/views.py:89
+#: user_auth/views.py:90
 msgid "Password must be at least 8 characters long."
 msgstr "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل."
 
-#: user_auth/views.py:91
+#: user_auth/views.py:92
 msgid "Please select a role."
 msgstr ""
 
-#: user_auth/views.py:93 user_auth/views.py:174
+#: user_auth/views.py:94 user_auth/views.py:175
 msgid "Driver license is required for providers."
 msgstr ""
 
-#: user_auth/views.py:100
+#: user_auth/views.py:101
 msgid "This email is already registered."
 msgstr "هذا البريد الإلكتروني مسجل بالفعل."
 
-#: user_auth/views.py:126
+#: user_auth/views.py:127
 msgid "Your account has been created successfully."
 msgstr "تم إنشاء حسابك بنجاح."
 
-#: user_auth/views.py:172
-#, fuzzy
-#| msgid "Last name is required."
-msgid "Phone number is required."
-msgstr "اسم العائلة مطلوب."
-
-#: user_auth/views.py:205
+#: user_auth/views.py:206
 #, fuzzy
 #| msgid "User %(name)s deleted successfully."
 msgid "Profile updated successfully."
 msgstr "تم حذف المستخدم %(name)s بنجاح."
 
-#: user_auth/views.py:228
+#: user_auth/views.py:229
 #, fuzzy
 #| msgid "First name is required."
 msgid "Driver license is required."
 msgstr "الاسم الأول مطلوب."
 
-#: user_auth/views.py:233
+#: user_auth/views.py:234
 msgid "You are already a provider."
 msgstr ""
 
 #: user_auth/views.py:246
+msgid "تم تلقي طلب ترقية جديد. يرجى مراجعة الطلب"
+msgstr ""
+
+#: user_auth/views.py:247
+#, fuzzy
+#| msgid "New user has been created, please review it ."
+msgid ""
+"A user has requested to upgrade his account to provider, please review it."
+msgstr "تم إنشاء مستخدم جديد، يرجى مراجعته"
+
+#: user_auth/views.py:252
 msgid ""
 "Congratulations! Your account has been upgraded to Provider. Please wait for "
 "approval."
 msgstr ""
 
-#: user_auth/views.py:266
+#: user_auth/views.py:272
 #, fuzzy
 #| msgid "Your account has been created successfully."
 msgid "Your account has been deleted successfully."
 msgstr "تم إنشاء حسابك بنجاح."
+
+#~ msgid "users"
+#~ msgstr "المستخدمين"
+
+#~ msgid "Failed to send activation email. Approval cancelled."
+#~ msgstr "فشل إرسال بريد التفعيل. تم إلغاء الموافقة."
 
 #~ msgid "Continue with Facebook"
 #~ msgstr "المتابعة باستخدام فيسبوك"

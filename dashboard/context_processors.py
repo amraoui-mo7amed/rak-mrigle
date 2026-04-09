@@ -36,6 +36,30 @@ def dashboard_sidebar(request):
             "customer_only": False,
         },
         {
+            "title": _("Browse Services"),
+            "icon": "fas fa-search",
+            "url_name": "dash:catalog_list",
+            "admin_only": False,
+            "provider_only": False,
+            "customer_only": True,
+        },
+        {
+            "title": _("My Requests"),
+            "icon": "fas fa-clipboard-list",
+            "url_name": "dash:customer_requests",
+            "admin_only": False,
+            "provider_only": False,
+            "customer_only": True,
+        },
+        {
+            "title": _("Incoming Requests"),
+            "icon": "fas fa-inbox",
+            "url_name": "dash:provider_requests",
+            "admin_only": False,
+            "provider_only": True,
+            "customer_only": False,
+        },
+        {
             "title": _("Social Auth"),
             "icon": "fas fa-plug",
             "url_name": "dash:social_app_list",
@@ -46,8 +70,9 @@ def dashboard_sidebar(request):
     ]
 
     filtered_menu = []
+
     for item in menu_items:
-        if request.user.is_superuser and item["admin_only"]:
+        if request.user.is_superuser and item["admin_only"] is True:
             filtered_menu.append(item)
         elif (
             not item["admin_only"]
@@ -61,7 +86,6 @@ def dashboard_sidebar(request):
                 filtered_menu.append(item)
             elif item["customer_only"] and user_role == "customer":
                 filtered_menu.append(item)
-
     return {
         "dashboard_menu": filtered_menu,
     }

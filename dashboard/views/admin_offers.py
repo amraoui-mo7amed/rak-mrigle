@@ -8,13 +8,7 @@ from django.views.decorators.http import require_POST
 
 from dashboard.models import Offer, Category
 from dashboard.decorator import admin_required
-from dashboard.utils import notify_user
-
-
-def get_localized_category_choices(categories):
-    """Returns category choices localized based on current language."""
-    lang = get_language()
-    return [(c.pk, c.get_name(lang)) for c in categories]
+from dashboard.utils import notify_user, get_localized_category_choices
 
 
 @admin_required

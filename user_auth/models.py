@@ -13,6 +13,7 @@ class UserProfile(models.Model):
     class roleChoices(models.TextChoices):
         CUSTOMER = "customer", _("Customer")
         PROVIDER = "provider", _("Provider")
+        ADMIN = "admin", _("ADMIN")
 
     user = models.OneToOneField(
         User,

@@ -219,48 +219,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-    window.deleteProviderOffer = function (offerId) {
-        var url = '/dashboard/my-offers/' + offerId + '/delete/';
-        var redirectUrl = '/dashboard/my-offers/';
-        Swal.fire({
-            icon: "warning",
-            title: typeof window.trans_delete_confirm_title !== "undefined" ? window.trans_delete_confirm_title : "Delete Offer",
-            text: typeof window.trans_delete_confirm_text !== "undefined" ? window.trans_delete_confirm_text : "Are you sure you want to delete this offer? This action cannot be undone.",
-            showCancelButton: true,
-            confirmButtonColor: "#dc3545",
-            cancelButtonColor: "#6c757d",
-            confirmButtonText: typeof window.trans_yes_delete !== "undefined" ? window.trans_yes_delete : "Yes, delete it",
-            cancelButtonText: typeof window.trans_cancel !== "undefined" ? window.trans_cancel : "Cancel"
-        }).then(function (result) {
-            if (result.isConfirmed) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", url);
-                xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-                xhr.setRequestHeader("X-CSRFToken", getCsrfToken());
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText);
-                        if (response.success) {
-                            Swal.fire({
-                                icon: "success",
-                                title: response.message,
-                                showConfirmButton: false,
-                                timer: 2000
-                            }).then(function () {
-                                window.location.href = redirectUrl;
-                            });
-                        } else {
-                            Swal.fire({
-                                icon: "error",
-                                title: typeof window.trans_error !== "undefined" ? window.trans_error : "Error",
-                                text: response.message
-                            });
-                        }
+window.deleteProviderOffer = function (offerId) {
+    var url = '/dashboard/my-offers/' + offerId + '/delete/';
+    var redirectUrl = '/dashboard/my-offers/';
+    Swal.fire({
+        icon: "warning",
+        title: typeof window.trans_delete_confirm_title !== "undefined" ? window.trans_delete_confirm_title : "Delete Offer",
+        text: typeof window.trans_delete_confirm_text !== "undefined" ? window.trans_delete_confirm_text : "Are you sure you want to delete this offer? This action cannot be undone.",
+        showCancelButton: true,
+        confirmButtonColor: "#dc3545",
+        cancelButtonColor: "#6c757d",
+        confirmButtonText: typeof window.trans_yes_delete !== "undefined" ? window.trans_yes_delete : "Yes, delete it",
+        cancelButtonText: typeof window.trans_cancel !== "undefined" ? window.trans_cancel : "Cancel"
+    }).then(function (result) {
+        if (result.isConfirmed) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+            xhr.setRequestHeader("X-CSRFToken", getCsrfToken());
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        Swal.fire({
+                            icon: "success",
+                            title: response.message,
+                            showConfirmButton: false,
+                            timer: 2000
+                        }).then(function () {
+                            window.location.href = redirectUrl;
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: typeof window.trans_error !== "undefined" ? window.trans_error : "Error",
+                            text: response.message
+                        });
                     }
-                };
-                xhr.send();
-            }
-        });
-    };
+                }
+            };
+            xhr.send();
+        }
+    });
+};
 
 });

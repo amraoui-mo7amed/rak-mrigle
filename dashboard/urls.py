@@ -1,6 +1,6 @@
 from django.urls import path
 from dashboard.views import dashboard, users, notifications, social_auth
-from dashboard.views import admin_offers, provider_offers
+from dashboard.views import admin_offers, provider_offers, orders, catalog
 
 app_name = "dash"
 
@@ -84,5 +84,40 @@ urlpatterns = [
         "my-offers/<int:pk>/delete/",
         provider_offers.provider_offer_delete,
         name="provider_offer_delete",
+    ),
+    # Catalog - Customer
+    path("catalog/", catalog.catalog_list, name="catalog_list"),
+    path("catalog/<int:offer_id>/", catalog.catalog_details, name="catalog_details"),
+    path(
+        "catalog/<int:offer_id>/request/", catalog.create_request, name="create_request"
+    ),
+    # Service Requests - Customer
+    path("my-requests/", orders.customer_request_list, name="customer_requests"),
+    path(
+        "my-requests/<int:request_id>/",
+        orders.customer_request_details,
+        name="customer_request_details",
+    ),
+    path(
+        "my-requests/<int:request_id>/cancel/",
+        orders.cancel_request,
+        name="cancel_request",
+    ),
+    # Service Requests - Provider
+    path("incoming-requests/", orders.provider_request_list, name="provider_requests"),
+    path(
+        "incoming-requests/<int:request_id>/",
+        orders.provider_request_details,
+        name="provider_request_details",
+    ),
+    path(
+        "incoming-requests/<int:request_id>/approve/",
+        orders.approve_request,
+        name="approve_request",
+    ),
+    path(
+        "incoming-requests/<int:request_id>/reject/",
+        orders.reject_request,
+        name="reject_request",
     ),
 ]

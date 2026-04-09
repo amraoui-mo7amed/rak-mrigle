@@ -254,3 +254,50 @@ class Offer(models.Model):
         elif lang == "en":
             return self.location_en
         return self.location_ar
+
+
+class ServiceRequest(models.Model):
+    """Service request from customer to provider"""
+
+    class RequestStatus(models.TextChoices):
+        PENDING = "pending", _("قيد الانتظار")
+        APPROVED = "approved", _("مقبول")
+        REJECTED = "rejected", _("مرفوض")
+        CANCELLED = "cancelled", _("ملغي")
+
+    customer = models.ForeignKey(
+        userModel,
+        on_delete=models.CASCADE,
+        related_name="service_requests",
+        verbose_name=_("العميل"),
+    )
+    offer = models.ForeignKey(
+        Offer,
+        on_delete=models.CASCADE,
+        related_name="requests",
+        verbose_name=_("العرض"),
+    )
+    full_name = models.CharField(max_length=200, verbose_name=_("الاسم الكامل"))
+    phone = models.CharField(max_length=20, verbose_name=_("رقم الهاتف"))
+    wilaya = models.CharField(max_length=100, verbose_name=_("الولاية"))
+    location = models.TextField(verbose_name=_("موقع الانطلاق"))
+    destination = models.TextField(blank=True, verbose_name=_("الوجهة"))
+    notes = models.TextField(blank=True, verbose_name=_("ملاحظات"))
+    status = models.CharField(
+        max_length=20,
+        choices=RequestStatus.choices,
+        default=RequestStatus.PENDING,
+        verbose_name=_("الحالة"),
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name=_("تاريخ الإنشاء")
+    )
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("تاريخ التحديث"))
+
+    class Meta:
+        verbose_name = _("طلب خدمة")
+        verbose_name_plural = "طلبات الخدمات"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.full_name} - {self.offer.title_ar}"

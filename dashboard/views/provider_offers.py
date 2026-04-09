@@ -8,13 +8,7 @@ from django.views.decorators.http import require_POST, require_http_methods
 
 from dashboard.models import Offer, Category
 from dashboard.decorator import provider_required
-from dashboard.utils import get_wilayas_choices
-
-
-def get_localized_category_choices(categories):
-    """Returns category choices localized based on current language."""
-    lang = get_language()
-    return [(c.pk, c.get_name(lang)) for c in categories]
+from dashboard.utils import get_wilayas_choices, get_localized_category_choices
 
 
 def get_localized_pricing_choices():

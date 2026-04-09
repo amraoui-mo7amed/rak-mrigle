@@ -9,5 +9,5 @@ from .views import main
 app_name = "frontend"
 
 urlpatterns = [
-    path('', main.home_view, name='home'),
+    path("", main.home_view, name="home"),
 ]

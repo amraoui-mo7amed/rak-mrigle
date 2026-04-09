@@ -68,3 +68,14 @@ def localized_name(obj):
     if hasattr(obj, "get_name"):
         return obj.get_name(lang)
     return str(obj)
+
+
+@register.filter
+def localized_wilaya(wilaya_name):
+    """
+    Returns the localized wilaya name based on current language.
+    Usage: {{ offer.wilaya|localized_wilaya }}
+    """
+    from dashboard.utils import get_localized_wilaya_name
+
+    return get_localized_wilaya_name(wilaya_name)
