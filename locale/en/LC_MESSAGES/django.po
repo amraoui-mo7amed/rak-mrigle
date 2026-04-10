@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-09 21:04+0100\n"
+"POT-Creation-Date: 2026-04-10 06:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,368 +17,367 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
 #: core/context_processors.py:13
 msgid "Rak-Mrigel"
-msgstr ""
+msgstr "Rak-Mrigel"
 
 #: core/context_processors.py:15
 msgid "Transport Marketplace & Heavy Machinery "
-msgstr ""
+msgstr "Transport & Heavy Machinery Marketplace"
 
 #: core/context_processors.py:27
 msgid "The leading marketplace for transport and heavy machinery in Algeria."
-msgstr ""
+msgstr "The leading marketplace for transport and heavy machinery in Algeria."
 
 #: core/context_processors.py:30
 msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
-msgstr ""
+msgstr "transport, machinery, construction, logistics, algeria, trucks, cranes"
 
 #: core/settings.py:201
 msgid "العربية"
-msgstr ""
+msgstr "Arabic"
 
 #: core/settings.py:201
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: core/settings.py:201
 msgid "French"
-msgstr ""
+msgstr "French"
 
 #: dashboard/context_processors.py:7
 #: dashboard/templates/dash/dash_index.html:88 frontend/templates/home.html:21
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: dashboard/context_processors.py:15
 msgid "Users"
-msgstr ""
+msgstr "Users"
 
 #: dashboard/context_processors.py:23
 msgid "All Offers"
-msgstr ""
+msgstr "All Offers"
 
 #: dashboard/context_processors.py:31
 #: dashboard/templates/offers/provider/list.html:8
 msgid "My Offers"
-msgstr ""
+msgstr "My Offers"
 
 #: dashboard/context_processors.py:39 dashboard/templates/catalog/list.html:8
 #: dashboard/templates/orders/customer/list.html:116
 msgid "Browse Services"
-msgstr ""
+msgstr "Browse Services"
 
 #: dashboard/context_processors.py:47
 #: dashboard/templates/orders/customer/list.html:8
 #: dashboard/templates/orders/customer/list.html:19
 msgid "My Requests"
-msgstr ""
+msgstr "My Requests"
 
 #: dashboard/context_processors.py:55
 #: dashboard/templates/orders/provider/list.html:8
 #: dashboard/templates/orders/provider/list.html:19
 msgid "Incoming Requests"
-msgstr ""
+msgstr "Incoming Requests"
 
 #: dashboard/context_processors.py:63
 msgid "Social Auth"
-msgstr ""
+msgstr "Social Auth"
 
 #: dashboard/models.py:12
 msgid "معلومة"
-msgstr ""
+msgstr "Information"
 
 #: dashboard/models.py:13
 msgid "نجاح"
-msgstr ""
+msgstr "Success"
 
 #: dashboard/models.py:14
 msgid "تحذير"
-msgstr ""
+msgstr "Warning"
 
 #: dashboard/models.py:15
 msgid "خطأ"
-msgstr ""
+msgstr "Error"
 
 #: dashboard/models.py:21
 msgid "المستخدم"
-msgstr ""
+msgstr "User"
 
 #: dashboard/models.py:23
 msgid "العنوان"
-msgstr ""
+msgstr "Title"
 
 #: dashboard/models.py:24
 msgid "الرسالة"
-msgstr ""
+msgstr "Message"
 
 #: dashboard/models.py:29
 msgid "نوع الإشعار"
-msgstr ""
+msgstr "Notification Type"
 
 #: dashboard/models.py:31
 msgid "مقروء"
-msgstr ""
+msgstr "Read"
 
 #: dashboard/models.py:33 dashboard/models.py:78 dashboard/models.py:225
 #: dashboard/models.py:293
 msgid "تاريخ الإنشاء"
-msgstr ""
+msgstr "Created Date"
 
 #: dashboard/models.py:36
 msgid "تاريخ القراءة"
-msgstr ""
+msgstr "Read Date"
 
 #: dashboard/models.py:41
 msgid "الرابط"
-msgstr ""
+msgstr "Link"
 
 #: dashboard/models.py:42
 msgid "رابط اختياري للتنقل"
-msgstr ""
+msgstr "Optional navigation link"
 
 #: dashboard/models.py:46
 msgid "إشعار"
-msgstr ""
+msgstr "Notification"
 
 #: dashboard/models.py:58
 msgid "Transport"
-msgstr ""
+msgstr "Transport"
 
 #: dashboard/models.py:59
 msgid "Machinery"
-msgstr ""
+msgstr "Machinery"
 
 #: dashboard/models.py:60
 msgid "Logistics"
-msgstr ""
+msgstr "Logistics"
 
 #: dashboard/models.py:62
 msgid "الاسم بالعربية"
-msgstr ""
+msgstr "Arabic Name"
 
 #: dashboard/models.py:63
 msgid "الاسم بالفرنسية"
-msgstr ""
+msgstr "French Name"
 
 #: dashboard/models.py:64
 msgid "الاسم بالإنجليزية"
-msgstr ""
+msgstr "English Name"
 
 #: dashboard/models.py:68
 msgid "نوع الفئة"
-msgstr ""
+msgstr "Category Type"
 
 #: dashboard/models.py:73
 msgid "الأيقونة"
-msgstr ""
+msgstr "Icon"
 
 #: dashboard/models.py:74
 msgid "FontAwesome icon class"
-msgstr ""
+msgstr "FontAwesome icon class"
 
 #: dashboard/models.py:76 dashboard/models.py:103
 msgid "نشط"
-msgstr ""
+msgstr "Active"
 
 #: dashboard/models.py:82
 msgid "فئة"
-msgstr ""
+msgstr "Category"
 
 #: dashboard/models.py:101
 msgid "مسودة"
-msgstr ""
+msgstr "Draft"
 
 #: dashboard/models.py:102
 msgid "في الانتظار"
-msgstr ""
+msgstr "Pending"
 
 #: dashboard/models.py:104 dashboard/models.py:265
 msgid "مرفوض"
-msgstr ""
+msgstr "Rejected"
 
 #: dashboard/models.py:105
 msgid "منتهي"
-msgstr ""
+msgstr "Expired"
 
 #: dashboard/models.py:108
 msgid "مسافة"
-msgstr ""
+msgstr "Distance"
 
 #: dashboard/models.py:109
 msgid "ساعي"
-msgstr ""
+msgstr "Courier"
 
 #: dashboard/models.py:115
 msgid "المزود"
-msgstr ""
+msgstr "Provider"
 
 #: dashboard/models.py:121
 msgid "الفئة"
-msgstr ""
+msgstr "Category"
 
 #: dashboard/models.py:123
 msgid "العنوان بالعربية"
-msgstr ""
+msgstr "Title in Arabic"
 
 #: dashboard/models.py:124
 msgid "العنوان بالفرنسية"
-msgstr ""
+msgstr "Title in French"
 
 #: dashboard/models.py:125
 msgid "العنوان بالإنجليزية"
-msgstr ""
+msgstr "Title in English"
 
 #: dashboard/models.py:126
 msgid "الوصف بالعربية"
-msgstr ""
+msgstr "Description in Arabic"
 
 #: dashboard/models.py:127
 msgid "الوصف بالفرنسية"
-msgstr ""
+msgstr "Description in French"
 
 #: dashboard/models.py:128
 msgid "الوصف بالإنجليزية"
-msgstr ""
+msgstr "Description in English"
 
 #: dashboard/models.py:133
 msgid "نوع التسعير"
-msgstr ""
+msgstr "Pricing Type"
 
 #: dashboard/models.py:138
 msgid "السعر الأساسي"
-msgstr ""
+msgstr "Base Price"
 
 #: dashboard/models.py:139
 msgid "Minimum charge for the service"
-msgstr ""
+msgstr "Minimum charge for the service"
 
 #: dashboard/models.py:146
 msgid "السعر لكل كلم"
-msgstr ""
+msgstr "Price per km"
 
 #: dashboard/models.py:153
 msgid "السعر لكل ساعة"
-msgstr ""
+msgstr "Price per hour"
 
 #: dashboard/models.py:160
 msgid "تكلفة الوقود"
-msgstr ""
+msgstr "Fuel cost"
 
 #: dashboard/models.py:167
 msgid "تكلفة المشغل"
-msgstr ""
+msgstr "Operator cost"
 
 #: dashboard/models.py:174
 msgid "تكلفة وقت الانتظار"
-msgstr ""
+msgstr "Waiting time cost"
 
 #: dashboard/models.py:179
 msgid "السعة"
-msgstr ""
+msgstr "Capacity"
 
 #: dashboard/models.py:180
 msgid "Load capacity (e.g., '5 tons', '20 m³')"
-msgstr ""
+msgstr "Load capacity (e.g., '5 tons', '20 m³')"
 
 #: dashboard/models.py:185 dashboard/models.py:282
 msgid "الولاية"
-msgstr ""
+msgstr "State"
 
 #: dashboard/models.py:191
 msgid "الصورة"
-msgstr ""
+msgstr "Image"
 
 #: dashboard/models.py:197 dashboard/models.py:290
 msgid "الحالة"
-msgstr ""
+msgstr "Status"
 
 #: dashboard/models.py:201
 msgid "متاح"
-msgstr ""
+msgstr "Available"
 
 #: dashboard/models.py:202
 msgid "Available for booking"
-msgstr ""
+msgstr "Available for booking"
 
 #: dashboard/models.py:207
 msgid "الموقع بالعربية"
-msgstr ""
+msgstr "Site in Arabic"
 
 #: dashboard/models.py:212
 msgid "الموقع بالفرنسية"
-msgstr ""
+msgstr "Site in French"
 
 #: dashboard/models.py:217
 msgid "الموقع بالإنجليزية"
-msgstr ""
+msgstr "Site in English"
 
 #: dashboard/models.py:221
 msgid "ملاحظة المدير"
-msgstr ""
+msgstr "Manager's note"
 
 #: dashboard/models.py:222
 msgid "Internal note for rejection reason"
-msgstr ""
+msgstr "Internal note for rejection reason"
 
 #: dashboard/models.py:227 dashboard/models.py:295
 msgid "تاريخ التحديث"
-msgstr ""
+msgstr "Update date"
 
 #: dashboard/models.py:230
 msgid "عرض"
-msgstr ""
+msgstr "View"
 
 #: dashboard/models.py:263
 msgid "قيد الانتظار"
-msgstr ""
+msgstr "Pending"
 
 #: dashboard/models.py:264
 msgid "مقبول"
-msgstr ""
+msgstr "Accepted"
 
 #: dashboard/models.py:266
 msgid "ملغي"
-msgstr ""
+msgstr "Cancelled"
 
 #: dashboard/models.py:272
 msgid "العميل"
-msgstr ""
+msgstr "Client"
 
 #: dashboard/models.py:278
 msgid "العرض"
-msgstr ""
+msgstr "Offer"
 
 #: dashboard/models.py:280
 msgid "الاسم الكامل"
-msgstr ""
+msgstr "Full Name"
 
 #: dashboard/models.py:281
 msgid "رقم الهاتف"
-msgstr ""
+msgstr "Phone Number"
 
 #: dashboard/models.py:283
 msgid "موقع الانطلاق"
-msgstr ""
+msgstr "Departure Location"
 
 #: dashboard/models.py:284
 msgid "الوجهة"
-msgstr ""
+msgstr "Destination"
 
 #: dashboard/models.py:285
 msgid "ملاحظات"
-msgstr ""
+msgstr "Notes"
 
 #: dashboard/models.py:298
 msgid "طلب خدمة"
-msgstr ""
+msgstr "Service Request"
 
 #: dashboard/templates/catalog/details.html:45
 #: dashboard/templates/offers/admin/details.html:69
 #: dashboard/templates/offers/provider/details.html:57
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: dashboard/templates/catalog/details.html:52
 #: dashboard/templates/catalog/request_form.html:103
@@ -387,45 +386,45 @@ msgstr ""
 #: dashboard/templates/orders/customer/details.html:151
 #: dashboard/templates/orders/provider/details.html:139
 msgid "Location"
-msgstr ""
+msgstr "Location"
 
 #: dashboard/templates/catalog/details.html:67
 #: dashboard/templates/catalog/request_form.html:95
 msgid "Pricing"
-msgstr ""
+msgstr "Pricing"
 
 #: dashboard/templates/catalog/details.html:71
 #: dashboard/templates/catalog/list.html:155
 msgid "Starting from"
-msgstr ""
+msgstr "Starting from"
 
 #: dashboard/templates/catalog/details.html:77
 #: dashboard/templates/offers/admin/list.html:123
 #: dashboard/templates/offers/provider/list.html:106
 msgid "Per Km"
-msgstr ""
+msgstr "Per Km"
 
 #: dashboard/templates/catalog/details.html:82
 #: dashboard/templates/offers/admin/list.html:128
 #: dashboard/templates/offers/provider/list.html:111
 msgid "Per Hour"
-msgstr ""
+msgstr "Per Hour"
 
 #: dashboard/templates/catalog/details.html:89
 #: dashboard/templates/offers/admin/details.html:127
 #: dashboard/templates/offers/provider/details.html:117
 msgid "Fuel Cost"
-msgstr ""
+msgstr "Fuel Cost"
 
 #: dashboard/templates/catalog/details.html:96
 #: dashboard/templates/offers/admin/details.html:135
 #: dashboard/templates/offers/provider/details.html:125
 msgid "Operator Cost"
-msgstr ""
+msgstr "Operator Cost"
 
 #: dashboard/templates/catalog/details.html:104
 msgid "Request This Service"
-msgstr ""
+msgstr "Request This Service"
 
 #: dashboard/templates/catalog/details.html:111
 #: dashboard/templates/catalog/request_form.html:111
@@ -437,46 +436,46 @@ msgstr ""
 #: user_auth/templates/user/profile.html:283
 #: user_auth/templates/user/profile.html:315
 msgid "Provider"
-msgstr ""
+msgstr "Provider"
 
 #: dashboard/templates/catalog/details.html:124
 #: dashboard/templates/catalog/request_form.html:124
 #: dashboard/templates/orders/customer/details.html:172
 msgid "Service Provider"
-msgstr ""
+msgstr "Service Provider"
 
 #: dashboard/templates/catalog/details.html:133
 msgid "Similar Services"
-msgstr ""
+msgstr "Similar Services"
 
 #: dashboard/templates/catalog/list.html:19
 msgid "Available Services"
-msgstr ""
+msgstr "Available Services"
 
 #: dashboard/templates/catalog/list.html:22
 msgid "Browse and request transport & machinery services"
-msgstr ""
+msgstr "Browse and request transport & machinery services"
 
 #: dashboard/templates/catalog/list.html:37
 #: dashboard/templates/catalog/list.html:72
 msgid "Search services..."
-msgstr ""
+msgstr "Search services..."
 
 #: dashboard/templates/catalog/list.html:44
 #: dashboard/templates/offers/provider/list.html:40
 #: dashboard/templates/orders/customer/list.html:24
 #: dashboard/templates/orders/provider/list.html:24
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: dashboard/templates/catalog/list.html:57
 msgid "Filter Services"
-msgstr ""
+msgstr "Filter Services"
 
 #: dashboard/templates/catalog/list.html:66
 #: dashboard/templates/offers/provider/list.html:59
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: dashboard/templates/catalog/list.html:75
 #: dashboard/templates/catalog/request_form.html:44
@@ -485,11 +484,11 @@ msgstr ""
 #: dashboard/templates/orders/customer/details.html:55
 #: dashboard/templates/orders/provider/details.html:64
 msgid "Wilaya"
-msgstr ""
+msgstr "Wilaya"
 
 #: dashboard/templates/catalog/list.html:75
 msgid "All Wilayas"
-msgstr ""
+msgstr "All Wilayas"
 
 #: dashboard/templates/catalog/list.html:79
 #: dashboard/templates/offers/admin/list.html:78
@@ -497,11 +496,11 @@ msgstr ""
 #: dashboard/templates/offers/provider/details.html:165
 #: dashboard/templates/offers/provider/edit.html:94
 msgid "Category"
-msgstr ""
+msgstr "Category"
 
 #: dashboard/templates/catalog/list.html:79
 msgid "All Categories"
-msgstr ""
+msgstr "All Categories"
 
 #: dashboard/templates/catalog/list.html:84
 #: dashboard/templates/offers/admin/details.html:78
@@ -509,31 +508,31 @@ msgstr ""
 #: dashboard/templates/offers/provider/details.html:67
 #: dashboard/templates/offers/provider/edit.html:117
 msgid "Pricing Type"
-msgstr ""
+msgstr "Pricing Type"
 
 #: dashboard/templates/catalog/list.html:88
 msgid "All Types"
-msgstr ""
+msgstr "All Types"
 
 #: dashboard/templates/catalog/list.html:92
 #: dashboard/templates/offers/admin/details.html:81
 #: dashboard/templates/offers/provider/details.html:70
 msgid "Distance Based"
-msgstr ""
+msgstr "Distance Based"
 
 #: dashboard/templates/catalog/list.html:96
 #: dashboard/templates/offers/admin/details.html:83
 #: dashboard/templates/offers/provider/details.html:72
 msgid "Hourly Based"
-msgstr ""
+msgstr "Hourly Based"
 
 #: dashboard/templates/catalog/list.html:103
 msgid "Min Price"
-msgstr ""
+msgstr "Min Price"
 
 #: dashboard/templates/catalog/list.html:113
 msgid "Max Price"
-msgstr ""
+msgstr "Max Price"
 
 #: dashboard/templates/catalog/list.html:125
 #: dashboard/templates/offers/admin/list.html:36
@@ -542,37 +541,37 @@ msgstr ""
 #: dashboard/templates/orders/provider/list.html:46
 #: dashboard/templates/users/list.html:36
 msgid "Clear"
-msgstr ""
+msgstr "Clear"
 
 #: dashboard/templates/catalog/list.html:127
 #: dashboard/templates/offers/admin/list.html:87
 #: dashboard/templates/offers/provider/list.html:71
 #: dashboard/templates/users/list.html:113
 msgid "Apply Filters"
-msgstr ""
+msgstr "Apply Filters"
 
 #: dashboard/templates/catalog/list.html:164
 #: dashboard/templates/orders/customer/list.html:97
 #: dashboard/templates/orders/provider/list.html:93
 msgid "View Details"
-msgstr ""
+msgstr "View Details"
 
 #: dashboard/templates/catalog/list.html:175
 msgid "No services available"
-msgstr ""
+msgstr "No services available"
 
 #: dashboard/templates/catalog/list.html:178
 msgid "Check back later for available services"
-msgstr ""
+msgstr "Check back later for available services"
 
 #: dashboard/templates/catalog/request_form.html:7
 #: dashboard/templates/catalog/request_form.html:21
 msgid "Request Service"
-msgstr ""
+msgstr "Request Service"
 
 #: dashboard/templates/catalog/request_form.html:33
 msgid "Full Name"
-msgstr ""
+msgstr "Full Name"
 
 #: dashboard/templates/catalog/request_form.html:39
 #: dashboard/templates/orders/provider/details.html:47
@@ -581,350 +580,330 @@ msgstr ""
 #: user_auth/templates/auth/signup.html:103
 #: user_auth/templates/user/profile.html:125
 msgid "Phone Number"
-msgstr ""
+msgstr "Phone Number"
 
 #: dashboard/templates/catalog/request_form.html:44
 msgid "Select your wilaya"
-msgstr ""
+msgstr "Select your province"
 
 #: dashboard/templates/catalog/request_form.html:48
 #: dashboard/templates/orders/customer/details.html:63
 #: dashboard/templates/orders/provider/details.html:72
 msgid "Pickup Location"
-msgstr ""
+msgstr "Pickup Location"
 
 #: dashboard/templates/catalog/request_form.html:55
 #: dashboard/templates/orders/customer/details.html:72
 #: dashboard/templates/orders/provider/details.html:81
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 #: dashboard/templates/catalog/request_form.html:58
 msgid "Enter destination for distance-based pricing"
-msgstr ""
+msgstr "Enter destination for distance-based pricing"
 
 #: dashboard/templates/catalog/request_form.html:63
 msgid "Additional Notes"
-msgstr ""
+msgstr "Additional Notes"
 
 #: dashboard/templates/catalog/request_form.html:71
 msgid "Back"
-msgstr ""
+msgstr "Back"
 
 #: dashboard/templates/catalog/request_form.html:74
 msgid "Submit Request"
-msgstr ""
+msgstr "Submit Request"
 
 #: dashboard/templates/catalog/request_form.html:85
 msgid "Service Summary"
-msgstr ""
+msgstr "Service Summary"
 
 #: dashboard/templates/catalog/request_form.html:99
 #: dashboard/templates/orders/customer/details.html:147
 #: dashboard/templates/orders/provider/details.html:135
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: dashboard/templates/components/notification_dropdown.html:12
 msgid "Notifications"
-msgstr ""
+msgstr "Notifications"
 
 #: dashboard/templates/components/notification_dropdown.html:13
 #: dashboard/templates/dash/dash_index.html:30
 msgid "New"
-msgstr ""
+msgstr "New"
 
 #: dashboard/templates/components/notification_dropdown.html:37
 msgid "You're all caught up!"
-msgstr ""
+msgstr "You're all caught up!"
 
 #: dashboard/templates/components/notification_dropdown.html:42
 msgid "Mark all as read"
-msgstr ""
+msgstr "Mark all as read"
 
 #: dashboard/templates/components/pagination.html:9
 msgid "Previous"
-msgstr ""
+msgstr "Previous"
 
 #: dashboard/templates/components/pagination.html:39
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #: dashboard/templates/dash/dash_home.html:7
 msgid "Overview"
-msgstr ""
+msgstr "Overview"
 
 #: dashboard/templates/dash/dash_home.html:21
 msgid "Welcome back,"
-msgstr ""
+msgstr "Welcome back,"
 
 #: dashboard/templates/dash/dash_home.html:25
 msgid "Platform management and system health overview."
-msgstr ""
+msgstr "Platform management and system health overview."
 
 #: dashboard/templates/dash/dash_home.html:27
 msgid "Your project metrics and activity are looking great today."
-msgstr ""
+msgstr "Your project metrics and activity are looking great today."
 
 #: dashboard/templates/dash/dash_home.html:37
 msgid "Manage Users"
-msgstr ""
+msgstr "Manage Users"
 
 #: dashboard/templates/dash/dash_home.html:41
 msgid "New Entry"
-msgstr ""
+msgstr "New Entry"
 
 #: dashboard/templates/dash/dash_home.html:50
 msgid "Active Missions"
-msgstr ""
+msgstr "Active Missions"
 
 #: dashboard/templates/dash/dash_home.html:52
 msgid "Total Revenue"
-msgstr ""
+msgstr "Total Revenue"
 
 #: dashboard/templates/dash/dash_home.html:54
 msgid "Pending KYC"
-msgstr ""
+msgstr "Pending KYC"
 
 #: dashboard/templates/dash/dash_home.html:56
 msgid "Fleet Size"
-msgstr ""
+msgstr "Fleet Size"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Sat"
-msgstr ""
+msgstr "Sat"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Sun"
-msgstr ""
+msgstr "Sun"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Mon"
-msgstr ""
+msgstr "Mon"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Tue"
-msgstr ""
+msgstr "Tue"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Wed"
-msgstr ""
+msgstr "Wed"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Thu"
-msgstr ""
+msgstr "Thu"
 
 #: dashboard/templates/dash/dash_home.html:65
 msgid "Fri"
-msgstr ""
+msgstr "Fri"
 
 #: dashboard/templates/dash/dash_home.html:68
 msgid "Weekly Request volume"
-msgstr ""
+msgstr "Weekly Request volume"
 
 #: dashboard/templates/dash/dash_home.html:71
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Last 7 Days"
 
 #: dashboard/templates/dash/dash_home.html:74
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Last 30 Days"
 
 #: dashboard/templates/dash/dash_home.html:90
 msgid "Recent Activity"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:101
+msgstr "Recent Activity"#: dashboard/templates/dash/dash_home.html:101
 #: dashboard/templates/social_auth/list.html:101
 #: dashboard/templates/users/list.html:134 dashboard/views/admin_offers.py:47
 #: dashboard/views/provider_offers.py:54
 msgid "Active"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:113
+msgstr "Active"#: dashboard/templates/dash/dash_home.html:113
 #: dashboard/templates/users/details.html:94 dashboard/views/dashboard.py:54
 msgid "Pending Approval"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:125
+msgstr "Pending Approval"#: dashboard/templates/dash/dash_home.html:125
 msgid "Settled"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:137
+msgstr "Settled"#: dashboard/templates/dash/dash_home.html:137
 msgid "Completed"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:143
+msgstr "Completed"#: dashboard/templates/dash/dash_home.html:143
 msgid "View All Operations"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:157
+msgstr "View All Operations"#: dashboard/templates/dash/dash_home.html:157
 msgid "Smart Insights"
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:160
+msgstr "Smart Insights"#: dashboard/templates/dash/dash_home.html:160
 msgid ""
 "System performance is optimal. All 5 services are running within expected "
 "latency bounds."
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:162
+msgstr "System performance is optimal. All 5 services are running within expected latency bounds."#: dashboard/templates/dash/dash_home.html:162
 msgid ""
 "AI has detected a growth trend in your user engagement. Consider launching a "
 "new campaign to capitalize on this traffic."
-msgstr ""
-
-#: dashboard/templates/dash/dash_home.html:165
+msgstr "AI has detected a growth trend in your user engagement. Consider launching a new campaign to capitalize on this traffic."#: dashboard/templates/dash/dash_home.html:165
 msgid "Take Action"
-msgstr ""
-
-#: dashboard/templates/dash/dash_index.html:26
+msgstr "Take Action"#: dashboard/templates/dash/dash_index.html:26
 msgid "Just now"
-msgstr ""
+msgstr "Just now"
 
 #: dashboard/templates/dash/dash_index.html:27
 msgid "minutes ago"
-msgstr ""
+msgstr "minutes ago"
 
 #: dashboard/templates/dash/dash_index.html:28
 msgid "hours ago"
-msgstr ""
+msgstr "hours ago"
 
 #: dashboard/templates/dash/dash_index.html:29
 msgid "No notifications"
-msgstr ""
+msgstr "No notifications"
 
 #: dashboard/templates/dash/dash_index.html:53
 msgid "Manage your account and services"
-msgstr ""
+msgstr "Manage your account and services"
 
 #: dashboard/templates/dash/dash_index.html:74
 #: dashboard/templates/dash/dash_index.html:154
 msgid "Logout"
-msgstr ""
+msgstr "Logout"
 
 #: dashboard/templates/dash/dash_index.html:121
 #: user_auth/templates/user/profile.html:54
 #: user_auth/templates/user/profile.html:317
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 #: dashboard/templates/dash/dash_index.html:123
 #: dashboard/templates/users/list.html:129
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: dashboard/templates/dash/dash_index.html:141
 #: user_auth/templates/user/profile.html:7
 msgid "My Profile"
-msgstr ""
+msgstr "My Profile"
 
 #: dashboard/templates/dash/dash_index.html:144
 #: frontend/templates/index.html:110
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
 #: dashboard/templates/dash/dash_index.html:147
 msgid "Help & Support"
-msgstr ""
+msgstr "Help & Support"
 
 #: dashboard/templates/offers/admin/details.html:7
 #: dashboard/templates/offers/provider/details.html:7
 msgid "Offer Details"
-msgstr ""
+msgstr "Offer Details"
 
 #: dashboard/templates/offers/admin/details.html:42
 msgid "Approve"
-msgstr ""
+msgstr "Approve"
 
 #: dashboard/templates/offers/admin/details.html:47
 msgid "Reject"
-msgstr ""
+msgstr "Reject"
 
 #: dashboard/templates/offers/admin/details.html:53
 #: dashboard/templates/offers/provider/details.html:32
 #: dashboard/templates/social_auth/list.html:121
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 #: dashboard/templates/offers/admin/details.html:90
 #: dashboard/templates/offers/admin/list.html:118
 #: dashboard/templates/offers/provider/details.html:79
 #: dashboard/templates/offers/provider/list.html:101
 msgid "Base Price"
-msgstr ""
+msgstr "Base Price"
 
 #: dashboard/templates/offers/admin/details.html:97
 #: dashboard/templates/offers/provider/details.html:86
 msgid "Price per Km"
-msgstr ""
+msgstr "Price per Km"
 
 #: dashboard/templates/offers/admin/details.html:104
 #: dashboard/templates/offers/provider/details.html:93
 msgid "Price per Hour"
-msgstr ""
+msgstr "Price per Hour"
 
 #: dashboard/templates/offers/admin/details.html:112
 #: dashboard/templates/offers/provider/create.html:185
 #: dashboard/templates/offers/provider/details.html:101
 #: dashboard/templates/offers/provider/edit.html:215
 msgid "Capacity"
-msgstr ""
+msgstr "Capacity"
 
 #: dashboard/templates/offers/admin/details.html:121
 #: dashboard/templates/offers/provider/details.html:111
 msgid "Additional Costs"
-msgstr ""
+msgstr "Additional Costs"
 
 #: dashboard/templates/offers/admin/details.html:143
 #: dashboard/templates/offers/provider/details.html:133
 msgid "Wait Time Cost"
-msgstr ""
+msgstr "Wait Time Cost"
 
 #: dashboard/templates/offers/admin/details.html:168
 msgid "Provider Info"
-msgstr ""
+msgstr "Provider Info"
 
 #: dashboard/templates/offers/admin/details.html:188
 msgid "View Profile"
-msgstr ""
+msgstr "View Profile"
 
 #: dashboard/templates/offers/admin/details.html:196
 #: dashboard/templates/offers/provider/details.html:40
 msgid "Admin Note"
-msgstr ""
+msgstr "Admin Note"
 
 #: dashboard/templates/offers/admin/list.html:8
 msgid "Offers"
-msgstr ""
+msgstr "Offers"
 
 #: dashboard/templates/offers/admin/list.html:27
 #: dashboard/templates/offers/provider/list.html:52
 msgid "Filter Offers"
-msgstr ""
+msgstr "Filter Offers"
 
 #: dashboard/templates/offers/admin/list.html:35
 #: dashboard/templates/users/list.html:35
 msgid "Clear All"
-msgstr ""
+msgstr "Clear All"
 
 #: dashboard/templates/offers/admin/list.html:45
 msgid "Search offers..."
-msgstr ""
+msgstr "Search offers..."
 
 #: dashboard/templates/offers/admin/list.html:60
 #: dashboard/templates/users/list.html:77
 msgid "Advanced Filter"
-msgstr ""
+msgstr "Advanced Filter"
 
 #: dashboard/templates/offers/admin/list.html:68
 #: dashboard/templates/users/list.html:90
 msgid "Search Keyword"
-msgstr ""
+msgstr "Search Keyword"
 
 #: dashboard/templates/offers/admin/list.html:70
 msgid "Offer title..."
-msgstr ""
+msgstr "Offer title..."
 
 #: dashboard/templates/offers/admin/list.html:74
 #: dashboard/templates/offers/provider/details.html:169
@@ -932,221 +911,221 @@ msgstr ""
 #: dashboard/templates/orders/customer/list.html:46
 #: dashboard/templates/orders/provider/list.html:42
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: dashboard/templates/offers/admin/list.html:74
 msgid "Select a status"
-msgstr ""
+msgstr "Select a status"
 
 #: dashboard/templates/offers/admin/list.html:78
 #: dashboard/templates/offers/provider/create.html:71
 #: dashboard/templates/offers/provider/edit.html:94
 msgid "Select a category"
-msgstr ""
+msgstr "Select a category"
 
 #: dashboard/templates/offers/admin/list.html:84
 #: dashboard/templates/users/list.html:109
 msgid "Reset All"
-msgstr ""
+msgstr "Reset All"
 
 #: dashboard/templates/offers/admin/list.html:146
 #: dashboard/templates/offers/provider/list.html:119
 #: user_auth/templates/user/profile.html:350
 msgid "View"
-msgstr ""
+msgstr "View"
 
 #: dashboard/templates/offers/admin/list.html:165
 msgid "No offers found"
-msgstr ""
+msgstr "No offers found"
 
 #: dashboard/templates/offers/admin/list.html:166
 #: dashboard/templates/users/list.html:206
 msgid "Try adjusting your filters"
-msgstr ""
+msgstr "Try adjusting your filters"
 
 #: dashboard/templates/offers/provider/create.html:7
 #: dashboard/templates/offers/provider/create.html:209
 #: dashboard/templates/offers/provider/list.html:26
 #: dashboard/templates/offers/provider/list.html:139
 msgid "Create Offer"
-msgstr ""
+msgstr "Create Offer"
 
 #: dashboard/templates/offers/provider/create.html:26
 #: dashboard/templates/offers/provider/edit.html:27
 msgid "Basic Information"
-msgstr ""
+msgstr "Basic Information"
 
 #: dashboard/templates/offers/provider/create.html:33
 #: dashboard/templates/offers/provider/edit.html:34
 msgid "Offer Image"
-msgstr ""
+msgstr "Offer Image"
 
 #: dashboard/templates/offers/provider/create.html:50
 #: dashboard/templates/offers/provider/edit.html:50
 #: dashboard/templates/offers/provider/edit.html:72
 msgid "Click to upload image"
-msgstr ""
+msgstr "Click to upload image"
 
 #: dashboard/templates/offers/provider/create.html:55
 #: dashboard/templates/offers/provider/edit.html:54
 #: dashboard/templates/offers/provider/edit.html:76
 msgid "Preview"
-msgstr ""
+msgstr "Preview"
 
 #: dashboard/templates/offers/provider/create.html:66
 #: dashboard/templates/offers/provider/edit.html:89
 msgid "Title "
-msgstr ""
+msgstr "Title "
 
 #: dashboard/templates/offers/provider/create.html:77
 #: dashboard/templates/offers/provider/edit.html:100
 msgid "Description "
-msgstr ""
+msgstr "Description "
 
 #: dashboard/templates/offers/provider/create.html:88
 #: dashboard/templates/offers/provider/edit.html:111
 msgid "Pricing Information"
-msgstr ""
+msgstr "Pricing Information"
 
 #: dashboard/templates/offers/provider/create.html:94
 #: dashboard/templates/offers/provider/edit.html:117
 msgid "Select pricing type"
-msgstr ""
+msgstr "Select pricing type"
 
 #: dashboard/templates/offers/provider/create.html:99
 #: dashboard/templates/offers/provider/edit.html:122
 msgid "Base Price (DA)"
-msgstr ""
+msgstr "Base Price (DA)"
 
 #: dashboard/templates/offers/provider/create.html:110
 #: dashboard/templates/offers/provider/edit.html:134
 msgid "Price per Km (DA)"
-msgstr ""
+msgstr "Price per Km (DA)"
 
 #: dashboard/templates/offers/provider/create.html:120
 #: dashboard/templates/offers/provider/edit.html:145
 msgid "Price per Hour (DA)"
-msgstr ""
+msgstr "Price per Hour (DA)"
 
 #: dashboard/templates/offers/provider/create.html:130
 #: dashboard/templates/offers/provider/edit.html:156
 msgid "Fuel Cost (DA)"
-msgstr ""
+msgstr "Fuel Cost (DA)"
 
 #: dashboard/templates/offers/provider/create.html:140
 #: dashboard/templates/offers/provider/edit.html:167
 msgid "Operator Cost (DA)"
-msgstr ""
+msgstr "Operator Cost (DA)"
 
 #: dashboard/templates/offers/provider/create.html:150
 #: dashboard/templates/offers/provider/edit.html:178
 msgid "Wait Time Cost (DA)"
-msgstr ""
+msgstr "Wait Time Cost (DA)"
 
 #: dashboard/templates/offers/provider/create.html:165
 #: dashboard/templates/offers/provider/edit.html:194
 msgid "Location & Capacity"
-msgstr ""
+msgstr "Location & Capacity"
 
 #: dashboard/templates/offers/provider/create.html:171
 #: dashboard/templates/offers/provider/edit.html:200
 msgid "Select wilaya"
-msgstr ""
+msgstr "Select province"
 
 #: dashboard/templates/offers/provider/create.html:176
 #: dashboard/templates/offers/provider/edit.html:205
 msgid "Location "
-msgstr ""
+msgstr "Location"
 
 #: dashboard/templates/offers/provider/create.html:181
 #: dashboard/templates/offers/provider/edit.html:211
 msgid "Detailed address"
-msgstr ""
+msgstr "Detailed address"
 
 #: dashboard/templates/offers/provider/create.html:190
 #: dashboard/templates/offers/provider/edit.html:221
 msgid "e.g., 5 tons, 20 m³"
-msgstr ""
+msgstr "e.g., 5 tons, 20 m³"
 
 #: dashboard/templates/offers/provider/create.html:200
 #: dashboard/templates/offers/provider/edit.html:231
 msgid "Available for Booking"
-msgstr ""
+msgstr "Available for Booking"
 
 #: dashboard/templates/offers/provider/create.html:217
 #: dashboard/templates/offers/provider/edit.html:248
 msgid "Best Practices"
-msgstr ""
+msgstr "Best Practices"
 
 #: dashboard/templates/offers/provider/create.html:231
 #: dashboard/templates/offers/provider/edit.html:262
 msgid "Quality Images"
-msgstr ""
+msgstr "Quality Images"
 
 #: dashboard/templates/offers/provider/create.html:234
 #: dashboard/templates/offers/provider/edit.html:265
 msgid "Add clear photos to attract customers"
-msgstr ""
+msgstr "Add clear photos to attract customers"
 
 #: dashboard/templates/offers/provider/create.html:252
 #: dashboard/templates/offers/provider/edit.html:283
 msgid "Competitive Pricing"
-msgstr ""
+msgstr "Competitive Pricing"
 
 #: dashboard/templates/offers/provider/create.html:255
 #: dashboard/templates/offers/provider/edit.html:286
 msgid "Set fair prices for the Algerian market"
-msgstr ""
+msgstr "Set fair prices for the Algerian market"
 
 #: dashboard/templates/offers/provider/create.html:273
 #: dashboard/templates/offers/provider/edit.html:304
 msgid "Quick Response"
-msgstr ""
+msgstr "Quick Response"
 
 #: dashboard/templates/offers/provider/create.html:276
 #: dashboard/templates/offers/provider/edit.html:307
 msgid "Respond quickly to increase opportunities"
-msgstr ""
+msgstr "Respond quickly to increase opportunities"
 
 #: dashboard/templates/offers/provider/create.html:294
 #: dashboard/templates/offers/provider/edit.html:325
 msgid "Detailed Description"
-msgstr ""
+msgstr "Detailed Description"
 
 #: dashboard/templates/offers/provider/create.html:297
 #: dashboard/templates/offers/provider/edit.html:328
 msgid "Provide comprehensive service details"
-msgstr ""
+msgstr "Provide comprehensive service details"
 
 #: dashboard/templates/offers/provider/create.html:315
 #: dashboard/templates/offers/provider/edit.html:346
 msgid "Accurate Information"
-msgstr ""
+msgstr "Accurate Information"
 
 #: dashboard/templates/offers/provider/create.html:318
 #: dashboard/templates/offers/provider/edit.html:349
 msgid "Provide correct details to build trust"
-msgstr ""
+msgstr "Provide correct details to build trust"
 
 #: dashboard/templates/offers/provider/create.html:336
 #: dashboard/templates/offers/provider/edit.html:367
 msgid "Coverage Area"
-msgstr ""
+msgstr "Coverage Area"
 
 #: dashboard/templates/offers/provider/create.html:339
 #: dashboard/templates/offers/provider/edit.html:370
 msgid "Define your service area clearly"
-msgstr ""
+msgstr "Define your service area clearly"
 
 #: dashboard/templates/offers/provider/create.html:357
 #: dashboard/templates/offers/provider/edit.html:388
 msgid "Customer Support"
-msgstr ""
+msgstr "Customer Support"
 
 #: dashboard/templates/offers/provider/create.html:360
 #: dashboard/templates/offers/provider/edit.html:391
 msgid "Be available to answer inquiries"
-msgstr ""
+msgstr "Be available to answer inquiries"
 
 #: dashboard/templates/offers/provider/create.html:375
 #: dashboard/templates/offers/provider/details.html:257
@@ -1156,84 +1135,84 @@ msgstr ""
 #: dashboard/templates/orders/customer/list.html:136
 #: dashboard/templates/orders/provider/details.html:169
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: dashboard/templates/offers/provider/create.html:376
 #: dashboard/templates/offers/provider/edit.html:407
 #: dashboard/templates/orders/provider/details.html:170
 msgid "Success"
-msgstr ""
+msgstr "Success"
 
 #: dashboard/templates/offers/provider/details.html:29
 #: dashboard/templates/social_auth/list.html:115
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
 #: dashboard/templates/offers/provider/details.html:160
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: dashboard/templates/offers/provider/details.html:180
 #: dashboard/templates/offers/provider/details.html:233
 msgid "Created"
-msgstr ""
+msgstr "Created"
 
 #: dashboard/templates/offers/provider/details.html:184
 #: dashboard/templates/offers/provider/details.html:240
 msgid "Last Updated"
-msgstr ""
+msgstr "Last Updated"
 
 #: dashboard/templates/offers/provider/details.html:193
 msgid "Offer Status"
-msgstr ""
+msgstr "Offer Status"
 
 #: dashboard/templates/offers/provider/details.html:199
 msgid ""
 "This offer is saved as draft. Submit it for admin approval to make it active."
-msgstr ""
+msgstr "This offer is saved as draft. Submit it for admin approval to make it active."
 
 #: dashboard/templates/offers/provider/details.html:202
 msgid "Submit for Approval"
-msgstr ""
+msgstr "Submit for Approval"
 
 #: dashboard/templates/offers/provider/details.html:206
 msgid ""
 "This offer is waiting for admin approval. You will be notified once reviewed."
-msgstr ""
+msgstr "This offer is waiting for admin approval. You will be notified once reviewed."
 
 #: dashboard/templates/offers/provider/details.html:210
 msgid ""
 "This offer was rejected. Check the admin note above and make necessary "
 "changes."
-msgstr ""
+msgstr "This offer was rejected. Check the admin note above and make necessary changes."
 
 #: dashboard/templates/offers/provider/details.html:213
 msgid "Edit & Resubmit"
-msgstr ""
+msgstr "Edit & Resubmit"
 
 #: dashboard/templates/offers/provider/details.html:217
 msgid "This offer is active and visible to customers."
-msgstr ""
+msgstr "This offer is active and visible to customers."
 
 #: dashboard/templates/offers/provider/details.html:226
 msgid "History"
-msgstr ""
+msgstr "History"
 
 #: dashboard/templates/offers/provider/details.html:253
 #: dashboard/templates/offers/provider/list.html:155
 msgid "Delete Offer"
-msgstr ""
+msgstr "Delete Offer"
 
 #: dashboard/templates/offers/provider/details.html:254
 #: dashboard/templates/offers/provider/list.html:156
 msgid ""
 "Are you sure you want to delete this offer? This action cannot be undone."
-msgstr ""
+msgstr "Are you sure you want to delete this offer? This action cannot be undone."
 
 #: dashboard/templates/offers/provider/details.html:255
 #: dashboard/templates/offers/provider/list.html:157
 msgid "Yes, delete it"
-msgstr ""
+msgstr "Yes, delete it"
 
 #: dashboard/templates/offers/provider/details.html:256
 #: dashboard/templates/offers/provider/list.html:158
@@ -1246,1318 +1225,1283 @@ msgstr ""
 #: dashboard/templates/users/details.html:46
 #: user_auth/templates/user/profile.html:377
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: dashboard/templates/offers/provider/edit.html:7
 msgid "Edit Offer"
-msgstr ""
+msgstr "Edit Offer"
 
 #: dashboard/templates/offers/provider/edit.html:240
 msgid "Update Offer"
-msgstr ""
+msgstr "Update Offer"
 
 #: dashboard/templates/offers/provider/list.html:35
 #: dashboard/templates/offers/provider/list.html:60
 msgid "Search my offers..."
-msgstr ""
+msgstr "Search my offers..."
 
 #: dashboard/templates/offers/provider/list.html:63
 #: dashboard/templates/orders/customer/list.html:46
 #: dashboard/templates/orders/provider/list.html:42
 msgid "All Statuses"
-msgstr ""
+msgstr "All Statuses"
 
 #: dashboard/templates/offers/provider/list.html:136
 msgid "No offers yet"
-msgstr ""
+msgstr "No offers yet"
 
 #: dashboard/templates/offers/provider/list.html:137
 msgid "Start by creating your first offer"
-msgstr ""
+msgstr "Start by creating your first offer"
 
 #: dashboard/templates/orders/customer/details.html:7
 #: dashboard/templates/orders/customer/details.html:22
 #: dashboard/templates/orders/provider/details.html:7
 #: dashboard/templates/orders/provider/details.html:22
 msgid "Request Details"
-msgstr ""
+msgstr "Request Details"
 
 #: dashboard/templates/orders/customer/details.html:39
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: dashboard/templates/orders/customer/details.html:47
 msgid "Phone"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:82
+msgstr "Phone"#: dashboard/templates/orders/customer/details.html:82
 #: dashboard/templates/orders/provider/details.html:91
 msgid "Notes"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:92
+msgstr "Notes"#: dashboard/templates/orders/customer/details.html:92
 #: dashboard/templates/orders/provider/details.html:101
 msgid "Requested on"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:98
+msgstr "Requested on"#: dashboard/templates/orders/customer/details.html:98
 msgid ""
 "Your request is being reviewed by the provider. You'll be notified once "
 "approved."
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:101
+msgstr "Your request is being reviewed by the provider. You'll be notified once approved."#: dashboard/templates/orders/customer/details.html:101
 #: dashboard/templates/orders/customer/details.html:187
 #: dashboard/templates/orders/customer/list.html:132
 msgid "Cancel Request"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:106
+msgstr "Cancel Request"#: dashboard/templates/orders/customer/details.html:106
 msgid "Request Approved!"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:108
+msgstr "Request Approved!"#: dashboard/templates/orders/customer/details.html:108
 msgid ""
 "The provider has approved your request. Contact them to finalize details:"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:120
+msgstr "The provider has approved your request. Contact them to finalize details:"#: dashboard/templates/orders/customer/details.html:120
 msgid "Your request was rejected. You can browse other services."
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:123
+msgstr "Your request was rejected. You can browse other services."#: dashboard/templates/orders/customer/details.html:123
 msgid "Browse Other Services"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:133
+msgstr "Browse Other Services"#: dashboard/templates/orders/customer/details.html:133
 #: dashboard/templates/orders/provider/details.html:121
 msgid "Service Details"
-msgstr ""
-
-#: dashboard/templates/orders/customer/details.html:143
+msgstr "Service Details"#: dashboard/templates/orders/customer/details.html:143
 #: dashboard/templates/orders/provider/details.html:131
 msgid "Price"
-msgstr ""
+msgstr "Price"
 
 #: dashboard/templates/orders/customer/details.html:176
 #: dashboard/templates/orders/provider/details.html:151
 #: dashboard/templates/users/details.html:18
 msgid "Back to List"
-msgstr ""
+msgstr "Back to List"
 
 #: dashboard/templates/orders/customer/details.html:188
 #: dashboard/templates/orders/customer/list.html:133
 msgid "Are you sure you want to cancel this request?"
-msgstr ""
+msgstr "Are you sure you want to cancel this request?"
 
 #: dashboard/templates/orders/customer/details.html:189
 #: dashboard/templates/orders/customer/list.html:134
 msgid "Yes, cancel it"
-msgstr ""
+msgstr "Yes, cancel it"
 
 #: dashboard/templates/orders/customer/list.html:20
 msgid "Track your service requests"
-msgstr ""
+msgstr "Track your service requests"
 
 #: dashboard/templates/orders/customer/list.html:28
 msgid "New Request"
-msgstr ""
+msgstr "New Request"
 
 #: dashboard/templates/orders/customer/list.html:39
 #: dashboard/templates/orders/provider/list.html:35
 msgid "Filter Requests"
-msgstr ""
+msgstr "Filter Requests"
 
 #: dashboard/templates/orders/customer/list.html:52
 #: dashboard/templates/orders/provider/list.html:48
 msgid "Apply Filter"
-msgstr ""
+msgstr "Apply Filter"
 
 #: dashboard/templates/orders/customer/list.html:113
 #: dashboard/templates/orders/provider/list.html:104
 msgid "No requests yet"
-msgstr ""
+msgstr "No requests yet"
 
 #: dashboard/templates/orders/customer/list.html:114
 msgid "Start by browsing available services"
-msgstr ""
+msgstr "Start by browsing available services"
 
 #: dashboard/templates/orders/provider/details.html:39
 msgid "Customer Name"
-msgstr ""
+msgstr "Customer Name"
 
 #: dashboard/templates/orders/provider/details.html:57
 msgid "Available after approval"
-msgstr ""
+msgstr "Available after approval"
 
 #: dashboard/templates/orders/provider/details.html:107
 #: dashboard/templates/orders/provider/details.html:162
 msgid "Approve Request"
-msgstr ""
+msgstr "Approve Request"
 
 #: dashboard/templates/orders/provider/details.html:110
 #: dashboard/templates/orders/provider/details.html:165
 msgid "Reject Request"
-msgstr ""
+msgstr "Reject Request"
 
 #: dashboard/templates/orders/provider/details.html:147
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: dashboard/templates/orders/provider/details.html:163
 msgid "Are you sure you want to approve this request?"
-msgstr ""
+msgstr "Are you sure you want to approve this request?"
 
 #: dashboard/templates/orders/provider/details.html:164
 msgid "Yes, approve it"
-msgstr ""
+msgstr "Yes, approve it"
 
 #: dashboard/templates/orders/provider/details.html:166
 msgid "Are you sure you want to reject this request?"
-msgstr ""
+msgstr "Are you sure you want to reject this request?"
 
 #: dashboard/templates/orders/provider/details.html:167
 msgid "Yes, reject it"
-msgstr ""
+msgstr "Yes, reject it"
 
 #: dashboard/templates/orders/provider/list.html:20
 msgid "Manage customer service requests"
-msgstr ""
+msgstr "Manage customer service requests"
 
 #: dashboard/templates/orders/provider/list.html:105
 msgid "Customer requests will appear here"
-msgstr ""
+msgstr "Customer requests will appear here"
 
 #: dashboard/templates/social_auth/list.html:9
 msgid "Social Authentication"
-msgstr ""
+msgstr "Social Authentication"
 
 #: dashboard/templates/social_auth/list.html:20
 msgid "Social Authentication Settings"
-msgstr ""
+msgstr "Social Authentication Settings"
 
 #: dashboard/templates/social_auth/list.html:21
 msgid "Configure OAuth providers for social login"
-msgstr ""
+msgstr "Configure OAuth providers for social login"
 
 #: dashboard/templates/social_auth/list.html:27
 #: dashboard/templates/social_auth/list.html:150
 msgid "Add Provider"
-msgstr ""
+msgstr "Add Provider"
 
 #: dashboard/templates/social_auth/list.html:41
 msgid "Add Social Provider"
-msgstr ""
+msgstr "Add Social Provider"
 
 #: dashboard/templates/social_auth/list.html:52
 msgid "Select a provider"
-msgstr ""
+msgstr "Select a provider"
 
 #: dashboard/templates/social_auth/list.html:56
 msgid "Display Name"
-msgstr ""
+msgstr "Display Name"
 
 #: dashboard/templates/social_auth/list.html:58
 msgid "Optional display name"
-msgstr ""
+msgstr "Optional display name"
 
 #: dashboard/templates/social_auth/list.html:62
 #: dashboard/templates/social_auth/list.html:129
 #: dashboard/templates/social_auth/list.html:182
 msgid "Client ID"
-msgstr ""
+msgstr "Client ID"
 
 #: dashboard/templates/social_auth/list.html:64
 msgid "OAuth Client ID"
-msgstr ""
+msgstr "OAuth Client ID"
 
 #: dashboard/templates/social_auth/list.html:68
 #: dashboard/templates/social_auth/list.html:188
 msgid "Client Secret"
-msgstr ""
+msgstr "Client Secret"
 
 #: dashboard/templates/social_auth/list.html:70
 msgid "OAuth Client Secret"
-msgstr ""
+msgstr "OAuth Client Secret"
 
 #: dashboard/templates/social_auth/list.html:79
 msgid "Save Configuration"
-msgstr ""
+msgstr "Save Configuration"
 
 #: dashboard/templates/social_auth/list.html:145
 msgid "No providers configured"
-msgstr ""
+msgstr "No providers configured"
 
 #: dashboard/templates/social_auth/list.html:146
 msgid "Add a social authentication provider to enable social login"
-msgstr ""
+msgstr "Add a social authentication provider to enable social login"
 
 #: dashboard/templates/social_auth/list.html:165
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Edit Configuration"
 
 #: dashboard/templates/social_auth/list.html:199
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 #: dashboard/templates/users/details.html:7
 msgid "User Details"
-msgstr ""
+msgstr "User Details"
 
 #: dashboard/templates/users/details.html:24
 msgid "Approve User?"
-msgstr ""
+msgstr "Approve User?"
 
 #: dashboard/templates/users/details.html:25
 #, python-format
 msgid "Are you sure you want to approve %(name)s?"
-msgstr ""
+msgstr "Are you sure you want to approve %(name)s?"
 
 #: dashboard/templates/users/details.html:26
 msgid "Yes, approve!"
-msgstr ""
+msgstr "Yes, approve!"
 
 #: dashboard/templates/users/details.html:28
 msgid "Success!"
-msgstr ""
+msgstr "Success!"
 
 #: dashboard/templates/users/details.html:30
 msgid "Approve User"
-msgstr ""
+msgstr "Approve User"
 
 #: dashboard/templates/users/details.html:43
 msgid "Are you sure?"
-msgstr ""
+msgstr "Are you sure?"
 
 #: dashboard/templates/users/details.html:44
 #, python-format
 msgid "You are about to delete %(name)s. This action cannot be undone!"
-msgstr ""
+msgstr "You are about to delete %(name)s. This action cannot be undone!"
 
 #: dashboard/templates/users/details.html:45
 msgid "Yes, delete it!"
-msgstr ""
+msgstr "Yes, delete it!"
 
 #: dashboard/templates/users/details.html:47
 msgid "Deleted!"
-msgstr ""
+msgstr "Deleted!"
 
 #: dashboard/templates/users/details.html:49
 msgid "Delete User"
-msgstr ""
+msgstr "Delete User"
 
 #: dashboard/templates/users/details.html:90
 #: dashboard/templates/users/list.html:102
 #: user_auth/templates/user/profile.html:306
 #: user_auth/templates/user/profile.html:324
 msgid "Account Status"
-msgstr ""
+msgstr "Account Status"
 
 #: dashboard/templates/users/details.html:92 dashboard/utils.py:99
 #: dashboard/views/users.py:48 user_auth/templates/user/profile.html:327
 msgid "Approved"
-msgstr ""
+msgstr "Approved"
 
 #: dashboard/templates/users/details.html:98
 #: user_auth/templates/user/profile.html:334
 msgid "Member Since"
-msgstr ""
+msgstr "Member Since"
 
 #: dashboard/templates/users/details.html:102
 msgid "User ID"
-msgstr ""
+msgstr "User ID"
 
 #: dashboard/templates/users/details.html:114
 msgid "Detailed Information"
-msgstr ""
+msgstr "Detailed Information"
 
 #: dashboard/templates/users/details.html:121
 #: dashboard/templates/users/list.html:162
 #: user_auth/templates/auth/signup.html:93
 #: user_auth/templates/user/profile.html:115
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: dashboard/templates/users/details.html:137 user_auth/models.py:29
 #: user_auth/templates/user/profile.html:136
 #: user_auth/templates/user/profile.html:339
 msgid "Birth Date"
-msgstr ""
+msgstr "Birth Date"
 
 #: dashboard/templates/users/details.html:145
 msgid "Gender"
-msgstr ""
+msgstr "Gender"
 
 #: dashboard/templates/users/details.html:154 user_auth/models.py:34
 #: user_auth/templates/user/profile.html:169
 msgid "Address"
-msgstr ""
+msgstr "Address"
 
 #: dashboard/templates/users/details.html:162 user_auth/models.py:28
 #: user_auth/templates/user/profile.html:179
 msgid "Bio"
-msgstr ""
+msgstr "Bio"
 
 #: dashboard/templates/users/details.html:165
 msgid "No bio provided."
-msgstr ""
+msgstr "No bio provided."
 
 #: dashboard/templates/users/list.html:8
 msgid "Users List"
-msgstr ""
+msgstr "Users List"
 
 #: dashboard/templates/users/list.html:25
 msgid "Filter Users"
-msgstr ""
+msgstr "Filter Users"
 
 #: dashboard/templates/users/list.html:53
 msgid "Quick search..."
-msgstr ""
+msgstr "Quick search..."
 
 #: dashboard/templates/users/list.html:97
 msgid "Name, Username, Email..."
-msgstr ""
+msgstr "Name, Username, Email..."
 
 #: dashboard/templates/users/list.html:138 dashboard/utils.py:98
 #: dashboard/views/admin_offers.py:46 dashboard/views/provider_offers.py:53
 #: dashboard/views/users.py:49 user_auth/templates/user/profile.html:329
 msgid "Pending"
-msgstr ""
+msgstr "Pending"
 
 #: dashboard/templates/users/list.html:186
 msgid "View Full Profile"
-msgstr ""
+msgstr "View Full Profile"
 
 #: dashboard/templates/users/list.html:191
 msgid "Registered"
-msgstr ""
+msgstr "Registered"
 
 #: dashboard/templates/users/list.html:203
 msgid "No users found"
-msgstr ""
+msgstr "No users found"
 
 #: dashboard/utils.py:100 dashboard/views/admin_offers.py:48
 #: dashboard/views/provider_offers.py:55
 msgid "Rejected"
-msgstr ""
+msgstr "Rejected"
 
 #: dashboard/utils.py:101
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancelled"
 
 #: dashboard/utils.py:110
 #, python-format
 msgid "Your %(site)s Account has been Activated!"
-msgstr ""
+msgstr "Your %(site)s Account has been Activated!"
 
 #: dashboard/views/admin_offers.py:44 dashboard/views/provider_offers.py:51
 #: dashboard/views/users.py:47 dashboard/views/users.py:52
 msgid "All Status"
-msgstr ""
+msgstr "All Status"
 
 #: dashboard/views/admin_offers.py:45 dashboard/views/provider_offers.py:52
 msgid "Draft"
-msgstr ""
+msgstr "Draft"
 
 #: dashboard/views/admin_offers.py:49 dashboard/views/provider_offers.py:56
 msgid "Expired"
-msgstr ""
+msgstr "Expired"
 
 #: dashboard/views/admin_offers.py:83
 msgid "Offer Approved"
-msgstr ""
+msgstr "Offer Approved"
 
 #: dashboard/views/admin_offers.py:84
 #, python-format
 msgid "Your offer '%(title)s' has been approved and is now active."
-msgstr ""
+msgstr "Your offer '%(title)s' has been approved and is now active."
 
 #: dashboard/views/admin_offers.py:93
 msgid "Offer approved successfully."
-msgstr ""
+msgstr "Offer approved successfully."
 
 #: dashboard/views/admin_offers.py:100 dashboard/views/admin_offers.py:136
 #: dashboard/views/admin_offers.py:161 dashboard/views/provider_offers.py:329
 #, python-format
 msgid "An error occurred: %(error)s"
-msgstr ""
+msgstr "An error occurred: %(error)s"
 
 #: dashboard/views/admin_offers.py:119
 msgid "Offer Rejected"
-msgstr ""
+msgstr "Offer Rejected"
 
 #: dashboard/views/admin_offers.py:120
 #, python-format
 msgid "Your offer '%(title)s' has been rejected. Reason: %(reason)s"
-msgstr ""
+msgstr "Your offer '%(title)s' has been rejected. Reason: %(reason)s"
 
 #: dashboard/views/admin_offers.py:129
 msgid "Offer rejected successfully."
-msgstr ""
+msgstr "Offer rejected successfully."
 
 #: dashboard/views/admin_offers.py:153 dashboard/views/provider_offers.py:320
 #, python-format
 msgid "Offer '%(title)s' deleted successfully."
-msgstr ""
+msgstr "Offer '%(title)s' deleted successfully."
 
 #: dashboard/views/catalog.py:179
 msgid "Full name is required."
-msgstr ""
+msgstr "Full name is required."
 
 #: dashboard/views/catalog.py:181 user_auth/views.py:173
 msgid "Phone number is required."
-msgstr ""
+msgstr "Phone number is required."
 
 #: dashboard/views/catalog.py:183
 msgid "Wilaya is required."
-msgstr ""
+msgstr "Wilaya is required."
 
 #: dashboard/views/catalog.py:185
 msgid "Pickup location is required."
-msgstr ""
+msgstr "Pickup location is required."
 
 #: dashboard/views/catalog.py:204
 msgid "New Service Request"
-msgstr ""
+msgstr "New Service Request"
 
 #: dashboard/views/catalog.py:205
 #, python-brace-format
 msgid "Customer {name} requested your service: {offer}"
-msgstr ""
+msgstr "Customer {name} requested your service: {offer}"
 
 #: dashboard/views/catalog.py:218
 msgid "Request submitted successfully!"
-msgstr ""
+msgstr "Request submitted successfully!"
 
 #: dashboard/views/dashboard.py:19
 msgid "System Alert"
-msgstr ""
+msgstr "System Alert"
 
 #: dashboard/views/dashboard.py:20
 msgid "New security update available."
-msgstr ""
+msgstr "New security update available."
 
 #: dashboard/views/dashboard.py:25
 msgid "Welcome"
-msgstr ""
+msgstr "Welcome"
 
 #: dashboard/views/dashboard.py:26
 msgid "Welcome to your new dashboard!"
-msgstr ""
+msgstr "Welcome to your new dashboard!"
 
 #: dashboard/views/dashboard.py:42
 msgid "Total Users"
-msgstr ""
+msgstr "Total Users"
 
 #: dashboard/views/dashboard.py:48
 msgid "Approved Users"
-msgstr ""
+msgstr "Approved Users"
 
 #: dashboard/views/dashboard.py:60
 msgid "Staff Members"
-msgstr ""
+msgstr "Staff Members"
 
 #: dashboard/views/dashboard.py:65
 msgid "Registration Trends"
-msgstr ""
+msgstr "Registration Trends"
 
 #: dashboard/views/dashboard.py:67
 msgid "Jan"
-msgstr ""
+msgstr "Jan"
 
 #: dashboard/views/dashboard.py:67
 msgid "Feb"
-msgstr ""
+msgstr "Feb"
 
 #: dashboard/views/dashboard.py:67
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 #: dashboard/views/dashboard.py:72
 msgid "Recent Registrations"
-msgstr ""
+msgstr "Recent Registrations"
 
 #: dashboard/views/dashboard.py:83
 msgid "Active Projects"
-msgstr ""
+msgstr "Active Projects"
 
 #: dashboard/views/dashboard.py:90
 msgid "Completed Tasks"
-msgstr ""
+msgstr "Completed Tasks"
 
 #: dashboard/views/dashboard.py:97
 msgid "Pending Actions"
-msgstr ""
+msgstr "Pending Actions"
 
 #: dashboard/views/dashboard.py:104
 msgid "Total Hours"
-msgstr ""
+msgstr "Total Hours"
 
 #: dashboard/views/dashboard.py:109
 msgid "Weekly Activity"
-msgstr ""
+msgstr "Weekly Activity"
 
 #: dashboard/views/dashboard.py:111
 msgid "Upcoming Tasks"
-msgstr ""
+msgstr "Upcoming Tasks"
 
 #: dashboard/views/dashboard.py:113
 msgid "Launch Website"
-msgstr ""
+msgstr "Launch Website"
 
 #: dashboard/views/dashboard.py:114
 msgid "Database Migration"
-msgstr ""
+msgstr "Database Migration"
 
 #: dashboard/views/dashboard.py:115
 msgid "Client Meeting"
-msgstr ""
+msgstr "Client Meeting"
 
 #: dashboard/views/orders/customer_orders.py:121
 msgid "Only pending requests can be cancelled."
-msgstr ""
+msgstr "Only pending requests can be cancelled."
 
 #: dashboard/views/orders/customer_orders.py:130
 msgid "Request Cancelled"
-msgstr ""
+msgstr "Request Cancelled"
 
 #: dashboard/views/orders/customer_orders.py:131
 #, python-brace-format
 msgid "Customer cancelled their request for {offer}"
-msgstr ""
+msgstr "Customer cancelled their request for {offer}"
 
 #: dashboard/views/orders/customer_orders.py:144
 msgid "Request cancelled successfully!"
-msgstr ""
+msgstr "Request cancelled successfully!"
 
 #: dashboard/views/orders/provider_orders.py:122
 #: dashboard/views/orders/provider_orders.py:179
 msgid "This request is no longer pending."
-msgstr ""
+msgstr "This request is no longer pending."
 
 #: dashboard/views/orders/provider_orders.py:131
 msgid "Request Approved"
-msgstr ""
+msgstr "Request Approved"
 
 #: dashboard/views/orders/provider_orders.py:132
 #, python-brace-format
 msgid "Your request for {offer} has been approved!"
-msgstr ""
+msgstr "Your request for {offer} has been approved!"
 
 #: dashboard/views/orders/provider_orders.py:145
 msgid "Request approved successfully!"
-msgstr ""
+msgstr "Request approved successfully!"
 
 #: dashboard/views/orders/provider_orders.py:188
 msgid "Request Rejected"
-msgstr ""
+msgstr "Request Rejected"
 
 #: dashboard/views/orders/provider_orders.py:189
 #, python-brace-format
 msgid "Your request for {offer} was rejected."
-msgstr ""
+msgstr "Your request for {offer} was rejected."
 
 #: dashboard/views/orders/provider_orders.py:202
 msgid "Request rejected."
-msgstr ""
+msgstr "Request rejected."
 
 #: dashboard/views/provider_offers.py:96 dashboard/views/provider_offers.py:219
 msgid "Title is required."
-msgstr ""
+msgstr "Title is required."
 
 #: dashboard/views/provider_offers.py:98 dashboard/views/provider_offers.py:221
 msgid "Description is required."
-msgstr ""
+msgstr "Description is required."
 
 #: dashboard/views/provider_offers.py:100
 #: dashboard/views/provider_offers.py:223
 msgid "Category is required."
-msgstr ""
+msgstr "Category is required."
 
 #: dashboard/views/provider_offers.py:102
 #: dashboard/views/provider_offers.py:225
 msgid "Pricing type is required."
-msgstr ""
+msgstr "Pricing type is required."
 
 #: dashboard/views/provider_offers.py:104
 #: dashboard/views/provider_offers.py:227
 msgid "Base price is required."
-msgstr ""
+msgstr "Base price is required."
 
 #: dashboard/views/provider_offers.py:109
 #: dashboard/views/provider_offers.py:232
 msgid "Base price must be greater than zero."
-msgstr ""
+msgstr "Base price must be greater than zero."
 
 #: dashboard/views/provider_offers.py:111
 #: dashboard/views/provider_offers.py:234
 msgid "Base price must be a valid number."
-msgstr ""
+msgstr "Base price must be a valid number."
 
 #: dashboard/views/provider_offers.py:117
 #: dashboard/views/provider_offers.py:240
 msgid "Price per km must be a valid number."
-msgstr ""
+msgstr "Price per km must be a valid number."
 
 #: dashboard/views/provider_offers.py:123
 #: dashboard/views/provider_offers.py:246
 msgid "Price per hour must be a valid number."
-msgstr ""
+msgstr "Price per hour must be a valid number."
 
 #: dashboard/views/provider_offers.py:132
 #: dashboard/views/provider_offers.py:255
 msgid "Invalid category selected."
-msgstr ""
+msgstr "Invalid category selected."
 
 #: dashboard/views/provider_offers.py:171
 msgid "Offer created successfully."
-msgstr ""
+msgstr "Offer created successfully."
 
 #: dashboard/views/provider_offers.py:290
 msgid "Offer updated successfully."
-msgstr ""
+msgstr "Offer updated successfully."
 
 #: dashboard/views/social_auth.py:49 dashboard/views/social_auth.py:104
 msgid "All fields are required."
-msgstr ""
+msgstr "All fields are required."
 
 #: dashboard/views/social_auth.py:57
 msgid "A configuration for this provider already exists."
-msgstr ""
+msgstr "A configuration for this provider already exists."
 
 #: dashboard/views/social_auth.py:74
 msgid "Social authentication configured successfully."
-msgstr ""
+msgstr "Social authentication configured successfully."
 
 #: dashboard/views/social_auth.py:83
 #, python-format
 msgid "Failed to create configuration: %(error)s"
-msgstr ""
+msgstr "Failed to create configuration: %(error)s"
 
 #: dashboard/views/social_auth.py:116
 msgid "Configuration updated successfully."
-msgstr ""
+msgstr "Configuration updated successfully."
 
 #: dashboard/views/social_auth.py:125
 #, python-format
 msgid "Failed to update configuration: %(error)s"
-msgstr ""
+msgstr "Failed to update configuration: %(error)s"
 
 #: dashboard/views/social_auth.py:145
 #, python-format
 msgid "%(provider)s configuration deleted successfully."
-msgstr ""
+msgstr "%(provider)s configuration deleted successfully."
 
 #: dashboard/views/social_auth.py:153
 #, python-format
 msgid "Failed to delete configuration: %(error)s"
-msgstr ""
+msgstr "Failed to delete configuration: %(error)s"
 
 #: dashboard/views/users.py:86
 #, python-format
 msgid "User %(name)s deleted successfully."
-msgstr ""
+msgstr "User %(name)s deleted successfully."
 
 #: dashboard/views/users.py:106 user_auth/views.py:246
 msgid "طلب ترقية جديد"
-msgstr ""
+msgstr "New upgrade request"
 
 #: dashboard/views/users.py:106
 msgid "تم قبول طلب الترقية"
-msgstr ""
+msgstr "Upgrade request accepted"
 
 #: dashboard/views/users.py:107 user_auth/views.py:247
 msgid "New Provider Request"
-msgstr ""
+msgstr "New Provider Request"
 
 #: dashboard/views/users.py:107
 msgid "Your request to upgrade to provider has been approved."
-msgstr ""
+msgstr "Your request to upgrade to provider has been approved."
 
 #: dashboard/views/users.py:113 dashboard/views/users.py:121
 #, python-format
 msgid "User %(name)s approved successfully."
-msgstr ""
+msgstr "User %(name)s approved successfully."
 
 #: dashboard/views/users.py:129
 #, python-format
 msgid "An error occurred during approval: %(error)s"
-msgstr ""
+msgstr "An error occurred during approval: %(error)s"
 
 #: frontend/templates/home.html:23 user_auth/templates/auth/login.html:9
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #: frontend/templates/home.html:24 frontend/templates/home.html:54
 msgid "Get Started"
-msgstr ""
+msgstr "Get Started"
 
 #: frontend/templates/home.html:40
 msgid "The #1 Heavy Logistics Hub in Algeria"
-msgstr ""
+msgstr "The #1 Heavy Logistics Hub in Algeria"
 
 #: frontend/templates/home.html:50
 msgid ""
 "Connecting the construction industry with verified heavy machinery and "
 "specialized transport providers across all wilayas."
-msgstr ""
+msgstr "Connecting the construction industry with verified heavy machinery and specialized transport providers across all wilayas."
 
 #: frontend/templates/home.html:57
 msgid "Our Catalog"
-msgstr ""
+msgstr "Our Catalog"
 
 #: frontend/templates/home.html:75
 msgid "Tailored Industrial Solutions"
-msgstr ""
+msgstr "Tailored Industrial Solutions"
 
 #: frontend/templates/home.html:77
 msgid ""
 "Browse specialized categories designed to meet the demands of modern "
 "infrastructure and logistics."
-msgstr ""
+msgstr "Browse specialized categories designed to meet the demands of modern infrastructure and logistics."
 
 #: frontend/templates/home.html:85
 msgid "Transport & Utilities"
-msgstr ""
+msgstr "Transport & Utilities"
 
 #: frontend/templates/home.html:86
 msgid "From small utility vans to massive trailer trucks for heavy haulage."
-msgstr ""
+msgstr "From small utility vans to massive trailer trucks for heavy haulage."
 
 #: frontend/templates/home.html:88
 msgid "View Offers"
-msgstr ""
+msgstr "View Offers"
 
 #: frontend/templates/home.html:96
 msgid "Construction Machinery"
-msgstr ""
+msgstr "Construction Machinery"
 
 #: frontend/templates/home.html:97
 msgid "Loaders, excavators, and compactors from verified contractors."
-msgstr ""
+msgstr "Loaders, excavators, and compactors from verified contractors."
 
 #: frontend/templates/home.html:99
 msgid "Explore Fleet"
-msgstr ""
+msgstr "Explore Fleet"
 
 #: frontend/templates/home.html:107
 msgid "Logistics & Towing"
-msgstr ""
+msgstr "Logistics & Towing"
 
 #: frontend/templates/home.html:108
 msgid "Specialized towing (Dépannage) and on-demand car logistics."
-msgstr ""
+msgstr "Specialized towing (Breakdown) and on-demand car logistics."
 
 #: frontend/templates/home.html:110
 msgid "Book Service"
-msgstr ""
+msgstr "Book Service"
 
 #: frontend/templates/home.html:123
 msgid "Fair Pricing,"
-msgstr ""
+msgstr "Fair Pricing,"
 
 #: frontend/templates/home.html:123
 msgid "Powered by Data"
-msgstr ""
+msgstr "Powered by Data"
 
 #: frontend/templates/home.html:124
 msgid ""
 "We eliminate guesswork with a transparent pricing engine built for the "
 "Algerian market."
-msgstr ""
+msgstr "We eliminate guesswork with a transparent pricing engine built for the Algerian market."
 
 #: frontend/templates/home.html:132
 msgid "Distance Logic"
-msgstr ""
+msgstr "Distance Logic"
 
 #: frontend/templates/home.html:133
 msgid "Dynamic calculation based on Km and vehicle rate."
-msgstr ""
+msgstr "Dynamic calculation based on Km and vehicle rate."
 
 #: frontend/templates/home.html:144
 msgid "Hourly Logic"
-msgstr ""
+msgstr "Hourly Logic"
 
 #: frontend/templates/home.html:145
 msgid "Flexible rates for machinery and operator tasks."
-msgstr ""
+msgstr "Flexible rates for machinery and operator tasks."
 
 #: frontend/templates/home.html:158
 msgid "Intro Commission"
-msgstr ""
+msgstr "Intro Commission"
 
 #: frontend/templates/home.html:159
 msgid "Maximize your earnings during the first month of platform growth."
-msgstr ""
+msgstr "Maximize your earnings during the first month of platform growth."
 
 #: frontend/templates/home.html:166
 msgid "Fast Approval"
-msgstr ""
+msgstr "Fast Approval"
 
 #: frontend/templates/home.html:167
 msgid "Verification of documents within a single business day."
-msgstr ""
+msgstr "Verification of documents within a single business day."
 
 #: frontend/templates/home.html:174
 msgid "Secure Multi-Role Workflows"
-msgstr ""
+msgstr "Secure Multi-Role Workflows"
 
 #: frontend/templates/home.html:190
 msgid "How Rak-Mrigle Works"
-msgstr ""
+msgstr "How Rak-Mrigle Works"
 
 #: frontend/templates/home.html:197
 msgid "Create Mission"
-msgstr ""
+msgstr "Create Mission"
 
 #: frontend/templates/home.html:198
 msgid "Submit your request with pickup/destination or hourly details."
-msgstr ""
+msgstr "Submit your request with pickup/destination or hourly details."
 
 #: frontend/templates/home.html:204
 msgid "Get Quotes"
-msgstr ""
+msgstr "Get Quotes"
 
 #: frontend/templates/home.html:205
 msgid "Receive and compare verified price offers from pro providers."
-msgstr ""
-
-#: frontend/templates/home.html:211
+msgstr "Receive and compare verified price offers from pro providers."#: frontend/templates/home.html:211
 msgid "Finish Job"
-msgstr ""
-
-#: frontend/templates/home.html:212
+msgstr "Finish Job"#: frontend/templates/home.html:212
 msgid "Approve the mission, unlock contact, and rate the service."
-msgstr ""
-
-#: frontend/templates/home.html:224
+msgstr "Approve the mission, unlock contact, and rate the service."#: frontend/templates/home.html:224
 msgid "Join the Network of Pros"
-msgstr ""
-
-#: frontend/templates/home.html:225
+msgstr "Join the Network of Pros"#: frontend/templates/home.html:225
 msgid ""
 "Whether you're looking for a crane or have a fleet to manage, we have you "
 "covered."
-msgstr ""
-
-#: frontend/templates/home.html:228
+msgstr "Whether you're looking for a crane or have a fleet to manage, we have you covered."#: frontend/templates/home.html:228
 msgid "Register as Provider"
-msgstr ""
-
-#: frontend/templates/home.html:231
+msgstr "Register as Provider"#: frontend/templates/home.html:231
 msgid "Find Machinery"
-msgstr ""
-
-#: frontend/templates/home.html:247
+msgstr "Find Machinery"#: frontend/templates/home.html:247
 msgid "All rights reserved."
-msgstr ""
-
-#: frontend/templates/index.html:101
+msgstr "All rights reserved."#: frontend/templates/index.html:101
 msgid "Home"
-msgstr ""
-
-#: frontend/templates/index.html:104
+msgstr "Home"#: frontend/templates/index.html:104
 msgid "Products"
-msgstr ""
-
-#: frontend/templates/index.html:107
+msgstr "Products"#: frontend/templates/index.html:107
 msgid "Reports"
-msgstr ""
+msgstr "Reports"
 
 #: frontend/templates/index.html:123
 msgid "Main Menu"
-msgstr ""
+msgstr "Main Menu"
 
 #: frontend/templates/partials/custom_file_input.html:6
 msgid "Choose a file..."
-msgstr ""
+msgstr "Choose a file..."
 
 #: user_auth/adapters.py:70
 msgid "تم تسجيل مستخدم جديد"
-msgstr ""
+msgstr "A new user has been registered"
 
 #: user_auth/adapters.py:70
 msgid "تم تسجيل مستخدم جديد, يرجى مراجعته"
-msgstr ""
+msgstr "A new user has been registered, please review it"
 
 #: user_auth/adapters.py:71
 msgid "New user has been created"
-msgstr ""
+msgstr "New user has been created"
 
 #: user_auth/adapters.py:71 user_auth/views.py:122
 msgid "New user has been created, please review it ."
-msgstr ""
+msgstr "New user has been created, please review it ."
 
 #: user_auth/models.py:9
 msgid "Male"
-msgstr ""
+msgstr "Male"
 
 #: user_auth/models.py:10
 msgid "Female"
-msgstr ""
+msgstr "Female"
 
 #: user_auth/models.py:11
 msgid "Other"
-msgstr ""
+msgstr "Other"
 
 #: user_auth/models.py:14 user_auth/templates/auth/signup.html:162
 #: user_auth/templates/user/profile.html:61
 #: user_auth/templates/user/profile.html:269
 #: user_auth/templates/user/profile.html:319
 msgid "Customer"
-msgstr ""
+msgstr "Customer"
 
 #: user_auth/models.py:16
 msgid "ADMIN"
-msgstr ""
+msgstr "ADMIN"
 
 #: user_auth/models.py:26
 msgid "Profile Picture"
-msgstr ""
+msgstr "Profile Picture"
 
 #: user_auth/models.py:31 user_auth/templates/user/profile.html:145
 msgid "Sex"
-msgstr ""
+msgstr "Sex"
 
 #: user_auth/models.py:37 user_auth/templates/user/profile.html:312
 msgid "Role"
-msgstr ""
+msgstr "Role"
 
 #: user_auth/models.py:44 user_auth/templates/auth/signup.html:182
 #: user_auth/templates/user/profile.html:291
 #: user_auth/templates/user/profile.html:345
 msgid "Driver License"
-msgstr ""
+msgstr "Driver License"
 
 #: user_auth/models.py:51
 msgid "Is Approved"
-msgstr ""
+msgstr "Is Approved"
 
 #: user_auth/models.py:52
 msgid "Created At"
-msgstr ""
+msgstr "Created At"
 
 #: user_auth/models.py:58
 msgid "User Profile"
-msgstr ""
+msgstr "User Profile"
 
 #: user_auth/models.py:59
 msgid "User Profiles"
-msgstr ""
+msgstr "User Profiles"
 
 #: user_auth/templates/auth/login.html:55
 #: user_auth/templates/auth/login.html:112
 msgid "Sign In"
-msgstr ""
+msgstr "Sign In"
 
 #: user_auth/templates/auth/login.html:58
 msgid "Welcome back! Please enter your details."
-msgstr ""
+msgstr "Welcome back! Please enter your details."
 
 #: user_auth/templates/auth/login.html:71
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 #: user_auth/templates/auth/login.html:77
 msgid "Enter username"
-msgstr ""
+msgstr "Enter username"
 
 #: user_auth/templates/auth/login.html:83
 #: user_auth/templates/auth/signup.html:113
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: user_auth/templates/auth/login.html:85
 msgid "Forgot?"
-msgstr ""
+msgstr "Forgot?"
 
 #: user_auth/templates/auth/login.html:92
 msgid "Enter password"
-msgstr ""
+msgstr "Enter password"
 
 #: user_auth/templates/auth/login.html:106
 msgid "Remember session"
-msgstr ""
+msgstr "Remember session"
 
 #: user_auth/templates/auth/login.html:116
 msgid "New to the platform?"
-msgstr ""
+msgstr "New to the platform?"
 
 #: user_auth/templates/auth/login.html:119
 #: user_auth/templates/auth/signup.html:10
 #: user_auth/templates/auth/signup.html:54
 #: user_auth/templates/auth/signup.html:191
 msgid "Create Account"
-msgstr ""
+msgstr "Create Account"
 
 #: user_auth/templates/auth/login.html:126
 #: user_auth/templates/auth/signup.html:204
 msgid "OR"
-msgstr ""
+msgstr "OR"
 
 #: user_auth/templates/auth/login.html:130
 #: user_auth/templates/auth/signup.html:208
 msgid "Not Configured"
-msgstr ""
+msgstr "Not Configured"
 
 #: user_auth/templates/auth/login.html:131
 #: user_auth/templates/auth/signup.html:209
 msgid "Social login is not yet configured. Please contact the administrator."
-msgstr ""
+msgstr "Social login is not yet configured. Please contact the administrator."
 
 #: user_auth/templates/auth/login.html:132
 #: user_auth/templates/auth/signup.html:210
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: user_auth/templates/auth/login.html:138
 #: user_auth/templates/auth/signup.html:216
 msgid "Continue with Google"
-msgstr ""
+msgstr "Continue with Google"
 
 #: user_auth/templates/auth/signup.html:57
 msgid "Join the leading marketplace for machinery and transport."
-msgstr ""
+msgstr "Join the leading marketplace for machinery and transport."
 
 #: user_auth/templates/auth/signup.html:72
 #: user_auth/templates/user/profile.html:95
 msgid "First Name"
-msgstr ""
+msgstr "First Name"
 
 #: user_auth/templates/auth/signup.html:82
 #: user_auth/templates/user/profile.html:105
 msgid "Last Name"
-msgstr ""
+msgstr "Last Name"
 
 #: user_auth/templates/auth/signup.html:132
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirm Password"
 
 #: user_auth/templates/auth/signup.html:151
 msgid "I want to register as"
-msgstr ""
+msgstr "I want to register as"
 
 #: user_auth/templates/auth/signup.html:163
 msgid "I need machinery or transport services"
-msgstr ""
+msgstr "I need machinery or transport services"
 
 #: user_auth/templates/auth/signup.html:175
 msgid "I offer machinery or transport services"
-msgstr ""
+msgstr "I offer machinery or transport services"
 
 #: user_auth/templates/auth/signup.html:184
 #: user_auth/templates/user/profile.html:230
 #: user_auth/templates/user/profile.html:293
 msgid "Upload your driver license"
-msgstr ""
+msgstr "Upload your driver license"
 
 #: user_auth/templates/auth/signup.html:196
 msgid "Already have an account?"
-msgstr ""
+msgstr "Already have an account?"
 
 #: user_auth/templates/auth/signup.html:199
 msgid "Login Here"
-msgstr ""
+msgstr "Login Here"
 
 #: user_auth/templates/user/profile.html:21
 msgid "Complete your profile!"
-msgstr ""
+msgstr "Complete your profile!"
 
 #: user_auth/templates/user/profile.html:21
 msgid "Please add your phone number to continue using the platform."
-msgstr ""
+msgstr "Please add your phone number to continue using the platform."
 
 #: user_auth/templates/user/profile.html:41
 msgid "Change photo"
-msgstr ""
+msgstr "Change photo"
 
 #: user_auth/templates/user/profile.html:66
 msgid "Role not set"
-msgstr ""
+msgstr "Role not set"
 
 #: user_auth/templates/user/profile.html:77
 msgid "Personal Information"
-msgstr ""
+msgstr "Personal Information"
 
 #: user_auth/templates/user/profile.html:121
 msgid "Email cannot be changed"
-msgstr ""
+msgstr "Email cannot be changed"
 
 #: user_auth/templates/user/profile.html:153
 msgid "Sex cannot be changed"
-msgstr ""
+msgstr "Sex cannot be changed"
 
 #: user_auth/templates/user/profile.html:157
 msgid "Select"
-msgstr ""
+msgstr "Select"
 
 #: user_auth/templates/user/profile.html:175
 msgid "Your address"
-msgstr ""
+msgstr "Your address"
 
 #: user_auth/templates/user/profile.html:184
 msgid "Tell us about yourself..."
-msgstr ""
+msgstr "Tell us about yourself..."
 
 #: user_auth/templates/user/profile.html:189
 msgid "Save Changes"
-msgstr ""
+msgstr "Save Changes"
 
 #: user_auth/templates/user/profile.html:199
 msgid "Become a Service Provider"
-msgstr ""
+msgstr "Become a Service Provider"
 
 #: user_auth/templates/user/profile.html:204
 msgid ""
 "Upgrade your account to start offering machinery and transport services on "
 "the platform."
 msgstr ""
+"Upgrade your account to start offering machinery and transport services on "
+"the platform."
 
 #: user_auth/templates/user/profile.html:208
 msgid "List your vehicles and machinery"
-msgstr ""
+msgstr "List your vehicles and machinery"
 
 #: user_auth/templates/user/profile.html:211
 msgid "Receive booking requests"
-msgstr ""
+msgstr "Receive booking requests"
 
 #: user_auth/templates/user/profile.html:214
 msgid "Manage your availability"
-msgstr ""
+msgstr "Manage your availability"
 
 #: user_auth/templates/user/profile.html:217
 msgid "Track your earnings"
-msgstr ""
+msgstr "Track your earnings"
 
 #: user_auth/templates/user/profile.html:228
 msgid "Upload Driver License"
-msgstr ""
+msgstr "Upload Driver License"
 
 #: user_auth/templates/user/profile.html:234
 msgid "Upgrade to Provider"
-msgstr ""
+msgstr "Upgrade to Provider"
 
 #: user_auth/templates/user/profile.html:246
 msgid "Select Your Role"
-msgstr ""
+msgstr "Select Your Role"
 
 #: user_auth/templates/user/profile.html:251
 msgid "Choose how you want to use the platform:"
-msgstr ""
+msgstr "Choose how you want to use the platform:"
 
 #: user_auth/templates/user/profile.html:270
 msgid "I need services"
-msgstr ""
+msgstr "I need services"
 
 #: user_auth/templates/user/profile.html:284
 msgid "I offer services"
-msgstr ""
+msgstr "I offer services"
 
 #: user_auth/templates/user/profile.html:297
 msgid "Confirm Role"
-msgstr ""
+msgstr "Confirm Role"
 
 #: user_auth/templates/user/profile.html:363
 msgid "Danger Zone"
-msgstr ""
+msgstr "Danger Zone"
 
 #: user_auth/templates/user/profile.html:368
 msgid ""
 "Once you delete your account, there is no going back. Please be certain."
-msgstr ""
+msgstr "Once you delete your account, there is no going back. Please be certain."
 
 #: user_auth/templates/user/profile.html:374
 msgid "Delete Account"
-msgstr ""
+msgstr "Delete Account"
 
 #: user_auth/templates/user/profile.html:375
 msgid ""
 "Are you sure you want to delete your account? This action cannot be undone."
-msgstr ""
+msgstr "Are you sure you want to delete your account? This action cannot be undone."
 
 #: user_auth/templates/user/profile.html:376
 msgid "Yes, delete my account"
-msgstr ""
+msgstr "Yes, delete my account"
 
 #: user_auth/templates/user/profile.html:378
 msgid "Delete My Account"
-msgstr ""
+msgstr "Delete My Account"
 
 #: user_auth/views.py:31
 msgid "Please fill in all required fields."
-msgstr ""
+msgstr "Please fill in all required fields."
 
 #: user_auth/views.py:48
 msgid "Invalid username or password. Please try again."
-msgstr ""
+msgstr "Invalid username or password. Please try again."
 
 #: user_auth/views.py:80 user_auth/views.py:169
 msgid "First name is required."
-msgstr ""
+msgstr "First name is required."
 
 #: user_auth/views.py:82 user_auth/views.py:171
 msgid "Last name is required."
-msgstr ""
+msgstr "Last name is required."
 
 #: user_auth/views.py:84
 msgid "Email is required."
-msgstr ""
+msgstr "Email is required."
 
 #: user_auth/views.py:86
 msgid "Password is required."
-msgstr ""
+msgstr "Password is required."
 
 #: user_auth/views.py:88
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Passwords do not match."
 
 #: user_auth/views.py:90
 msgid "Password must be at least 8 characters long."
-msgstr ""
+msgstr "Password must be at least 8 characters long."
 
 #: user_auth/views.py:92
 msgid "Please select a role."
-msgstr ""
+msgstr "Please select a role."
 
 #: user_auth/views.py:94 user_auth/views.py:175
 msgid "Driver license is required for providers."
-msgstr ""
+msgstr "Driver license is required for providers."
 
 #: user_auth/views.py:101
 msgid "This email is already registered."
-msgstr ""
+msgstr "This email is already registered."
 
 #: user_auth/views.py:127
 msgid "Your account has been created successfully."
-msgstr ""
+msgstr "Your account has been created successfully."
 
 #: user_auth/views.py:206
 msgid "Profile updated successfully."
-msgstr ""
+msgstr "Profile updated successfully."
 
 #: user_auth/views.py:229
 msgid "Driver license is required."
-msgstr ""
+msgstr "Driver license is required."
 
 #: user_auth/views.py:234
 msgid "You are already a provider."
-msgstr ""
+msgstr "You are already a provider."
 
 #: user_auth/views.py:246
 msgid "تم تلقي طلب ترقية جديد. يرجى مراجعة الطلب"
-msgstr ""
+msgstr "A new upgrade request has been received. Please review the request."
 
 #: user_auth/views.py:247
 msgid ""
 "A user has requested to upgrade his account to provider, please review it."
 msgstr ""
+"A user has requested to upgrade his account to provider, please review it."
 
 #: user_auth/views.py:252
 msgid ""
 "Congratulations! Your account has been upgraded to Provider. Please wait for "
 "approval."
 msgstr ""
+"Congratulations! Your account has been upgraded to Provider. Please wait for "
+"approval."
 
 #: user_auth/views.py:272
 msgid "Your account has been deleted successfully."
-msgstr ""
+msgstr "Your account has been deleted successfully."
