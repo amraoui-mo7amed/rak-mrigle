@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 06:02+0100\n"
+"POT-Creation-Date: 2026-04-12 10:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: core/context_processors.py:13
 msgid "Rak-Mrigel"
 msgstr "Rak-Mrigel"
@@ -33,346 +34,402 @@ msgstr "The leading marketplace for transport and heavy machinery in Algeria."
 msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
 msgstr "transport, machinery, construction, logistics, algeria, trucks, cranes"
 
-#: core/settings.py:201
+#: core/settings.py:205
 msgid "العربية"
 msgstr "Arabic"
 
-#: core/settings.py:201
+#: core/settings.py:205
 msgid "English"
 msgstr "English"
 
-#: core/settings.py:201
+#: core/settings.py:205
 msgid "French"
 msgstr "French"
 
-#: dashboard/context_processors.py:7
+#: dashboard/context_processors.py:9
 #: dashboard/templates/dash/dash_index.html:88 frontend/templates/home.html:21
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: dashboard/context_processors.py:15
+#: dashboard/context_processors.py:17
 msgid "Users"
 msgstr "Users"
 
-#: dashboard/context_processors.py:23
+#: dashboard/context_processors.py:25
 msgid "All Offers"
 msgstr "All Offers"
 
-#: dashboard/context_processors.py:31
+#: dashboard/context_processors.py:33
 #: dashboard/templates/offers/provider/list.html:8
 msgid "My Offers"
 msgstr "My Offers"
 
-#: dashboard/context_processors.py:39 dashboard/templates/catalog/list.html:8
+#: dashboard/context_processors.py:41 dashboard/templates/catalog/list.html:8
 #: dashboard/templates/orders/customer/list.html:116
 msgid "Browse Services"
 msgstr "Browse Services"
 
-#: dashboard/context_processors.py:47
+#: dashboard/context_processors.py:49
 #: dashboard/templates/orders/customer/list.html:8
 #: dashboard/templates/orders/customer/list.html:19
 msgid "My Requests"
 msgstr "My Requests"
 
-#: dashboard/context_processors.py:55
+#: dashboard/context_processors.py:57
 #: dashboard/templates/orders/provider/list.html:8
 #: dashboard/templates/orders/provider/list.html:19
 msgid "Incoming Requests"
 msgstr "Incoming Requests"
 
-#: dashboard/context_processors.py:63
+#: dashboard/context_processors.py:65
+#: dashboard/templates/payment/provider/payment_required.html:7
+msgid "Payment"
+msgstr "Payment"
+#: dashboard/context_processors.py:73
+msgid "Payments"
+msgstr "Payments"
+#: dashboard/context_processors.py:81
 msgid "Social Auth"
 msgstr "Social Auth"
 
-#: dashboard/models.py:12
+#: dashboard/models.py:14
 msgid "معلومة"
 msgstr "Information"
 
-#: dashboard/models.py:13
+#: dashboard/models.py:15
 msgid "نجاح"
 msgstr "Success"
 
-#: dashboard/models.py:14
+#: dashboard/models.py:16
 msgid "تحذير"
 msgstr "Warning"
 
-#: dashboard/models.py:15
+#: dashboard/models.py:17
 msgid "خطأ"
 msgstr "Error"
 
-#: dashboard/models.py:21
+#: dashboard/models.py:23
 msgid "المستخدم"
 msgstr "User"
 
-#: dashboard/models.py:23
+#: dashboard/models.py:25
 msgid "العنوان"
 msgstr "Title"
 
-#: dashboard/models.py:24
+#: dashboard/models.py:26
 msgid "الرسالة"
 msgstr "Message"
 
-#: dashboard/models.py:29
+#: dashboard/models.py:31
 msgid "نوع الإشعار"
 msgstr "Notification Type"
 
-#: dashboard/models.py:31
+#: dashboard/models.py:33
 msgid "مقروء"
 msgstr "Read"
 
-#: dashboard/models.py:33 dashboard/models.py:78 dashboard/models.py:225
-#: dashboard/models.py:293
+#: dashboard/models.py:35 dashboard/models.py:80 dashboard/models.py:233
+#: dashboard/models.py:324 dashboard/models.py:395 dashboard/models.py:449
 msgid "تاريخ الإنشاء"
 msgstr "Created Date"
 
-#: dashboard/models.py:36
+#: dashboard/models.py:38
 msgid "تاريخ القراءة"
 msgstr "Read Date"
 
-#: dashboard/models.py:41
+#: dashboard/models.py:43
 msgid "الرابط"
 msgstr "Link"
 
-#: dashboard/models.py:42
+#: dashboard/models.py:44
 msgid "رابط اختياري للتنقل"
 msgstr "Optional navigation link"
 
-#: dashboard/models.py:46
+#: dashboard/models.py:48
 msgid "إشعار"
 msgstr "Notification"
 
-#: dashboard/models.py:58
+#: dashboard/models.py:60
 msgid "Transport"
 msgstr "Transport"
 
-#: dashboard/models.py:59
+#: dashboard/models.py:61
 msgid "Machinery"
 msgstr "Machinery"
 
-#: dashboard/models.py:60
+#: dashboard/models.py:62
 msgid "Logistics"
 msgstr "Logistics"
 
-#: dashboard/models.py:62
+#: dashboard/models.py:64
 msgid "الاسم بالعربية"
 msgstr "Arabic Name"
 
-#: dashboard/models.py:63
+#: dashboard/models.py:65
 msgid "الاسم بالفرنسية"
 msgstr "French Name"
 
-#: dashboard/models.py:64
+#: dashboard/models.py:66
 msgid "الاسم بالإنجليزية"
 msgstr "English Name"
 
-#: dashboard/models.py:68
+#: dashboard/models.py:70
 msgid "نوع الفئة"
 msgstr "Category Type"
 
-#: dashboard/models.py:73
+#: dashboard/models.py:75
 msgid "الأيقونة"
 msgstr "Icon"
 
-#: dashboard/models.py:74
+#: dashboard/models.py:76
 msgid "FontAwesome icon class"
 msgstr "FontAwesome icon class"
 
-#: dashboard/models.py:76 dashboard/models.py:103
+#: dashboard/models.py:78 dashboard/models.py:105
 msgid "نشط"
 msgstr "Active"
 
-#: dashboard/models.py:82
+#: dashboard/models.py:84
 msgid "فئة"
 msgstr "Category"
 
-#: dashboard/models.py:101
+#: dashboard/models.py:103
 msgid "مسودة"
 msgstr "Draft"
 
-#: dashboard/models.py:102
+#: dashboard/models.py:104
 msgid "في الانتظار"
 msgstr "Pending"
 
-#: dashboard/models.py:104 dashboard/models.py:265
+#: dashboard/models.py:106 dashboard/models.py:296 dashboard/models.py:413
 msgid "مرفوض"
 msgstr "Rejected"
 
-#: dashboard/models.py:105
+#: dashboard/models.py:107
 msgid "منتهي"
 msgstr "Expired"
 
-#: dashboard/models.py:108
+#: dashboard/models.py:110
 msgid "مسافة"
 msgstr "Distance"
 
-#: dashboard/models.py:109
+#: dashboard/models.py:111
 msgid "ساعي"
 msgstr "Courier"
 
-#: dashboard/models.py:115
+#: dashboard/models.py:117 dashboard/models.py:344 dashboard/models.py:374
+#: dashboard/models.py:419
 msgid "المزود"
 msgstr "Provider"
 
-#: dashboard/models.py:121
+#: dashboard/models.py:123
 msgid "الفئة"
 msgstr "Category"
 
-#: dashboard/models.py:123
+#: dashboard/models.py:125
 msgid "العنوان بالعربية"
 msgstr "Title in Arabic"
 
-#: dashboard/models.py:124
+#: dashboard/models.py:126
 msgid "العنوان بالفرنسية"
 msgstr "Title in French"
 
-#: dashboard/models.py:125
+#: dashboard/models.py:127
 msgid "العنوان بالإنجليزية"
 msgstr "Title in English"
 
-#: dashboard/models.py:126
+#: dashboard/models.py:128
 msgid "الوصف بالعربية"
 msgstr "Description in Arabic"
 
-#: dashboard/models.py:127
+#: dashboard/models.py:129
 msgid "الوصف بالفرنسية"
 msgstr "Description in French"
 
-#: dashboard/models.py:128
+#: dashboard/models.py:130
 msgid "الوصف بالإنجليزية"
 msgstr "Description in English"
 
-#: dashboard/models.py:133
+#: dashboard/models.py:135
 msgid "نوع التسعير"
 msgstr "Pricing Type"
 
-#: dashboard/models.py:138
+#: dashboard/models.py:141
 msgid "السعر الأساسي"
 msgstr "Base Price"
 
-#: dashboard/models.py:139
+#: dashboard/models.py:142
 msgid "Minimum charge for the service"
 msgstr "Minimum charge for the service"
 
-#: dashboard/models.py:146
+#: dashboard/models.py:150
 msgid "السعر لكل كلم"
 msgstr "Price per km"
 
-#: dashboard/models.py:153
+#: dashboard/models.py:158
 msgid "السعر لكل ساعة"
 msgstr "Price per hour"
 
-#: dashboard/models.py:160
+#: dashboard/models.py:166
 msgid "تكلفة الوقود"
 msgstr "Fuel cost"
 
-#: dashboard/models.py:167
+#: dashboard/models.py:174
 msgid "تكلفة المشغل"
 msgstr "Operator cost"
 
-#: dashboard/models.py:174
+#: dashboard/models.py:182
 msgid "تكلفة وقت الانتظار"
 msgstr "Waiting time cost"
 
-#: dashboard/models.py:179
+#: dashboard/models.py:187
 msgid "السعة"
 msgstr "Capacity"
 
-#: dashboard/models.py:180
+#: dashboard/models.py:188
 msgid "Load capacity (e.g., '5 tons', '20 m³')"
 msgstr "Load capacity (e.g., '5 tons', '20 m³')"
 
-#: dashboard/models.py:185 dashboard/models.py:282
+#: dashboard/models.py:193 dashboard/models.py:313
 msgid "الولاية"
 msgstr "State"
 
-#: dashboard/models.py:191
+#: dashboard/models.py:199
 msgid "الصورة"
 msgstr "Image"
 
-#: dashboard/models.py:197 dashboard/models.py:290
+#: dashboard/models.py:205 dashboard/models.py:321 dashboard/models.py:441
 msgid "الحالة"
 msgstr "Status"
 
-#: dashboard/models.py:201
+#: dashboard/models.py:209
 msgid "متاح"
 msgstr "Available"
 
-#: dashboard/models.py:202
+#: dashboard/models.py:210
 msgid "Available for booking"
 msgstr "Available for booking"
 
-#: dashboard/models.py:207
+#: dashboard/models.py:215
 msgid "الموقع بالعربية"
 msgstr "Site in Arabic"
 
-#: dashboard/models.py:212
+#: dashboard/models.py:220
 msgid "الموقع بالفرنسية"
 msgstr "Site in French"
 
-#: dashboard/models.py:217
+#: dashboard/models.py:225
 msgid "الموقع بالإنجليزية"
 msgstr "Site in English"
 
-#: dashboard/models.py:221
+#: dashboard/models.py:229 dashboard/models.py:445
 msgid "ملاحظة المدير"
 msgstr "Manager's note"
 
-#: dashboard/models.py:222
+#: dashboard/models.py:230
 msgid "Internal note for rejection reason"
 msgstr "Internal note for rejection reason"
 
-#: dashboard/models.py:227 dashboard/models.py:295
+#: dashboard/models.py:235 dashboard/models.py:326
 msgid "تاريخ التحديث"
 msgstr "Update date"
 
-#: dashboard/models.py:230
+#: dashboard/models.py:238
 msgid "عرض"
 msgstr "View"
 
-#: dashboard/models.py:263
+#: dashboard/models.py:294 dashboard/models.py:411
 msgid "قيد الانتظار"
 msgstr "Pending"
 
-#: dashboard/models.py:264
+#: dashboard/models.py:295 dashboard/models.py:412
 msgid "مقبول"
 msgstr "Accepted"
 
-#: dashboard/models.py:266
+#: dashboard/models.py:297
 msgid "ملغي"
 msgstr "Cancelled"
 
-#: dashboard/models.py:272
+#: dashboard/models.py:303
 msgid "العميل"
 msgstr "Client"
 
-#: dashboard/models.py:278
+#: dashboard/models.py:309 dashboard/models.py:386 dashboard/models.py:425
 msgid "العرض"
 msgstr "Offer"
 
-#: dashboard/models.py:280
+#: dashboard/models.py:311
 msgid "الاسم الكامل"
 msgstr "Full Name"
 
-#: dashboard/models.py:281
+#: dashboard/models.py:312
 msgid "رقم الهاتف"
 msgstr "Phone Number"
 
-#: dashboard/models.py:283
+#: dashboard/models.py:314
 msgid "موقع الانطلاق"
 msgstr "Departure Location"
 
-#: dashboard/models.py:284
+#: dashboard/models.py:315
 msgid "الوجهة"
 msgstr "Destination"
 
-#: dashboard/models.py:285
+#: dashboard/models.py:316
 msgid "ملاحظات"
 msgstr "Notes"
 
-#: dashboard/models.py:298
+#: dashboard/models.py:329
 msgid "طلب خدمة"
 msgstr "Service Request"
 
+#: dashboard/models.py:350
+msgid "إجمالي العمولة"
+msgstr "Total Commission"
+#: dashboard/models.py:354
+msgid "محظور"
+msgstr "Banned"
+#: dashboard/models.py:355
+msgid "Offer suspended due to unpaid commission"
+msgstr "Offer suspended due to unpaid commission"
+#: dashboard/models.py:360
+#, fuzzy
+#| msgid "العميل"
+msgid "رصيد العمولة"
+msgstr "Client"
+
+#: dashboard/models.py:380
+#, fuzzy
+#| msgid "طلب خدمة"
+msgid "طلب الخدمة"
+msgstr "Service Request"
+
+#: dashboard/models.py:391 dashboard/models.py:430
+msgid "المبلغ"
+msgstr "Amount"
+#: dashboard/models.py:399
+#, fuzzy
+#| msgid "تكلفة الوقود"
+msgid "معاملة العمولة"
+msgstr "Fuel cost"
+
+#: dashboard/models.py:434
+#, fuzzy
+#| msgid "نوع الإشعار"
+msgid "ملف الإثبات"
+msgstr "Notification Type"
+
+#: dashboard/models.py:435
+msgid "PDF أو صورة فقط"
+msgstr "PDF or image only"
+#: dashboard/models.py:454
+#, fuzzy
+#| msgid "تاريخ القراءة"
+msgid "تاريخ المراجعة"
+msgstr "Read Date"
+
+#: dashboard/models.py:458
+msgid "إثبات الدفع"
+msgstr "Proof of payment"
 #: dashboard/templates/catalog/details.html:45
 #: dashboard/templates/offers/admin/details.html:69
 #: dashboard/templates/offers/provider/details.html:57
@@ -429,6 +486,7 @@ msgstr "Request This Service"
 #: dashboard/templates/catalog/details.html:111
 #: dashboard/templates/catalog/request_form.html:111
 #: dashboard/templates/orders/customer/details.html:159
+#: dashboard/templates/payment/admin/dashboard.html:39
 #: dashboard/templates/social_auth/list.html:52
 #: dashboard/templates/social_auth/list.html:177 user_auth/models.py:15
 #: user_auth/templates/auth/signup.html:174
@@ -731,33 +789,58 @@ msgstr "Last 30 Days"
 
 #: dashboard/templates/dash/dash_home.html:90
 msgid "Recent Activity"
-msgstr "Recent Activity"#: dashboard/templates/dash/dash_home.html:101
+msgstr "Recent Activity"
+
+#: dashboard/templates/dash/dash_home.html:101
+#: dashboard/templates/payment/admin/details.html:135
 #: dashboard/templates/social_auth/list.html:101
 #: dashboard/templates/users/list.html:134 dashboard/views/admin_offers.py:47
-#: dashboard/views/provider_offers.py:54
+#: dashboard/views/provider_offers.py:65
 msgid "Active"
-msgstr "Active"#: dashboard/templates/dash/dash_home.html:113
+msgstr "Active"
+
+#: dashboard/templates/dash/dash_home.html:113
 #: dashboard/templates/users/details.html:94 dashboard/views/dashboard.py:54
 msgid "Pending Approval"
-msgstr "Pending Approval"#: dashboard/templates/dash/dash_home.html:125
+msgstr "Pending Approval"
+
+#: dashboard/templates/dash/dash_home.html:125
 msgid "Settled"
-msgstr "Settled"#: dashboard/templates/dash/dash_home.html:137
+msgstr "Settled"
+
+#: dashboard/templates/dash/dash_home.html:137
 msgid "Completed"
-msgstr "Completed"#: dashboard/templates/dash/dash_home.html:143
+msgstr "Completed"
+
+#: dashboard/templates/dash/dash_home.html:143
 msgid "View All Operations"
-msgstr "View All Operations"#: dashboard/templates/dash/dash_home.html:157
+msgstr "View All Operations"
+
+#: dashboard/templates/dash/dash_home.html:157
 msgid "Smart Insights"
-msgstr "Smart Insights"#: dashboard/templates/dash/dash_home.html:160
+msgstr "Smart Insights"
+
+#: dashboard/templates/dash/dash_home.html:160
 msgid ""
 "System performance is optimal. All 5 services are running within expected "
 "latency bounds."
-msgstr "System performance is optimal. All 5 services are running within expected latency bounds."#: dashboard/templates/dash/dash_home.html:162
+msgstr ""
+"System performance is optimal. All 5 services are running within expected "
+"latency bounds."
+
+#: dashboard/templates/dash/dash_home.html:162
 msgid ""
 "AI has detected a growth trend in your user engagement. Consider launching a "
 "new campaign to capitalize on this traffic."
-msgstr "AI has detected a growth trend in your user engagement. Consider launching a new campaign to capitalize on this traffic."#: dashboard/templates/dash/dash_home.html:165
+msgstr ""
+"AI has detected a growth trend in your user engagement. Consider launching a "
+"new campaign to capitalize on this traffic."
+
+#: dashboard/templates/dash/dash_home.html:165
 msgid "Take Action"
-msgstr "Take Action"#: dashboard/templates/dash/dash_index.html:26
+msgstr "Take Action"
+
+#: dashboard/templates/dash/dash_index.html:26
 msgid "Just now"
 msgstr "Just now"
 
@@ -809,6 +892,7 @@ msgstr "Help & Support"
 
 #: dashboard/templates/offers/admin/details.html:7
 #: dashboard/templates/offers/provider/details.html:7
+#: dashboard/templates/payment/admin/details.html:143
 msgid "Offer Details"
 msgstr "Offer Details"
 
@@ -830,6 +914,7 @@ msgstr "Delete"
 #: dashboard/templates/offers/admin/list.html:118
 #: dashboard/templates/offers/provider/details.html:79
 #: dashboard/templates/offers/provider/list.html:101
+#: dashboard/templates/payment/admin/details.html:156
 msgid "Base Price"
 msgstr "Base Price"
 
@@ -861,6 +946,7 @@ msgid "Wait Time Cost"
 msgstr "Wait Time Cost"
 
 #: dashboard/templates/offers/admin/details.html:168
+#: dashboard/templates/payment/admin/details.html:104
 msgid "Provider Info"
 msgstr "Provider Info"
 
@@ -910,6 +996,10 @@ msgstr "Offer title..."
 #: dashboard/templates/offers/provider/list.html:63
 #: dashboard/templates/orders/customer/list.html:46
 #: dashboard/templates/orders/provider/list.html:42
+#: dashboard/templates/payment/admin/dashboard.html:48
+#: dashboard/templates/payment/admin/details.html:160
+#: dashboard/templates/payment/provider/history.html:80
+#: dashboard/templates/payment/provider/payment_required.html:144
 msgid "Status"
 msgstr "Status"
 
@@ -1134,12 +1224,16 @@ msgstr "Be available to answer inquiries"
 #: dashboard/templates/orders/customer/details.html:191
 #: dashboard/templates/orders/customer/list.html:136
 #: dashboard/templates/orders/provider/details.html:169
+#: dashboard/templates/payment/admin/details.html:16
+#: dashboard/templates/payment/provider/payment_required.html:15
 msgid "Error"
 msgstr "Error"
 
 #: dashboard/templates/offers/provider/create.html:376
 #: dashboard/templates/offers/provider/edit.html:407
 #: dashboard/templates/orders/provider/details.html:170
+#: dashboard/templates/payment/admin/details.html:17
+#: dashboard/templates/payment/provider/payment_required.html:16
 msgid "Success"
 msgstr "Success"
 
@@ -1149,6 +1243,7 @@ msgid "Edit"
 msgstr "Edit"
 
 #: dashboard/templates/offers/provider/details.html:160
+#: dashboard/templates/payment/admin/dashboard.html:100
 msgid "Details"
 msgstr "Details"
 
@@ -1163,13 +1258,15 @@ msgid "Last Updated"
 msgstr "Last Updated"
 
 #: dashboard/templates/offers/provider/details.html:193
+#: dashboard/templates/payment/provider/history.html:53
 msgid "Offer Status"
 msgstr "Offer Status"
 
 #: dashboard/templates/offers/provider/details.html:199
 msgid ""
 "This offer is saved as draft. Submit it for admin approval to make it active."
-msgstr "This offer is saved as draft. Submit it for admin approval to make it active."
+msgstr ""
+"This offer is saved as draft. Submit it for admin approval to make it active."
 
 #: dashboard/templates/offers/provider/details.html:202
 msgid "Submit for Approval"
@@ -1178,13 +1275,16 @@ msgstr "Submit for Approval"
 #: dashboard/templates/offers/provider/details.html:206
 msgid ""
 "This offer is waiting for admin approval. You will be notified once reviewed."
-msgstr "This offer is waiting for admin approval. You will be notified once reviewed."
+msgstr ""
+"This offer is waiting for admin approval. You will be notified once reviewed."
 
 #: dashboard/templates/offers/provider/details.html:210
 msgid ""
 "This offer was rejected. Check the admin note above and make necessary "
 "changes."
-msgstr "This offer was rejected. Check the admin note above and make necessary changes."
+msgstr ""
+"This offer was rejected. Check the admin note above and make necessary "
+"changes."
 
 #: dashboard/templates/offers/provider/details.html:213
 msgid "Edit & Resubmit"
@@ -1207,7 +1307,8 @@ msgstr "Delete Offer"
 #: dashboard/templates/offers/provider/list.html:156
 msgid ""
 "Are you sure you want to delete this offer? This action cannot be undone."
-msgstr "Are you sure you want to delete this offer? This action cannot be undone."
+msgstr ""
+"Are you sure you want to delete this offer? This action cannot be undone."
 
 #: dashboard/templates/offers/provider/details.html:255
 #: dashboard/templates/offers/provider/list.html:157
@@ -1219,6 +1320,7 @@ msgstr "Yes, delete it"
 #: dashboard/templates/orders/customer/details.html:190
 #: dashboard/templates/orders/customer/list.html:135
 #: dashboard/templates/orders/provider/details.html:168
+#: dashboard/templates/payment/admin/details.html:24
 #: dashboard/templates/social_auth/list.html:76
 #: dashboard/templates/social_auth/list.html:196
 #: dashboard/templates/users/details.html:27
@@ -1267,39 +1369,64 @@ msgstr "Name"
 
 #: dashboard/templates/orders/customer/details.html:47
 msgid "Phone"
-msgstr "Phone"#: dashboard/templates/orders/customer/details.html:82
+msgstr "Phone"
+
+#: dashboard/templates/orders/customer/details.html:82
 #: dashboard/templates/orders/provider/details.html:91
 msgid "Notes"
-msgstr "Notes"#: dashboard/templates/orders/customer/details.html:92
+msgstr "Notes"
+
+#: dashboard/templates/orders/customer/details.html:92
 #: dashboard/templates/orders/provider/details.html:101
 msgid "Requested on"
-msgstr "Requested on"#: dashboard/templates/orders/customer/details.html:98
+msgstr "Requested on"
+
+#: dashboard/templates/orders/customer/details.html:98
 msgid ""
 "Your request is being reviewed by the provider. You'll be notified once "
 "approved."
-msgstr "Your request is being reviewed by the provider. You'll be notified once approved."#: dashboard/templates/orders/customer/details.html:101
+msgstr ""
+"Your request is being reviewed by the provider. You'll be notified once "
+"approved."
+
+#: dashboard/templates/orders/customer/details.html:101
 #: dashboard/templates/orders/customer/details.html:187
 #: dashboard/templates/orders/customer/list.html:132
 msgid "Cancel Request"
-msgstr "Cancel Request"#: dashboard/templates/orders/customer/details.html:106
+msgstr "Cancel Request"
+
+#: dashboard/templates/orders/customer/details.html:106
 msgid "Request Approved!"
-msgstr "Request Approved!"#: dashboard/templates/orders/customer/details.html:108
+msgstr "Request Approved!"
+
+#: dashboard/templates/orders/customer/details.html:108
 msgid ""
 "The provider has approved your request. Contact them to finalize details:"
-msgstr "The provider has approved your request. Contact them to finalize details:"#: dashboard/templates/orders/customer/details.html:120
+msgstr ""
+"The provider has approved your request. Contact them to finalize details:"
+
+#: dashboard/templates/orders/customer/details.html:120
 msgid "Your request was rejected. You can browse other services."
-msgstr "Your request was rejected. You can browse other services."#: dashboard/templates/orders/customer/details.html:123
+msgstr "Your request was rejected. You can browse other services."
+
+#: dashboard/templates/orders/customer/details.html:123
 msgid "Browse Other Services"
-msgstr "Browse Other Services"#: dashboard/templates/orders/customer/details.html:133
+msgstr "Browse Other Services"
+
+#: dashboard/templates/orders/customer/details.html:133
 #: dashboard/templates/orders/provider/details.html:121
 msgid "Service Details"
-msgstr "Service Details"#: dashboard/templates/orders/customer/details.html:143
+msgstr "Service Details"
+
+#: dashboard/templates/orders/customer/details.html:143
 #: dashboard/templates/orders/provider/details.html:131
+#: dashboard/templates/payment/provider/payment_required.html:140
 msgid "Price"
 msgstr "Price"
 
 #: dashboard/templates/orders/customer/details.html:176
 #: dashboard/templates/orders/provider/details.html:151
+#: dashboard/templates/payment/admin/details.html:177
 #: dashboard/templates/users/details.html:18
 msgid "Back to List"
 msgstr "Back to List"
@@ -1360,6 +1487,8 @@ msgid "Reject Request"
 msgstr "Reject Request"
 
 #: dashboard/templates/orders/provider/details.html:147
+#: dashboard/templates/payment/admin/dashboard.html:54
+#: dashboard/templates/payment/provider/history.html:83
 msgid "Actions"
 msgstr "Actions"
 
@@ -1368,6 +1497,7 @@ msgid "Are you sure you want to approve this request?"
 msgstr "Are you sure you want to approve this request?"
 
 #: dashboard/templates/orders/provider/details.html:164
+#: dashboard/templates/payment/admin/details.html:20
 msgid "Yes, approve it"
 msgstr "Yes, approve it"
 
@@ -1376,6 +1506,7 @@ msgid "Are you sure you want to reject this request?"
 msgstr "Are you sure you want to reject this request?"
 
 #: dashboard/templates/orders/provider/details.html:167
+#: dashboard/templates/payment/admin/details.html:23
 msgid "Yes, reject it"
 msgstr "Yes, reject it"
 
@@ -1386,6 +1517,239 @@ msgstr "Manage customer service requests"
 #: dashboard/templates/orders/provider/list.html:105
 msgid "Customer requests will appear here"
 msgstr "Customer requests will appear here"
+
+#: dashboard/templates/payment/admin/dashboard.html:8
+#: dashboard/templates/payment/admin/dashboard.html:18
+msgid "Payment Management"
+msgstr "Payment Management"
+#: dashboard/templates/payment/admin/dashboard.html:21
+msgid "Review and manage provider payment proofs"
+msgstr "Review and manage provider payment proofs"
+#: dashboard/templates/payment/admin/dashboard.html:29
+msgid "Payment Proofs"
+msgstr "Payment Proofs"
+#: dashboard/templates/payment/admin/dashboard.html:42
+#: dashboard/templates/payment/admin/details.html:55
+#: dashboard/templates/payment/provider/history.html:79
+msgid "Amount"
+msgstr "Amount"
+#: dashboard/templates/payment/admin/dashboard.html:45
+#, fuzzy
+#| msgid "Offers"
+msgid "Offer"
+msgstr "Offers"
+
+#: dashboard/templates/payment/admin/dashboard.html:51
+#: dashboard/templates/payment/provider/history.html:81
+#, fuzzy
+#| msgid "Submit Request"
+msgid "Submitted"
+msgstr "Submit Request"
+
+#: dashboard/templates/payment/admin/dashboard.html:109
+msgid "No pending payments"
+msgstr "No pending payments"
+#: dashboard/templates/payment/admin/details.html:7
+#, fuzzy
+#| msgid "Request Details"
+msgid "Payment Details"
+msgstr "Request Details"
+
+#: dashboard/templates/payment/admin/details.html:18
+#: dashboard/templates/payment/admin/details.html:78
+#, fuzzy
+#| msgid "Approve Request"
+msgid "Approve Payment"
+msgstr "Approve Request"
+
+#: dashboard/templates/payment/admin/details.html:19
+#, fuzzy
+#| msgid "Are you sure you want to approve this request?"
+msgid "Are you sure you want to approve this payment?"
+msgstr "Are you sure you want to approve this request?"
+
+#: dashboard/templates/payment/admin/details.html:21
+#: dashboard/templates/payment/admin/details.html:85
+#, fuzzy
+#| msgid "Reject Request"
+msgid "Reject Payment"
+msgstr "Reject Request"
+
+#: dashboard/templates/payment/admin/details.html:22
+msgid "Please provide a reason for rejection:"
+msgstr "Please provide a reason for rejection:"
+#: dashboard/templates/payment/admin/details.html:25
+#, fuzzy
+#| msgid "Internal note for rejection reason"
+msgid "Enter rejection reason..."
+msgstr "Internal note for rejection reason"
+
+#: dashboard/templates/payment/admin/details.html:32
+#: dashboard/templates/payment/admin/details.html:47
+msgid "Payment Proof"
+msgstr "Payment Proof"
+#: dashboard/templates/payment/admin/details.html:63
+msgid "Submitted On"
+msgstr "Submitted On"
+#: dashboard/templates/payment/admin/details.html:91
+#, fuzzy
+#| msgid "Requested on"
+msgid "Reviewed on"
+msgstr "Requested on"
+
+#: dashboard/templates/payment/admin/details.html:93
+#, fuzzy
+#| msgid "Notes"
+msgid "Note:"
+msgstr "Notes"
+
+#: dashboard/templates/payment/admin/details.html:129
+msgid "Commission Balance"
+msgstr "Commission Balance"
+#: dashboard/templates/payment/admin/details.html:133
+#: dashboard/templates/users/details.html:90
+#: dashboard/templates/users/list.html:102
+#: user_auth/templates/user/profile.html:306
+#: user_auth/templates/user/profile.html:324
+msgid "Account Status"
+msgstr "Account Status"
+
+#: dashboard/templates/payment/admin/details.html:135
+msgid "Blocked"
+msgstr "Blocked"
+#: dashboard/templates/payment/admin/details.html:166
+#, fuzzy
+#| msgid "Available Services"
+msgid "Available"
+msgstr "Available Services"
+
+#: dashboard/templates/payment/admin/details.html:168
+msgid "Yes"
+msgstr "Yes"
+#: dashboard/templates/payment/admin/details.html:168
+msgid "No"
+msgstr "No"
+#: dashboard/templates/payment/provider/history.html:8
+#: dashboard/templates/payment/provider/history.html:19
+#: dashboard/templates/payment/provider/payment_required.html:169
+#, fuzzy
+#| msgid "History"
+msgid "Payment History"
+msgstr "History"
+
+#: dashboard/templates/payment/provider/history.html:20
+msgid "Your commission payment records"
+msgstr "Your commission payment records"
+#: dashboard/templates/payment/provider/history.html:24
+msgid "Make Payment"
+msgstr "Make Payment"
+#: dashboard/templates/payment/provider/history.html:38
+msgid "Current Balance"
+msgstr "Current Balance"
+#: dashboard/templates/payment/provider/history.html:58
+#, fuzzy
+#| msgid "Offers"
+msgid "No Offer"
+msgstr "Offers"
+
+#: dashboard/templates/payment/provider/history.html:71
+msgid "Payment Records"
+msgstr "Payment Records"
+#: dashboard/templates/payment/provider/history.html:82
+#, fuzzy
+#| msgid "Preview"
+msgid "Reviewed"
+msgstr "Preview"
+
+#: dashboard/templates/payment/provider/history.html:112
+#, fuzzy
+#| msgid "View Profile"
+msgid "View Proof"
+msgstr "View Profile"
+
+#: dashboard/templates/payment/provider/history.html:120
+msgid "No payment records yet"
+msgstr "No payment records yet"
+#: dashboard/templates/payment/provider/payment_required.html:17
+#, fuzzy
+#| msgid "Please select a role."
+msgid "Please select a file first."
+msgstr "Please select a role."
+
+#: dashboard/templates/payment/provider/payment_required.html:18
+msgid "Uploading..."
+msgstr "Uploading..."
+#: dashboard/templates/payment/provider/payment_required.html:19
+#: dashboard/templates/payment/provider/payment_required.html:108
+msgid "Submit Payment Proof"
+msgstr "Submit Payment Proof"
+#: dashboard/templates/payment/provider/payment_required.html:25
+msgid "Commission Payment"
+msgstr "Commission Payment"
+#: dashboard/templates/payment/provider/payment_required.html:33
+msgid "Payment Under Review"
+msgstr "Payment Under Review"
+#: dashboard/templates/payment/provider/payment_required.html:35
+msgid "Your payment proof is being reviewed by admin."
+msgstr "Your payment proof is being reviewed by admin."
+#: dashboard/templates/payment/provider/payment_required.html:42
+#, fuzzy
+#| msgid "Intro Commission"
+msgid "Current Commission Balance"
+msgstr "Intro Commission"
+
+#: dashboard/templates/payment/provider/payment_required.html:49
+#: dashboard/views/orders/provider_orders.py:152
+#: dashboard/views/orders/provider_orders.py:153
+msgid "Payment Required"
+msgstr "Payment Required"
+#: dashboard/templates/payment/provider/payment_required.html:53
+msgid "Below Threshold"
+msgstr "Below Threshold"
+#: dashboard/templates/payment/provider/payment_required.html:59
+#, fuzzy
+#| msgid "How Rak-Mrigle Works"
+msgid "How It Works"
+msgstr "How Rak-Mrigle Works"
+
+#: dashboard/templates/payment/provider/payment_required.html:63
+#, python-format
+msgid ""
+"Each approved request adds 1%% of your offer price to your commission "
+"balance."
+msgstr "Each approved request adds 1% of your offer price to your commission balance."
+#: dashboard/templates/payment/provider/payment_required.html:66
+msgid "When your balance reaches 1000 DA, your offer will be suspended."
+msgstr "When your balance reaches 1000 DA, your offer will be suspended."
+#: dashboard/templates/payment/provider/payment_required.html:69
+msgid "Upload your payment proof to reactivate your offer."
+msgstr "Upload your payment proof to reactivate your offer."
+#: dashboard/templates/payment/provider/payment_required.html:76
+msgid "Upload Payment Proof"
+msgstr "Upload Payment Proof"
+#: dashboard/templates/payment/provider/payment_required.html:85
+#, fuzzy
+#| msgid "Click to upload image"
+msgid "Click to upload or drag and drop"
+msgstr "Click to upload image"
+
+#: dashboard/templates/payment/provider/payment_required.html:88
+msgid "PDF or Image (PNG, JPG, JPEG)"
+msgstr "PDF or Image (PNG, JPG, JPEG)"
+#: dashboard/templates/payment/provider/payment_required.html:120
+#, fuzzy
+#| msgid "Create Offer"
+msgid "Your Offer"
+msgstr "Create Offer"
+
+#: dashboard/templates/payment/provider/payment_required.html:152
+msgid "Your offer is suspended until payment is verified."
+msgstr "Your offer is suspended until payment is verified."
+#: dashboard/templates/payment/provider/payment_required.html:159
+#, fuzzy
+#| msgid "No offers yet"
+msgid "No offer created yet"
+msgstr "No offers yet"
 
 #: dashboard/templates/social_auth/list.html:9
 msgid "Social Authentication"
@@ -1505,13 +1869,6 @@ msgstr "Deleted!"
 msgid "Delete User"
 msgstr "Delete User"
 
-#: dashboard/templates/users/details.html:90
-#: dashboard/templates/users/list.html:102
-#: user_auth/templates/user/profile.html:306
-#: user_auth/templates/user/profile.html:324
-msgid "Account Status"
-msgstr "Account Status"
-
 #: dashboard/templates/users/details.html:92 dashboard/utils.py:99
 #: dashboard/views/users.py:48 user_auth/templates/user/profile.html:327
 msgid "Approved"
@@ -1578,7 +1935,7 @@ msgid "Name, Username, Email..."
 msgstr "Name, Username, Email..."
 
 #: dashboard/templates/users/list.html:138 dashboard/utils.py:98
-#: dashboard/views/admin_offers.py:46 dashboard/views/provider_offers.py:53
+#: dashboard/views/admin_offers.py:46 dashboard/views/provider_offers.py:64
 #: dashboard/views/users.py:49 user_auth/templates/user/profile.html:329
 msgid "Pending"
 msgstr "Pending"
@@ -1596,7 +1953,7 @@ msgid "No users found"
 msgstr "No users found"
 
 #: dashboard/utils.py:100 dashboard/views/admin_offers.py:48
-#: dashboard/views/provider_offers.py:55
+#: dashboard/views/provider_offers.py:66
 msgid "Rejected"
 msgstr "Rejected"
 
@@ -1609,16 +1966,16 @@ msgstr "Cancelled"
 msgid "Your %(site)s Account has been Activated!"
 msgstr "Your %(site)s Account has been Activated!"
 
-#: dashboard/views/admin_offers.py:44 dashboard/views/provider_offers.py:51
+#: dashboard/views/admin_offers.py:44 dashboard/views/provider_offers.py:62
 #: dashboard/views/users.py:47 dashboard/views/users.py:52
 msgid "All Status"
 msgstr "All Status"
 
-#: dashboard/views/admin_offers.py:45 dashboard/views/provider_offers.py:52
+#: dashboard/views/admin_offers.py:45 dashboard/views/provider_offers.py:63
 msgid "Draft"
 msgstr "Draft"
 
-#: dashboard/views/admin_offers.py:49 dashboard/views/provider_offers.py:56
+#: dashboard/views/admin_offers.py:49 dashboard/views/provider_offers.py:67
 msgid "Expired"
 msgstr "Expired"
 
@@ -1636,7 +1993,7 @@ msgid "Offer approved successfully."
 msgstr "Offer approved successfully."
 
 #: dashboard/views/admin_offers.py:100 dashboard/views/admin_offers.py:136
-#: dashboard/views/admin_offers.py:161 dashboard/views/provider_offers.py:329
+#: dashboard/views/admin_offers.py:161 dashboard/views/provider_offers.py:357
 #, python-format
 msgid "An error occurred: %(error)s"
 msgstr "An error occurred: %(error)s"
@@ -1654,7 +2011,7 @@ msgstr "Your offer '%(title)s' has been rejected. Reason: %(reason)s"
 msgid "Offer rejected successfully."
 msgstr "Offer rejected successfully."
 
-#: dashboard/views/admin_offers.py:153 dashboard/views/provider_offers.py:320
+#: dashboard/views/admin_offers.py:153 dashboard/views/provider_offers.py:348
 #, python-format
 msgid "Offer '%(title)s' deleted successfully."
 msgstr "Offer '%(title)s' deleted successfully."
@@ -1790,89 +2147,212 @@ msgid "Request cancelled successfully!"
 msgstr "Request cancelled successfully!"
 
 #: dashboard/views/orders/provider_orders.py:122
-#: dashboard/views/orders/provider_orders.py:179
+#: dashboard/views/orders/provider_orders.py:201
 msgid "This request is no longer pending."
 msgstr "This request is no longer pending."
 
-#: dashboard/views/orders/provider_orders.py:131
+#: dashboard/views/orders/provider_orders.py:137
 msgid "Request Approved"
 msgstr "Request Approved"
 
-#: dashboard/views/orders/provider_orders.py:132
+#: dashboard/views/orders/provider_orders.py:138
 #, python-brace-format
 msgid "Your request for {offer} has been approved!"
 msgstr "Your request for {offer} has been approved!"
 
-#: dashboard/views/orders/provider_orders.py:145
+#: dashboard/views/orders/provider_orders.py:155
+#: dashboard/views/orders/provider_orders.py:158
+#, python-brace-format
+msgid ""
+"Your commission balance has reached {amount} DA. Please submit payment proof "
+"to reactivate your offer."
+msgstr "Your commission balance has reached {amount} DA. Please submit payment proof to reactivate your offer."
+#: dashboard/views/orders/provider_orders.py:167
 msgid "Request approved successfully!"
 msgstr "Request approved successfully!"
 
-#: dashboard/views/orders/provider_orders.py:188
+#: dashboard/views/orders/provider_orders.py:210
 msgid "Request Rejected"
 msgstr "Request Rejected"
 
-#: dashboard/views/orders/provider_orders.py:189
+#: dashboard/views/orders/provider_orders.py:211
 #, python-brace-format
 msgid "Your request for {offer} was rejected."
 msgstr "Your request for {offer} was rejected."
 
-#: dashboard/views/orders/provider_orders.py:202
+#: dashboard/views/orders/provider_orders.py:224
 msgid "Request rejected."
 msgstr "Request rejected."
 
-#: dashboard/views/provider_offers.py:96 dashboard/views/provider_offers.py:219
+#: dashboard/views/payment/admin_payment.py:103
+#: dashboard/views/payment/admin_payment.py:166
+#: dashboard/views/payment/provider_payment.py:77
+#, fuzzy
+#| msgid "Invalid category selected."
+msgid "Invalid request method."
+msgstr "Invalid category selected."
+
+#: dashboard/views/payment/admin_payment.py:112
+#: dashboard/views/payment/admin_payment.py:175
+#, fuzzy
+#| msgid "This email is already registered."
+msgid "This payment has already been processed."
+msgstr "This email is already registered."
+
+#: dashboard/views/payment/admin_payment.py:131
+#: dashboard/views/payment/admin_payment.py:132
+#, fuzzy
+#| msgid "Request Approved"
+msgid "Payment Approved"
+msgstr "Request Approved"
+
+#: dashboard/views/payment/admin_payment.py:134
+#: dashboard/views/payment/admin_payment.py:137
+#, fuzzy, python-brace-format
+#| msgid "Your offer '%(title)s' has been approved and is now active."
+msgid ""
+"Your payment of {amount} DA has been approved. Your offer is now active."
+msgstr "Your offer '%(title)s' has been approved and is now active."
+
+#: dashboard/views/payment/admin_payment.py:146
+#, fuzzy
+#| msgid "Request approved successfully!"
+msgid "Payment approved successfully!"
+msgstr "Request approved successfully!"
+
+#: dashboard/views/payment/admin_payment.py:189
+#: dashboard/views/payment/admin_payment.py:190
+#, fuzzy
+#| msgid "Request Rejected"
+msgid "Payment Rejected"
+msgstr "Request Rejected"
+
+#: dashboard/views/payment/admin_payment.py:191
+#: dashboard/views/payment/admin_payment.py:194
+#, fuzzy, python-brace-format
+#| msgid "Your offer '%(title)s' has been rejected. Reason: %(reason)s"
+msgid "Your payment proof was rejected. Reason: {reason}"
+msgstr "Your offer '%(title)s' has been rejected. Reason: %(reason)s"
+
+#: dashboard/views/payment/admin_payment.py:192
+#: dashboard/views/payment/admin_payment.py:195
+#, fuzzy
+#| msgid "No bio provided."
+msgid "No reason provided"
+msgstr "No bio provided."
+
+#: dashboard/views/payment/admin_payment.py:204
+#, fuzzy
+#| msgid "Request rejected."
+msgid "Payment rejected."
+msgstr "Request rejected."
+
+#: dashboard/views/payment/provider_payment.py:83
+msgid "Please upload a payment proof file."
+msgstr "Please upload a payment proof file."
+#: dashboard/views/payment/provider_payment.py:92
+msgid "Only PDF and image files (PNG, JPG, JPEG) are allowed."
+msgstr "Only PDF and image files (PNG, JPG, JPEG) are allowed."
+#: dashboard/views/payment/provider_payment.py:100
+#, fuzzy
+#| msgid "No offers found"
+msgid "No offer found."
+msgstr "No offers found"
+
+#: dashboard/views/payment/provider_payment.py:107
+msgid "Your commission balance is below the payment threshold."
+msgstr "Your commission balance is below the payment threshold."
+#: dashboard/views/payment/provider_payment.py:133
+#: dashboard/views/payment/provider_payment.py:134
+msgid "New Payment Proof Submitted"
+msgstr "New Payment Proof Submitted"
+#: dashboard/views/payment/provider_payment.py:136
+#: dashboard/views/payment/provider_payment.py:139
+#, python-brace-format
+msgid "Provider {username} has submitted a payment proof of {amount} DA."
+msgstr "Provider {username} has submitted a payment proof of {amount} DA."
+#: dashboard/views/payment/provider_payment.py:148
+#, fuzzy
+#| msgid "Request submitted successfully!"
+msgid "Payment proof submitted successfully!"
+msgstr "Request submitted successfully!"
+
+#: dashboard/views/provider_offers.py:110
+#: dashboard/views/provider_offers.py:240
 msgid "Title is required."
 msgstr "Title is required."
 
-#: dashboard/views/provider_offers.py:98 dashboard/views/provider_offers.py:221
+#: dashboard/views/provider_offers.py:112
+#: dashboard/views/provider_offers.py:242
 msgid "Description is required."
 msgstr "Description is required."
 
-#: dashboard/views/provider_offers.py:100
-#: dashboard/views/provider_offers.py:223
+#: dashboard/views/provider_offers.py:114
+#: dashboard/views/provider_offers.py:244
 msgid "Category is required."
 msgstr "Category is required."
 
-#: dashboard/views/provider_offers.py:102
-#: dashboard/views/provider_offers.py:225
+#: dashboard/views/provider_offers.py:116
+#: dashboard/views/provider_offers.py:246
 msgid "Pricing type is required."
 msgstr "Pricing type is required."
 
-#: dashboard/views/provider_offers.py:104
-#: dashboard/views/provider_offers.py:227
+#: dashboard/views/provider_offers.py:118
+#: dashboard/views/provider_offers.py:248
 msgid "Base price is required."
 msgstr "Base price is required."
 
-#: dashboard/views/provider_offers.py:109
-#: dashboard/views/provider_offers.py:232
-msgid "Base price must be greater than zero."
-msgstr "Base price must be greater than zero."
-
-#: dashboard/views/provider_offers.py:111
-#: dashboard/views/provider_offers.py:234
+#: dashboard/views/provider_offers.py:122
+#: dashboard/views/provider_offers.py:252
 msgid "Base price must be a valid number."
 msgstr "Base price must be a valid number."
 
-#: dashboard/views/provider_offers.py:117
-#: dashboard/views/provider_offers.py:240
+#: dashboard/views/provider_offers.py:124
+#: dashboard/views/provider_offers.py:254
+msgid "Base price must be greater than zero."
+msgstr "Base price must be greater than zero."
+
+#: dashboard/views/provider_offers.py:128
+#: dashboard/views/provider_offers.py:258
 msgid "Price per km must be a valid number."
 msgstr "Price per km must be a valid number."
 
-#: dashboard/views/provider_offers.py:123
-#: dashboard/views/provider_offers.py:246
+#: dashboard/views/provider_offers.py:132
+#: dashboard/views/provider_offers.py:262
 msgid "Price per hour must be a valid number."
 msgstr "Price per hour must be a valid number."
 
-#: dashboard/views/provider_offers.py:132
-#: dashboard/views/provider_offers.py:255
+#: dashboard/views/provider_offers.py:136
+#: dashboard/views/provider_offers.py:266
+#, fuzzy
+#| msgid "Base price must be a valid number."
+msgid "Fuel cost must be a valid number."
+msgstr "Base price must be a valid number."
+
+#: dashboard/views/provider_offers.py:140
+#: dashboard/views/provider_offers.py:270
+#, fuzzy
+#| msgid "Price per hour must be a valid number."
+msgid "Operator cost must be a valid number."
+msgstr "Price per hour must be a valid number."
+
+#: dashboard/views/provider_offers.py:144
+#: dashboard/views/provider_offers.py:274
+#, fuzzy
+#| msgid "Base price must be a valid number."
+msgid "Wait time cost must be a valid number."
+msgstr "Base price must be a valid number."
+
+#: dashboard/views/provider_offers.py:153
+#: dashboard/views/provider_offers.py:283
 msgid "Invalid category selected."
 msgstr "Invalid category selected."
 
-#: dashboard/views/provider_offers.py:171
+#: dashboard/views/provider_offers.py:192
 msgid "Offer created successfully."
 msgstr "Offer created successfully."
 
-#: dashboard/views/provider_offers.py:290
+#: dashboard/views/provider_offers.py:318
 msgid "Offer updated successfully."
 msgstr "Offer updated successfully."
 
@@ -1959,7 +2439,9 @@ msgstr "The #1 Heavy Logistics Hub in Algeria"
 msgid ""
 "Connecting the construction industry with verified heavy machinery and "
 "specialized transport providers across all wilayas."
-msgstr "Connecting the construction industry with verified heavy machinery and specialized transport providers across all wilayas."
+msgstr ""
+"Connecting the construction industry with verified heavy machinery and "
+"specialized transport providers across all wilayas."
 
 #: frontend/templates/home.html:57
 msgid "Our Catalog"
@@ -1973,7 +2455,9 @@ msgstr "Tailored Industrial Solutions"
 msgid ""
 "Browse specialized categories designed to meet the demands of modern "
 "infrastructure and logistics."
-msgstr "Browse specialized categories designed to meet the demands of modern infrastructure and logistics."
+msgstr ""
+"Browse specialized categories designed to meet the demands of modern "
+"infrastructure and logistics."
 
 #: frontend/templates/home.html:85
 msgid "Transport & Utilities"
@@ -2023,7 +2507,9 @@ msgstr "Powered by Data"
 msgid ""
 "We eliminate guesswork with a transparent pricing engine built for the "
 "Algerian market."
-msgstr "We eliminate guesswork with a transparent pricing engine built for the Algerian market."
+msgstr ""
+"We eliminate guesswork with a transparent pricing engine built for the "
+"Algerian market."
 
 #: frontend/templates/home.html:132
 msgid "Distance Logic"
@@ -2079,27 +2565,49 @@ msgstr "Get Quotes"
 
 #: frontend/templates/home.html:205
 msgid "Receive and compare verified price offers from pro providers."
-msgstr "Receive and compare verified price offers from pro providers."#: frontend/templates/home.html:211
+msgstr "Receive and compare verified price offers from pro providers."
+
+#: frontend/templates/home.html:211
 msgid "Finish Job"
-msgstr "Finish Job"#: frontend/templates/home.html:212
+msgstr "Finish Job"
+
+#: frontend/templates/home.html:212
 msgid "Approve the mission, unlock contact, and rate the service."
-msgstr "Approve the mission, unlock contact, and rate the service."#: frontend/templates/home.html:224
+msgstr "Approve the mission, unlock contact, and rate the service."
+
+#: frontend/templates/home.html:224
 msgid "Join the Network of Pros"
-msgstr "Join the Network of Pros"#: frontend/templates/home.html:225
+msgstr "Join the Network of Pros"
+
+#: frontend/templates/home.html:225
 msgid ""
 "Whether you're looking for a crane or have a fleet to manage, we have you "
 "covered."
-msgstr "Whether you're looking for a crane or have a fleet to manage, we have you covered."#: frontend/templates/home.html:228
+msgstr ""
+"Whether you're looking for a crane or have a fleet to manage, we have you "
+"covered."
+
+#: frontend/templates/home.html:228
 msgid "Register as Provider"
-msgstr "Register as Provider"#: frontend/templates/home.html:231
+msgstr "Register as Provider"
+
+#: frontend/templates/home.html:231
 msgid "Find Machinery"
-msgstr "Find Machinery"#: frontend/templates/home.html:247
+msgstr "Find Machinery"
+
+#: frontend/templates/home.html:247
 msgid "All rights reserved."
-msgstr "All rights reserved."#: frontend/templates/index.html:101
+msgstr "All rights reserved."
+
+#: frontend/templates/index.html:101
 msgid "Home"
-msgstr "Home"#: frontend/templates/index.html:104
+msgstr "Home"
+
+#: frontend/templates/index.html:104
 msgid "Products"
-msgstr "Products"#: frontend/templates/index.html:107
+msgstr "Products"
+
+#: frontend/templates/index.html:107
 msgid "Reports"
 msgstr "Reports"
 
@@ -2405,7 +2913,8 @@ msgstr "Danger Zone"
 #: user_auth/templates/user/profile.html:368
 msgid ""
 "Once you delete your account, there is no going back. Please be certain."
-msgstr "Once you delete your account, there is no going back. Please be certain."
+msgstr ""
+"Once you delete your account, there is no going back. Please be certain."
 
 #: user_auth/templates/user/profile.html:374
 msgid "Delete Account"
@@ -2414,7 +2923,8 @@ msgstr "Delete Account"
 #: user_auth/templates/user/profile.html:375
 msgid ""
 "Are you sure you want to delete your account? This action cannot be undone."
-msgstr "Are you sure you want to delete your account? This action cannot be undone."
+msgstr ""
+"Are you sure you want to delete your account? This action cannot be undone."
 
 #: user_auth/templates/user/profile.html:376
 msgid "Yes, delete my account"
