@@ -163,7 +163,6 @@ def notify_user(user, title, message, notification_type="info", link=""):
         The created Notification instance
     """
     try:
-        # Create notification in database
         notification = Notification.objects.create(
             user=user,
             title=title,
@@ -172,7 +171,6 @@ def notify_user(user, title, message, notification_type="info", link=""):
             link=link,
         )
 
-        # Send real-time event to user's channel
         channel = f"user-{user.id}"
         event_data = {
             "id": notification.id,
@@ -194,3 +192,121 @@ def notify_user(user, title, message, notification_type="info", link=""):
             f"Failed to create notification for user {user.username}: {str(e)}"
         )
         return None
+
+
+def send_bilingual_notification(
+    user,
+    title_ar,
+    title_en,
+    message_ar,
+    message_en,
+    link="",
+    notification_type="warning",
+):
+    """
+    Send notification in both Arabic and English.
+
+    Args:
+        user: The user to notify
+        title_ar: Arabic title
+        title_en: English title
+        message_ar: Arabic message
+        message_en: English message
+        link: Optional link to navigate to when clicked
+        notification_type: Type of notification
+    """
+    notify_user(
+        user, title_ar, message_ar, notification_type=notification_type, link=link
+    )
+    notify_user(
+        user, title_en, message_en, notification_type=notification_type, link=link
+    )
+
+
+def get_or_create_commission_balance(provider):
+    """
+    Get or create commission balance for provider.
+
+    Args:
+        provider: User instance (provider role)
+
+    Returns:
+        CommissionBalance instance
+    """
+    from django.db import transaction
+    from .models import CommissionBalance
+
+    balance, created = CommissionBalance.objects.get_or_create(provider=provider)
+    return balance
+
+
+def add_commission(provider, service_request, offer):
+    """
+    Add commission when provider approves a request.
+    Commission = 1% of offer's base_price
+
+    Args:
+        provider: User instance (provider)
+        service_request: ServiceRequest instance
+        offer: Offer instance
+
+    Returns:
+        tuple: (balance, threshold_reached)
+    """
+    from decimal import Decimal
+    from django.db import transaction
+    from .models import CommissionBalance, CommissionTransaction, Offer
+
+    commission_amount = offer.base_price * Decimal("0.01")
+
+    with transaction.atomic():
+        CommissionTransaction.objects.create(
+            provider=provider,
+            service_request=service_request,
+            offer=offer,
+            amount=commission_amount,
+        )
+
+        balance = get_or_create_commission_balance(provider)
+        balance.total_commission += commission_amount
+        balance.save()
+
+        threshold_reached = balance.total_commission >= Decimal("1000")
+
+        if threshold_reached and not balance.is_blocked:
+            balance.is_blocked = True
+            balance.save()
+
+            offer.status = Offer.OfferStatus.PENDING
+            offer.is_available = False
+            offer.save()
+
+        return balance, threshold_reached
+
+
+def suspend_offer(offer):
+    """
+    Suspend an offer.
+
+    Args:
+        offer: Offer instance
+    """
+    from .models import Offer
+
+    offer.status = Offer.OfferStatus.PENDING
+    offer.is_available = False
+    offer.save()
+
+
+def reactivate_offer(offer):
+    """
+    Reactivate an offer after payment.
+
+    Args:
+        offer: Offer instance
+    """
+    from .models import Offer
+
+    offer.status = Offer.OfferStatus.ACTIVE
+    offer.is_available = True
+    offer.save()

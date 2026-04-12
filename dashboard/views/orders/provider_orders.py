@@ -98,8 +98,8 @@ def approve_request(request, request_id):
     """
     Approve a pending service request.
 
-    Updates request status to 'approved' and sends notification to customer.
-    Phone number becomes visible to provider after approval.
+    Updates request status to 'approved', adds commission, and sends notification.
+    If commission threshold reached, suspends offer and notifies provider.
 
     Args:
         request: HTTP request object (POST only)
@@ -107,9 +107,9 @@ def approve_request(request, request_id):
 
     Returns:
         JSON response with:
-            - success: True/False
-            - message: Success/error message
-            - redirect_url: URL to redirect after approval
+        - success: True/False
+        - message: Success/error message
+        - redirect_url: URL to redirect after approval
     """
     service_request = get_object_or_404(
         ServiceRequest, pk=request_id, offer__provider=request.user
@@ -126,6 +126,12 @@ def approve_request(request, request_id):
     service_request.status = ServiceRequest.RequestStatus.APPROVED
     service_request.save()
 
+    from dashboard.utils import add_commission, send_bilingual_notification
+
+    balance, threshold_reached = add_commission(
+        request.user, service_request, service_request.offer
+    )
+
     notify_user(
         service_request.customer,
         _("Request Approved"),
@@ -138,6 +144,22 @@ def approve_request(request, request_id):
             kwargs={"request_id": service_request.pk},
         ),
     )
+
+    if threshold_reached:
+        payment_url = reverse("dash:payment_required")
+        send_bilingual_notification(
+            request.user,
+            _("Payment Required"),
+            _("Payment Required"),
+            _(
+                "Your commission balance has reached {amount} DA. Please submit payment proof to reactivate your offer."
+            ).format(amount=balance.total_commission),
+            _(
+                "Your commission balance has reached {amount} DA. Please submit payment proof to reactivate your offer."
+            ).format(amount=balance.total_commission),
+            link=payment_url,
+            notification_type="warning",
+        )
 
     return JsonResponse(
         {

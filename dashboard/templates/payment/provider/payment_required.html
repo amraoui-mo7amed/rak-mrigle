@@ -1,0 +1,180 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block dashTitle %}
+    {% trans "Payment" %}
+{% endblock dashTitle %}
+{% block extra_css %}
+    <link rel="stylesheet"
+          href="{% static 'css/payment.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+{% block dashContent %}
+    <div class="container-fluid"
+         data-trans-error="{% trans 'Error' %}"
+         data-trans-success="{% trans 'Success' %}"
+         data-trans-select-file="{% trans 'Please select a file first.' %}"
+         data-trans-uploading="{% trans 'Uploading...' %}"
+         data-trans-submit="{% trans 'Submit Payment Proof' %}">
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card payment-card mb-4">
+                    <div class="card-header bg-white border-0 py-4">
+                        <h4 class="fw-bold mb-0 text-primary">
+                            <i class="fas fa-credit-card me-2 text-primary"></i>{% trans "Commission Payment" %}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        {% if pending_proof %}
+                            <div class="alert alert-info d-flex align-items-center mb-4">
+                                <i class="fas fa-clock me-3 fa-lg"></i>
+                                <div>
+                                    <strong>{% trans "Payment Under Review" %}</strong>
+                                    <p class="mb-0 small">
+                                        {% trans "Your payment proof is being reviewed by admin." %}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="text-center py-4 mb-4 bg-light rounded-4">
+                            <p class="text-muted mb-2">
+                                {% trans "Current Commission Balance" %}
+                            </p>
+                            <div class="balance-display">
+                                {{ balance.total_commission }} DA
+                            </div>
+                            {% if balance.total_commission >= threshold %}
+                                <span class="badge bg-danger threshold-badge mt-2">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>{% trans "Payment Required" %}
+                                </span>
+                            {% else %}
+                                <span class="badge bg-success threshold-badge mt-2">
+                                    <i class="fas fa-check me-1"></i>{% trans "Below Threshold" %}
+                                </span>
+                            {% endif %}
+                        </div>
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-3">
+                                <i class="fas fa-info-circle me-2 text-muted"></i>{% trans "How It Works" %}
+                            </h6>
+                            <ul class="text-muted small">
+                                <li>
+                                    {% trans "Each approved request adds 1% of your offer price to your commission balance." %}
+                                </li>
+                                <li>
+                                    {% trans "When your balance reaches 1000 DA, your offer will be suspended." %}
+                                </li>
+                                <li>
+                                    {% trans "Upload your payment proof to reactivate your offer." %}
+                                </li>
+                            </ul>
+                        </div>
+                        {% if balance.total_commission >= threshold and not pending_proof %}
+                            <div class="border-top pt-4">
+                                <h5 class="fw-bold mb-3">
+                                    {% trans "Upload Payment Proof" %}
+                                </h5>
+                                <div class="upload-zone" id="uploadZone">
+                                    <input type="file"
+                                           class="file-input"
+                                           id="proofFile"
+                                           accept=".pdf,.png,.jpg,.jpeg" />
+                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                                    <p class="mb-1 fw-bold">
+                                        {% trans "Click to upload or drag and drop" %}
+                                    </p>
+                                    <p class="text-muted small mb-0">
+                                        {% trans "PDF or Image (PNG, JPG, JPEG)" %}
+                                    </p>
+                                </div>
+                                <div class="preview-container" id="previewContainer">
+                                    <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-file-alt me-2 text-primary"></i>
+                                            <span id="fileName"></span>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-outline-danger" id="removeFile">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="button"
+                                            class="btn btn-primary w-100 rounded-3 py-3"
+                                            id="submitBtn"
+                                            data-submit-url="{% url 'dash:submit_payment_proof' %}"
+                                            disabled>
+                                        <i class="fas fa-paper-plane me-2"></i>{% trans "Submit Payment Proof" %}
+                                    </button>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card payment-card mb-4">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="fw-bold mb-0">
+                            {% trans "Your Offer" %}
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if offer %}
+                            {% if offer.image %}
+                                <img src="{{ offer.image.url }}"
+                                     alt="{{ offer.title_ar }}"
+                                     class="img-fluid rounded mb-3"
+                                     style="max-height: 150px;
+                                            width: 100%;
+                                            object-fit: cover" />
+                            {% endif %}
+                            <h6 class="fw-bold">
+                                {{ offer.title_ar }}
+                            </h6>
+                            <p class="text-muted small mb-3">
+                                {{ offer.description_ar|truncatewords:15 }}
+                            </p>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">{% trans "Price" %}</span>
+                                <span class="fw-bold">{{ offer.base_price }} DA</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">{% trans "Status" %}</span>
+                                <span class="badge {% if offer.status == 'active' %}bg-success{% else %}bg-warning{% endif %}">
+                                    {{ offer.get_status_display }}
+                                </span>
+                            </div>
+                            {% if balance.is_blocked %}
+                                <div class="alert alert-warning mt-3 mb-0 small">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>
+                                    {% trans "Your offer is suspended until payment is verified." %}
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="text-center py-4">
+                                <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                                <p class="text-muted mb-0">
+                                    {% trans "No offer created yet" %}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card payment-card">
+                    <div class="card-body">
+                        <a href="{% url 'dash:payment_history' %}"
+                           class="btn btn-outline-secondary w-100 rounded-3">
+                            <i class="fas fa-history me-2"></i>{% trans "Payment History" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock dashContent %}
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'js/payment.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

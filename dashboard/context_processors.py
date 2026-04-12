@@ -1,8 +1,10 @@
 from django.utils.translation import gettext_lazy as _
+from functools import lru_cache
 
 
-def dashboard_sidebar(request):
-    menu_items = [
+@lru_cache(maxsize=4)
+def _get_menu_items():
+    return [
         {
             "title": _("Dashboard"),
             "icon": "fas fa-th-large",
@@ -60,6 +62,22 @@ def dashboard_sidebar(request):
             "customer_only": False,
         },
         {
+            "title": _("Payment"),
+            "icon": "fas fa-credit-card",
+            "url_name": "dash:payment_required",
+            "admin_only": False,
+            "provider_only": True,
+            "customer_only": False,
+        },
+        {
+            "title": _("Payments"),
+            "icon": "fas fa-money-check-alt",
+            "url_name": "dash:admin_payment_dashboard",
+            "admin_only": True,
+            "provider_only": False,
+            "customer_only": False,
+        },
+        {
             "title": _("Social Auth"),
             "icon": "fas fa-plug",
             "url_name": "dash:social_app_list",
@@ -69,6 +87,9 @@ def dashboard_sidebar(request):
         },
     ]
 
+
+def dashboard_sidebar(request):
+    menu_items = _get_menu_items()
     filtered_menu = []
 
     for item in menu_items:

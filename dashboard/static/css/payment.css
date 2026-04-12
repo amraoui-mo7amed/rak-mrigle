@@ -1,0 +1,71 @@
+.payment-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.balance-display {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.upload-zone {
+    border: 2px dashed #E2E8F0;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #FAFAFA;
+}
+
+.upload-zone:hover {
+    border-color: var(--brand-accent);
+    background: #FEFAF3;
+}
+
+.upload-zone.dragover {
+    border-color: var(--brand-accent);
+    background: #FEFAF3;
+}
+
+.file-input {
+    display: none;
+}
+
+.preview-container {
+    display: none;
+    margin-top: 1rem;
+}
+
+.preview-container.has-file {
+    display: block;
+}
+
+.threshold-badge {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.proof-viewer {
+    background: #F8F9FA;
+    border-radius: 12px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proof-viewer img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 12px;
+}
+
+.proof-viewer iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}

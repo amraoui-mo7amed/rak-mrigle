@@ -1,0 +1,134 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load tags %}
+
+{% block dashTitle %}
+{% trans "Payment History" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">{% trans "Payment History" %}</h2>
+            <p class="text-muted mb-0">{% trans "Your commission payment records" %}</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{% url 'dash:payment_required' %}" class="btn btn-primary rounded-3">
+                <i class="fas fa-credit-card me-2"></i>{% trans "Make Payment" %}
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-wallet text-primary fa-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-muted small mb-0">{% trans "Current Balance" %}</p>
+                            <h4 class="fw-bold mb-0">{{ balance.total_commission }} DA</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-{% if offer and offer.status == 'active' %}success{% else %}warning{% endif %} bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-truck text-{% if offer and offer.status == 'active' %}success{% else %}warning{% endif %} fa-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-muted small mb-0">{% trans "Offer Status" %}</p>
+                            <h4 class="fw-bold mb-0">
+                                {% if offer %}
+                                    {{ offer.get_status_display }}
+                                {% else %}
+                                    {% trans "No Offer" %}
+                                {% endif %}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-header bg-white border-0 py-3">
+            <h5 class="fw-bold mb-0">
+                <i class="fas fa-history me-2"></i>{% trans "Payment Records" %}
+            </h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="border-0 fw-bold">{% trans "Amount" %}</th>
+                            <th class="border-0 fw-bold">{% trans "Status" %}</th>
+                            <th class="border-0 fw-bold">{% trans "Submitted" %}</th>
+                            <th class="border-0 fw-bold">{% trans "Reviewed" %}</th>
+                            <th class="border-0 fw-bold">{% trans "Actions" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for payment in payments %}
+                        <tr>
+                            <td>
+                                <span class="fw-bold">{{ payment.amount }} DA</span>
+                            </td>
+                            <td>
+                                <span class="badge 
+                                    {% if payment.status == 'pending' %}bg-warning
+                                    {% elif payment.status == 'approved' %}bg-success
+                                    {% else %}bg-danger{% endif %}">
+                                    {{ payment.get_status_display }}
+                                </span>
+                            </td>
+                            <td>
+                                <small>{{ payment.created_at|date:"d M Y H:i" }}</small>
+                            </td>
+                            <td>
+                                {% if payment.reviewed_at %}
+                                    <small>{{ payment.reviewed_at|date:"d M Y H:i" }}</small>
+                                {% else %}
+                                    <small class="text-muted">-</small>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ payment.proof_file.url }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye me-1"></i>{% trans "View Proof" %}
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center py-5">
+                                <i class="fas fa-file-invoice fa-3x text-muted mb-3 d-block"></i>
+                                <p class="text-muted mb-0">{% trans "No payment records yet" %}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        {% render_pagination page_obj %}
+    </div>
+</div>
+{% endblock dashContent %}

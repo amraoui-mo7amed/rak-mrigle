@@ -1,14 +1,25 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.urls import reverse
 from django.utils.translation import gettext as _, get_language
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.views.decorators.http import require_POST, require_http_methods
+from decimal import Decimal, InvalidOperation
 
 from dashboard.models import Offer, Category
 from dashboard.decorator import provider_required
 from dashboard.utils import get_wilayas_choices, get_localized_category_choices
+
+
+def _to_decimal(value):
+    """Convert a value to Decimal, return None if empty or invalid."""
+    if value is None or value == "":
+        return None
+    try:
+        return Decimal(str(value))
+    except (InvalidOperation, ValueError):
+        return None
 
 
 def get_localized_pricing_choices():
@@ -72,6 +83,10 @@ def provider_offer_list(request):
 
 @provider_required
 def provider_offer_create(request):
+    existing_offer = Offer.objects.filter(provider=request.user).first()
+    if existing_offer:
+        return redirect("dash:provider_offer_edit", pk=existing_offer.pk)
+
     categories = Category.objects.filter(is_active=True)
 
     if request.method == "POST":
@@ -90,7 +105,6 @@ def provider_offer_create(request):
         wilaya = request.POST.get("wilaya", "").strip()
         location_ar = request.POST.get("location_ar", "").strip()
         is_available = request.POST.get("is_available") == "on"
-        action = request.POST.get("action", "draft")
 
         if not title_ar:
             errors.append(_("Title is required."))
@@ -103,24 +117,31 @@ def provider_offer_create(request):
         if not base_price:
             errors.append(_("Base price is required."))
 
-        try:
-            base_price_val = float(base_price) if base_price else 0
-            if base_price_val <= 0:
-                errors.append(_("Base price must be greater than zero."))
-        except ValueError:
+        base_price_val = _to_decimal(base_price)
+        if base_price_val is None:
             errors.append(_("Base price must be a valid number."))
+        elif base_price_val <= Decimal("0"):
+            errors.append(_("Base price must be greater than zero."))
 
-        if pricing_type == "distance" and price_per_km:
-            try:
-                float(price_per_km)
-            except ValueError:
-                errors.append(_("Price per km must be a valid number."))
+        price_per_km_val = _to_decimal(price_per_km)
+        if price_per_km and price_per_km_val is None:
+            errors.append(_("Price per km must be a valid number."))
 
-        if pricing_type == "hourly" and price_per_hour:
-            try:
-                float(price_per_hour)
-            except ValueError:
-                errors.append(_("Price per hour must be a valid number."))
+        price_per_hour_val = _to_decimal(price_per_hour)
+        if price_per_hour and price_per_hour_val is None:
+            errors.append(_("Price per hour must be a valid number."))
+
+        fuel_cost_val = _to_decimal(fuel_cost)
+        if fuel_cost and fuel_cost_val is None:
+            errors.append(_("Fuel cost must be a valid number."))
+
+        operator_cost_val = _to_decimal(operator_cost)
+        if operator_cost and operator_cost_val is None:
+            errors.append(_("Operator cost must be a valid number."))
+
+        wait_time_cost_val = _to_decimal(wait_time_cost)
+        if wait_time_cost and wait_time_cost_val is None:
+            errors.append(_("Wait time cost must be a valid number."))
 
         if errors:
             return JsonResponse({"success": False, "errors": errors})
@@ -132,7 +153,7 @@ def provider_offer_create(request):
                 {"success": False, "errors": [_("Invalid category selected.")]}
             )
 
-        status = Offer.OfferStatus.ACTIVE  # Offers are accepted directly
+        status = Offer.OfferStatus.ACTIVE
 
         try:
             with transaction.atomic():
@@ -147,11 +168,11 @@ def provider_offer_create(request):
                     description_en=description_ar,
                     pricing_type=pricing_type,
                     base_price=base_price_val,
-                    price_per_km=float(price_per_km) if price_per_km else None,
-                    price_per_hour=float(price_per_hour) if price_per_hour else None,
-                    fuel_cost=float(fuel_cost) if fuel_cost else None,
-                    operator_cost=float(operator_cost) if operator_cost else None,
-                    wait_time_cost=float(wait_time_cost) if wait_time_cost else None,
+                    price_per_km=price_per_km_val,
+                    price_per_hour=price_per_hour_val,
+                    fuel_cost=fuel_cost_val,
+                    operator_cost=operator_cost_val,
+                    wait_time_cost=wait_time_cost_val,
                     capacity=capacity,
                     wilaya=wilaya,
                     location_ar=location_ar,
@@ -165,15 +186,15 @@ def provider_offer_create(request):
                     offer.image = request.FILES["image"]
                     offer.save()
 
-                return JsonResponse(
-                    {
-                        "success": True,
-                        "message": _("Offer created successfully."),
-                        "redirect_url": reverse(
-                            "dash:provider_offer_details", kwargs={"pk": offer.pk}
-                        ),
-                    }
-                )
+            return JsonResponse(
+                {
+                    "success": True,
+                    "message": _("Offer created successfully."),
+                    "redirect_url": reverse(
+                        "dash:provider_offer_details", kwargs={"pk": offer.pk}
+                    ),
+                }
+            )
         except Exception as e:
             return JsonResponse({"success": False, "errors": [str(e)]})
 
@@ -215,86 +236,93 @@ def provider_offer_edit(request, pk):
         location_ar = request.POST.get("location_ar", "").strip()
         is_available = request.POST.get("is_available") == "on"
 
-        if not title_ar:
-            errors.append(_("Title is required."))
-        if not description_ar:
-            errors.append(_("Description is required."))
-        if not category_id:
-            errors.append(_("Category is required."))
-        if not pricing_type:
-            errors.append(_("Pricing type is required."))
-        if not base_price:
-            errors.append(_("Base price is required."))
+    if not title_ar:
+        errors.append(_("Title is required."))
+    if not description_ar:
+        errors.append(_("Description is required."))
+    if not category_id:
+        errors.append(_("Category is required."))
+    if not pricing_type:
+        errors.append(_("Pricing type is required."))
+    if not base_price:
+        errors.append(_("Base price is required."))
 
-        try:
-            base_price_val = float(base_price) if base_price else 0
-            if base_price_val <= 0:
-                errors.append(_("Base price must be greater than zero."))
-        except ValueError:
-            errors.append(_("Base price must be a valid number."))
+    base_price_val = _to_decimal(base_price)
+    if base_price_val is None:
+        errors.append(_("Base price must be a valid number."))
+    elif base_price_val <= Decimal("0"):
+        errors.append(_("Base price must be greater than zero."))
 
-        if pricing_type == "distance" and price_per_km:
-            try:
-                float(price_per_km)
-            except ValueError:
-                errors.append(_("Price per km must be a valid number."))
+    price_per_km_val = _to_decimal(price_per_km)
+    if price_per_km and price_per_km_val is None:
+        errors.append(_("Price per km must be a valid number."))
 
-        if pricing_type == "hourly" and price_per_hour:
-            try:
-                float(price_per_hour)
-            except ValueError:
-                errors.append(_("Price per hour must be a valid number."))
+    price_per_hour_val = _to_decimal(price_per_hour)
+    if price_per_hour and price_per_hour_val is None:
+        errors.append(_("Price per hour must be a valid number."))
 
-        if errors:
-            return JsonResponse({"success": False, "errors": errors})
+    fuel_cost_val = _to_decimal(fuel_cost)
+    if fuel_cost and fuel_cost_val is None:
+        errors.append(_("Fuel cost must be a valid number."))
 
-        try:
-            category = Category.objects.get(pk=category_id)
-        except Category.DoesNotExist:
-            return JsonResponse(
-                {"success": False, "errors": [_("Invalid category selected.")]}
-            )
+    operator_cost_val = _to_decimal(operator_cost)
+    if operator_cost and operator_cost_val is None:
+        errors.append(_("Operator cost must be a valid number."))
 
-        try:
-            with transaction.atomic():
-                offer.category = category
-                offer.title_ar = title_ar
-                offer.title_fr = title_ar
-                offer.title_en = title_ar
-                offer.description_ar = description_ar
-                offer.description_fr = description_ar
-                offer.description_en = description_ar
-                offer.pricing_type = pricing_type
-                offer.base_price = base_price_val
-                offer.price_per_km = float(price_per_km) if price_per_km else None
-                offer.price_per_hour = float(price_per_hour) if price_per_hour else None
-                offer.fuel_cost = float(fuel_cost) if fuel_cost else None
-                offer.operator_cost = float(operator_cost) if operator_cost else None
-                offer.wait_time_cost = float(wait_time_cost) if wait_time_cost else None
-                offer.capacity = capacity
-                offer.wilaya = wilaya
-                offer.location_ar = location_ar
-                offer.location_fr = location_ar
-                offer.location_en = location_ar
-                offer.is_available = is_available
-                offer.status = Offer.OfferStatus.ACTIVE  # Keep active
+    wait_time_cost_val = _to_decimal(wait_time_cost)
+    if wait_time_cost and wait_time_cost_val is None:
+        errors.append(_("Wait time cost must be a valid number."))
 
-                if request.FILES.get("image"):
-                    offer.image = request.FILES["image"]
+    if errors:
+        return JsonResponse({"success": False, "errors": errors})
 
-                offer.save()
+    try:
+        category = Category.objects.get(pk=category_id)
+    except Category.DoesNotExist:
+        return JsonResponse(
+            {"success": False, "errors": [_("Invalid category selected.")]}
+        )
 
-                return JsonResponse(
-                    {
-                        "success": True,
-                        "message": _("Offer updated successfully."),
-                        "redirect_url": reverse(
-                            "dash:provider_offer_details", kwargs={"pk": offer.pk}
-                        ),
-                    }
-                )
-        except Exception as e:
-            return JsonResponse({"success": False, "errors": [str(e)]})
+    try:
+        with transaction.atomic():
+            offer.category = category
+            offer.title_ar = title_ar
+            offer.title_fr = title_ar
+            offer.title_en = title_ar
+            offer.description_ar = description_ar
+            offer.description_fr = description_ar
+            offer.description_en = description_ar
+            offer.pricing_type = pricing_type
+            offer.base_price = base_price_val
+            offer.price_per_km = price_per_km_val
+            offer.price_per_hour = price_per_hour_val
+            offer.fuel_cost = fuel_cost_val
+            offer.operator_cost = operator_cost_val
+            offer.wait_time_cost = wait_time_cost_val
+            offer.capacity = capacity
+            offer.wilaya = wilaya
+            offer.location_ar = location_ar
+            offer.location_fr = location_ar
+            offer.location_en = location_ar
+            offer.is_available = is_available
+            offer.status = Offer.OfferStatus.ACTIVE
+
+            if request.FILES.get("image"):
+                offer.image = request.FILES["image"]
+
+            offer.save()
+
+        return JsonResponse(
+            {
+                "success": True,
+                "message": _("Offer updated successfully."),
+                "redirect_url": reverse(
+                    "dash:provider_offer_details", kwargs={"pk": offer.pk}
+                ),
+            }
+        )
+    except Exception as e:
+        return JsonResponse({"success": False, "errors": [str(e)]})
 
     context = {
         "offer": offer,

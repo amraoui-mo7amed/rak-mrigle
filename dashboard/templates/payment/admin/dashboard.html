@@ -1,0 +1,123 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load tags %}
+
+{% block dashTitle %}
+    {% trans "Payment Management" %}
+{% endblock dashTitle %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/offers.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+{% block dashContent %}
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1">
+                    {% trans "Payment Management" %}
+                </h2>
+                <p class="text-muted mb-0">
+                    {% trans "Review and manage provider payment proofs" %}
+                </p>
+            </div>
+        </div>
+        <div class="card border-0 shadow-sm rounded-4 mb-4">
+            <div class="card-header bg-white border-0 py-3">
+                <div class="d-flex align-items-center gap-3">
+                    <h5 class="fw-bold mb-0">
+                        <i class="fas fa-money-check-alt me-2"></i>{% trans "Payment Proofs" %}
+                    </h5>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="border-0 fw-bold">
+                                    {% trans "Provider" %}
+                                </th>
+                                <th class="border-0 fw-bold">
+                                    {% trans "Amount" %}
+                                </th>
+                                <th class="border-0 fw-bold">
+                                    {% trans "Offer" %}
+                                </th>
+                                <th class="border-0 fw-bold">
+                                    {% trans "Status" %}
+                                </th>
+                                <th class="border-0 fw-bold">
+                                    {% trans "Submitted" %}
+                                </th>
+                                <th class="border-0 fw-bold">
+                                    {% trans "Actions" %}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for payment in payments %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            {% if payment.provider.profile.profile_picture %}
+                                                <img src="{{ payment.provider.profile.profile_picture.url }}"
+                                                     alt="{{ payment.provider.username }}"
+                                                     class="rounded-circle me-2"
+                                                     style="width: 40px;
+                                                            height: 40px;
+                                                            object-fit: cover" />
+                                            {% else %}
+                                                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
+                                                     style="width: 40px;
+                                                            height: 40px">
+                                                    <i class="fas fa-user text-muted"></i>
+                                                </div>
+                                            {% endif %}
+                                            <div>
+                                                <span class="fw-bold">{{ payment.provider.get_full_name|default:payment.provider.username }}</span>
+                                                <small class="text-muted d-block">{{ payment.provider.email }}</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="fw-bold text-primary">{{ payment.amount }} DA</span>
+                                    </td>
+                                    <td>
+                                        <small>{{ payment.offer.title_ar|truncatewords:5 }}</small>
+                                    </td>
+                                    <td>
+                                        <span class="badge {% if payment.status == 'pending' %}bg-warning {% elif payment.status == 'approved' %}bg-success {% else %}bg-danger{% endif %}">
+                                            {{ payment.get_status_display }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <small>{{ payment.created_at|date:"d M Y H:i" }}</small>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'dash:admin_payment_details' payment.pk %}"
+                                           class="btn btn-sm btn-primary">
+                                            <i class="fas fa-eye me-1"></i>{% trans "Details" %}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="6" class="text-center py-5">
+                                        <i class="fas fa-check-circle fa-3x text-muted mb-3 d-block"></i>
+                                        <p class="text-muted mb-0">
+                                            {% trans "No pending payments" %}
+                                        </p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            {% render_pagination page_obj %}
+        </div>
+    </div>
+{% endblock dashContent %}

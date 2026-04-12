@@ -13,7 +13,8 @@ cryptography==46.0.5
 cssbeautifier==1.15.4
 daphne==4.2.1
 django==5.2.5
-django-allauth==66.0.2
+django-allauth==65.15.0
+django-debug-toolbar==6.3.0
 django-eventstream==5.3.3
 django-grip==3.5.2
 djlint==1.36.4
@@ -52,4 +53,5 @@ typing-extensions==4.15.0
 ujson==5.12.0
 urllib3==2.6.3
 werkzeug==3.1.7
+whitenoise==6.12.0
 zope-interface==8.2

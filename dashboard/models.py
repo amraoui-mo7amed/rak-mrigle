@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import MinValueValidator
+from decimal import Decimal, InvalidOperation
 
 userModel = get_user_model()
 
@@ -135,6 +137,7 @@ class Offer(models.Model):
     base_price = models.DecimalField(
         max_digits=10,
         decimal_places=2,
+        validators=[MinValueValidator(0)],
         verbose_name=_("السعر الأساسي"),
         help_text=_("Minimum charge for the service"),
     )
@@ -143,6 +146,7 @@ class Offer(models.Model):
         decimal_places=2,
         blank=True,
         null=True,
+        validators=[MinValueValidator(0)],
         verbose_name=_("السعر لكل كلم"),
     )
     price_per_hour = models.DecimalField(
@@ -150,6 +154,7 @@ class Offer(models.Model):
         decimal_places=2,
         blank=True,
         null=True,
+        validators=[MinValueValidator(0)],
         verbose_name=_("السعر لكل ساعة"),
     )
     fuel_cost = models.DecimalField(
@@ -157,6 +162,7 @@ class Offer(models.Model):
         decimal_places=2,
         blank=True,
         null=True,
+        validators=[MinValueValidator(0)],
         verbose_name=_("تكلفة الوقود"),
     )
     operator_cost = models.DecimalField(
@@ -164,6 +170,7 @@ class Offer(models.Model):
         decimal_places=2,
         blank=True,
         null=True,
+        validators=[MinValueValidator(0)],
         verbose_name=_("تكلفة المشغل"),
     )
     wait_time_cost = models.DecimalField(
@@ -171,6 +178,7 @@ class Offer(models.Model):
         decimal_places=2,
         blank=True,
         null=True,
+        validators=[MinValueValidator(0)],
         verbose_name=_("تكلفة وقت الانتظار"),
     )
     capacity = models.CharField(
@@ -255,6 +263,29 @@ class Offer(models.Model):
             return self.location_en
         return self.location_ar
 
+    def save(self, *args, **kwargs):
+        decimal_fields = [
+            "base_price",
+            "price_per_km",
+            "price_per_hour",
+            "fuel_cost",
+            "operator_cost",
+            "wait_time_cost",
+        ]
+        for field in decimal_fields:
+            value = getattr(self, field)
+            if value is not None:
+                try:
+                    if not isinstance(value, Decimal):
+                        value = Decimal(str(value))
+                    quantized = value.quantize(Decimal("0.01"))
+                    setattr(self, field, quantized)
+                except (InvalidOperation, ValueError) as e:
+                    raise ValueError(
+                        f"Invalid decimal value for {field}: {value}. {str(e)}"
+                    )
+        super().save(*args, **kwargs)
+
 
 class ServiceRequest(models.Model):
     """Service request from customer to provider"""
@@ -301,3 +332,132 @@ class ServiceRequest(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.offer.title_ar}"
+
+
+class CommissionBalance(models.Model):
+    """Tracks provider's commission balance"""
+
+    provider = models.OneToOneField(
+        userModel,
+        on_delete=models.CASCADE,
+        related_name="commission_balance",
+        verbose_name=_("المزود"),
+    )
+    total_commission = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        default=0,
+        verbose_name=_("إجمالي العمولة"),
+    )
+    is_blocked = models.BooleanField(
+        default=False,
+        verbose_name=_("محظور"),
+        help_text=_("Offer suspended due to unpaid commission"),
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _("رصيد العمولة")
+        verbose_name_plural = "أرصدة العمولات"
+
+    def __str__(self):
+        return f"{self.provider.username} - {self.total_commission} DA"
+
+
+class CommissionTransaction(models.Model):
+    """Individual commission transaction per approved request"""
+
+    provider = models.ForeignKey(
+        userModel,
+        on_delete=models.CASCADE,
+        related_name="commission_transactions",
+        verbose_name=_("المزود"),
+    )
+    service_request = models.OneToOneField(
+        ServiceRequest,
+        on_delete=models.CASCADE,
+        related_name="commission_transaction",
+        verbose_name=_("طلب الخدمة"),
+    )
+    offer = models.ForeignKey(
+        Offer,
+        on_delete=models.CASCADE,
+        related_name="commission_transactions",
+        verbose_name=_("العرض"),
+    )
+    amount = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name=_("المبلغ"),
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("تاريخ الإنشاء"),
+    )
+
+    class Meta:
+        verbose_name = _("معاملة العمولة")
+        verbose_name_plural = "معاملات العمولات"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.provider.username} - {self.amount} DA"
+
+
+class PaymentProof(models.Model):
+    """Payment proof submitted by provider"""
+
+    class PaymentStatus(models.TextChoices):
+        PENDING = "pending", _("قيد الانتظار")
+        APPROVED = "approved", _("مقبول")
+        REJECTED = "rejected", _("مرفوض")
+
+    provider = models.ForeignKey(
+        userModel,
+        on_delete=models.CASCADE,
+        related_name="payment_proofs",
+        verbose_name=_("المزود"),
+    )
+    offer = models.ForeignKey(
+        Offer,
+        on_delete=models.CASCADE,
+        related_name="payment_proofs",
+        verbose_name=_("العرض"),
+    )
+    amount = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name=_("المبلغ"),
+    )
+    proof_file = models.FileField(
+        upload_to="payment_proofs/",
+        verbose_name=_("ملف الإثبات"),
+        help_text=_("PDF أو صورة فقط"),
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=PaymentStatus.choices,
+        default=PaymentStatus.PENDING,
+        verbose_name=_("الحالة"),
+    )
+    admin_note = models.TextField(
+        blank=True,
+        verbose_name=_("ملاحظة المدير"),
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("تاريخ الإنشاء"),
+    )
+    reviewed_at = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name=_("تاريخ المراجعة"),
+    )
+
+    class Meta:
+        verbose_name = _("إثبات الدفع")
+        verbose_name_plural = "إثباتات الدفع"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.provider.username} - {self.amount} DA"

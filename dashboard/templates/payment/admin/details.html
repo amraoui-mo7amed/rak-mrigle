@@ -1,0 +1,189 @@
+{% extends "dash/dash_index.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block dashTitle %}
+{% trans "Payment Details" %}
+{% endblock dashTitle %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/payment.css' %}?v={% now 'U' %}" />
+{% endblock extra_css %}
+
+{% block dashContent %}
+<div class="container-fluid"
+    data-trans-error="{% trans 'Error' %}"
+    data-trans-success="{% trans 'Success' %}"
+    data-trans-approve-title="{% trans 'Approve Payment' %}"
+    data-trans-approve-text="{% trans 'Are you sure you want to approve this payment?' %}"
+    data-trans-yes-approve="{% trans 'Yes, approve it' %}"
+    data-trans-reject-title="{% trans 'Reject Payment' %}"
+    data-trans-reject-text="{% trans 'Please provide a reason for rejection:' %}"
+    data-trans-yes-reject="{% trans 'Yes, reject it' %}"
+    data-trans-cancel="{% trans 'Cancel' %}"
+    data-trans-reason-placeholder="{% trans 'Enter rejection reason...' %}">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0">
+                            <i class="fas fa-file-invoice me-2"></i>{% trans "Payment Proof" %}
+                        </h5>
+                        <span class="badge 
+                            {% if payment.status == 'pending' %}bg-warning
+                            {% elif payment.status == 'approved' %}bg-success
+                            {% else %}bg-danger{% endif %} fs-6">
+                            {{ payment.get_status_display }}
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="proof-viewer mb-4">
+                        {% if payment.proof_file.name|lower|slice:'-4:' == '.pdf' %}
+                        <iframe src="{{ payment.proof_file.url }}"></iframe>
+                        {% else %}
+                        <img src="{{ payment.proof_file.url }}" alt="{% trans 'Payment Proof' %}">
+                        {% endif %}
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="bg-light p-3 rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-money-bill-wave me-1"></i>{% trans "Amount" %}
+                                </small>
+                                <span class="fw-bold fs-5 text-primary">{{ payment.amount }} DA</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-light p-3 rounded-3">
+                                <small class="text-muted d-block mb-1">
+                                    <i class="fas fa-calendar me-1"></i>{% trans "Submitted On" %}
+                                </small>
+                                <span class="fw-bold">{{ payment.created_at|date:"d M Y" }}</span>
+                                <small class="text-muted">{{ payment.created_at|date:"H:i" }}</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if payment.status == 'pending' %}
+                    <div class="d-flex gap-3">
+                        <button type="button"
+                                class="btn btn-success flex-grow-1 rounded-3 py-3"
+                                data-action="approve-payment"
+                                data-payment-id="{{ payment.pk }}"
+                                data-approve-url="{% url 'dash:admin_payment_approve' payment.pk %}">
+                            <i class="fas fa-check me-2"></i>{% trans "Approve Payment" %}
+                        </button>
+                        <button type="button"
+                                class="btn btn-outline-danger flex-grow-1 rounded-3 py-3"
+                                data-action="reject-payment"
+                                data-payment-id="{{ payment.pk }}"
+                                data-reject-url="{% url 'dash:admin_payment_reject' payment.pk %}">
+                            <i class="fas fa-times me-2"></i>{% trans "Reject Payment" %}
+                        </button>
+                    </div>
+                    {% elif payment.reviewed_at %}
+                    <div class="alert alert-{% if payment.status == 'approved' %}success{% else %}danger{% endif %} mb-0">
+                        <i class="fas fa-{% if payment.status == 'approved' %}check-circle{% else %}times-circle{% endif %} me-2"></i>
+                        {% trans "Reviewed on" %} {{ payment.reviewed_at|date:"d M Y H:i" }}
+                        {% if payment.admin_note %}
+                        <br><strong>{% trans "Note:" %}</strong> {{ payment.admin_note }}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold mb-0">{% trans "Provider Info" %}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        {% if payment.provider.profile.profile_picture %}
+                        <img src="{{ payment.provider.profile.profile_picture.url }}" 
+                             alt="{{ payment.provider.username }}" 
+                             class="rounded-circle mb-3"
+                             style="width: 80px; height: 80px; object-fit: cover;">
+                        {% else %}
+                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                             style="width: 80px; height: 80px;">
+                            <i class="fas fa-user fa-2x text-muted"></i>
+                        </div>
+                        {% endif %}
+                        <h5 class="fw-bold mb-1">{{ payment.provider.get_full_name|default:payment.provider.username }}</h5>
+                        <p class="text-muted small mb-0">{{ payment.provider.email }}</p>
+                        {% if payment.provider.profile.phone_number %}
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-phone me-1"></i>{{ payment.provider.profile.phone_number }}
+                        </p>
+                        {% endif %}
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <small class="text-muted d-block">{% trans "Commission Balance" %}</small>
+                        <span class="fw-bold">{{ balance.total_commission }} DA</span>
+                    </div>
+                    <div>
+                        <small class="text-muted d-block">{% trans "Account Status" %}</small>
+                        <span class="badge {% if balance.is_blocked %}bg-danger{% else %}bg-success{% endif %}">
+                            {% if balance.is_blocked %}{% trans "Blocked" %}{% else %}{% trans "Active" %}{% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold mb-0">{% trans "Offer Details" %}</h5>
+                </div>
+                <div class="card-body">
+                    {% if payment.offer.image %}
+                    <img src="{{ payment.offer.image.url }}" 
+                         alt="{{ payment.offer.title_ar }}" 
+                         class="img-fluid rounded mb-3"
+                         style="max-height: 120px; width: 100%; object-fit: cover;">
+                    {% endif %}
+                    <h6 class="fw-bold mb-2">{{ payment.offer.title_ar }}</h6>
+                    <p class="text-muted small mb-3">{{ payment.offer.description_ar|truncatewords:15 }}</p>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">{% trans "Base Price" %}</span>
+                        <span class="fw-bold">{{ payment.offer.base_price }} DA</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">{% trans "Status" %}</span>
+                        <span class="badge {% if payment.offer.status == 'active' %}bg-success{% elif payment.offer.status == 'pending' %}bg-warning{% else %}bg-secondary{% endif %}">
+                            {{ payment.offer.get_status_display }}
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted">{% trans "Available" %}</span>
+                        <span class="badge {% if payment.offer.is_available %}bg-success{% else %}bg-danger{% endif %}">
+                            {% if payment.offer.is_available %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body">
+                    <a href="{% url 'dash:admin_payment_dashboard' %}" class="btn btn-outline-secondary w-100 rounded-3">
+                        <i class="fas fa-arrow-left me-2"></i>{% trans "Back to List" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock dashContent %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/payment.js' %}?v={% now 'U' %}"></script>
+{% endblock extra_js %}

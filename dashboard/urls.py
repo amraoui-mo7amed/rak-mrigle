@@ -1,6 +1,7 @@
 from django.urls import path
 from dashboard.views import dashboard, users, notifications, social_auth
 from dashboard.views import admin_offers, provider_offers, orders, catalog
+from dashboard.views.payment import admin_payment, provider_payment
 
 app_name = "dash"
 
@@ -119,5 +120,34 @@ urlpatterns = [
         "incoming-requests/<int:request_id>/reject/",
         orders.reject_request,
         name="reject_request",
+    ),
+    # Payment - Provider
+    path("payment/", provider_payment.payment_required, name="payment_required"),
+    path(
+        "payment/submit/",
+        provider_payment.submit_payment_proof,
+        name="submit_payment_proof",
+    ),
+    path("payment/history/", provider_payment.payment_history, name="payment_history"),
+    # Payment - Admin
+    path(
+        "admin/payments/",
+        admin_payment.payment_dashboard,
+        name="admin_payment_dashboard",
+    ),
+    path(
+        "admin/payments/<int:payment_id>/",
+        admin_payment.payment_details,
+        name="admin_payment_details",
+    ),
+    path(
+        "admin/payments/<int:payment_id>/approve/",
+        admin_payment.approve_payment,
+        name="admin_payment_approve",
+    ),
+    path(
+        "admin/payments/<int:payment_id>/reject/",
+        admin_payment.reject_payment,
+        name="admin_payment_reject",
     ),
 ]
