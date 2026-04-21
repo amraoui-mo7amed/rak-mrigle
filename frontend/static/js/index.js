@@ -1,4 +1,34 @@
 
+// Initialize site config from data attributes
+(function() {
+    const body = document.body;
+    
+    window.SiteConfig = {
+        name: body.dataset.siteName || '',
+        logo: body.dataset.siteLogo || '',
+        favicon: body.dataset.siteFavicon || ''
+    };
+    
+    const root = document.documentElement;
+    const colorVars = [
+        'primary-color',
+        'secondary-color', 
+        'accent-color',
+        'success-color',
+        'danger-color',
+        'dark-color',
+        'light-color'
+    ];
+    
+    colorVars.forEach(function(varName) {
+        var attrName = 'data-' + varName;
+        var value = body.getAttribute(attrName);
+        if (value) {
+            root.style.setProperty('--' + varName, value);
+        }
+    });
+})();
+
 // Initialise AOS once
 AOS.init({ duration: 400, once: true });
 

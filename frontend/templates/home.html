@@ -1,38 +1,63 @@
 {% extends 'index.html' %}
+
 {% load i18n %}
 {% load static %}
 
-{% block body_class %}landing-page{% endblock body_class %}
-
+{% block body_class %}
+    landing-page
+{% endblock body_class %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static "css/home.css" %}?v={% now "U" %}">
+    <link rel="stylesheet" href="{% static "css/home.css" %}?v={% now "U" %}" />
 {% endblock extra_css %}
-
 {% block nav %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 fixed-top" id="landingNav">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-                <span class="fw-black fs-4 text-dark">
-                    {% if IS_RTL %}{{ site_config.ar_name }}{% else %}{{ site_config.name }}{% endif %}
-                </span>
-            </a>
-            <div class="ms-auto d-flex align-items-center gap-3">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'dash:dash_home' %}" class="btn btn-dark rounded-pill px-4 fw-bold">{% trans "Dashboard" %}</a>
-                {% else %}
-                    <a href="{% url 'user_auth:login' %}" class="btn btn-link text-dark fw-bold text-decoration-none d-none d-md-block">{% trans "Login" %}</a>
-                    <a href="{% url 'user_auth:signup' %}" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">{% trans "Get Started" %}</a>
-                {% endif %}
+    <nav class="navbar d-flex flex-column navbar-expand-lg navbar-light bg-transparent pt-0 py-4 fixed-top"
+         id="landingNav">
+            <div class="bg-danger text-light w-100 text-center fw-bold py-2 mb-3">
+                {% trans "Rak Mrigle is only an intermediary between customers and service providers, and we're not resposnibe for any legal issues" %}
             </div>
-        </div>
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                    <span class="fw-black fs-4 text-dark">
+                        {% if IS_RTL %}
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="text-accent">
+                                    راك
+                                </span>
+                                <span class="text-primary">
+                                    مريقل
+                                </span>
+                            </div>
+                        {% else %}
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="text-accent">
+                                    Rak
+                                </span>
+                                <span class="text-primary">
+                                    Mrigle
+                                </span>
+                            </div>
+                        {% endif %}
+                    </span>
+                </a>
+                <div class="ms-auto d-flex align-items-center gap-3">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'dash:dash_home' %}"
+                           class="btn btn-dark rounded-pill px-4 fw-bold">{% trans "Dashboard" %}</a>
+                    {% else %}
+                        <a href="{% url 'user_auth:login' %}"
+                           class="btn btn-link text-dark fw-bold text-decoration-none d-none d-md-block">{% trans "Login" %}</a>
+                        <a href="{% url 'user_auth:signup' %}"
+                           class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">{% trans "Get Started" %}</a>
+                    {% endif %}
+                </div>
+            </div>
     </nav>
 {% endblock nav %}
-
-{% block sidebar %}{% endblock sidebar %}
-
+{% block sidebar %}
+{% endblock sidebar %}
 {% block content %}
     <!-- 1. Impact Hero Section -->
-    <section class="custom-hero mt-4 bg-accent-soft position-relative overflow-hidden py-5">
+    <section class="custom-hero mt-5 bg-accent-soft position-relative overflow-hidden py-5">
         <div class="container py-lg-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-7" data-aos="fade-right">
@@ -50,10 +75,12 @@
                         {% trans "Connecting the construction industry with verified heavy machinery and specialized transport providers across all wilayas." %}
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="{% url 'user_auth:signup' %}" class="btn btn-accent btn-lg px-5 py-3 rounded-pill fw-black shadow-lg hover-up">
+                        <a href="{% url 'user_auth:signup' %}"
+                           class="btn btn-accent btn-lg px-5 py-3 rounded-pill fw-black shadow-lg hover-up">
                             {% trans "Get Started" %} <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="#services" class="btn btn-outline-dark-blue btn-lg px-5 py-3 rounded-pill fw-bold border-2">
+                        <a href="#services"
+                           class="btn btn-outline-dark-blue btn-lg px-5 py-3 rounded-pill fw-bold border-2">
                             {% trans "Our Catalog" %}
                         </a>
                     </div>
@@ -66,47 +93,69 @@
             </div>
         </div>
     </section>
-
     <!-- 2. Core Service Grid -->
     <section id="services" class="py-5 bg-white">
         <div class="container py-5">
             <div class="row mb-5 text-center justify-content-center">
                 <div class="col-lg-8" data-aos="fade-up">
-                    <h2 class="display-4 fw-black text-dark-blue mb-3">{% trans "Tailored Industrial Solutions" %}</h2>
-                    <div class="accent-bar mx-auto"></div>
-                    <p class="text-muted mt-3 fs-5">{% trans "Browse specialized categories designed to meet the demands of modern infrastructure and logistics." %}</p>
+                    <h2 class="display-4 fw-black text-dark-blue mb-3">
+                        {% trans "Tailored Industrial Solutions" %}
+                    </h2>
+                    <div class="accent-bar mx-auto">
+                    </div>
+                    <p class="text-muted mt-3 fs-5">
+                        {% trans "Browse specialized categories designed to meet the demands of modern infrastructure and logistics." %}
+                    </p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="service-card p-5 border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden">
-                        <div class="accent-top-bar"></div>
-                        <i class="fas fa-truck-loading fa-4x text-accent mb-4"></i>
-                        <h3 class="fw-black h4 mb-3">{% trans "Transport & Utilities" %}</h3>
-                        <p class="text-muted mb-4">{% trans "From small utility vans to massive trailer trucks for heavy haulage." %}</p>
-                        <a href="#" class="text-accent fw-bold text-decoration-none stretched-link">
+                        <div class="accent-top-bar">
+                        </div>
+                        <i class="fas fa-dolly fa-4x text-accent mb-4"></i>
+                        <h3 class="fw-black h4 mb-3">
+                            {% trans "Transport & Delivery" %}
+                        </h3>
+                        <p class="text-muted mb-4">
+                            {% trans "From small utility vans to massive trailer trucks for heavy haulage." %}
+                        </p>
+                        <a href="#"
+                           class="text-accent fw-bold text-decoration-none stretched-link">
                             {% trans "View Offers" %} <i class="fas fa-chevron-right ms-1"></i>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card p-5 border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden">
-                        <div class="accent-top-bar"></div>
-                        <i class="fas fa-landmark fa-4x text-accent mb-4"></i>
-                        <h3 class="fw-black h4 mb-3">{% trans "Construction Machinery" %}</h3>
-                        <p class="text-muted mb-4">{% trans "Loaders, excavators, and compactors from verified contractors." %}</p>
-                        <a href="#" class="text-accent fw-bold text-decoration-none stretched-link">
+                        <div class="accent-top-bar">
+                        </div>
+                        <i class="fas fa-tractor fa-4x text-accent mb-4"></i>
+                        <h3 class="fw-black h4 mb-3">
+                            {% trans "Heavy Machinery" %}
+                        </h3>
+                        <p class="text-muted mb-4">
+                            {% trans "Loaders, excavators, and compactors from verified contractors." %}
+                        </p>
+                        <a href="#"
+                           class="text-accent fw-bold text-decoration-none stretched-link">
                             {% trans "Explore Fleet" %} <i class="fas fa-chevron-right ms-1"></i>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card p-5 border-0 shadow-sm rounded-4 h-100 position-relative overflow-hidden">
-                        <div class="accent-top-bar"></div>
+                        <div class="accent-top-bar">
+                        </div>
                         <i class="fas fa-tools fa-4x text-accent mb-4"></i>
-                        <h3 class="fw-black h4 mb-3">{% trans "Logistics & Towing" %}</h3>
-                        <p class="text-muted mb-4">{% trans "Specialized towing (Dépannage) and on-demand car logistics." %}</p>
-                        <a href="#" class="text-accent fw-bold text-decoration-none stretched-link">
+                        <h3 class="fw-black h4 mb-3">
+                            {% trans "Logistics & Towing" %}
+                        </h3>
+                        <p class="text-muted mb-4">
+                            {% trans "Specialized towing (Dépannage) and on-demand car logistics." %}
+                        </p>
+                        <a href="#"
+                           class="text-accent fw-bold text-decoration-none stretched-link">
                             {% trans "Book Service" %} <i class="fas fa-chevron-right ms-1"></i>
                         </a>
                     </div>
@@ -114,57 +163,81 @@
             </div>
         </div>
     </section>
-
     <!-- 3. Pricing & Value Proposition (Redesigned) -->
     <section class="bg-dark-blue py-5 position-relative overflow-hidden text-white border-top border-bottom border-white border-opacity-10">
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5" data-aos="fade-right">
-                    <h2 class="display-5 fw-black mb-4 lh-sm">{% trans "Fair Pricing," %}<br><span class="text-accent">{% trans "Powered by Data" %}</span></h2>
-                    <p class="text-white text-opacity-50 mb-5 fs-5">{% trans "We eliminate guesswork with a transparent pricing engine built for the Algerian market." %}</p>
-                    
+                    <h2 class="display-5 fw-black mb-4 lh-sm">
+                        {% trans "Fair Pricing," %}
+                        <br />
+                        <span class="text-accent">{% trans "Powered by Data" %}</span>
+                    </h2>
+                    <p class="text-white text-opacity-50 mb-5 fs-5">
+                        {% trans "We eliminate guesswork with a transparent pricing engine built for the Algerian market." %}
+                    </p>
                     <div class="logic-card p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-20 mb-4 hover-up">
                         <div class="d-flex align-items-center gap-4">
                             <div class="logic-icon-box bg-accent bg-opacity-20 rounded-3 p-3 text-accent shadow-sm">
                                 <i class="fas fa-route fa-2x"></i>
                             </div>
                             <div>
-                                <h4 class="fw-bold mb-1 text-white">{% trans "Distance Logic" %}</h4>
-                                <p class="text-white text-opacity-80 mb-0 small">{% trans "Dynamic calculation based on Km and vehicle rate." %}</p>
+                                <h4 class="fw-bold mb-1 text-white">
+                                    {% trans "Distance Logic" %}
+                                </h4>
+                                <p class="text-white text-opacity-80 mb-0 small">
+                                    {% trans "Dynamic calculation based on Km and vehicle rate." %}
+                                </p>
                             </div>
                         </div>
                     </div>
-
                     <div class="logic-card p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-20 hover-up">
                         <div class="d-flex align-items-center gap-4">
                             <div class="logic-icon-box bg-accent bg-opacity-20 rounded-3 p-3 text-accent shadow-sm">
                                 <i class="fas fa-clock fa-2x"></i>
                             </div>
                             <div>
-                                <h4 class="fw-bold mb-1 text-white">{% trans "Hourly Logic" %}</h4>
-                                <p class="text-white text-opacity-80 mb-0 small">{% trans "Flexible rates for machinery and operator tasks." %}</p>
+                                <h4 class="fw-bold mb-1 text-white">
+                                    {% trans "Hourly Logic" %}
+                                </h4>
+                                <p class="text-white text-opacity-80 mb-0 small">
+                                    {% trans "Flexible rates for machinery and operator tasks." %}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-lg-7" data-aos="fade-left">
                     <div class="stats-premium-grid">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="premium-stat-card p-5 rounded-5 bg-white bg-opacity-10 border border-white border-opacity-20 h-100 position-relative overflow-hidden shadow-lg">
-                                    <div class="stat-glow bg-accent opacity-20"></div>
-                                    <div class="display-4 fw-black text-accent mb-2">1%</div>
-                                    <h5 class="fw-black text-white mb-3">{% trans "Intro Commission" %}</h5>
-                                    <p class="text-white text-opacity-80 small mb-0">{% trans "Maximize your earnings during the first month of platform growth." %}</p>
+                                    <div class="stat-glow bg-accent opacity-20">
+                                    </div>
+                                    <div class="display-4 fw-black text-accent mb-2">
+                                        1%
+                                    </div>
+                                    <h5 class="fw-black text-white mb-3">
+                                        {% trans "Intro Commission" %}
+                                    </h5>
+                                    <p class="text-white text-opacity-80 small mb-0">
+                                        {% trans "Maximize your earnings during the first month of platform growth." %}
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="premium-stat-card p-5 rounded-5 bg-white bg-opacity-10 border border-white border-opacity-20 h-100 position-relative overflow-hidden shadow-lg">
-                                    <div class="stat-glow bg-accent opacity-20"></div>
-                                    <div class="display-4 fw-black text-accent mb-2">24h</div>
-                                    <h5 class="fw-black text-white mb-3">{% trans "Fast Approval" %}</h5>
-                                    <p class="text-white text-opacity-80 small mb-0">{% trans "Verification of documents within a single business day." %}</p>
+                                    <div class="stat-glow bg-accent opacity-20">
+                                    </div>
+                                    <div class="display-4 fw-black text-accent mb-2">
+                                        24h
+                                    </div>
+                                    <h5 class="fw-black text-white mb-3">
+                                        {% trans "Fast Approval" %}
+                                    </h5>
+                                    <p class="text-white text-opacity-80 small mb-0">
+                                        {% trans "Verification of documents within a single business day." %}
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -182,52 +255,77 @@
             </div>
         </div>
     </section>
-
     <!-- 4. Simplified Process -->
     <section class="py-5 bg-light-grey">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-5 fw-black text-dark-blue">{% trans "How Rak-Mrigle Works" %}</h2>
-                <div class="accent-bar mx-auto mt-3"></div>
+                <h2 class="display-5 fw-black text-dark-blue">
+                    {% trans "How Rak-Mrigle Works" %}
+                </h2>
+                <div class="accent-bar mx-auto mt-3">
+                </div>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="step-card-modern p-5 rounded-5 bg-white shadow-sm text-center border-bottom border-accent border-5">
-                        <div class="step-num-accent mb-4 mx-auto">1</div>
-                        <h4 class="fw-black mb-3 text-dark-blue">{% trans "Create Mission" %}</h4>
-                        <p class="text-muted">{% trans "Submit your request with pickup/destination or hourly details." %}</p>
+                        <div class="step-num-accent mb-4 mx-auto">
+                            1
+                        </div>
+                        <h4 class="fw-black mb-3 text-dark-blue">
+                            {% trans "Create Mission" %}
+                        </h4>
+                        <p class="text-muted">
+                            {% trans "Submit your request with pickup/destination or hourly details." %}
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
                     <div class="step-card-modern p-5 rounded-5 bg-white shadow-sm text-center border-bottom border-accent border-5">
-                        <div class="step-num-accent mb-4 mx-auto">2</div>
-                        <h4 class="fw-black mb-3 text-dark-blue">{% trans "Get Quotes" %}</h4>
-                        <p class="text-muted">{% trans "Receive and compare verified price offers from pro providers." %}</p>
+                        <div class="step-num-accent mb-4 mx-auto">
+                            2
+                        </div>
+                        <h4 class="fw-black mb-3 text-dark-blue">
+                            {% trans "Get Quotes" %}
+                        </h4>
+                        <p class="text-muted">
+                            {% trans "Receive and compare verified price offers from pro providers." %}
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="step-card-modern p-5 rounded-5 bg-white shadow-sm text-center border-bottom border-accent border-5">
-                        <div class="step-num-accent mb-4 mx-auto">3</div>
-                        <h4 class="fw-black mb-3 text-dark-blue">{% trans "Finish Job" %}</h4>
-                        <p class="text-muted">{% trans "Approve the mission, unlock contact, and rate the service." %}</p>
+                        <div class="step-num-accent mb-4 mx-auto">
+                            3
+                        </div>
+                        <h4 class="fw-black mb-3 text-dark-blue">
+                            {% trans "Finish Job" %}
+                        </h4>
+                        <p class="text-muted">
+                            {% trans "Approve the mission, unlock contact, and rate the service." %}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- 5. Final Industrial CTA -->
     <section class="py-5 bg-white">
         <div class="container py-5">
             <div class="cta-banner-accent rounded-5 p-5 text-center text-white shadow-2xl overflow-hidden position-relative">
                 <div class="position-relative z-index-10">
-                    <h2 class="display-3 fw-black mb-4">{% trans "Join the Network of Pros" %}</h2>
-                    <p class="lead mb-5 opacity-75">{% trans "Whether you're looking for a crane or have a fleet to manage, we have you covered." %}</p>
+                    <h2 class="display-3 fw-black mb-4">
+                        {% trans "Join the Network of Pros" %}
+                    </h2>
+                    <p class="lead mb-5 opacity-75">
+                        {% trans "Whether you're looking for a crane or have a fleet to manage, we have you covered." %}
+                    </p>
                     <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <a href="{% url 'user_auth:signup' %}?role=provider" class="btn btn-dark-blue btn-lg px-5 py-3 rounded-pill fw-black shadow-lg">
+                        <a href="{% url 'user_auth:signup' %}?role=provider"
+                           class="btn btn-dark-blue btn-lg px-5 py-3 rounded-pill fw-black shadow-lg">
                             {% trans "Register as Provider" %}
                         </a>
-                        <a href="{% url 'user_auth:signup' %}?role=customer" class="btn btn-outline-white btn-lg px-5 py-3 rounded-pill fw-black border-2">
+                        <a href="{% url 'user_auth:signup' %}?role=customer"
+                           class="btn btn-outline-white btn-lg px-5 py-3 rounded-pill fw-black border-2">
                             {% trans "Find Machinery" %}
                         </a>
                     </div>
@@ -236,12 +334,15 @@
         </div>
     </section>
 {% endblock content %}
-
 {% block footer %}
     <footer class="bg-white py-5 border-top">
         <div class="container text-center">
             <p class="mb-2 fw-bold text-dark">
-                {% if IS_RTL %}{{ site_config.ar_name }}{% else %}{{ site_config.name }}{% endif %}
+                {% if IS_RTL %}
+                    {{ site_config.ar_name }}
+                {% else %}
+                    {{ site_config.name }}
+                {% endif %}
             </p>
             <p class="text-muted small mb-0">
                 &copy; {% now "Y" %}. {% trans "All rights reserved." %}
@@ -249,18 +350,17 @@
         </div>
     </footer>
 {% endblock footer %}
-
 {% block extra_js %}
-<script>
-    document.addEventListener('scroll', () => {
-        const nav = document.getElementById('landingNav');
-        if (window.scrollY > 50) {
-            nav.classList.add('bg-white', 'shadow-sm');
-            nav.classList.remove('bg-transparent');
-        } else {
-            nav.classList.remove('bg-white', 'shadow-sm');
-            nav.classList.add('bg-transparent');
-        }
-    });
-</script>
+    <script>
+        document.addEventListener('scroll', () => {
+            const nav = document.getElementById('landingNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-sm');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-sm');
+                nav.classList.add('bg-transparent');
+            }
+        });
+    </script>
 {% endblock extra_js %}

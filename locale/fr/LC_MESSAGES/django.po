@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 10:03+0100\n"
+"POT-Creation-Date: 2026-04-16 08:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,20 +35,20 @@ msgstr ""
 msgid "transport, machinery, construction, logistics, algeria, trucks, cranes"
 msgstr "transport, machines, construction, logistique, algérie, camions, grues"
 
-#: core/settings.py:205
+#: core/settings.py:206
 msgid "العربية"
 msgstr "Arabe"
 
-#: core/settings.py:205
+#: core/settings.py:206
 msgid "English"
 msgstr "Anglais"
 
-#: core/settings.py:205
+#: core/settings.py:206
 msgid "French"
 msgstr "Français"
 
 #: dashboard/context_processors.py:9
-#: dashboard/templates/dash/dash_index.html:88 frontend/templates/home.html:21
+#: dashboard/templates/dash/dash_index.html:88 frontend/templates/home.html:45
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -86,9 +86,11 @@ msgstr "Demandes entrantes"
 #: dashboard/templates/payment/provider/payment_required.html:7
 msgid "Payment"
 msgstr "Paiement"
+
 #: dashboard/context_processors.py:73
 msgid "Payments"
 msgstr "Paiements"
+
 #: dashboard/context_processors.py:81
 msgid "Social Auth"
 msgstr "Authentification sociale"
@@ -386,12 +388,15 @@ msgstr "Demande de service"
 #: dashboard/models.py:350
 msgid "إجمالي العمولة"
 msgstr "Commission totale"
+
 #: dashboard/models.py:354
 msgid "محظور"
 msgstr "Banni"
+
 #: dashboard/models.py:355
 msgid "Offer suspended due to unpaid commission"
 msgstr "Offre suspendue en raison d'une commission impayée"
+
 #: dashboard/models.py:360
 #, fuzzy
 #| msgid "العميل"
@@ -407,6 +412,7 @@ msgstr "Demande de service"
 #: dashboard/models.py:391 dashboard/models.py:430
 msgid "المبلغ"
 msgstr "Montant"
+
 #: dashboard/models.py:399
 #, fuzzy
 #| msgid "تكلفة الوقود"
@@ -422,6 +428,7 @@ msgstr "Type de notification"
 #: dashboard/models.py:435
 msgid "PDF أو صورة فقط"
 msgstr "PDF ou image uniquement"
+
 #: dashboard/models.py:454
 #, fuzzy
 #| msgid "تاريخ القراءة"
@@ -431,6 +438,7 @@ msgstr "Date de lecture"
 #: dashboard/models.py:458
 msgid "إثبات الدفع"
 msgstr "Preuve de paiement"
+
 #: dashboard/templates/catalog/details.html:45
 #: dashboard/templates/offers/admin/details.html:69
 #: dashboard/templates/offers/provider/details.html:57
@@ -885,7 +893,7 @@ msgid "My Profile"
 msgstr "Mon profil"
 
 #: dashboard/templates/dash/dash_index.html:144
-#: frontend/templates/index.html:110
+#: frontend/templates/index.html:113
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -1529,17 +1537,21 @@ msgstr "Les demandes des clients apparaîtront ici"
 #: dashboard/templates/payment/admin/dashboard.html:18
 msgid "Payment Management"
 msgstr "Gestion des paiements"
+
 #: dashboard/templates/payment/admin/dashboard.html:21
 msgid "Review and manage provider payment proofs"
 msgstr "Examiner et gérer les preuves de paiement des prestataires"
+
 #: dashboard/templates/payment/admin/dashboard.html:29
 msgid "Payment Proofs"
 msgstr "Justificatifs de paiement"
+
 #: dashboard/templates/payment/admin/dashboard.html:42
 #: dashboard/templates/payment/admin/details.html:55
 #: dashboard/templates/payment/provider/history.html:79
 msgid "Amount"
 msgstr "Montant"
+
 #: dashboard/templates/payment/admin/dashboard.html:45
 #, fuzzy
 #| msgid "Offers"
@@ -1556,6 +1568,7 @@ msgstr "Soumettre la demande"
 #: dashboard/templates/payment/admin/dashboard.html:109
 msgid "No pending payments"
 msgstr "Aucun paiement en attente"
+
 #: dashboard/templates/payment/admin/details.html:7
 #, fuzzy
 #| msgid "Request Details"
@@ -1585,6 +1598,7 @@ msgstr "Rejeter la demande"
 #: dashboard/templates/payment/admin/details.html:22
 msgid "Please provide a reason for rejection:"
 msgstr "Veuillez fournir un motif de rejet :"
+
 #: dashboard/templates/payment/admin/details.html:25
 #, fuzzy
 #| msgid "Internal note for rejection reason"
@@ -1595,9 +1609,11 @@ msgstr "Note interne pour la raison du rejet"
 #: dashboard/templates/payment/admin/details.html:47
 msgid "Payment Proof"
 msgstr "Justificatif de paiement"
+
 #: dashboard/templates/payment/admin/details.html:63
 msgid "Submitted On"
 msgstr "Soumis le"
+
 #: dashboard/templates/payment/admin/details.html:91
 #, fuzzy
 #| msgid "Requested on"
@@ -1613,6 +1629,7 @@ msgstr "Notes"
 #: dashboard/templates/payment/admin/details.html:129
 msgid "Commission Balance"
 msgstr "Solde de commission"
+
 #: dashboard/templates/payment/admin/details.html:133
 #: dashboard/templates/users/details.html:90
 #: dashboard/templates/users/list.html:102
@@ -1624,6 +1641,7 @@ msgstr "Statut du compte"
 #: dashboard/templates/payment/admin/details.html:135
 msgid "Blocked"
 msgstr "Bloqué"
+
 #: dashboard/templates/payment/admin/details.html:166
 #, fuzzy
 #| msgid "Available Services"
@@ -1633,9 +1651,11 @@ msgstr "Services disponibles"
 #: dashboard/templates/payment/admin/details.html:168
 msgid "Yes"
 msgstr "Oui"
+
 #: dashboard/templates/payment/admin/details.html:168
 msgid "No"
 msgstr "Non"
+
 #: dashboard/templates/payment/provider/history.html:8
 #: dashboard/templates/payment/provider/history.html:19
 #: dashboard/templates/payment/provider/payment_required.html:169
@@ -1647,12 +1667,15 @@ msgstr "Historique"
 #: dashboard/templates/payment/provider/history.html:20
 msgid "Your commission payment records"
 msgstr "Vos relevés de paiement de commissions"
+
 #: dashboard/templates/payment/provider/history.html:24
 msgid "Make Payment"
 msgstr "Effectuer un paiement"
+
 #: dashboard/templates/payment/provider/history.html:38
 msgid "Current Balance"
 msgstr "Solde actuel"
+
 #: dashboard/templates/payment/provider/history.html:58
 #, fuzzy
 #| msgid "Offers"
@@ -1662,6 +1685,7 @@ msgstr "Offres"
 #: dashboard/templates/payment/provider/history.html:71
 msgid "Payment Records"
 msgstr "Historique des paiements"
+
 #: dashboard/templates/payment/provider/history.html:82
 #, fuzzy
 #| msgid "Preview"
@@ -1677,6 +1701,7 @@ msgstr "Voir le profil"
 #: dashboard/templates/payment/provider/history.html:120
 msgid "No payment records yet"
 msgstr "Aucun historique de paiement pour le moment"
+
 #: dashboard/templates/payment/provider/payment_required.html:17
 #, fuzzy
 #| msgid "Please select a role."
@@ -1686,19 +1711,24 @@ msgstr "Veuillez sélectionner un rôle."
 #: dashboard/templates/payment/provider/payment_required.html:18
 msgid "Uploading..."
 msgstr "Téléchargement en cours..."
+
 #: dashboard/templates/payment/provider/payment_required.html:19
 #: dashboard/templates/payment/provider/payment_required.html:108
 msgid "Submit Payment Proof"
 msgstr "Soumettre une preuve de paiement"
+
 #: dashboard/templates/payment/provider/payment_required.html:25
 msgid "Commission Payment"
 msgstr "Paiement de commission"
+
 #: dashboard/templates/payment/provider/payment_required.html:33
 msgid "Payment Under Review"
 msgstr "Paiement en cours d'examen"
+
 #: dashboard/templates/payment/provider/payment_required.html:35
 msgid "Your payment proof is being reviewed by admin."
 msgstr "Votre preuve de paiement est en cours d'examen par l'administrateur."
+
 #: dashboard/templates/payment/provider/payment_required.html:42
 #, fuzzy
 #| msgid "Intro Commission"
@@ -1710,9 +1740,11 @@ msgstr "Commission d'introduction"
 #: dashboard/views/orders/provider_orders.py:153
 msgid "Payment Required"
 msgstr "Paiement requis"
+
 #: dashboard/templates/payment/provider/payment_required.html:53
 msgid "Below Threshold"
 msgstr "Inférieur au seuil"
+
 #: dashboard/templates/payment/provider/payment_required.html:59
 #, fuzzy
 #| msgid "How Rak-Mrigle Works"
@@ -1724,16 +1756,22 @@ msgstr "Comment fonctionne Rak-Mrigle"
 msgid ""
 "Each approved request adds 1%% of your offer price to your commission "
 "balance."
-msgstr "Chaque demande approuvée ajoute 1 % du prix de votre offre à votre solde de commission."
+msgstr ""
+"Chaque demande approuvée ajoute 1 % du prix de votre offre à votre solde de "
+"commission."
+
 #: dashboard/templates/payment/provider/payment_required.html:66
 msgid "When your balance reaches 1000 DA, your offer will be suspended."
 msgstr "Lorsque votre solde atteint 1000 DA, votre offre sera suspendue."
+
 #: dashboard/templates/payment/provider/payment_required.html:69
 msgid "Upload your payment proof to reactivate your offer."
 msgstr "Téléchargez votre justificatif de paiement pour réactiver votre offre."
+
 #: dashboard/templates/payment/provider/payment_required.html:76
 msgid "Upload Payment Proof"
 msgstr "Télécharger le justificatif de paiement"
+
 #: dashboard/templates/payment/provider/payment_required.html:85
 #, fuzzy
 #| msgid "Click to upload image"
@@ -1743,6 +1781,7 @@ msgstr "Cliquez pour télécharger l'image"
 #: dashboard/templates/payment/provider/payment_required.html:88
 msgid "PDF or Image (PNG, JPG, JPEG)"
 msgstr "PDF ou Image (PNG, JPG, JPEG)"
+
 #: dashboard/templates/payment/provider/payment_required.html:120
 #, fuzzy
 #| msgid "Create Offer"
@@ -1752,6 +1791,7 @@ msgstr "Créer une offre"
 #: dashboard/templates/payment/provider/payment_required.html:152
 msgid "Your offer is suspended until payment is verified."
 msgstr "Votre offre est suspendue jusqu'à ce que le paiement soit vérifié."
+
 #: dashboard/templates/payment/provider/payment_required.html:159
 #, fuzzy
 #| msgid "No offers yet"
@@ -2177,7 +2217,10 @@ msgstr "Votre demande pour {offer} a été approuvée !"
 msgid ""
 "Your commission balance has reached {amount} DA. Please submit payment proof "
 "to reactivate your offer."
-msgstr "Votre solde de commission a atteint {amount} DA. Veuillez soumettre un justificatif de paiement pour réactiver votre offre."
+msgstr ""
+"Votre solde de commission a atteint {amount} DA. Veuillez soumettre un "
+"justificatif de paiement pour réactiver votre offre."
+
 #: dashboard/views/orders/provider_orders.py:167
 msgid "Request approved successfully!"
 msgstr "Demande approuvée avec succès !"
@@ -2261,9 +2304,11 @@ msgstr "Demande rejetée."
 #: dashboard/views/payment/provider_payment.py:83
 msgid "Please upload a payment proof file."
 msgstr "Veuillez télécharger un justificatif de paiement."
+
 #: dashboard/views/payment/provider_payment.py:92
 msgid "Only PDF and image files (PNG, JPG, JPEG) are allowed."
 msgstr "Seuls les fichiers PDF et image (PNG, JPG, JPEG) sont autorisés."
+
 #: dashboard/views/payment/provider_payment.py:100
 #, fuzzy
 #| msgid "No offers found"
@@ -2273,15 +2318,19 @@ msgstr "Aucune offre trouvée"
 #: dashboard/views/payment/provider_payment.py:107
 msgid "Your commission balance is below the payment threshold."
 msgstr "Votre solde de commission est inférieur au seuil de paiement."
+
 #: dashboard/views/payment/provider_payment.py:133
 #: dashboard/views/payment/provider_payment.py:134
 msgid "New Payment Proof Submitted"
 msgstr "Nouvelle preuve de paiement soumise"
+
 #: dashboard/views/payment/provider_payment.py:136
 #: dashboard/views/payment/provider_payment.py:139
 #, python-brace-format
 msgid "Provider {username} has submitted a payment proof of {amount} DA."
-msgstr "Le prestataire {username} a soumis une preuve de paiement de {amount} DA."
+msgstr ""
+"Le prestataire {username} a soumis une preuve de paiement de {amount} DA."
+
 #: dashboard/views/payment/provider_payment.py:148
 #, fuzzy
 #| msgid "Request submitted successfully!"
@@ -2434,19 +2483,23 @@ msgstr "Utilisateur %(name)s approuvé avec succès."
 msgid "An error occurred during approval: %(error)s"
 msgstr "Une erreur est survenue lors de l'approbation : %(error)s"
 
-#: frontend/templates/home.html:23 user_auth/templates/auth/login.html:9
+#: frontend/templates/home.html:16
+msgid ""
+"Rak Mrigle is only an intermediary between customers and service providers, "
+"and we're not resposnibe for any legal issues"
+msgstr "Rak Mrigle est uniquement un intermédiaire entre les clients et les prestataires de services, et nous ne sommes pas responsables de tout litige juridique."#: frontend/templates/home.html:48 user_auth/templates/auth/login.html:9
 msgid "Login"
 msgstr "Connexion"
 
-#: frontend/templates/home.html:24 frontend/templates/home.html:54
+#: frontend/templates/home.html:50 frontend/templates/home.html:80
 msgid "Get Started"
 msgstr "Commencer"
 
-#: frontend/templates/home.html:40
+#: frontend/templates/home.html:65
 msgid "The #1 Heavy Logistics Hub in Algeria"
 msgstr "Le premier hub de logistique lourde en Algérie"
 
-#: frontend/templates/home.html:50
+#: frontend/templates/home.html:75
 msgid ""
 "Connecting the construction industry with verified heavy machinery and "
 "specialized transport providers across all wilayas."
@@ -2454,15 +2507,15 @@ msgstr ""
 "Mettre en relation l'industrie de la construction avec des fournisseurs de "
 "machines lourdes vérifiés et de transport spécialisé dans toutes les wilayas."
 
-#: frontend/templates/home.html:57
+#: frontend/templates/home.html:84
 msgid "Our Catalog"
 msgstr "Notre catalogue"
 
-#: frontend/templates/home.html:75
+#: frontend/templates/home.html:102
 msgid "Tailored Industrial Solutions"
 msgstr "Solutions industrielles sur mesure"
 
-#: frontend/templates/home.html:77
+#: frontend/templates/home.html:107
 msgid ""
 "Browse specialized categories designed to meet the demands of modern "
 "infrastructure and logistics."
@@ -2470,55 +2523,59 @@ msgstr ""
 "Parcourez des catégories spécialisées conçues pour répondre aux exigences "
 "des infrastructures et de la logistique modernes."
 
-#: frontend/templates/home.html:85
-msgid "Transport & Utilities"
+#: frontend/templates/home.html:118
+#, fuzzy
+#| msgid "Transport & Utilities"
+msgid "Transport & Delivery"
 msgstr "Transport & Services publics"
 
-#: frontend/templates/home.html:86
+#: frontend/templates/home.html:121
 msgid "From small utility vans to massive trailer trucks for heavy haulage."
 msgstr ""
 "Des petites fourgons utilitaires aux énormes camions tracteurs pour le "
 "transport de charges lourdes."
 
-#: frontend/templates/home.html:88
+#: frontend/templates/home.html:125
 msgid "View Offers"
 msgstr "Voir les offres"
 
-#: frontend/templates/home.html:96
-msgid "Construction Machinery"
-msgstr "Matériel de construction"
+#: frontend/templates/home.html:135
+#, fuzzy
+#| msgid "Machinery"
+msgid "Heavy Machinery"
+msgstr "Machinerie"
 
-#: frontend/templates/home.html:97
+#: frontend/templates/home.html:138
 msgid "Loaders, excavators, and compactors from verified contractors."
 msgstr ""
 "Chargeurs, excavatrices et compacteurs provenant d'entrepreneurs vérifiés."
 
-#: frontend/templates/home.html:99
+#: frontend/templates/home.html:142
 msgid "Explore Fleet"
 msgstr "Explorer la flotte"
 
-#: frontend/templates/home.html:107
+#: frontend/templates/home.html:152
 msgid "Logistics & Towing"
 msgstr "Logistique & Remorquage"
 
-#: frontend/templates/home.html:108
+#: frontend/templates/home.html:155
 msgid "Specialized towing (Dépannage) and on-demand car logistics."
 msgstr ""
 "Remorquage spécialisé (Dépannage) et logistique automobile à la demande."
 
-#: frontend/templates/home.html:110
+#: frontend/templates/home.html:159
 msgid "Book Service"
 msgstr "Réserver un service"
 
-#: frontend/templates/home.html:123
+#: frontend/templates/home.html:172
 msgid "Fair Pricing,"
 msgstr "Tarification équitable,"
 
-#: frontend/templates/home.html:123
+#: frontend/templates/home.html:174
 msgid "Powered by Data"
 msgstr "Propulsé par les données"
 
-#: frontend/templates/home.html:124
+#: frontend/templates/home.html:177
 msgid ""
 "We eliminate guesswork with a transparent pricing engine built for the "
 "Algerian market."
@@ -2526,80 +2583,80 @@ msgstr ""
 "Nous éliminons les incertitudes grâce à un moteur de tarification "
 "transparent conçu pour le marché algérien."
 
-#: frontend/templates/home.html:132
+#: frontend/templates/home.html:186
 msgid "Distance Logic"
 msgstr "Logique de distance"
 
-#: frontend/templates/home.html:133
+#: frontend/templates/home.html:189
 msgid "Dynamic calculation based on Km and vehicle rate."
 msgstr "Calcul dynamique basé sur les kilomètres et le tarif du véhicule."
 
-#: frontend/templates/home.html:144
+#: frontend/templates/home.html:201
 msgid "Hourly Logic"
 msgstr "Logique horaire"
 
-#: frontend/templates/home.html:145
+#: frontend/templates/home.html:204
 msgid "Flexible rates for machinery and operator tasks."
 msgstr "Tarifs flexibles pour les machines et les tâches des opérateurs."
 
-#: frontend/templates/home.html:158
+#: frontend/templates/home.html:221
 msgid "Intro Commission"
 msgstr "Commission d'introduction"
 
-#: frontend/templates/home.html:159
+#: frontend/templates/home.html:224
 msgid "Maximize your earnings during the first month of platform growth."
 msgstr ""
 "Maximisez vos revenus pendant le premier mois de croissance de la plateforme."
 
-#: frontend/templates/home.html:166
+#: frontend/templates/home.html:236
 msgid "Fast Approval"
 msgstr "Approbation rapide"
 
-#: frontend/templates/home.html:167
+#: frontend/templates/home.html:239
 msgid "Verification of documents within a single business day."
 msgstr "Vérification des documents en une journée ouvrée."
 
-#: frontend/templates/home.html:174
+#: frontend/templates/home.html:247
 msgid "Secure Multi-Role Workflows"
 msgstr "Flux de travail multi-rôles sécurisés"
 
-#: frontend/templates/home.html:190
+#: frontend/templates/home.html:263
 msgid "How Rak-Mrigle Works"
 msgstr "Comment fonctionne Rak-Mrigle"
 
-#: frontend/templates/home.html:197
+#: frontend/templates/home.html:275
 msgid "Create Mission"
 msgstr "Créer une mission"
 
-#: frontend/templates/home.html:198
+#: frontend/templates/home.html:278
 msgid "Submit your request with pickup/destination or hourly details."
 msgstr ""
 "Soumettez votre demande avec les détails de prise en charge/destination ou "
 "horaires."
 
-#: frontend/templates/home.html:204
+#: frontend/templates/home.html:288
 msgid "Get Quotes"
 msgstr "Obtenir des devis"
 
-#: frontend/templates/home.html:205
+#: frontend/templates/home.html:291
 msgid "Receive and compare verified price offers from pro providers."
 msgstr ""
 "Recevez et comparez les offres de prix vérifiées des prestataires "
 "professionnels."
 
-#: frontend/templates/home.html:211
+#: frontend/templates/home.html:301
 msgid "Finish Job"
 msgstr "Terminer le travail"
 
-#: frontend/templates/home.html:212
+#: frontend/templates/home.html:304
 msgid "Approve the mission, unlock contact, and rate the service."
 msgstr "Approuver la mission, débloquer le contact et évaluer le service."
 
-#: frontend/templates/home.html:224
+#: frontend/templates/home.html:317
 msgid "Join the Network of Pros"
 msgstr "Rejoignez le réseau des professionnels"
 
-#: frontend/templates/home.html:225
+#: frontend/templates/home.html:320
 msgid ""
 "Whether you're looking for a crane or have a fleet to manage, we have you "
 "covered."
@@ -2607,31 +2664,31 @@ msgstr ""
 "Que vous recherchiez une grue ou que vous disposiez d'une flotte à gérer, "
 "nous avons la solution."
 
-#: frontend/templates/home.html:228
+#: frontend/templates/home.html:325
 msgid "Register as Provider"
 msgstr "S'inscrire en tant que fournisseur"
 
-#: frontend/templates/home.html:231
+#: frontend/templates/home.html:329
 msgid "Find Machinery"
 msgstr "Trouver des machines"
 
-#: frontend/templates/home.html:247
+#: frontend/templates/home.html:348
 msgid "All rights reserved."
 msgstr "Tous droits réservés."
 
-#: frontend/templates/index.html:101
+#: frontend/templates/index.html:104
 msgid "Home"
 msgstr "Accueil"
 
-#: frontend/templates/index.html:104
+#: frontend/templates/index.html:107
 msgid "Products"
 msgstr "Produits"
 
-#: frontend/templates/index.html:107
+#: frontend/templates/index.html:110
 msgid "Reports"
 msgstr "Rapports"
 
-#: frontend/templates/index.html:123
+#: frontend/templates/index.html:126
 msgid "Main Menu"
 msgstr "Menu principal"
 
@@ -2819,33 +2876,45 @@ msgstr "Je propose des services de machines ou de transport"
 #: user_auth/templates/user/profile.html:293
 msgid "Upload your driver license"
 msgstr "Téléchargez votre permis de conduire"
+
 #: user_auth/templates/auth/signup.html:196
 msgid "Already have an account?"
 msgstr "Vous avez déjà un compte ?"
+
 #: user_auth/templates/auth/signup.html:199
 msgid "Login Here"
 msgstr "Connectez-vous ici"
+
 #: user_auth/templates/user/profile.html:21
 msgid "Complete your profile!"
 msgstr "Complétez votre profil !"
+
 #: user_auth/templates/user/profile.html:21
 msgid "Please add your phone number to continue using the platform."
-msgstr "Veuillez ajouter votre numéro de téléphone pour continuer à utiliser la plateforme."
+msgstr ""
+"Veuillez ajouter votre numéro de téléphone pour continuer à utiliser la "
+"plateforme."
+
 #: user_auth/templates/user/profile.html:41
 msgid "Change photo"
 msgstr "Changer la photo"
+
 #: user_auth/templates/user/profile.html:66
 msgid "Role not set"
 msgstr "Rôle non défini"
+
 #: user_auth/templates/user/profile.html:77
 msgid "Personal Information"
 msgstr "Informations personnelles"
+
 #: user_auth/templates/user/profile.html:121
 msgid "Email cannot be changed"
 msgstr "L'adresse e-mail ne peut pas être modifiée"
+
 #: user_auth/templates/user/profile.html:153
 msgid "Sex cannot be changed"
 msgstr "Le sexe ne peut pas être modifié"
+
 #: user_auth/templates/user/profile.html:157
 msgid "Select"
 msgstr "Sélectionner"
@@ -3032,3 +3101,6 @@ msgstr ""
 #: user_auth/views.py:272
 msgid "Your account has been deleted successfully."
 msgstr "Votre compte a été supprimé avec succès."
+
+#~ msgid "Construction Machinery"
+#~ msgstr "Matériel de construction"

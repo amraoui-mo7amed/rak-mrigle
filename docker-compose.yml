@@ -2,7 +2,7 @@ services:
   web: 
     build: 
       context: .
-      dockerfile: ${DOCKER_FILE:-Dockerfile}
+      dockerfile: ${DOCKER_FILE:-Dockerfile.dev}
     ports: 
       - "8080:8080"
     volumes:
